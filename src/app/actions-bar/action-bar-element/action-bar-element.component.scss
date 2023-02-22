@@ -1,0 +1,20 @@
+.action-bar-element-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16.66%;
+  height: 100%;
+
+  img {
+    margin-right: 0.5rem;
+  }
+
+  span {
+    color: white;
+  }
+}
+
+.action-bar-element-container:hover {
+  background-color: #888;
+  cursor: pointer;
+}
