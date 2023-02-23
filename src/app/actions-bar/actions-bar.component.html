@@ -1,21 +1,38 @@
-<div class="bar-container">
-    <div class="actions-bar-container">
-        <app-action-bar-element [elementIconImagePath]="'../assets/images/instagram-logo.svg'" [elementLink]=""
-            [elementName]="'La guía exacta'">
-        </app-action-bar-element>
-        <app-action-bar-element [elementIconImagePath]="'../assets/images/you-tube-logo.svg'" [elementLink]=""
-            [elementName]="'La guía exacta'"></app-action-bar-element>
-        <app-action-bar-element [elementIconImagePath]="'../assets/images/instagram-logo.svg'"
-            [elementLink]="'https://www.instagram.com/amu.mpe.exactas/'" [elementName]="'AMU'">
-        </app-action-bar-element>
-        <app-action-bar-element [elementIconImagePath]="'../assets/images/moodle-logo.svg'"
-            [elementLink]="'https://moodle.exa.unicen.edu.ar/'" [elementName]="'Moodle'">
-        </app-action-bar-element>
-        <app-action-bar-element class="siu-logo" [elementIconImagePath]="'../assets/images/siu-logo.png'"
-            [elementLink]="'https://guarani.unicen.edu.ar/autogestion/exactas/'" [elementName]="'Guaraní'">
-        </app-action-bar-element>
-        <app-action-bar-element [elementIconImagePath]="'../assets/images/www-logo.svg'"
-            [elementLink]="'https://exa.unicen.edu.ar/'" [elementName]="'Exactas'">
-        </app-action-bar-element>
-    </div>
-</div>
+<header class="bx--header">
+    <a class="bx--header__name" href="#">
+        <span class="bx--header__name--prefix">La guía exacta</span>
+    </a>
+    <ibm-header-navigation style="flex-grow: 1;">
+    </ibm-header-navigation>
+    <ibm-header-navigation>
+        <ibm-header-item>
+            <app-action-bar-element [elementIconImagePath]="'../assets/images/instagram-logo.svg'" [elementLink]=""
+                [elementName]="'La guía exacta'">
+            </app-action-bar-element>
+        </ibm-header-item>
+        <ibm-header-item>
+            <app-action-bar-element [elementIconImagePath]="'../assets/images/you-tube-logo.svg'" [elementLink]=""
+                [elementName]="'La guía exacta'"></app-action-bar-element>
+        </ibm-header-item>
+        <ibm-header-item>
+            <app-action-bar-element [elementIconImagePath]="'../assets/images/instagram-logo.svg'"
+                [elementLink]="'https://www.instagram.com/amu.mpe.exactas/'" [elementName]="'AMU'">
+            </app-action-bar-element>
+        </ibm-header-item>
+        <ibm-header-item>
+            <app-action-bar-element [elementIconImagePath]="'../assets/images/moodle-logo.svg'"
+                [elementLink]="'https://moodle.exa.unicen.edu.ar/'" [elementName]="'Moodle'">
+            </app-action-bar-element>
+        </ibm-header-item>
+        <ibm-header-item>
+            <app-action-bar-element class="siu-logo" [elementIconImagePath]="'../assets/images/siu-logo.png'"
+                [elementLink]="'https://guarani.unicen.edu.ar/autogestion/exactas/'" [elementName]="'Guaraní'">
+            </app-action-bar-element>
+        </ibm-header-item>
+        <ibm-header-item>
+            <app-action-bar-element [elementIconImagePath]="'../assets/images/www-logo.svg'"
+                [elementLink]="'https://exa.unicen.edu.ar/'" [elementName]="'Exactas'">
+            </app-action-bar-element>
+        </ibm-header-item>
+    </ibm-header-navigation>
+</header>
