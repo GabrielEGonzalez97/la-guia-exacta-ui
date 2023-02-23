@@ -7,14 +7,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ActionBarElementComponent implements OnInit {
   @Input() public elementIconImagePath: string;
-  @Input() public elementLink: string;
   @Input() public elementName: string;
 
   constructor() {}
 
   public ngOnInit(): void {}
-
-  public openLinkNewTab(): void {
-    window.open(this.elementLink, '_blank');
-  }
 }

@@ -9,4 +9,8 @@ export class ActionsBarComponent implements OnInit {
   constructor() {}
 
   public ngOnInit(): void {}
+
+  public openLinkNewTab(link: string): void {
+    window.open(link, '_blank');
+  }
 }

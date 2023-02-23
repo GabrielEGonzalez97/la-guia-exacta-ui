@@ -6,32 +6,31 @@
     </ibm-header-navigation>
     <ibm-header-navigation>
         <ibm-header-item>
-            <app-action-bar-element [elementIconImagePath]="'../assets/images/instagram-logo.svg'" [elementLink]=""
+            <app-action-bar-element [elementIconImagePath]="'../assets/images/instagram-logo.svg'"
                 [elementName]="'La guía exacta'">
             </app-action-bar-element>
         </ibm-header-item>
         <ibm-header-item>
-            <app-action-bar-element [elementIconImagePath]="'../assets/images/you-tube-logo.svg'" [elementLink]=""
+            <app-action-bar-element [elementIconImagePath]="'../assets/images/you-tube-logo.svg'"
                 [elementName]="'La guía exacta'"></app-action-bar-element>
         </ibm-header-item>
-        <ibm-header-item>
+        <ibm-header-item (click)="openLinkNewTab('https://www.instagram.com/amu.mpe.exactas/')">
             <app-action-bar-element [elementIconImagePath]="'../assets/images/instagram-logo.svg'"
-                [elementLink]="'https://www.instagram.com/amu.mpe.exactas/'" [elementName]="'AMU'">
+                [elementName]="'AMU'">
             </app-action-bar-element>
         </ibm-header-item>
-        <ibm-header-item>
+        <ibm-header-item (click)="openLinkNewTab('https://moodle.exa.unicen.edu.ar/')">
             <app-action-bar-element [elementIconImagePath]="'../assets/images/moodle-logo.svg'"
-                [elementLink]="'https://moodle.exa.unicen.edu.ar/'" [elementName]="'Moodle'">
+                [elementName]="'Moodle'">
             </app-action-bar-element>
         </ibm-header-item>
-        <ibm-header-item>
+        <ibm-header-item (click)="openLinkNewTab('https://guarani.unicen.edu.ar/autogestion/exactas/')">
             <app-action-bar-element class="siu-logo" [elementIconImagePath]="'../assets/images/siu-logo.png'"
-                [elementLink]="'https://guarani.unicen.edu.ar/autogestion/exactas/'" [elementName]="'Guaraní'">
+                [elementName]="'Guaraní'">
             </app-action-bar-element>
         </ibm-header-item>
-        <ibm-header-item>
-            <app-action-bar-element [elementIconImagePath]="'../assets/images/www-logo.svg'"
-                [elementLink]="'https://exa.unicen.edu.ar/'" [elementName]="'Exactas'">
+        <ibm-header-item (click)="openLinkNewTab('https://exa.unicen.edu.ar/')">
+            <app-action-bar-element [elementIconImagePath]="'../assets/images/www-logo.svg'" [elementName]="'Exactas'">
             </app-action-bar-element>
         </ibm-header-item>
     </ibm-header-navigation>
