@@ -1,0 +1,99 @@
+@import '~carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/themes';
+@import '~carbon-components/scss/globals/scss/spacing';
+@import '~carbon-components/scss/globals/scss/typography';
+@import '~carbon-components/scss/globals/scss/colors';
+
+// $carbon--theme: $carbon--theme--white;
+$carbon--theme: $carbon--theme--g10;
+// $carbon--theme: $carbon--theme--g100;
+// $carbon--theme: $carbon--theme--g90;
+
+@include carbon--theme($carbon--theme);
+
+/// Utility to add margin to the auto generated carbon skeletons
+@mixin skeleton() {
+  :host ::ng-deep {
+    .skeleton-placeholder {
+      margin-bottom: $spacing-04;
+
+      .bx--skeleton__text {
+        margin-bottom: $spacing-03;
+      }
+    }
+  }
+}
+
+/// Utility to add padding to the ibmCol. The default $spacing-03 is in line
+/// with the default left and right paddings between columns in regular ibmGrids
+///
+/// @param {number} $padding
+/// The padding to be added.
+@mixin paddingOnIbmCol($padding: $spacing-03) {
+  [ibmCol] {
+    padding-bottom: $padding;
+    padding-top: $padding;
+  }
+}
+
+/// Utility to add padding to the main ibmGrid so the top and bottom lines leave
+/// extra space for backgrounds.
+/// The default $spacing-03 is in line
+/// with the default left and right paddings between columns in regular ibmGrids,
+/// so used this in conjunction with paddingOnIbmCol will make the first and last
+/// rows have the same top and bottom padding as the inner ones
+///
+/// @param {number} $padding
+/// The padding to be added.
+@mixin paddingOnOuterGrid($padding-on-sm: $spacing-03, $padding-on-gt-sm: $spacing-05) {
+  [outerGrid] {
+    @media (min-width: 42rem) {
+      padding-bottom: $padding-on-gt-sm;
+      padding-top: $padding-on-gt-sm;
+    }
+
+    @media (max-width: 42rem) {
+      padding-bottom: $padding-on-sm;
+      padding-top: $padding-on-sm;
+    }
+  }
+}
+
+/// Utility to avoid adding extra padding for nested ibmGrids,
+/// so we can nest any number of inner grids within each other.
+/// the only resulting padding will be the one from the ibmCol in the inside
+/// this `$layout-01` padding will compensate against the negative margin of the `ibmRow`
+@mixin innerGrid() {
+  [innerGrid] {
+    padding-left: $layout-01;
+    padding-right: $layout-01;
+  }
+}
+
+/// Utility to avoid all the padding for nested ibmGrids,
+/// so we can nest any number of inner grids within each other.
+/// the padding for the `ibmCol`s inside of this grid will compensate
+/// against the negative one in the `ibmRow`, so the resulting padding
+/// will be 0
+@mixin noPaddingGrid() {
+  [noPaddingGrid] {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/// combines the innerGrid and outerGrid directives with the
+/// necessary extra padding for ibmCols. This is meant to nest
+/// ibmGrids in a more flexible way without having to overwrite styles
+@mixin adjustPaddingInIBMGridAndCol() {
+  @include innerGrid();
+  @include noPaddingGrid();
+  @include paddingOnOuterGrid();
+  @include paddingOnIbmCol();
+}
+
+@mixin customPlaceholderHeight( $placeholder-height ) {
+  ibm-skeleton-placeholder ::ng-deep div {
+    width: 100%;
+    height: $placeholder-height;
+  }
+}
