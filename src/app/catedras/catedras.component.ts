@@ -26,12 +26,6 @@ export class CatedrasComponent implements OnInit {
 
   public ngOnInit(): void {}
 
-  public openLinkNewTab(link: string): void {
-    if (link) {
-      window.open(link, '_blank');
-    }
-  }
-
   private onFilterChange(): void {
     const filterFunction = (field: string, fieldToSearch: string) =>
       field.toLowerCase().indexOf(fieldToSearch.toLowerCase()) !== -1;
