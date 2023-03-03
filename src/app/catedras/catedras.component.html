@@ -68,7 +68,7 @@
                                     </app-action-bar-element>
                                 </button>
                             </div>
-                            <div ibmCol>
+                            <div ibmCol *ngIf="subject.clasesLink">
                                 <button ibmButton="primary">
                                     <app-action-bar-element
                                         [elementIconImagePath]="'../assets/images/you-tube-logo.svg'"
@@ -76,14 +76,14 @@
                                     </app-action-bar-element>
                                 </button>
                             </div>
-                            <div ibmCol>
+                            <div ibmCol *ngIf="subject.resumenesLink">
                                 <button ibmButton="primary">
                                     <app-action-bar-element [elementIconImagePath]="'../assets/images/pencil-logo.svg'"
                                         [elementName]="'Resúmenes'">
                                     </app-action-bar-element>
                                 </button>
                             </div>
-                            <div ibmCol>
+                            <div ibmCol *ngIf="subject.parcialesLink">
                                 <button ibmButton="primary">
                                     <app-action-bar-element
                                         [elementIconImagePath]="'../assets/images/studying-logo.svg'"
@@ -91,7 +91,7 @@
                                     </app-action-bar-element>
                                 </button>
                             </div>
-                            <div ibmCol>
+                            <div ibmCol *ngIf="subject.finalesLink">
                                 <button ibmButton="primary">
                                     <app-action-bar-element
                                         [elementIconImagePath]="'../assets/images/finish-flag-logo.svg'"
