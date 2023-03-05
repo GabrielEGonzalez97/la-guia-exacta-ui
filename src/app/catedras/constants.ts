@@ -78,50 +78,6 @@ export let algebra_1_recursada: ISubject = {
   correlatives: [],
 };
 
-export let algebra_lineal: ISubject = {
-  id: 'algebra_lineal',
-  name: 'Álgebra Lineal',
-  status: localStorage.getItem('algebra_lineal'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
-  quarter: SECOND_QUARTER_NAME,
-  teacher: 'Calomino, Ismael',
-  contactEmail: 'ismaelcalomino@gmail.com',
-  modalidadLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0125',
-  programaLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0125',
-  webLink: 'http://algebra-lineal.alumnos.exa.unicen.edu.ar/',
-  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=761',
-  clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
-  correlatives: [
-    { typeOfCorrelativity: CORRELATIVE_CURSADA_NAME, subject: algebra_1 },
-  ],
-};
-
-export let algebra_lineal_recursada: ISubject = {
-  id: 'algebra_lineal_recursada',
-  name: 'Álgebra Lineal (Recursada)',
-  status: localStorage.getItem('algebra_lineal_recursada'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
-  quarter: FIRST_QUARTER_NAME,
-  teacher: 'Nagy, Agustin',
-  contactEmail: 'agustin.nagy@gmail.com',
-  modalidadLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0125',
-  programaLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0125',
-  webLink: '',
-  moodleLink: '',
-  clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
-  correlatives: [],
-};
-
 export let analisis_matematico_1: ISubject = {
   id: 'analisis_matematico_1',
   name: 'Análisis Matemático I',
@@ -164,20 +120,20 @@ export let analisis_matematico_1_recursada: ISubject = {
   correlatives: [],
 };
 
-export let analisis_matematico_2: ISubject = {
-  id: 'analisis_matematico_2',
-  name: 'Análisis Matemático II',
-  status: localStorage.getItem('analisis_matematico_2'),
+export let introduccion_a_la_programacion_1: ISubject = {
+  id: 'introduccion_a_la_programacion_1',
+  name: 'Introducción a la Programación I',
+  status: localStorage.getItem('introduccion_a_la_programacion_1'),
   career: INGENIERIA_DE_SISTEMAS_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Galotto, Maria Jose',
-  contactEmail: 'mariajogalotto@gmail.com',
+  teacher: 'Cobo, Hernan',
+  contactEmail: 'hernanjcobo@gmail.com',
   modalidadLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0504',
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0001',
   programaLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0504',
-  webLink: 'http://analisis-matematico-ii.alumnos.exa.unicen.edu.ar/',
-  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=664',
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0001',
+  webLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=737',
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
@@ -185,12 +141,33 @@ export let analisis_matematico_2: ISubject = {
   correlatives: [],
 };
 
-export let analisis_matematico_2_recursada: ISubject = {
-  id: 'analisis_matematico_2_recursada',
-  name: 'Análisis Matemático II (Recursada)',
-  status: localStorage.getItem('analisis_matematico_2_recursada'),
+export let introduccion_a_la_programacion_1_recursada: ISubject = {
+  id: 'introduccion_a_la_programacion_1_recursada',
+  name: 'Introducción a la Programación I (Recursada)',
+  status: localStorage.getItem('introduccion_a_la_programacion_1_recursada'),
   career: INGENIERIA_DE_SISTEMAS_NAME,
   quarter: SECOND_QUARTER_NAME,
+  teacher: 'Leonardi, Carmen',
+  contactEmail: '',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0001',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0001',
+  webLink: '',
+  moodleLink: '',
+  clasesLink: '',
+  resumenesLink: '',
+  parcialesLink: '',
+  finalesLink: '',
+  correlatives: [],
+};
+
+export let quimica: ISubject = {
+  id: 'quimica',
+  name: 'Química',
+  status: localStorage.getItem('quimica'),
+  career: INGENIERIA_DE_SISTEMAS_NAME,
+  quarter: FIRST_QUARTER_NAME,
   teacher: '',
   contactEmail: '',
   modalidadLink: '',
@@ -204,132 +181,50 @@ export let analisis_matematico_2_recursada: ISubject = {
   correlatives: [],
 };
 
-export let analisis_y_diseño_de_algoritmos_1: ISubject = {
-  id: 'analisis_y_diseño_de_algoritmos_1',
-  name: 'Análisis y Diseño de Algoritmos I',
-  status: localStorage.getItem('analisis_y_diseño_de_algoritmos_1'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
-  quarter: FIRST_QUARTER_NAME,
-  teacher: 'Favre, Liliana Maria',
-  contactEmail: 'liliana.favre@gmail.com',
-  modalidadLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0009',
-  programaLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0009',
-  webLink: '',
-  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=740',
-  clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
-  correlatives: [],
-};
-
-export let analisis_y_diseño_de_algoritmos_2: ISubject = {
-  id: 'analisis_y_diseño_de_algoritmos_2',
-  name: 'Análisis y Diseño de Algoritmos II',
-  status: localStorage.getItem('analisis_y_diseño_de_algoritmos_2'),
+export let algebra_lineal: ISubject = {
+  id: 'algebra_lineal',
+  name: 'Álgebra Lineal',
+  status: localStorage.getItem('algebra_lineal'),
   career: INGENIERIA_DE_SISTEMAS_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: 'Favre, Liliana Maria',
-  contactEmail: 'liliana.favre@gmail.com',
+  teacher: 'Calomino, Ismael',
+  contactEmail: 'ismaelcalomino@gmail.com',
   modalidadLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0013',
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0125',
   programaLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0013',
-  webLink: '',
-  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=766',
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0125',
+  webLink: 'http://algebra-lineal.alumnos.exa.unicen.edu.ar/',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=761',
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    { typeOfCorrelativity: CORRELATIVE_CURSADA_NAME, subject: algebra_1 },
+  ],
 };
 
-export let analisis_y_diseño_de_algoritmos_2_recursada: ISubject = {
-  id: 'analisis_y_diseño_de_algoritmos_2_recursada',
-  name: 'Análisis y Diseño de Algoritmos II (Recursada)',
-  status: localStorage.getItem('analisis_y_diseño_de_algoritmos_2_recursada'),
+export let algebra_lineal_recursada: ISubject = {
+  id: 'algebra_lineal_recursada',
+  name: 'Álgebra Lineal (Recursada)',
+  status: localStorage.getItem('algebra_lineal_recursada'),
   career: INGENIERIA_DE_SISTEMAS_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Cifuentes, Maria Virginia',
-  contactEmail: 'mvcifuentes@gmail.com',
+  teacher: 'Nagy, Agustin',
+  contactEmail: 'agustin.nagy@gmail.com',
   modalidadLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0013',
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0125',
   programaLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0013',
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0125',
   webLink: '',
   moodleLink: '',
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
-};
-
-export let arquitectura_de_computadoras_1: ISubject = {
-  id: 'arquitectura_de_computadoras_1',
-  name: 'Arquitectura de Computadoras I',
-  status: localStorage.getItem('arquitectura_de_computadoras_1'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
-  quarter: FIRST_QUARTER_NAME,
-  teacher: 'Tosini, Marcelo',
-  contactEmail: 'marcelo.tosini@gmail.com',
-  modalidadLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0021',
-  programaLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0021',
-  webLink: '',
-  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=610',
-  clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
-  correlatives: [],
-};
-
-export let arquitectura_de_computadoras_y_tecnicas_digitales: ISubject = {
-  id: 'arquitectura_de_computadoras_y_tecnicas_digitales',
-  name: 'Arquitectura de Computadoras y Técnicas Digitales',
-  status: localStorage.getItem(
-    'arquitectura_de_computadoras_y_tecnicas_digitales'
-  ),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
-  quarter: FIRST_QUARTER_NAME,
-  teacher: 'Tosini, Marcelo',
-  contactEmail: 'marcelo.tosini@gmail.com',
-  modalidadLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0027',
-  programaLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0027',
-  webLink: '',
-  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=611',
-  clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
-  correlatives: [],
-};
-
-export let bases_de_datos_1: ISubject = {
-  id: 'bases_de_datos_1',
-  name: 'Bases de Datos I',
-  status: localStorage.getItem('bases_de_datos_1'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
-  quarter: SECOND_QUARTER_NAME,
-  teacher: 'Del Fresno, Mirta Mariana',
-  contactEmail: 'mdelfres@gmail.com',
-  modalidadLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0023',
-  programaLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0023',
-  webLink: 'https://bdatos1.alumnos.exa.unicen.edu.ar/',
-  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=721',
-  clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    { typeOfCorrelativity: CORRELATIVE_CURSADA_NAME, subject: algebra_1 },
+  ],
 };
 
 export let ciencias_de_la_computacion_1: ISubject = {
@@ -365,215 +260,6 @@ export let ciencias_de_la_computacion_1_recursada: ISubject = {
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0004',
   programaLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0004',
-  webLink: '',
-  moodleLink: '',
-  clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
-  correlatives: [],
-};
-
-export let ciencias_de_la_computacion_2: ISubject = {
-  id: 'ciencias_de_la_computacion_2',
-  name: 'Ciencias de la Computación II',
-  status: localStorage.getItem('ciencias_de_la_computacion_2'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
-  quarter: FIRST_QUARTER_NAME,
-  teacher: 'Mauco, Maria Virginia',
-  contactEmail: 'virginiamauco@gmail.com',
-  modalidadLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0008',
-  programaLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0008',
-  webLink: '',
-  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=644',
-  clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
-  correlatives: [],
-};
-
-export let ciencias_de_la_computacion_2_recursada: ISubject = {
-  id: 'ciencias_de_la_computacion_2_recursada',
-  name: 'Ciencias de la Computación II (Recursada)',
-  status: localStorage.getItem('ciencias_de_la_computacion_2_recursada'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
-  quarter: SECOND_QUARTER_NAME,
-  teacher: 'Schiaffino, Silvia Noemi',
-  contactEmail: 'silvia.schiaffino@gmail.com',
-  modalidadLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0008',
-  programaLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0008',
-  webLink: '',
-  moodleLink: '',
-  clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
-  correlatives: [],
-};
-
-export let comunicacion_de_datos_1: ISubject = {
-  id: 'comunicacion_de_datos_1',
-  name: 'Comunicación de Datos I',
-  status: localStorage.getItem('comunicacion_de_datos_1'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
-  quarter: SECOND_QUARTER_NAME,
-  teacher: 'Mayorano, Fernando',
-  contactEmail: 'fermayorano@gmail.com',
-  modalidadLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0014',
-  programaLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0014',
-  webLink: '',
-  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=771',
-  clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
-  correlatives: [],
-};
-
-export let comunicacion_de_datos_2: ISubject = {
-  id: 'comunicacion_de_datos_2',
-  name: 'Comunicación de Datos II',
-  status: localStorage.getItem('comunicacion_de_datos_2'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
-  quarter: FIRST_QUARTER_NAME,
-  teacher: 'Rubiales, Aldo Jose',
-  contactEmail: 'aldorubiales@gmail.com',
-  modalidadLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0029',
-  programaLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0029',
-  webLink: '',
-  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=669',
-  clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
-  correlatives: [],
-};
-
-export let diseño_de_compiladores_1: ISubject = {
-  id: 'diseño_de_compiladores_1',
-  name: 'Diseño de Compiladores I',
-  status: localStorage.getItem('diseño_de_compiladores_1'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
-  quarter: SECOND_QUARTER_NAME,
-  teacher: 'Ridao, Marcela Natividad',
-  contactEmail: 'marceridao@gmail.com',
-  modalidadLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0032',
-  programaLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0032',
-  webLink: '',
-  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=778',
-  clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
-  correlatives: [],
-};
-
-export let diseño_de_sistemas_de_software: ISubject = {
-  id: 'diseño_de_sistemas_de_software',
-  name: 'Diseño de Sistemas de Software',
-  status: localStorage.getItem('diseño_de_sistemas_de_software'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
-  quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
-  modalidadLink: '',
-  programaLink: '',
-  webLink: '',
-  moodleLink: '',
-  clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
-  correlatives: [],
-};
-
-export let electricidad_y_magnetismo: ISubject = {
-  id: 'electricidad_y_magnetismo',
-  name: 'Electricidad y Magnetismo',
-  status: localStorage.getItem('electricidad_y_magnetismo'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
-  quarter: FIRST_QUARTER_NAME,
-  teacher: 'Irurzun, Alicia',
-  contactEmail: 'imalicia@gmail.com',
-  modalidadLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0012',
-  programaLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0012',
-  webLink:
-    'https://drive.google.com/drive/folders/1IpRsJmRVRwEgmuy9b4ktLdegFyrv2KCd',
-  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=657',
-  clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
-  correlatives: [],
-};
-
-export let electronica_digital: ISubject = {
-  id: 'electronica_digital',
-  name: 'Electrónica Digital',
-  status: localStorage.getItem('electronica_digital'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
-  quarter: SECOND_QUARTER_NAME,
-  teacher: 'Wainschenker, Ruben',
-  contactEmail: 'ruben.wain@gmail.com',
-  modalidadLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0016',
-  programaLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0016',
-  webLink: '',
-  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=747',
-  clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
-  correlatives: [],
-};
-
-export let estructuras_de_almacenamiento_de_datos: ISubject = {
-  id: 'estructuras_de_almacenamiento_de_datos',
-  name: 'Estructuras de Almacenamiento de Datos',
-  status: localStorage.getItem('estructuras_de_almacenamiento_de_datos'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
-  quarter: FIRST_QUARTER_NAME,
-  teacher: 'Rinaldi, Pablo Rafael',
-  contactEmail: 'rinaldipablo@gmail.com',
-  modalidadLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0019',
-  programaLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0019',
-  webLink: '',
-  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=637',
-  clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
-  correlatives: [],
-};
-
-export let fundamentos_de_economia_y_proyectos_de_inversion: ISubject = {
-  id: 'fundamentos_de_economia_y_proyectos_de_inversion',
-  name: 'Fundamentos de Economía y Proyectos de Inversión',
-  status: localStorage.getItem(
-    'fundamentos_de_economia_y_proyectos_de_inversion'
-  ),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
-  quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
-  modalidadLink: '',
-  programaLink: '',
   webLink: '',
   moodleLink: '',
   clasesLink: '',
@@ -625,109 +311,6 @@ export let fisica_general_recursada: ISubject = {
   correlatives: [],
 };
 
-export let ingenieria_de_software: ISubject = {
-  id: 'ingenieria_de_software',
-  name: 'Ingeniería de Software',
-  status: localStorage.getItem('ingenieria_de_software'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
-  quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
-  modalidadLink: '',
-  programaLink: '',
-  webLink: '',
-  moodleLink: '',
-  clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
-  correlatives: [],
-};
-
-export let ingles: ISubject = {
-  id: 'ingles',
-  name: 'Inglés',
-  status: localStorage.getItem('ingles'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
-  quarter: SECOND_QUARTER_NAME,
-  teacher: 'Batrandiaran, Carolina',
-  contactEmail: '',
-  modalidadLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0017',
-  programaLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0017',
-  webLink: '',
-  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=710',
-  clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
-  correlatives: [],
-};
-
-export let introduccion_a_la_arquitectura_de_sistemas: ISubject = {
-  id: 'introduccion_a_la_arquitectura_de_sistemas',
-  name: 'Introducción a la Arquitectura de Sistemas',
-  status: localStorage.getItem('introduccion_a_la_arquitectura_de_sistemas'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
-  quarter: FIRST_QUARTER_NAME,
-  teacher: 'Curti, Hugo Javier',
-  contactEmail: 'hcurti@gmail.com',
-  modalidadLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=1024',
-  programaLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=1024',
-  webLink: '',
-  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=593',
-  clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
-  correlatives: [],
-};
-
-export let introduccion_a_la_programacion_1: ISubject = {
-  id: 'introduccion_a_la_programacion_1',
-  name: 'Introducción a la Programación I',
-  status: localStorage.getItem('introduccion_a_la_programacion_1'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
-  quarter: FIRST_QUARTER_NAME,
-  teacher: 'Cobo, Hernan',
-  contactEmail: 'hernanjcobo@gmail.com',
-  modalidadLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0001',
-  programaLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0001',
-  webLink: '',
-  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=737',
-  clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
-  correlatives: [],
-};
-
-export let introduccion_a_la_programacion_1_recursada: ISubject = {
-  id: 'introduccion_a_la_programacion_1_recursada',
-  name: 'Introducción a la Programación I (Recursada)',
-  status: localStorage.getItem('introduccion_a_la_programacion_1_recursada'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
-  quarter: SECOND_QUARTER_NAME,
-  teacher: 'Leonardi, Carmen',
-  contactEmail: '',
-  modalidadLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0001',
-  programaLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0001',
-  webLink: '',
-  moodleLink: '',
-  clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
-  correlatives: [],
-};
-
 export let introduccion_a_la_programacion_2: ISubject = {
   id: 'introduccion_a_la_programacion_2',
   name: 'Introducción a la Programación II',
@@ -763,92 +346,6 @@ export let introduccion_a_la_programacion_2_recursada: ISubject = {
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0005',
   webLink: '',
   moodleLink: '',
-  clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
-  correlatives: [],
-};
-
-export let introduccion_al_calculo_diferencial_e_integral: ISubject = {
-  id: 'introduccion_al_calculo_diferencial_e_integral',
-  name: 'Introducción al Cálculo Diferencial e Integral',
-  status: localStorage.getItem(
-    'introduccion_al_calculo_diferencial_e_integral'
-  ),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
-  quarter: FIRST_QUARTER_NAME,
-  teacher: 'Marinelli, Claudia Beatriz',
-  contactEmail: 'marinelli.claudia@gmail.com',
-  modalidadLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0030',
-  programaLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0030',
-  webLink: '',
-  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=615',
-  clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
-  correlatives: [],
-};
-
-export let investigacion_operativa_1: ISubject = {
-  id: 'investigacion_operativa_1',
-  name: 'Investigación Operativa I',
-  status: localStorage.getItem('investigacion_operativa_1'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
-  quarter: SECOND_QUARTER_NAME,
-  teacher: 'Illescas, Roberto Gustavo',
-  contactEmail: 'gustavo.illescas@gmail.com',
-  modalidadLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0026',
-  programaLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0026',
-  webLink: 'http://invop.alumnos.exa.unicen.edu.ar/',
-  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=717',
-  clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
-  correlatives: [],
-};
-
-export let legislacion_y_gestion_ambiental: ISubject = {
-  id: 'legislacion_y_gestion_ambiental',
-  name: 'Legislación y Gestión Ambiental',
-  status: localStorage.getItem('legislacion_y_gestion_ambiental'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
-  quarter: FIRST_QUARTER_NAME,
-  teacher: 'Mauhourat, Ricardo',
-  contactEmail: 'ricardo.mauhourat@mauhourat.com.ar',
-  modalidadLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=1190',
-  programaLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=1190',
-  webLink: '',
-  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=626',
-  clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
-  correlatives: [],
-};
-
-export let lenguajes_de_programacion_1: ISubject = {
-  id: 'lenguajes_de_programacion_1',
-  name: 'Lenguajes de Programación I',
-  status: localStorage.getItem('lenguajes_de_programacion_1'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
-  quarter: SECOND_QUARTER_NAME,
-  teacher: 'Massa, Jose Maria',
-  contactEmail: 'josem.massa@gmail.com',
-  modalidadLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0024',
-  programaLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0024',
-  webLink: 'https://lengprg1.alumnos.exa.unicen.edu.ar/',
-  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=562',
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
@@ -898,20 +395,96 @@ export let matematica_discreta_recursada: ISubject = {
   correlatives: [],
 };
 
-export let metodologias_de_desarrollo_de_software_1: ISubject = {
-  id: 'metodologias_de_desarrollo_de_software_1',
-  name: 'Metodologías de Desarrollo de Software I',
-  status: localStorage.getItem('metodologias_de_desarrollo_de_software_1'),
+export let analisis_matematico_2: ISubject = {
+  id: 'analisis_matematico_2',
+  name: 'Análisis Matemático II',
+  status: localStorage.getItem('analisis_matematico_2'),
   career: INGENIERIA_DE_SISTEMAS_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Marcos, Claudia Andrea',
-  contactEmail: 'cmarcos@exa.unicen.edu.ar',
+  teacher: 'Galotto, Maria Jose',
+  contactEmail: 'mariajogalotto@gmail.com',
   modalidadLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0020',
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0504',
   programaLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0020',
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0504',
+  webLink: 'http://analisis-matematico-ii.alumnos.exa.unicen.edu.ar/',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=664',
+  clasesLink: '',
+  resumenesLink: '',
+  parcialesLink: '',
+  finalesLink: '',
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: analisis_matematico_1,
+    },
+  ],
+};
+
+export let analisis_matematico_2_recursada: ISubject = {
+  id: 'analisis_matematico_2_recursada',
+  name: 'Análisis Matemático II (Recursada)',
+  status: localStorage.getItem('analisis_matematico_2_recursada'),
+  career: INGENIERIA_DE_SISTEMAS_NAME,
+  quarter: SECOND_QUARTER_NAME,
+  teacher: '',
+  contactEmail: '',
+  modalidadLink: '',
+  programaLink: '',
   webLink: '',
-  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=599',
+  moodleLink: '',
+  clasesLink: '',
+  resumenesLink: '',
+  parcialesLink: '',
+  finalesLink: '',
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: analisis_matematico_1,
+    },
+  ],
+};
+
+export let analisis_y_diseño_de_algoritmos_1: ISubject = {
+  id: 'analisis_y_diseño_de_algoritmos_1',
+  name: 'Análisis y Diseño de Algoritmos I',
+  status: localStorage.getItem('analisis_y_diseño_de_algoritmos_1'),
+  career: INGENIERIA_DE_SISTEMAS_NAME,
+  quarter: FIRST_QUARTER_NAME,
+  teacher: 'Favre, Liliana Maria',
+  contactEmail: 'liliana.favre@gmail.com',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0009',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0009',
+  webLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=740',
+  clasesLink: '',
+  resumenesLink: '',
+  parcialesLink: '',
+  finalesLink: '',
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: ciencias_de_la_computacion_1,
+    },
+  ],
+};
+
+export let ciencias_de_la_computacion_2: ISubject = {
+  id: 'ciencias_de_la_computacion_2',
+  name: 'Ciencias de la Computación II',
+  status: localStorage.getItem('ciencias_de_la_computacion_2'),
+  career: INGENIERIA_DE_SISTEMAS_NAME,
+  quarter: FIRST_QUARTER_NAME,
+  teacher: 'Mauco, Maria Virginia',
+  contactEmail: 'virginiamauco@gmail.com',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0008',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0008',
+  webLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=644',
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
@@ -919,20 +492,168 @@ export let metodologias_de_desarrollo_de_software_1: ISubject = {
   correlatives: [],
 };
 
-export let organizacion_empresarial: ISubject = {
-  id: 'organizacion_empresarial',
-  name: 'Organización Empresarial',
-  status: localStorage.getItem('organizacion_empresarial'),
+export let ciencias_de_la_computacion_2_recursada: ISubject = {
+  id: 'ciencias_de_la_computacion_2_recursada',
+  name: 'Ciencias de la Computación II (Recursada)',
+  status: localStorage.getItem('ciencias_de_la_computacion_2_recursada'),
+  career: INGENIERIA_DE_SISTEMAS_NAME,
+  quarter: SECOND_QUARTER_NAME,
+  teacher: 'Schiaffino, Silvia Noemi',
+  contactEmail: 'silvia.schiaffino@gmail.com',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0008',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0008',
+  webLink: '',
+  moodleLink: '',
+  clasesLink: '',
+  resumenesLink: '',
+  parcialesLink: '',
+  finalesLink: '',
+  correlatives: [],
+};
+
+export let electricidad_y_magnetismo: ISubject = {
+  id: 'electricidad_y_magnetismo',
+  name: 'Electricidad y Magnetismo',
+  status: localStorage.getItem('electricidad_y_magnetismo'),
   career: INGENIERIA_DE_SISTEMAS_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Illescas, Roberto Gustavo',
-  contactEmail: 'gustavo.illescas@gmail.com',
+  teacher: 'Irurzun, Alicia',
+  contactEmail: 'imalicia@gmail.com',
   modalidadLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=1188',
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0012',
   programaLink:
-    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=1188',
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0012',
+  webLink:
+    'https://drive.google.com/drive/folders/1IpRsJmRVRwEgmuy9b4ktLdegFyrv2KCd',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=657',
+  clasesLink: '',
+  resumenesLink: '',
+  parcialesLink: '',
+  finalesLink: '',
+  correlatives: [],
+};
+
+export let introduccion_a_la_arquitectura_de_sistemas: ISubject = {
+  id: 'introduccion_a_la_arquitectura_de_sistemas',
+  name: 'Introducción a la Arquitectura de Sistemas',
+  status: localStorage.getItem('introduccion_a_la_arquitectura_de_sistemas'),
+  career: INGENIERIA_DE_SISTEMAS_NAME,
+  quarter: FIRST_QUARTER_NAME,
+  teacher: 'Curti, Hugo Javier',
+  contactEmail: 'hcurti@gmail.com',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=1024',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=1024',
   webLink: '',
-  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=616',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=593',
+  clasesLink: '',
+  resumenesLink: '',
+  parcialesLink: '',
+  finalesLink: '',
+  correlatives: [],
+};
+
+export let analisis_y_diseño_de_algoritmos_2: ISubject = {
+  id: 'analisis_y_diseño_de_algoritmos_2',
+  name: 'Análisis y Diseño de Algoritmos II',
+  status: localStorage.getItem('analisis_y_diseño_de_algoritmos_2'),
+  career: INGENIERIA_DE_SISTEMAS_NAME,
+  quarter: SECOND_QUARTER_NAME,
+  teacher: 'Favre, Liliana Maria',
+  contactEmail: 'liliana.favre@gmail.com',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0013',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0013',
+  webLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=766',
+  clasesLink: '',
+  resumenesLink: '',
+  parcialesLink: '',
+  finalesLink: '',
+  correlatives: [],
+};
+
+export let analisis_y_diseño_de_algoritmos_2_recursada: ISubject = {
+  id: 'analisis_y_diseño_de_algoritmos_2_recursada',
+  name: 'Análisis y Diseño de Algoritmos II (Recursada)',
+  status: localStorage.getItem('analisis_y_diseño_de_algoritmos_2_recursada'),
+  career: INGENIERIA_DE_SISTEMAS_NAME,
+  quarter: FIRST_QUARTER_NAME,
+  teacher: 'Cifuentes, Maria Virginia',
+  contactEmail: 'mvcifuentes@gmail.com',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0013',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0013',
+  webLink: '',
+  moodleLink: '',
+  clasesLink: '',
+  resumenesLink: '',
+  parcialesLink: '',
+  finalesLink: '',
+  correlatives: [],
+};
+
+export let comunicacion_de_datos_1: ISubject = {
+  id: 'comunicacion_de_datos_1',
+  name: 'Comunicación de Datos I',
+  status: localStorage.getItem('comunicacion_de_datos_1'),
+  career: INGENIERIA_DE_SISTEMAS_NAME,
+  quarter: SECOND_QUARTER_NAME,
+  teacher: 'Mayorano, Fernando',
+  contactEmail: 'fermayorano@gmail.com',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0014',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0014',
+  webLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=771',
+  clasesLink: '',
+  resumenesLink: '',
+  parcialesLink: '',
+  finalesLink: '',
+  correlatives: [],
+};
+
+export let electronica_digital: ISubject = {
+  id: 'electronica_digital',
+  name: 'Electrónica Digital',
+  status: localStorage.getItem('electronica_digital'),
+  career: INGENIERIA_DE_SISTEMAS_NAME,
+  quarter: SECOND_QUARTER_NAME,
+  teacher: 'Wainschenker, Ruben',
+  contactEmail: 'ruben.wain@gmail.com',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0016',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0016',
+  webLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=747',
+  clasesLink: '',
+  resumenesLink: '',
+  parcialesLink: '',
+  finalesLink: '',
+  correlatives: [],
+};
+
+export let ingles: ISubject = {
+  id: 'ingles',
+  name: 'Inglés',
+  status: localStorage.getItem('ingles'),
+  career: INGENIERIA_DE_SISTEMAS_NAME,
+  quarter: SECOND_QUARTER_NAME,
+  teacher: 'Batrandiaran, Carolina',
+  contactEmail: '',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0017',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0017',
+  webLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=710',
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
@@ -961,18 +682,62 @@ export let probabilidades_y_estadistica: ISubject = {
   correlatives: [],
 };
 
-export let programacion_exploratoria: ISubject = {
-  id: 'programacion_exploratoria',
-  name: 'Programación Exploratoria',
-  status: localStorage.getItem('programacion_exploratoria'),
+export let arquitectura_de_computadoras_1: ISubject = {
+  id: 'arquitectura_de_computadoras_1',
+  name: 'Arquitectura de Computadoras I',
+  status: localStorage.getItem('arquitectura_de_computadoras_1'),
   career: INGENIERIA_DE_SISTEMAS_NAME,
-  quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
-  modalidadLink: '',
-  programaLink: '',
+  quarter: FIRST_QUARTER_NAME,
+  teacher: 'Tosini, Marcelo',
+  contactEmail: 'marcelo.tosini@gmail.com',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0021',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0021',
   webLink: '',
-  moodleLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=610',
+  clasesLink: '',
+  resumenesLink: '',
+  parcialesLink: '',
+  finalesLink: '',
+  correlatives: [],
+};
+
+export let estructuras_de_almacenamiento_de_datos: ISubject = {
+  id: 'estructuras_de_almacenamiento_de_datos',
+  name: 'Estructuras de Almacenamiento de Datos',
+  status: localStorage.getItem('estructuras_de_almacenamiento_de_datos'),
+  career: INGENIERIA_DE_SISTEMAS_NAME,
+  quarter: FIRST_QUARTER_NAME,
+  teacher: 'Rinaldi, Pablo Rafael',
+  contactEmail: 'rinaldipablo@gmail.com',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0019',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0019',
+  webLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=637',
+  clasesLink: '',
+  resumenesLink: '',
+  parcialesLink: '',
+  finalesLink: '',
+  correlatives: [],
+};
+
+export let metodologias_de_desarrollo_de_software_1: ISubject = {
+  id: 'metodologias_de_desarrollo_de_software_1',
+  name: 'Metodologías de Desarrollo de Software I',
+  status: localStorage.getItem('metodologias_de_desarrollo_de_software_1'),
+  career: INGENIERIA_DE_SISTEMAS_NAME,
+  quarter: FIRST_QUARTER_NAME,
+  teacher: 'Marcos, Claudia Andrea',
+  contactEmail: 'cmarcos@exa.unicen.edu.ar',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0020',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0020',
+  webLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=599',
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
@@ -1022,12 +787,75 @@ export let programacion_orientada_a_objetos_recursada: ISubject = {
   correlatives: [],
 };
 
-export let quimica: ISubject = {
-  id: 'quimica',
-  name: 'Química',
-  status: localStorage.getItem('quimica'),
+export let bases_de_datos_1: ISubject = {
+  id: 'bases_de_datos_1',
+  name: 'Bases de Datos I',
+  status: localStorage.getItem('bases_de_datos_1'),
   career: INGENIERIA_DE_SISTEMAS_NAME,
-  quarter: FIRST_QUARTER_NAME,
+  quarter: SECOND_QUARTER_NAME,
+  teacher: 'Del Fresno, Mirta Mariana',
+  contactEmail: 'mdelfres@gmail.com',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0023',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0023',
+  webLink: 'https://bdatos1.alumnos.exa.unicen.edu.ar/',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=721',
+  clasesLink: '',
+  resumenesLink: '',
+  parcialesLink: '',
+  finalesLink: '',
+  correlatives: [],
+};
+
+export let investigacion_operativa_1: ISubject = {
+  id: 'investigacion_operativa_1',
+  name: 'Investigación Operativa I',
+  status: localStorage.getItem('investigacion_operativa_1'),
+  career: INGENIERIA_DE_SISTEMAS_NAME,
+  quarter: SECOND_QUARTER_NAME,
+  teacher: 'Illescas, Roberto Gustavo',
+  contactEmail: 'gustavo.illescas@gmail.com',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0026',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0026',
+  webLink: 'http://invop.alumnos.exa.unicen.edu.ar/',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=717',
+  clasesLink: '',
+  resumenesLink: '',
+  parcialesLink: '',
+  finalesLink: '',
+  correlatives: [],
+};
+
+export let lenguajes_de_programacion_1: ISubject = {
+  id: 'lenguajes_de_programacion_1',
+  name: 'Lenguajes de Programación I',
+  status: localStorage.getItem('lenguajes_de_programacion_1'),
+  career: INGENIERIA_DE_SISTEMAS_NAME,
+  quarter: SECOND_QUARTER_NAME,
+  teacher: 'Massa, Jose Maria',
+  contactEmail: 'josem.massa@gmail.com',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0024',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0024',
+  webLink: 'https://lengprg1.alumnos.exa.unicen.edu.ar/',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=562',
+  clasesLink: '',
+  resumenesLink: '',
+  parcialesLink: '',
+  finalesLink: '',
+  correlatives: [],
+};
+
+export let programacion_exploratoria: ISubject = {
+  id: 'programacion_exploratoria',
+  name: 'Programación Exploratoria',
+  status: localStorage.getItem('programacion_exploratoria'),
+  career: INGENIERIA_DE_SISTEMAS_NAME,
+  quarter: SECOND_QUARTER_NAME,
   teacher: '',
   contactEmail: '',
   modalidadLink: '',
@@ -1062,6 +890,94 @@ export let sistemas_operativos_1: ISubject = {
   correlatives: [],
 };
 
+export let arquitectura_de_computadoras_y_tecnicas_digitales: ISubject = {
+  id: 'arquitectura_de_computadoras_y_tecnicas_digitales',
+  name: 'Arquitectura de Computadoras y Técnicas Digitales',
+  status: localStorage.getItem(
+    'arquitectura_de_computadoras_y_tecnicas_digitales'
+  ),
+  career: INGENIERIA_DE_SISTEMAS_NAME,
+  quarter: FIRST_QUARTER_NAME,
+  teacher: 'Tosini, Marcelo',
+  contactEmail: 'marcelo.tosini@gmail.com',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0027',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0027',
+  webLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=611',
+  clasesLink: '',
+  resumenesLink: '',
+  parcialesLink: '',
+  finalesLink: '',
+  correlatives: [],
+};
+
+export let comunicacion_de_datos_2: ISubject = {
+  id: 'comunicacion_de_datos_2',
+  name: 'Comunicación de Datos II',
+  status: localStorage.getItem('comunicacion_de_datos_2'),
+  career: INGENIERIA_DE_SISTEMAS_NAME,
+  quarter: FIRST_QUARTER_NAME,
+  teacher: 'Rubiales, Aldo Jose',
+  contactEmail: 'aldorubiales@gmail.com',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0029',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0029',
+  webLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=669',
+  clasesLink: '',
+  resumenesLink: '',
+  parcialesLink: '',
+  finalesLink: '',
+  correlatives: [],
+};
+
+export let introduccion_al_calculo_diferencial_e_integral: ISubject = {
+  id: 'introduccion_al_calculo_diferencial_e_integral',
+  name: 'Introducción al Cálculo Diferencial e Integral',
+  status: localStorage.getItem(
+    'introduccion_al_calculo_diferencial_e_integral'
+  ),
+  career: INGENIERIA_DE_SISTEMAS_NAME,
+  quarter: FIRST_QUARTER_NAME,
+  teacher: 'Marinelli, Claudia Beatriz',
+  contactEmail: 'marinelli.claudia@gmail.com',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0030',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0030',
+  webLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=615',
+  clasesLink: '',
+  resumenesLink: '',
+  parcialesLink: '',
+  finalesLink: '',
+  correlatives: [],
+};
+
+export let organizacion_empresarial: ISubject = {
+  id: 'organizacion_empresarial',
+  name: 'Organización Empresarial',
+  status: localStorage.getItem('organizacion_empresarial'),
+  career: INGENIERIA_DE_SISTEMAS_NAME,
+  quarter: FIRST_QUARTER_NAME,
+  teacher: 'Illescas, Roberto Gustavo',
+  contactEmail: 'gustavo.illescas@gmail.com',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=1188',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=1188',
+  webLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=616',
+  clasesLink: '',
+  resumenesLink: '',
+  parcialesLink: '',
+  finalesLink: '',
+  correlatives: [],
+};
+
 export let teoria_de_la_informacion: ISubject = {
   id: 'teoria_de_la_informacion',
   name: 'Teoría de la Información',
@@ -1076,6 +992,107 @@ export let teoria_de_la_informacion: ISubject = {
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0028',
   webLink: 'https://teoinfo.alumnos.exa.unicen.edu.ar/',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=643',
+  clasesLink: '',
+  resumenesLink: '',
+  parcialesLink: '',
+  finalesLink: '',
+  correlatives: [],
+};
+
+export let diseño_de_compiladores_1: ISubject = {
+  id: 'diseño_de_compiladores_1',
+  name: 'Diseño de Compiladores I',
+  status: localStorage.getItem('diseño_de_compiladores_1'),
+  career: INGENIERIA_DE_SISTEMAS_NAME,
+  quarter: SECOND_QUARTER_NAME,
+  teacher: 'Ridao, Marcela Natividad',
+  contactEmail: 'marceridao@gmail.com',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0032',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0032',
+  webLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=778',
+  clasesLink: '',
+  resumenesLink: '',
+  parcialesLink: '',
+  finalesLink: '',
+  correlatives: [],
+};
+
+export let diseño_de_sistemas_de_software: ISubject = {
+  id: 'diseño_de_sistemas_de_software',
+  name: 'Diseño de Sistemas de Software',
+  status: localStorage.getItem('diseño_de_sistemas_de_software'),
+  career: INGENIERIA_DE_SISTEMAS_NAME,
+  quarter: SECOND_QUARTER_NAME,
+  teacher: '',
+  contactEmail: '',
+  modalidadLink: '',
+  programaLink: '',
+  webLink: '',
+  moodleLink: '',
+  clasesLink: '',
+  resumenesLink: '',
+  parcialesLink: '',
+  finalesLink: '',
+  correlatives: [],
+};
+
+export let fundamentos_de_economia_y_proyectos_de_inversion: ISubject = {
+  id: 'fundamentos_de_economia_y_proyectos_de_inversion',
+  name: 'Fundamentos de Economía y Proyectos de Inversión',
+  status: localStorage.getItem(
+    'fundamentos_de_economia_y_proyectos_de_inversion'
+  ),
+  career: INGENIERIA_DE_SISTEMAS_NAME,
+  quarter: FIRST_QUARTER_NAME,
+  teacher: '',
+  contactEmail: '',
+  modalidadLink: '',
+  programaLink: '',
+  webLink: '',
+  moodleLink: '',
+  clasesLink: '',
+  resumenesLink: '',
+  parcialesLink: '',
+  finalesLink: '',
+  correlatives: [],
+};
+
+export let ingenieria_de_software: ISubject = {
+  id: 'ingenieria_de_software',
+  name: 'Ingeniería de Software',
+  status: localStorage.getItem('ingenieria_de_software'),
+  career: INGENIERIA_DE_SISTEMAS_NAME,
+  quarter: FIRST_QUARTER_NAME,
+  teacher: '',
+  contactEmail: '',
+  modalidadLink: '',
+  programaLink: '',
+  webLink: '',
+  moodleLink: '',
+  clasesLink: '',
+  resumenesLink: '',
+  parcialesLink: '',
+  finalesLink: '',
+  correlatives: [],
+};
+
+export let legislacion_y_gestion_ambiental: ISubject = {
+  id: 'legislacion_y_gestion_ambiental',
+  name: 'Legislación y Gestión Ambiental',
+  status: localStorage.getItem('legislacion_y_gestion_ambiental'),
+  career: INGENIERIA_DE_SISTEMAS_NAME,
+  quarter: FIRST_QUARTER_NAME,
+  teacher: 'Mauhourat, Ricardo',
+  contactEmail: 'ricardo.mauhourat@mauhourat.com.ar',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=1190',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=1190',
+  webLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=626',
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
