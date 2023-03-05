@@ -10,8 +10,10 @@ export const FIRST_QUARTER_NAME = 'Primero';
 
 export const SECOND_QUARTER_NAME = 'Segundo';
 
-export interface ISubjectType {
+export interface ISubject {
+  id: string;
   name: string;
+  status: string;
   career: CareerName;
   quarter: QuarterType;
   teacher: string;
@@ -24,4 +26,16 @@ export interface ISubjectType {
   resumenesLink: string;
   parcialesLink: string;
   finalesLink: string;
+  correlatives: ICorrelativeSubject[];
+}
+
+export type CorrelativityType = 'Cursada' | 'Final';
+
+export const CORRELATIVE_CURSADA_NAME = 'Cursada';
+
+export const CORRELATIVE_FINAL_NAME = 'Final';
+
+export interface ICorrelativeSubject {
+  typeOfCorrelativity: CorrelativityType;
+  subject: ISubject;
 }

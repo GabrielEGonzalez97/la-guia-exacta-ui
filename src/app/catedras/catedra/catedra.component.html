@@ -1,6 +1,21 @@
 <ibm-tile>
     <h3>{{subject.name}}</h3>
     <ibm-tag type="green">{{subject.career}}</ibm-tag>
+    <div ibmRow style="align-items: end;">
+        <div ibmCol>
+            <ibm-dropdown label="Estado de la materia" placeholder="Selecciona el estado de la materia"
+                (selected)="onSelectedStatusChange($event)">
+                <ibm-dropdown-list [items]="subjectStatus"></ibm-dropdown-list>
+            </ibm-dropdown>
+        </div>
+        <div ibmCol *ngIf="subject.correlatives.length > 0">
+            <button ibmButton="primary" (click)="showCorrelativesModalWindow()">
+                <app-action-bar-element [elementIconImagePath]="'../assets/images/www-logo.svg'"
+                    [elementName]="'Correlativas'">
+                </app-action-bar-element>
+            </button>
+        </div>
+    </div>
     <hr class="bx--side-nav__divider" />
     <span class="info-catedra"><strong>Cuatrimestre:</strong> {{subject.quarter}}</span>
     <hr class="bx--side-nav__divider" />
@@ -69,3 +84,7 @@
         </div>
     </div>
 </ibm-tile>
+
+<app-correlatives-modal-window [(isModalWindowOpen)]="isOpenCorrelativesModalWindow"
+    [correlatives]="subject.correlatives">
+</app-correlatives-modal-window>

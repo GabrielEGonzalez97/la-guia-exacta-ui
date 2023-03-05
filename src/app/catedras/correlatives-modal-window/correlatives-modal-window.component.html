@@ -1,0 +1,27 @@
+<ibm-modal [open]="isModalWindowOpen" (overlaySelected)="closeModalWindow()">
+    <ibm-modal-header (closeSelect)="closeModalWindow()">
+        <h2>Correlativas</h2>
+    </ibm-modal-header>
+
+    <div class="correlatives-container" *ngIf="cursadasCorrelatives.length > 0">
+        <h3>Cursadas</h3>
+        <ng-container *ngFor="let correlative of cursadasCorrelatives">
+            <div ibmRow>
+                <div ibmCol>
+                    <app-catedra [subject]="correlative.subject"></app-catedra>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+
+    <div class="correlatives-container" *ngIf="finalesCorrelatives.length > 0">
+        <h3>Finales</h3>
+        <ng-container *ngFor="let correlative of finalesCorrelatives">
+            <div ibmRow>
+                <div ibmCol>
+                    <app-catedra [subject]="correlative.subject"></app-catedra>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</ibm-modal>

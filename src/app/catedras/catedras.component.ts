@@ -5,7 +5,7 @@ import {
   QUARTERS_DROPDOWN_ITEMS,
   SUBJECTS,
 } from './constants';
-import { ISubjectType } from './interfaces';
+import { ISubject } from './interfaces';
 
 @Component({
   selector: 'app-catedras',
@@ -15,7 +15,7 @@ import { ISubjectType } from './interfaces';
 export class CatedrasComponent implements OnInit {
   public careers_dropdown_items: ListItem[] = CAREERS_DROPDOWN_ITEMS;
   public quarters_dropdown_items: ListItem[] = QUARTERS_DROPDOWN_ITEMS;
-  public subjects: ISubjectType[] = SUBJECTS;
+  public subjects: ISubject[] = SUBJECTS;
 
   public selectedCareerContent: string = '';
   public selectedQuarterContent: string = '';
@@ -30,7 +30,7 @@ export class CatedrasComponent implements OnInit {
     const filterFunction = (field: string, fieldToSearch: string) =>
       field.toLowerCase().indexOf(fieldToSearch.toLowerCase()) !== -1;
     this.subjects = SUBJECTS.filter(
-      (subject: ISubjectType) =>
+      (subject: ISubject) =>
         filterFunction(subject.career, this.selectedCareerContent) &&
         filterFunction(subject.quarter, this.selectedQuarterContent) &&
         filterFunction(subject.name, this.searchingBySubjectContent) &&
