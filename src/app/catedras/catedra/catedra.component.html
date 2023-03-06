@@ -25,56 +25,56 @@
     <hr class="bx--side-nav__divider" />
     <div class="buttons-container">
         <div ibmRow>
-            <div ibmCol *ngIf="subject.modalidadLink">
+            <div ibmCol *ngIf="subject.modalidadLink" [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 6, sm: 6 }">
                 <button ibmButton="primary" (click)="openLinkNewTab(subject.modalidadLink)">
                     <app-action-bar-element [elementIconImagePath]="'../assets/images/www-logo.svg'"
                         [elementName]="'Modalidad'">
                     </app-action-bar-element>
                 </button>
             </div>
-            <div ibmCol *ngIf="subject.programaLink">
+            <div ibmCol *ngIf="subject.programaLink" [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 6, sm: 6 }">
                 <button ibmButton="primary" (click)="openLinkNewTab(subject.programaLink)">
                     <app-action-bar-element [elementIconImagePath]="'../assets/images/www-logo.svg'"
                         [elementName]="'Programa'">
                     </app-action-bar-element>
                 </button>
             </div>
-            <div ibmCol *ngIf="subject.webLink">
+            <div ibmCol *ngIf="subject.webLink" [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 6, sm: 6 }">
                 <button ibmButton="primary" (click)="openLinkNewTab(subject.webLink)">
                     <app-action-bar-element [elementIconImagePath]="'../assets/images/www-logo.svg'"
                         [elementName]="'Web / Material'">
                     </app-action-bar-element>
                 </button>
             </div>
-            <div ibmCol *ngIf="subject.moodleLink">
+            <div ibmCol *ngIf="subject.moodleLink" [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 6, sm: 6 }">
                 <button ibmButton="primary" (click)="openLinkNewTab(subject.moodleLink)">
                     <app-action-bar-element [elementIconImagePath]="'../assets/images/moodle-logo.svg'"
                         [elementName]="'Moodle'">
                     </app-action-bar-element>
                 </button>
             </div>
-            <div ibmCol *ngIf="subject.clasesLink">
+            <div ibmCol *ngIf="subject.clasesLink" [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 6, sm: 6 }">
                 <button ibmButton="primary">
                     <app-action-bar-element [elementIconImagePath]="'../assets/images/you-tube-logo.svg'"
                         [elementName]="'Clases'">
                     </app-action-bar-element>
                 </button>
             </div>
-            <div ibmCol *ngIf="subject.resumenesLink">
+            <div ibmCol *ngIf="subject.resumenesLink" [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 6, sm: 6 }">
                 <button ibmButton="primary">
                     <app-action-bar-element [elementIconImagePath]="'../assets/images/pencil-logo.svg'"
                         [elementName]="'Resúmenes'">
                     </app-action-bar-element>
                 </button>
             </div>
-            <div ibmCol *ngIf="subject.parcialesLink">
+            <div ibmCol *ngIf="subject.parcialesLink" [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 6, sm: 6 }">
                 <button ibmButton="primary">
                     <app-action-bar-element [elementIconImagePath]="'../assets/images/studying-logo.svg'"
                         [elementName]="'Parciales'">
                     </app-action-bar-element>
                 </button>
             </div>
-            <div ibmCol *ngIf="subject.finalesLink">
+            <div ibmCol *ngIf="subject.finalesLink" [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 6, sm: 6 }">
                 <button ibmButton="primary">
                     <app-action-bar-element [elementIconImagePath]="'../assets/images/finish-flag-logo.svg'"
                         [elementName]="'Finales'">
