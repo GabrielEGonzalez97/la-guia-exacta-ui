@@ -1,0 +1,16 @@
+<ibm-modal [open]="true" (overlaySelected)="closeModal()">
+    <ibm-modal-header (closeSelect)="closeModal()">
+        <h2>Correlativas</h2>
+    </ibm-modal-header>
+
+    <div class="correlatives-container" *ngIf="subjectsThatObstruct.length > 0">
+        <h3>Cursadas</h3>
+        <ng-container *ngFor="let correlative of subjectsThatObstruct">
+            <div ibmRow>
+                <div ibmCol>
+                    <app-catedra [subject]="correlative.subject"></app-catedra>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</ibm-modal>

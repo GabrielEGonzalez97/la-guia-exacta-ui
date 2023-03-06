@@ -28,7 +28,8 @@
     <div ibmRow>
         <ng-container *ngFor="let subject of subjects">
             <div ibmCol [columnNumbers]="{ max: 4, xlg: 4, lg: 4, md: 4, sm: 4 }">
-                <app-catedra [subject]="subject"></app-catedra>
+                <app-catedra [subject]="subject" [allSubjects]="subjects">
+                </app-catedra>
             </div>
         </ng-container>
     </div>

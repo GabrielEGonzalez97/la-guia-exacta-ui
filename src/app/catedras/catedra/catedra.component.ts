@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ListItem, ModalService } from 'carbon-components-angular';
 import { CorrelativesModalWindowComponent } from '../correlatives-modal-window/correlatives-modal-window.component';
-import { ISubject } from '../interfaces';
+import { ICorrelativeSubject, ISubject } from '../interfaces';
+import { SubjectsThatObstructModalWindowComponent } from '../subjects-that-obstruct-modal-window/subjects-that-obstruct-modal-window.component';
 
 @Component({
   selector: 'app-catedra',
@@ -10,6 +11,7 @@ import { ISubject } from '../interfaces';
 })
 export class CatedraComponent implements OnInit {
   @Input() public subject: ISubject;
+  @Input() public allSubjects: ISubject[];
 
   public isOpenCorrelativesModalWindow: boolean = false;
 
@@ -46,6 +48,16 @@ export class CatedraComponent implements OnInit {
       component: CorrelativesModalWindowComponent,
       inputs: {
         correlatives: this.subject.correlatives,
+      },
+    });
+  }
+
+  public showSubjectsThatObstructModalWindow(): void {
+    this.modalService.create({
+      component: SubjectsThatObstructModalWindowComponent,
+      inputs: {
+        subjectToEvaluate: this.subject,
+        allSubjects: this.allSubjects,
       },
     });
   }

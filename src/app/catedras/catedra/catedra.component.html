@@ -8,13 +8,6 @@
                 <ibm-dropdown-list [items]="subjectStatus"></ibm-dropdown-list>
             </ibm-dropdown>
         </div>
-        <div ibmCol *ngIf="subject.correlatives.length > 0">
-            <button ibmButton="primary" (click)="showCorrelativesModalWindow()">
-                <app-action-bar-element [elementIconImagePath]="'../assets/images/www-logo.svg'"
-                    [elementName]="'Correlativas'">
-                </app-action-bar-element>
-            </button>
-        </div>
     </div>
     <hr class="bx--side-nav__divider" />
     <span class="info-catedra"><strong>Cuatrimestre:</strong> {{subject.quarter}}</span>
@@ -25,6 +18,21 @@
     <hr class="bx--side-nav__divider" />
     <div class="buttons-container">
         <div ibmRow>
+            <div ibmCol *ngIf="subject.correlatives.length > 0"
+                [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 6, sm: 6 }">
+                <button ibmButton="primary" (click)="showCorrelativesModalWindow()">
+                    <app-action-bar-element [elementIconImagePath]="'../assets/images/www-logo.svg'"
+                        [elementName]="'Correlativas'">
+                    </app-action-bar-element>
+                </button>
+            </div>
+            <div ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 6, sm: 6 }">
+                <button ibmButton="primary" (click)="showSubjectsThatObstructModalWindow()">
+                    <app-action-bar-element [elementIconImagePath]="'../assets/images/www-logo.svg'"
+                        [elementName]="'Bloqueos'">
+                    </app-action-bar-element>
+                </button>
+            </div>
             <div ibmCol *ngIf="subject.modalidadLink" [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 6, sm: 6 }">
                 <button ibmButton="primary" (click)="openLinkNewTab(subject.modalidadLink)">
                     <app-action-bar-element [elementIconImagePath]="'../assets/images/www-logo.svg'"
