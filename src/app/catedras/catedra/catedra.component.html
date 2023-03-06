@@ -21,14 +21,14 @@
             <div ibmCol *ngIf="subject.correlatives.length > 0"
                 [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 6, sm: 6 }">
                 <button ibmButton="primary" (click)="showCorrelativesModalWindow()">
-                    <app-action-bar-element [elementIconImagePath]="'../assets/images/www-logo.svg'"
+                    <app-action-bar-element [elementIconImagePath]="'../assets/images/lupa.svg'"
                         [elementName]="'Correlativas'">
                     </app-action-bar-element>
                 </button>
             </div>
             <div ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 6, sm: 6 }">
                 <button ibmButton="primary" (click)="showSubjectsThatObstructModalWindow()">
-                    <app-action-bar-element [elementIconImagePath]="'../assets/images/www-logo.svg'"
+                    <app-action-bar-element [elementIconImagePath]="'../assets/images/lupa.svg'"
                         [elementName]="'Bloqueos'">
                     </app-action-bar-element>
                 </button>
