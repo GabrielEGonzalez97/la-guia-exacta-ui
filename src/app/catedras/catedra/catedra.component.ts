@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ListItem } from 'carbon-components-angular';
+import { ListItem, ModalService } from 'carbon-components-angular';
+import { CorrelativesModalWindowComponent } from '../correlatives-modal-window/correlatives-modal-window.component';
 import { ISubject } from '../interfaces';
 
 @Component({
@@ -25,7 +26,7 @@ export class CatedraComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor(private modalService: ModalService) {}
 
   public ngOnInit(): void {}
 
@@ -41,6 +42,11 @@ export class CatedraComponent implements OnInit {
   }
 
   public showCorrelativesModalWindow(): void {
-    this.isOpenCorrelativesModalWindow = true;
+    this.modalService.create({
+      component: CorrelativesModalWindowComponent,
+      inputs: {
+        correlatives: this.subject.correlatives,
+      },
+    });
   }
 }

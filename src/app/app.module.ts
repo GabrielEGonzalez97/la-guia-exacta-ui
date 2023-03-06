@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { PlaceholderModule } from 'carbon-components-angular';
 import { ActionsBarModule } from './actions-bar/actions-bar.module';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +16,7 @@ import { NavbarModule } from './navbar/navbar.module';
     ActionsBarModule,
     CatedrasModule,
     NavbarModule,
+    PlaceholderModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

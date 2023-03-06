@@ -1,7 +1,17 @@
+@import "src/styles/carbon-utils.scss";
+
+@include adjustPaddingInIBMGridAndCol();
+
 .correlatives-container {
   margin: 1rem;
 
   h3 {
     margin-bottom: 1rem;
+  }
+}
+
+:host ::ng-deep {
+  .bx--modal-container {
+    overflow-y: scroll;
   }
 }

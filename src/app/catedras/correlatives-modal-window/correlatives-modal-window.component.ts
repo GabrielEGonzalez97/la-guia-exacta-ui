@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { BaseModal } from 'carbon-components-angular';
 import { CORRELATIVE_CURSADA_NAME, ICorrelativeSubject } from '../interfaces';
 
 @Component({
@@ -6,17 +7,18 @@ import { CORRELATIVE_CURSADA_NAME, ICorrelativeSubject } from '../interfaces';
   templateUrl: './correlatives-modal-window.component.html',
   styleUrls: ['./correlatives-modal-window.component.scss'],
 })
-export class CorrelativesModalWindowComponent implements OnInit {
-  @Input() public isModalWindowOpen: boolean;
-  @Input() public correlatives: ICorrelativeSubject[] = [];
-
-  @Output() isModalWindowOpenChange: EventEmitter<boolean> =
-    new EventEmitter<boolean>();
-
+export class CorrelativesModalWindowComponent
+  extends BaseModal
+  implements OnInit
+{
   public cursadasCorrelatives: ICorrelativeSubject[] = [];
   public finalesCorrelatives: ICorrelativeSubject[] = [];
 
-  constructor() {}
+  constructor(
+    @Inject('correlatives') public correlatives: ICorrelativeSubject[]
+  ) {
+    super();
+  }
 
   public ngOnInit(): void {
     this.correlatives.forEach((correlative: ICorrelativeSubject) => {
@@ -26,9 +28,5 @@ export class CorrelativesModalWindowComponent implements OnInit {
         this.finalesCorrelatives.push(correlative);
       }
     });
-  }
-
-  public closeModalWindow(): void {
-    this.isModalWindowOpenChange.emit(false);
   }
 }
