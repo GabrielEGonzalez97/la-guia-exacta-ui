@@ -18,77 +18,49 @@
     <hr class="bx--side-nav__divider" />
     <div class="buttons-container">
         <div ibmRow>
-            <div ibmCol *ngIf="subject.correlatives.length > 0"
-                [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 6, sm: 6 }">
-                <button ibmButton="primary" (click)="showCorrelativesModalWindow()">
-                    <app-action-bar-element [elementIconImagePath]="'../assets/images/lupa.svg'"
-                        [elementName]="'Correlativas'">
-                    </app-action-bar-element>
-                </button>
-            </div>
-            <div ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 6, sm: 6 }">
-                <button ibmButton="primary" (click)="showSubjectsThatObstructModalWindow()">
-                    <app-action-bar-element [elementIconImagePath]="'../assets/images/lupa.svg'"
-                        [elementName]="'Bloqueos'">
-                    </app-action-bar-element>
-                </button>
-            </div>
-            <div ibmCol *ngIf="subject.modalidadLink" [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 6, sm: 6 }">
-                <button ibmButton="primary" (click)="openLinkNewTab(subject.modalidadLink)">
-                    <app-action-bar-element [elementIconImagePath]="'../assets/images/www-logo.svg'"
-                        [elementName]="'Modalidad'">
-                    </app-action-bar-element>
-                </button>
-            </div>
-            <div ibmCol *ngIf="subject.programaLink" [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 6, sm: 6 }">
-                <button ibmButton="primary" (click)="openLinkNewTab(subject.programaLink)">
-                    <app-action-bar-element [elementIconImagePath]="'../assets/images/www-logo.svg'"
-                        [elementName]="'Programa'">
-                    </app-action-bar-element>
-                </button>
-            </div>
-            <div ibmCol *ngIf="subject.webLink" [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 6, sm: 6 }">
-                <button ibmButton="primary" (click)="openLinkNewTab(subject.webLink)">
-                    <app-action-bar-element [elementIconImagePath]="'../assets/images/www-logo.svg'"
-                        [elementName]="'Web / Material'">
-                    </app-action-bar-element>
-                </button>
-            </div>
-            <div ibmCol *ngIf="subject.moodleLink" [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 6, sm: 6 }">
-                <button ibmButton="primary" (click)="openLinkNewTab(subject.moodleLink)">
-                    <app-action-bar-element [elementIconImagePath]="'../assets/images/moodle-logo.svg'"
-                        [elementName]="'Moodle'">
-                    </app-action-bar-element>
-                </button>
-            </div>
-            <div ibmCol *ngIf="subject.clasesLink" [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 6, sm: 6 }">
-                <button ibmButton="primary">
-                    <app-action-bar-element [elementIconImagePath]="'../assets/images/you-tube-logo.svg'"
-                        [elementName]="'Clases'">
-                    </app-action-bar-element>
-                </button>
-            </div>
-            <div ibmCol *ngIf="subject.resumenesLink" [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 6, sm: 6 }">
-                <button ibmButton="primary">
-                    <app-action-bar-element [elementIconImagePath]="'../assets/images/pencil-logo.svg'"
-                        [elementName]="'Resúmenes'">
-                    </app-action-bar-element>
-                </button>
-            </div>
-            <div ibmCol *ngIf="subject.parcialesLink" [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 6, sm: 6 }">
-                <button ibmButton="primary">
-                    <app-action-bar-element [elementIconImagePath]="'../assets/images/studying-logo.svg'"
-                        [elementName]="'Parciales'">
-                    </app-action-bar-element>
-                </button>
-            </div>
-            <div ibmCol *ngIf="subject.finalesLink" [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 6, sm: 6 }">
-                <button ibmButton="primary">
-                    <app-action-bar-element [elementIconImagePath]="'../assets/images/finish-flag-logo.svg'"
-                        [elementName]="'Finales'">
-                    </app-action-bar-element>
-                </button>
-            </div>
+            <app-catedra-column-with-button [elementIconImagePath]="'../assets/images/lupa.svg'"
+                [elementName]="'Correlativas'" (onButtonClickEmitter)="showCorrelativesModalWindow()">
+            </app-catedra-column-with-button>
+
+            <app-catedra-column-with-button [elementIconImagePath]="'../assets/images/lupa.svg'"
+                [elementName]="'Bloqueos'" (onButtonClickEmitter)="showSubjectsThatObstructModalWindow()">
+            </app-catedra-column-with-button>
+
+            <app-catedra-column-with-button *ngIf="subject.modalidadLink"
+                [elementIconImagePath]="'../assets/images/www-logo.svg'" [elementName]="'Modalidad'"
+                (onButtonClickEmitter)="openLinkNewTab(subject.modalidadLink)">
+            </app-catedra-column-with-button>
+
+            <app-catedra-column-with-button *ngIf="subject.programaLink"
+                [elementIconImagePath]="'../assets/images/www-logo.svg'" [elementName]="'Programa'"
+                (onButtonClickEmitter)="openLinkNewTab(subject.programaLink)">
+            </app-catedra-column-with-button>
+
+            <app-catedra-column-with-button *ngIf="subject.webLink"
+                [elementIconImagePath]="'../assets/images/www-logo.svg'" [elementName]="'Web / Material'"
+                (onButtonClickEmitter)="openLinkNewTab(subject.webLink)">
+            </app-catedra-column-with-button>
+
+            <app-catedra-column-with-button *ngIf="subject.moodleLink"
+                [elementIconImagePath]="'../assets/images/moodle-logo.svg'" [elementName]="'Moodle'"
+                (onButtonClickEmitter)="openLinkNewTab(subject.moodleLink)">
+            </app-catedra-column-with-button>
+
+            <app-catedra-column-with-button *ngIf="subject.clasesLink"
+                [elementIconImagePath]="'../assets/images/you-tube-logo.svg'" [elementName]="'Clases'">
+            </app-catedra-column-with-button>
+
+            <app-catedra-column-with-button *ngIf="subject.resumenesLink"
+                [elementIconImagePath]="'../assets/images/pencil-logo.svg'" [elementName]="'Resúmenes'">
+            </app-catedra-column-with-button>
+
+            <app-catedra-column-with-button *ngIf="subject.parcialesLink"
+                [elementIconImagePath]="'../assets/images/studying-logo.svg'" [elementName]="'Parciales'">
+            </app-catedra-column-with-button>
+
+            <app-catedra-column-with-button *ngIf="subject.finalesLink"
+                [elementIconImagePath]="'../assets/images/finish-flag-logo.svg'" [elementName]="'Finales'">
+            </app-catedra-column-with-button>
         </div>
     </div>
 </ibm-tile>

@@ -12,6 +12,7 @@ import { ActionBarElementModule } from 'src/app/actions-bar/action-bar-element/a
 import { CorrelativesModalWindowComponent } from '../correlatives-modal-window/correlatives-modal-window.component';
 import { SubjectsThatObstructModalWindowComponent } from '../subjects-that-obstruct-modal-window/subjects-that-obstruct-modal-window.component';
 import { CatedraComponent } from './catedra.component';
+import { CatedraColumnWithButtonComponent } from './catedra-column-with-button/catedra-column-with-button.component';
 
 const CARBON_IMPORTS = [
   ButtonModule,
@@ -27,6 +28,7 @@ const CARBON_IMPORTS = [
     CatedraComponent,
     CorrelativesModalWindowComponent,
     SubjectsThatObstructModalWindowComponent,
+    CatedraColumnWithButtonComponent,
   ],
   imports: [CommonModule, CARBON_IMPORTS, ActionBarElementModule],
   providers: [],
