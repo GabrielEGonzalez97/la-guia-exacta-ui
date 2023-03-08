@@ -13,6 +13,7 @@ import { CorrelativesModalWindowComponent } from '../correlatives-modal-window/c
 import { SubjectsThatObstructModalWindowComponent } from '../subjects-that-obstruct-modal-window/subjects-that-obstruct-modal-window.component';
 import { CatedraComponent } from './catedra.component';
 import { CatedraColumnWithButtonComponent } from './catedra-column-with-button/catedra-column-with-button.component';
+import { TooltipComponentModule } from 'src/app/tooltip/tooltip.module';
 
 const CARBON_IMPORTS = [
   ButtonModule,
@@ -30,7 +31,12 @@ const CARBON_IMPORTS = [
     SubjectsThatObstructModalWindowComponent,
     CatedraColumnWithButtonComponent,
   ],
-  imports: [CommonModule, CARBON_IMPORTS, ActionBarElementModule],
+  imports: [
+    CommonModule,
+    CARBON_IMPORTS,
+    ActionBarElementModule,
+    TooltipComponentModule,
+  ],
   providers: [],
   exports: [
     CatedraComponent,

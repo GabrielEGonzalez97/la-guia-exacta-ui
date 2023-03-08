@@ -1,0 +1,6 @@
+<svg ibmIcon="information" size="16" [ibmTooltip]="tooltipTemplate" [trigger]="trigger" [placement]="placement"
+    (pointerover)="onPointerOver()"></svg>
+
+<ng-template #tooltipTemplate>
+    <ng-content tooltipContent select="[tooltipContent]"></ng-content>
+</ng-template>
