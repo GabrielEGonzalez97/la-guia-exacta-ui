@@ -1,6 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { BaseModal } from 'carbon-components-angular';
-import { ICorrelativeSubject, ISubject } from '../interfaces';
+import {
+  CORRELATIVE_CURSADA_NAME,
+  CORRELATIVE_FINAL_NAME,
+  ICorrelativeSubject,
+  ISubject,
+} from '../interfaces';
 
 @Component({
   selector: 'app-subjects-that-obstruct-modal-window',
@@ -11,7 +16,8 @@ export class SubjectsThatObstructModalWindowComponent
   extends BaseModal
   implements OnInit
 {
-  public subjectsThatObstruct: ICorrelativeSubject[] = [];
+  public subjectsThatObstructCursadas: ICorrelativeSubject[] = [];
+  public subjectsThatObstructFinales: ICorrelativeSubject[] = [];
 
   constructor(
     @Inject('subjectToEvaluate') public subjectToEvaluate: ISubject,
@@ -25,10 +31,19 @@ export class SubjectsThatObstructModalWindowComponent
       subject.correlatives.forEach(
         (correlativeSubject: ICorrelativeSubject) => {
           if (correlativeSubject.subject.id == this.subjectToEvaluate.id) {
-            this.subjectsThatObstruct.push({
-              typeOfCorrelativity: 'Cursada',
-              subject: subject,
-            });
+            if (
+              correlativeSubject.typeOfCorrelativity == CORRELATIVE_CURSADA_NAME
+            ) {
+              this.subjectsThatObstructCursadas.push({
+                typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+                subject: subject,
+              });
+            } else {
+              this.subjectsThatObstructFinales.push({
+                typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+                subject: subject,
+              });
+            }
           }
         }
       );
