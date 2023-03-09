@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ListItem, ModalService } from 'carbon-components-angular';
 import { CorrelativesModalWindowComponent } from '../correlatives-modal-window/correlatives-modal-window.component';
-import { ICorrelativeSubject, ISubject } from '../interfaces';
+import { ISubject } from '../interfaces';
 import { SubjectsThatObstructModalWindowComponent } from '../subjects-that-obstruct-modal-window/subjects-that-obstruct-modal-window.component';
 
 @Component({
@@ -15,22 +15,56 @@ export class CatedraComponent implements OnInit {
 
   public isOpenCorrelativesModalWindow: boolean = false;
 
-  public subjectStatus: ListItem[] = [
-    {
-      content: 'Aprobada',
-      value: 'Aprobada',
-      selected: true,
-    },
-    {
-      content: 'Desaprobada',
-      value: 'Desaprobada',
-      selected: false,
-    },
-  ];
+  public subjectStatus: ListItem[] = [];
+
+  private subjectStatusAprobadaConFinal: ListItem = {
+    content: 'Aprobada con final',
+    value: 'aprobada_con_final',
+    selected: false,
+  };
+
+  private subjectStatusAprobadaLaCursada: ListItem = {
+    content: 'Aprobada la cursada',
+    value: 'aprobada_la_cursada',
+    selected: false,
+  };
+
+  private subjectStatusDesaprobada: ListItem = {
+    content: 'Desaprobada',
+    value: 'desaprobada',
+    selected: false,
+  };
+
+  private subjectStatusSinCursar: ListItem = {
+    content: 'Sin cursar',
+    value: 'sin_cursar',
+    selected: false,
+  };
 
   constructor(private modalService: ModalService) {}
 
-  public ngOnInit(): void {}
+  public ngOnInit(): void {
+    switch (this.subject.status) {
+      case 'aprobada_con_final':
+        this.subjectStatusAprobadaConFinal.selected = true;
+        break;
+      case 'aprobada_la_cursada':
+        this.subjectStatusAprobadaLaCursada.selected = true;
+        break;
+      case 'desaprobada':
+        this.subjectStatusDesaprobada.selected = true;
+        break;
+      default:
+        this.subjectStatusSinCursar.selected = true;
+    }
+
+    this.subjectStatus = [
+      this.subjectStatusAprobadaConFinal,
+      this.subjectStatusAprobadaLaCursada,
+      this.subjectStatusDesaprobada,
+      this.subjectStatusSinCursar,
+    ];
+  }
 
   public openLinkNewTab(link: string): void {
     if (link) {
@@ -39,8 +73,8 @@ export class CatedraComponent implements OnInit {
   }
 
   public onSelectedStatusChange(selectedStatus: any): void {
-    localStorage.setItem(this.subject.id, selectedStatus.item.content);
-    this.subject.teacher = selectedStatus.item.content;
+    localStorage.setItem(this.subject.id, selectedStatus.item.value);
+    this.subject.status = localStorage.getItem(this.subject.id);
   }
 
   public showCorrelativesModalWindow(): void {
