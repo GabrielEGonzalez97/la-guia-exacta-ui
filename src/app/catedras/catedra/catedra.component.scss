@@ -12,6 +12,10 @@ ibm-tag {
   font-size: 1rem;
 }
 
+app-catedra-column-with-button {
+  display: contents;
+}
+
 .bx--side-nav__divider {
   height: 3px;
   margin: 0.5rem 0.5rem;
@@ -26,26 +30,4 @@ ibm-tag {
   margin-top: 1rem;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
-}
-
-.bx--btn--primary {
-  width: 100%;
-  background-color: black;
-  padding: calc(0.875rem - 3px) 0px calc(0.875rem - 3px) 15px;
-}
-
-.bx--btn--primary:hover {
-  background-color: #333;
-}
-
-:host ::ng-deep {
-  .action-bar-element-container {
-    img {
-      margin-right: 1.5rem !important;
-    }
-
-    span {
-      font-size: 1.25rem;
-    }
-  }
 }

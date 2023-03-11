@@ -3,9 +3,9 @@
         <h2>Correlativas</h2>
     </ibm-modal-header>
 
-    <div class="correlatives-container" *ngIf="cursadasCorrelatives.length > 0">
+    <div class="correlatives-container" *ngIf="subjectsThatObstructCursadas.length > 0">
         <h3>Cursadas</h3>
-        <ng-container *ngFor="let correlative of cursadasCorrelatives">
+        <ng-container *ngFor="let correlative of subjectsThatObstructCursadas">
             <div ibmRow>
                 <div ibmCol>
                     <app-catedra [subject]="correlative.subject"></app-catedra>
@@ -14,9 +14,9 @@
         </ng-container>
     </div>
 
-    <div class="correlatives-container" *ngIf="finalesCorrelatives.length > 0">
+    <div class="correlatives-container" *ngIf="subjectsThatObstructFinales.length > 0">
         <h3>Finales</h3>
-        <ng-container *ngFor="let correlative of finalesCorrelatives">
+        <ng-container *ngFor="let correlative of subjectsThatObstructFinales">
             <div ibmRow>
                 <div ibmCol>
                     <app-catedra [subject]="correlative.subject"></app-catedra>
