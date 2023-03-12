@@ -5,7 +5,7 @@ import {
   QUARTERS_DROPDOWN_ITEMS,
   SUBJECTS,
 } from './constants';
-import { ICorrelativeSubject, ISubject } from './interfaces';
+import { ISubject } from './interfaces';
 
 @Component({
   selector: 'app-catedras',

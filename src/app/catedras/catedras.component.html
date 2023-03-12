@@ -1,36 +1,33 @@
-<div class="catedras-container">
-    <div ibmRow>
-        <div ibmCol>
-            <ibm-dropdown label="Carreras" placeholder="Selecciona una carrera"
-                (selected)="onSelectedCareerChange($event)">
-                <ibm-dropdown-list [items]="careers_dropdown_items"></ibm-dropdown-list>
-            </ibm-dropdown>
-        </div>
-        <div ibmCol>
-            <ibm-dropdown label="Cuatrimestres" placeholder="Selecciona un cuatrimestre"
-                (selected)="onSelectedQuarterChange($event)">
-                <ibm-dropdown-list [items]="quarters_dropdown_items"></ibm-dropdown-list>
-            </ibm-dropdown>
-        </div>
-        <div ibmCol>
-            <ibm-label>Docente</ibm-label>
-            <ibm-search placeholder='Buscar por nombre de docente' autocomplete='on'
-                (valueChange)="onChangeSearchingByTeacher($event)" (clear)="onChangeSearchingByTeacher('')">
-            </ibm-search>
-        </div>
-        <div ibmCol>
-            <ibm-label>Cátedra</ibm-label>
-            <ibm-search placeholder='Buscar por nombre de cátedra' autocomplete='on'
-                (valueChange)="onChangeSearchingBySubject($event)" (clear)="onChangeSearchingBySubject('')">
-            </ibm-search>
-        </div>
+<div ibmRow>
+    <div ibmCol>
+        <ibm-dropdown label="Carreras" placeholder="Selecciona una carrera" (selected)="onSelectedCareerChange($event)">
+            <ibm-dropdown-list [items]="careers_dropdown_items"></ibm-dropdown-list>
+        </ibm-dropdown>
     </div>
-    <div ibmRow>
-        <ng-container *ngFor="let subject of subjects">
-            <div ibmCol [columnNumbers]="{ max: 4, xlg: 4, lg: 4, md: 4, sm: 4 }">
-                <app-catedra [subject]="subject" [allSubjects]="subjects">
-                </app-catedra>
-            </div>
-        </ng-container>
+    <div ibmCol>
+        <ibm-dropdown label="Cuatrimestres" placeholder="Selecciona un cuatrimestre"
+            (selected)="onSelectedQuarterChange($event)">
+            <ibm-dropdown-list [items]="quarters_dropdown_items"></ibm-dropdown-list>
+        </ibm-dropdown>
     </div>
+    <div ibmCol>
+        <ibm-label>Docente</ibm-label>
+        <ibm-search placeholder='Buscar por nombre de docente' autocomplete='on'
+            (valueChange)="onChangeSearchingByTeacher($event)" (clear)="onChangeSearchingByTeacher('')">
+        </ibm-search>
+    </div>
+    <div ibmCol>
+        <ibm-label>Cátedra</ibm-label>
+        <ibm-search placeholder='Buscar por nombre de cátedra' autocomplete='on'
+            (valueChange)="onChangeSearchingBySubject($event)" (clear)="onChangeSearchingBySubject('')">
+        </ibm-search>
+    </div>
+</div>
+<div ibmRow>
+    <ng-container *ngFor="let subject of subjects">
+        <div ibmCol [columnNumbers]="{ max: 4, xlg: 4, lg: 4, md: 4, sm: 4 }">
+            <app-catedra [subject]="subject" [allSubjects]="subjects">
+            </app-catedra>
+        </div>
+    </ng-container>
 </div>
