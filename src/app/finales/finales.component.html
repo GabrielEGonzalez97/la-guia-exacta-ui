@@ -3,17 +3,19 @@
         <ibm-tile>
             <div ibmRow>
                 <div ibmCol style="display: flex; align-items: center;">
-                    <h3>Final 2011 Marzo</h3>
+                    <h3> {{ final.name }} </h3>
                     <button ibmButton="primary" (click)="onVerFinalButtonClick(final)">
-                        Ver final
+                        <p *ngIf="!final.showFile">Ver final</p>
+                        <p *ngIf="final.showFile">Ocultar final</p>
                     </button>
                 </div>
             </div>
             <div ibmRow *ngIf="final.showFile">
                 <div ibmCol>
-                    <embed [src]="final.filePath | safe" style="width: 100%; height: 750px;" type="application/pdf">
+                    <embed [src]="final.fileUrl | safe" style="width: 100%; height: 750px;" type="application/pdf">
                 </div>
             </div>
+            <!-- <iframe width="100%" height="750px" [src]="'https://www.youtube.com/embed/1ozGKlOzEVc' | safe" frameborder="0" allowfullscreen></iframe> -->
         </ibm-tile>
     </div>
 </div>
