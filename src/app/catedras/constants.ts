@@ -1037,7 +1037,7 @@ export let lenguajes_de_programacion_1: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'lenguajes-de-programacion-i',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,

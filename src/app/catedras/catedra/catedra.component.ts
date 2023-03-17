@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ListItem, ModalService } from 'carbon-components-angular';
+import { UtilsService } from 'src/app/services/utils.service';
 import { CorrelativesModalWindowComponent } from '../correlatives-modal-window/correlatives-modal-window.component';
 import { ISubject } from '../interfaces';
 import { SubjectsThatObstructModalWindowComponent } from '../subjects-that-obstruct-modal-window/subjects-that-obstruct-modal-window.component';
@@ -41,7 +42,10 @@ export class CatedraComponent implements OnInit {
     selected: false,
   };
 
-  constructor(private modalService: ModalService) {}
+  constructor(
+    private modalService: ModalService,
+    private utilsService: UtilsService
+  ) {}
 
   public ngOnInit(): void {
     switch (this.subject.status) {
@@ -70,6 +74,10 @@ export class CatedraComponent implements OnInit {
     if (link) {
       window.open(link, '_blank');
     }
+  }
+
+  public navigateTo(route: string): void {
+    this.utilsService.navigateTo(route);
   }
 
   public onSelectedStatusChange(selectedStatus: any): void {

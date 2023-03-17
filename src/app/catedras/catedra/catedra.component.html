@@ -59,7 +59,8 @@
             </app-catedra-column-with-button>
 
             <app-catedra-column-with-button *ngIf="subject.finalesLink"
-                [elementIconImagePath]="'../assets/images/finish-flag-logo.svg'" [elementName]="'Finales'">
+                [elementIconImagePath]="'../assets/images/finish-flag-logo.svg'" [elementName]="'Finales'"
+                (onButtonClickEmitter)="navigateTo('finales/' + subject.finalesLink)">
             </app-catedra-column-with-button>
         </div>
     </div>

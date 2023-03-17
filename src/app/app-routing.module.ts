@@ -9,7 +9,7 @@ const routes: Routes = [
     component: CatedrasComponent,
   },
   {
-    path: 'finales',
+    path: 'finales/:subjectName',
     component: FinalesComponent,
   },
 ];

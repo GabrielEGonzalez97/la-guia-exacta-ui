@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { IGoogleDriveFolderInformation } from '../common/interfaces';
 import { HttpService } from '../services/http.service';
 import { IWithState } from '../services/utils.service';
@@ -12,14 +13,19 @@ import { IFinalesInformation } from './interfaces';
 export class FinalesComponent implements OnInit {
   public finales: IFinalesInformation[] = [];
 
-  constructor(public httpService: HttpService) {}
+  private subjectFolderName: string = '';
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private httpService: HttpService
+  ) {}
 
   public ngOnInit(): void {
+    this.subjectFolderName =
+      this.activatedRoute.snapshot.paramMap.get('subjectName');
+
     this.httpService
-      .getFilesFromFolderWithinASubject(
-        'Lenguajes de Programación I',
-        'Finales'
-      )
+      .getFilesFromFolderWithinASubject(this.subjectFolderName, 'Finales')
       .subscribe(
         (
           filesFinalesFolderWithState: IWithState<
