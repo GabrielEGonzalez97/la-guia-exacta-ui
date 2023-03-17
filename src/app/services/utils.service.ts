@@ -1,4 +1,5 @@
 import { Injectable, OnDestroy, TemplateRef } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   catchError,
   combineLatest,
@@ -51,7 +52,7 @@ type CombinedObservableWithState<T> = Observable<
   providedIn: 'root',
 })
 export class UtilsService {
-  constructor() {}
+  constructor(private router: Router) {}
 
   /**
    * filters out values emitted by any `Observable<IWithState<T>>` and emits again
@@ -270,4 +271,8 @@ export class UtilsService {
     values.map((v) => ({ ...v, open: false } as IWithOpenState & T));
   public withDisabledState = <T>(values: T[]) =>
     values.map((v) => ({ ...v, disabled: false } as IWithDisabledState & T));
+
+  public navigateTo(route: string): void {
+    this.router.navigate([route]);
+  }
 }
