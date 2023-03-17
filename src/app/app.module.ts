@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { PlaceholderModule } from 'carbon-components-angular';
@@ -14,6 +15,7 @@ import { NavbarModule } from './navbar/navbar.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     ActionsBarModule,
     CatedrasModule,
     FinalesModule,
