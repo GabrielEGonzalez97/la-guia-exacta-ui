@@ -54,7 +54,7 @@ export let algebra_1: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'algebra-i',
   correlatives: [],
 };
 
@@ -75,7 +75,7 @@ export let algebra_1_recursada: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'algebra-i',
   correlatives: [],
 };
 
@@ -96,7 +96,7 @@ export let analisis_matematico_1: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'analisis-matematico-i',
   correlatives: [],
 };
 
@@ -117,7 +117,7 @@ export let analisis_matematico_1_recursada: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'analisis-matematico-i',
   correlatives: [],
 };
 
@@ -138,7 +138,7 @@ export let introduccion_a_la_programacion_1: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'introduccion-a-la-programacion-i',
   correlatives: [],
 };
 
@@ -159,7 +159,7 @@ export let introduccion_a_la_programacion_1_recursada: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'introduccion-a-la-programacion-i',
   correlatives: [],
 };
 
@@ -178,7 +178,7 @@ export let quimica: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'quimica',
   correlatives: [],
 };
 
@@ -199,7 +199,7 @@ export let algebra_lineal: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'algebra-lineal',
   correlatives: [
     { typeOfCorrelativity: CORRELATIVE_CURSADA_NAME, subject: algebra_1 },
   ],
@@ -222,7 +222,7 @@ export let algebra_lineal_recursada: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'algebra-lineal',
   correlatives: [
     { typeOfCorrelativity: CORRELATIVE_CURSADA_NAME, subject: algebra_1 },
   ],
@@ -245,7 +245,7 @@ export let ciencias_de_la_computacion_1: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'ciencias-de-la-computacion-i',
   correlatives: [],
 };
 
@@ -266,7 +266,7 @@ export let ciencias_de_la_computacion_1_recursada: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'ciencias-de-la-computacion-i',
   correlatives: [],
 };
 
@@ -287,7 +287,7 @@ export let fisica_general: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'fisica-general',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -313,7 +313,7 @@ export let fisica_general_recursada: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'fisica_general',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -339,7 +339,7 @@ export let introduccion_a_la_programacion_2: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'introduccion-a-la-programacion-ii',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -365,7 +365,7 @@ export let introduccion_a_la_programacion_2_recursada: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'introduccion-a-la-programacion-ii',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -391,7 +391,7 @@ export let matematica_discreta: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'matematica-discreta',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -417,7 +417,7 @@ export let matematica_discreta_recursada: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'matematica-discreta',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -443,7 +443,7 @@ export let analisis_matematico_2: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'analisis-matematico-ii',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -467,7 +467,7 @@ export let analisis_matematico_2_recursada: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'analisis-matematico-ii',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -493,7 +493,7 @@ export let analisis_y_diseño_de_algoritmos_1: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'analisis-y-diseño-de-algoritmos-i',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -527,7 +527,7 @@ export let ciencias_de_la_computacion_2: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'ciencias-de-la-computacion-ii',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -561,7 +561,7 @@ export let ciencias_de_la_computacion_2_recursada: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'ciencias-de-la-computacion-ii',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -596,7 +596,7 @@ export let electricidad_y_magnetismo: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'electricidad-y-magnetismo',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -622,7 +622,7 @@ export let introduccion_a_la_arquitectura_de_sistemas: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'introduccion-a-la-arquitectura-de-sistemas',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -648,7 +648,7 @@ export let analisis_y_diseño_de_algoritmos_2: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'analisis-y-diseño-de-algoritmos-ii',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -678,7 +678,7 @@ export let analisis_y_diseño_de_algoritmos_2_recursada: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'analisis-y-diseño-de-algoritmos-ii',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -708,7 +708,7 @@ export let comunicacion_de_datos_1: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'comunicacion-de-datos-i',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -734,7 +734,7 @@ export let electronica_digital: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'electronica-digital',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -760,7 +760,7 @@ export let ingles: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'ingles',
   correlatives: [],
 };
 
@@ -781,7 +781,7 @@ export let probabilidades_y_estadistica: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'probabilidades-y-estadistica',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -811,7 +811,7 @@ export let arquitectura_de_computadoras_1: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'arquitectura-de-computadoras-i',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -841,7 +841,7 @@ export let estructuras_de_almacenamiento_de_datos: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'estructuras-de-almacenamiento-de-datos',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -871,7 +871,7 @@ export let metodologias_de_desarrollo_de_software_1: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'metodologias-de-desarrollo-de-software-i',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -897,7 +897,7 @@ export let programacion_orientada_a_objetos: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'programacion-orientada-a-objetos',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -923,7 +923,7 @@ export let programacion_orientada_a_objetos_recursada: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'programacion-orientada-a-objetos',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -949,7 +949,7 @@ export let bases_de_datos_1: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'bases-de-datos-i',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
@@ -995,7 +995,7 @@ export let investigacion_operativa_1: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'investigacion-operativa-i',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
@@ -1077,7 +1077,7 @@ export let programacion_exploratoria: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'programacion-exploratoria',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
@@ -1119,7 +1119,7 @@ export let sistemas_operativos_1: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'sistemas-operativos-i',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
@@ -1167,7 +1167,7 @@ export let arquitectura_de_computadoras_y_tecnicas_digitales: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'arquitectura-de-computadoras-y-tecnicas-digitales',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -1217,7 +1217,7 @@ export let comunicacion_de_datos_2: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'comunicacion-de-datos-ii',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -1269,7 +1269,7 @@ export let introduccion_al_calculo_diferencial_e_integral: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'introduccion-al-calculo-diferencial-e-integral',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -1319,7 +1319,7 @@ export let organizacion_empresarial: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'organizacion-empresarial',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -1381,7 +1381,7 @@ export let teoria_de_la_informacion: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'teoria-de-la-informacion',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -1439,7 +1439,7 @@ export let diseño_de_compiladores_1: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'diseño-de-compiladores-i',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -1487,7 +1487,7 @@ export let diseño_de_sistemas_de_software: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'diseño-de-sistemas-de-software',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -1545,7 +1545,7 @@ export let fundamentos_de_economia_y_proyectos_de_inversion: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'fundamentos-de-economia-y-proyectos-de-inversion',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -1609,7 +1609,7 @@ export let ingenieria_de_software: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'ingenieria-de-software',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -1659,7 +1659,7 @@ export let legislacion_y_gestion_ambiental: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: '',
+  finalesLink: 'legislacion-y-gestion-ambiental',
   correlatives: [],
 };
 
