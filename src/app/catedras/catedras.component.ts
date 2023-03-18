@@ -17,10 +17,10 @@ export class CatedrasComponent implements OnInit {
   public quarters_dropdown_items: ListItem[] = QUARTERS_DROPDOWN_ITEMS;
   public subjects: ISubject[] = SUBJECTS;
 
-  public selectedCareerContent: string = '';
-  public selectedQuarterContent: string = '';
-  public searchingByTeacherContent: string = '';
-  public searchingBySubjectContent: string = '';
+  private selectedCareerContent: string = '';
+  private selectedQuarterContent: string = '';
+  private searchingByTeacherContent: string = '';
+  private searchingBySubjectContent: string = '';
 
   constructor() {}
 
