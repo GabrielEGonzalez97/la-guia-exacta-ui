@@ -1,4 +1,16 @@
-<div ibmRow *ngFor="let final of finales">
+<div ibmRow>
+    <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 3 }">
+        <ibm-dropdown label="Año" placeholder="Selecciona un año" (selected)="onSelectedYearChange($event)">
+            <ibm-dropdown-list [items]="yearDropdownItems"></ibm-dropdown-list>
+        </ibm-dropdown>
+    </div>
+    <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 3 }">
+        <ibm-dropdown label="Llamado" placeholder="Selecciona un llamado" (selected)="onSelectedMonthChange($event)">
+            <ibm-dropdown-list [items]="monthDropdownItems"></ibm-dropdown-list>
+        </ibm-dropdown>
+    </div>
+</div>
+<div ibmRow *ngFor="let final of finalesToShow">
     <div ibmCol>
         <ibm-tile>
             <div ibmRow>

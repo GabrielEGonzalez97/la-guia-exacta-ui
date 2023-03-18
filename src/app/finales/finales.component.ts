@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ListItem } from 'carbon-components-angular';
+import { MONTHS } from '../common/constants';
 import { IGoogleDriveFolderInformation } from '../common/interfaces';
 import { HttpService } from '../services/http.service';
 import { IWithState } from '../services/utils.service';
@@ -12,8 +14,23 @@ import { IFinalesInformation } from './interfaces';
 })
 export class FinalesComponent implements OnInit {
   public finales: IFinalesInformation[] = [];
+  public finalesToShow: IFinalesInformation[] = [];
+  public yearDropdownItems: ListItem[] = [
+    {
+      content: 'Todos',
+      selected: true,
+    },
+  ];
+  public monthDropdownItems: ListItem[] = [
+    {
+      content: 'Todos',
+      selected: true,
+    },
+  ];
 
   private subjectFolderName: string = '';
+  private selectedYearContent: string = '';
+  private selectedMonthContent: string = '';
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -23,6 +40,9 @@ export class FinalesComponent implements OnInit {
   public ngOnInit(): void {
     this.subjectFolderName =
       this.activatedRoute.snapshot.paramMap.get('subjectName');
+
+    this.completeDropdownWithYears();
+    this.completeDropdownWithMonths();
 
     this.httpService
       .getFilesFromFolderWithinASubject(this.subjectFolderName, 'Finales')
@@ -46,6 +66,7 @@ export class FinalesComponent implements OnInit {
                 this.sortFinalesByMonthAndYear();
               }
             );
+            this.finalesToShow = this.finales;
           }
         }
       );
@@ -68,28 +89,54 @@ export class FinalesComponent implements OnInit {
     final.showFile = !final.showFile;
   }
 
+  public onSelectedYearChange(selectedYear: any): void {
+    this.selectedYearContent =
+      selectedYear.item.content !== 'Todos' ? selectedYear.item.content : '';
+    this.onFilterChange();
+  }
+
+  public onSelectedMonthChange(selectedMonth: any): void {
+    this.selectedMonthContent =
+      selectedMonth.item.content !== 'Todos' ? selectedMonth.item.content : '';
+    this.onFilterChange();
+  }
+
+  private onFilterChange(): void {
+    const filterFunction = (field: string, fieldToSearch: string) =>
+      field.toLowerCase().indexOf(fieldToSearch.toLowerCase()) !== -1;
+    this.finalesToShow = this.finales.filter(
+      (final: IFinalesInformation) =>
+        filterFunction(final.year, this.selectedYearContent) &&
+        filterFunction(final.month, this.selectedMonthContent)
+    );
+  }
+
+  private completeDropdownWithYears(): void {
+    const currentYear: number = new Date().getFullYear();
+    for (let index: number = currentYear; index >= 2010; index--) {
+      this.yearDropdownItems.push({
+        content: index.toString(),
+        selected: false,
+      });
+    }
+  }
+
+  private completeDropdownWithMonths(): void {
+    MONTHS.forEach((month: string) => {
+      this.monthDropdownItems.push({
+        content: month,
+        selected: false,
+      });
+    });
+  }
+
   private extractYearFromFinalName(finalName: string): string {
     return /(^|\s)(\d{4})(\s|$)/.exec(finalName)[2];
   }
 
   private sortFinalesByMonthAndYear(): void {
-    const months: string[] = [
-      'Enero',
-      'Febrero',
-      'Marzo',
-      'Abril',
-      'Mayo',
-      'Junio',
-      'Julio',
-      'Agosto',
-      'Septiembre',
-      'Octubre',
-      'Noviembre',
-      'Diciembre',
-    ];
-
     this.finales.sort((a: IFinalesInformation, b: IFinalesInformation) => {
-      return months.indexOf(b.month) - months.indexOf(a.month);
+      return MONTHS.indexOf(b.month) - MONTHS.indexOf(a.month);
     });
 
     this.finales.sort((a: IFinalesInformation, b: IFinalesInformation) => {
