@@ -29,6 +29,10 @@ export class HttpService {
     );
   }
 
+  public getJSONFileById(fileId: string): Observable<IWithState<ArrayBuffer>> {
+    return this.getWithState<any>(API_URL + `/getFileById/${fileId}`);
+  }
+
   private getWithState = <T>(url: string, responseType?, params?: HttpParams) =>
     this.utilsService.withState(
       this.http.get<T>(url, { params, responseType })

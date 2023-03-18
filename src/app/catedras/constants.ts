@@ -1436,7 +1436,7 @@ export let diseño_de_compiladores_1: ISubject = {
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0032',
   webLink: '',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=778',
-  clasesLink: '',
+  clasesLink: 'diseño-de-compiladores-i',
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: 'diseño-de-compiladores-i',

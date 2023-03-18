@@ -47,7 +47,8 @@
             </app-catedra-column-with-button>
 
             <app-catedra-column-with-button *ngIf="subject.clasesLink"
-                [elementIconImagePath]="'../assets/images/you-tube-logo.svg'" [elementName]="'Clases'">
+                [elementIconImagePath]="'../assets/images/you-tube-logo.svg'" [elementName]="'Clases'"
+                (onButtonClickEmitter)="navigateTo('videos-clases/' + subject.clasesLink)">
             </app-catedra-column-with-button>
 
             <app-catedra-column-with-button *ngIf="subject.resumenesLink"
