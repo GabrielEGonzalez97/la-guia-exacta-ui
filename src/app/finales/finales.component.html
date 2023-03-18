@@ -2,8 +2,12 @@
     <div ibmCol>
         <ibm-tile>
             <div ibmRow>
-                <div ibmCol style="display: flex; align-items: center;">
-                    <h3> {{ final.name }} </h3>
+                <div ibmCol style="display: flex; align-items: center; margin-left: 1rem;">
+                    <h3 style="font-size: calc(1.5vw + 1.5vh);"> {{ final.name }} </h3>
+                </div>
+            </div>
+            <div ibmRow>
+                <div ibmCol style="display: flex; align-items: center; margin-left: 1rem;">
                     <button ibmButton="primary" (click)="onVerFinalButtonClick(final)">
                         <p *ngIf="!final.showFile">Ver final</p>
                         <p *ngIf="final.showFile">Ocultar final</p>

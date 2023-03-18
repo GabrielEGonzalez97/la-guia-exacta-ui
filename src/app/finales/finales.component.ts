@@ -37,10 +37,13 @@ export class FinalesComponent implements OnInit {
               (final: IGoogleDriveFolderInformation) => {
                 this.finales.push({
                   id: final.id,
-                  name: final.name,
+                  name: final.name.split('.pdf')[0],
+                  year: this.extractYearFromFinalName(final.name),
+                  month: final.name.split(' ')[2].split('.pdf')[0],
                   showFile: false,
                   fileUrl: '',
                 });
+                this.sortFinalesByMonthAndYear();
               }
             );
           }
@@ -63,5 +66,34 @@ export class FinalesComponent implements OnInit {
     }
 
     final.showFile = !final.showFile;
+  }
+
+  private extractYearFromFinalName(finalName: string): string {
+    return /(^|\s)(\d{4})(\s|$)/.exec(finalName)[2];
+  }
+
+  private sortFinalesByMonthAndYear(): void {
+    const months: string[] = [
+      'Enero',
+      'Febrero',
+      'Marzo',
+      'Abril',
+      'Mayo',
+      'Junio',
+      'Julio',
+      'Agosto',
+      'Septiembre',
+      'Octubre',
+      'Noviembre',
+      'Diciembre',
+    ];
+
+    this.finales.sort((a: IFinalesInformation, b: IFinalesInformation) => {
+      return months.indexOf(b.month) - months.indexOf(a.month);
+    });
+
+    this.finales.sort((a: IFinalesInformation, b: IFinalesInformation) => {
+      return Number(b.year) - Number(a.year);
+    });
   }
 }
