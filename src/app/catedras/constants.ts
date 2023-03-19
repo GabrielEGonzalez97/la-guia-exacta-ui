@@ -1660,7 +1660,52 @@ export let legislacion_y_gestion_ambiental: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: 'legislacion-y-gestion-ambiental',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: bases_de_datos_1,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: investigacion_operativa_1,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: lenguajes_de_programacion_1,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: programacion_exploratoria,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: sistemas_operativos_1,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+      subject: analisis_y_diseño_de_algoritmos_2,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+      subject: comunicacion_de_datos_1,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+      subject: electronica_digital,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+      subject: probabilidades_y_estadistica,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+      subject: ingles,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+      subject: quimica,
+    },
+  ],
 };
 
 export let SUBJECTS: ISubject[] = [

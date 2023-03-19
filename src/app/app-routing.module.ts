@@ -2,9 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CatedrasComponent } from './catedras/catedras.component';
 import { FinalesComponent } from './finales/finales.component';
+import { IngenieriaDeSistemasComponent } from './ingenieria-de-sistemas/ingenieria-de-sistemas.component';
 import { VideosClasesComponent } from './videos-clases/videos-clases.component';
 
 const routes: Routes = [
+  {
+    path: 'carreras/ingenieria-de-sistemas',
+    component: IngenieriaDeSistemasComponent,
+  },
   {
     path: 'catedras',
     component: CatedrasComponent,

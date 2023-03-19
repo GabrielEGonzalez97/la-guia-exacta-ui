@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CatedrasModule } from './catedras/catedras.module';
 import { FinalesModule } from './finales/finales.module';
+import { IngenieriaDeSistemasModule } from './ingenieria-de-sistemas/ingenieria-de-sistemas.module';
 import { NavbarModule } from './navbar/navbar.module';
 import { VideosClasesModule } from './videos-clases/videos-clases.module';
 
@@ -17,6 +18,7 @@ const COMPONENT_IMPORTS = [
   ActionsBarModule,
   CatedrasModule,
   FinalesModule,
+  IngenieriaDeSistemasModule,
   NavbarModule,
   VideosClasesModule,
 ];

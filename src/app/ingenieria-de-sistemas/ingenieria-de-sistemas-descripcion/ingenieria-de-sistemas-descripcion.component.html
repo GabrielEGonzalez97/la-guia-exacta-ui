@@ -1,0 +1,464 @@
+<div ibmRow>
+    <div ibmCol>
+        <ibm-tile class="clickeable-element" (click)="onDescripcionPlanEstudiosTileClick()">
+            <div ibmRow>
+                <div ibmCol class="column-with-margin">
+                    <h1>
+                        <strong>
+                            Descripción del Plan de Estudios
+                        </strong>
+                    </h1>
+                </div>
+            </div>
+        </ibm-tile>
+    </div>
+</div>
+
+<div ibmRow *ngIf="isDescripcionPlanEstudiosTileVisible">
+    <div ibmCol>
+        <ibm-tile class="inner-tile">
+            <div>
+                <div ibmRow>
+                    <div ibmCol class="column-with-margin">
+                        <p>
+                            El Plan de Estudios de la carrera “Ingeniería de Sistemas” tiene una
+                            duración de 5 años (incluyendo las prácticas profesionales supervisadas y el
+                            desarrollo de un proyecto final), otorgándose el título intermedio “Analista
+                            Programador Universitario” (APU) al completar los 3 primeros años de la
+                            carrera principal.
+                        </p>
+                        <p>
+                            La base del plan se divide en:
+                        </p>
+                        <ul>
+                            <li>
+                                <p>
+                                    <strong>Núcleo de Formación:</strong>
+                                    comprende el conocimiento básico.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <strong>Ciclo de Especialización:</strong>
+                                    comprende asignaturas de especialización organizadas por áreas de
+                                    conocimiento, entre las cuales optará el alumno.
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div ibmRow>
+                    <div ibmCol class="column-with-margin">
+                        <h2>
+                            <strong>
+                                Núcleo de Formación
+                            </strong>
+                        </h2>
+                    </div>
+                </div>
+                <div ibmRow>
+                    <div ibmCol class="column-with-margin">
+                        <p>
+                            El núcleo de formación consiste del conocimiento básico, ya sea en los
+                            aspectos teóricos de Ciencias Básicas (Matemática, Física y Química) como en
+                            los aspectos fundamentales de Ciencias de la Computación. Las materias de
+                            orientación principalmente teóricas se dictarán en los dos primeros años de
+                            la carrera, mientras que a partir del 3er. año se comienzan a dictar las
+                            materias específicas de informática.
+                        </p>
+                        <p>
+                            Los puntos tenidos en cuenta para la organización del núcleo de formación
+                            son:
+                        </p>
+                        <ul>
+                            <li>
+                                <p>
+                                    Cuatrimestralización de todas las materias.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Todas las materias que corresponden al Núcleo de Formación deben ser
+                                    aprobadas en forma obligatoria por el alumno.
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div ibmRow>
+                    <div ibmCol class="column-with-margin">
+                        <h2>
+                            <strong>
+                                Ciclo de Especialización
+                            </strong>
+                        </h2>
+                    </div>
+                </div>
+                <div ibmRow>
+                    <div ibmCol class="column-with-margin">
+                        <p>
+                            El Ciclo de Especialización está organizado en Áreas. El título de grado
+                            otorgado es el mismo independientemente del Área de Especialización seguida.
+                            El objetivo de la organización en áreas es profundizar conocimientos que
+                            facilitará la realización del trabajo final.
+                        </p>
+                        <p>
+                            El Ciclo de Especialización se regirá mediante un sistema de créditos a fin
+                            de ofrecer una mayor flexibilidad en las asignaturas del Ciclo.
+                        </p>
+                        <ul>
+                            <li>
+                                <p>
+                                    Cada Área agrupa asignaturas que tienen una afinidad temática.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    El Departamento de Computación y Sistemas establecerá a comienzos de
+                                    cada año lectivo las asignaturas del Ciclo de Especialización,
+                                    especificando para cada una de ellas: programa, carga horaria,
+                                    correlatividades, cantidad de créditos que le corresponderá, área o
+                                    áreas a la que pertenecerá, y fecha límite para su aprobación.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Una asignatura podrá pertenecer a más de un área.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Se podrán dictar asignaturas que no pertenecen a ningún área en
+                                    particular, pudiendo cursarse para completar los requerimientos de
+                                    créditos del Ciclo de Especialización.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Para completar el Ciclo de Especialización el alumno deberá acumular
+                                    como mínimo un total de 32 créditos.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Como parámetro para la asignación de créditos, una asignatura
+                                    cuatrimestral de 4 hs. semanales (total 60 hs.) valdrá 4 créditos.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    El alumno deberá acumular un mínimo de 16 créditos en una misma área
+                                    de especialización.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Los restantes 16 créditos se deberán acumular de la siguiente
+                                    manera: Fundamentos de Economía y Proyectos de Inversión (4
+                                    créditos), Organización Empresarial (4 créditos) y Legislación y
+                                    Gestión Ambiental (4 créditos), complementarias obligatorias,
+                                    completando los créditos restantes con asignaturas de libre
+                                    elección.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Se podrán acumular hasta 8 créditos en asignaturas cursadas y
+                                    aprobadas en otra Facultad/Universidad, previa aprobación del
+                                    Departamento y Consejo Académico quien asignará el número de
+                                    créditos.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    El Departamento ofrecerá un mínimo de 3 (tres) áreas de
+                                    especialización.
+                                </p>
+                            </li>
+                        </ul>
+                        <p>
+                            Las áreas que constituyen la base de los Ciclos de Especialización en la
+                            actualidad son:
+                        </p>
+                        <ul>
+                            <li>
+                                <p>
+                                    Arquitectura de Hardware y Control Automático
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Ingeniería de Software y Sistemas de Información
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Procesamiento de Señales
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Informática de Gestión
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Computación Gráfica, Visual y Numérica
+                                </p>
+                            </li>
+                        </ul>
+                        <p>
+                            <strong>
+                                Titulo Final:
+                            </strong>
+                            Ingeniero de Sistemas.
+                        </p>
+                        <p>
+                            <strong>
+                                Titulo Intermedio:
+                            </strong>
+                            Analista Programador Universitario.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </ibm-tile>
+    </div>
+</div>
+
+<div ibmRow>
+    <div ibmCol>
+        <ibm-tile class="clickeable-element" (click)="onPerfilProfesionalTileClick()">
+            <div ibmRow>
+                <div ibmCol class="column-with-margin">
+                    <h1>
+                        <strong>
+                            Perfil profesional
+                        </strong>
+                    </h1>
+                </div>
+            </div>
+        </ibm-tile>
+    </div>
+</div>
+
+<div ibmRow *ngIf="isPerfilProfesionalTileVisible">
+    <div ibmCol>
+        <ibm-tile class="inner-tile">
+            <div>
+                <div ibmRow>
+                    <div ibmCol class="column-with-margin">
+                        <h2>
+                            <strong>
+                                Perfil del Ingeniero de Sistemas
+                            </strong>
+                        </h2>
+                    </div>
+                </div>
+                <div ibmRow>
+                    <div ibmCol class="column-with-margin">
+                        <ul>
+                            <li>
+                                <p>
+                                    Posee una sólida formación teórica en matemática, informática, arquitectura de
+                                    computadoras, ingeniería de software, gestión de organizaciones y procesamiento de
+                                    señales, conjuntamente con una visión práctica que permite la aplicación eficaz y
+                                    eficiente de sus conocimientos en el contexto que se desempeñe.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Posee capacidad para contribuir al progreso de la disciplina a través de la
+                                    innovación profesional, la Investigación y el Desarrollo.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Comprende los principios de la Ingeniería y posee las habilidades que permiten su
+                                    aplicación a los proyectos de desarrollo de software, en los proyectos de inserción
+                                    de sistemas computacionales en organizaciones, en el desarrollo de sistemas
+                                    sociales, técnicos y económicos y en diseño de dispositivos de sistematización y
+                                    procesamiento de datos de diversa naturaleza.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Su formación le permite desempeñarse en diferentes ambientes laborales, en especial
+                                    en relación con profesionales de otras disciplinas.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Posee condiciones para adaptarse a la aparición de nuevas tecnologías o herramientas
+                                    de desarrollo de software y al tratamiento de problemas nuevos de procesamientos de
+                                    señales.
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div ibmRow>
+                    <div ibmCol class="column-with-margin">
+                        <h2>
+                            <strong>
+                                Perfil del Analista Programador Universitario
+                            </strong>
+                        </h2>
+                    </div>
+                </div>
+                <div ibmRow>
+                    <div ibmCol class="column-with-margin">
+                        <ul>
+                            <li>
+                                <p>
+                                    Posee la formación teórica necesaria para su desempeño, acompañado por un bagaje de
+                                    recursos prácticos que permiten la aplicación inmediata y productiva de sus
+                                    conocimientos en el contexto en que se desempeñe.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Posee amplios conocimientos acerca de las principales herramientas de desarrollo de
+                                    aplicaciones de software que le permite su inmediata inserción laboral.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Su formación le permite desempeñarse en diferentes ambientes laborables, en especial
+                                    en organizaciones de medio y gran tamaño.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Posee condiciones para adaptarse a la aparición de nuevas tecnologías o herramientas
+                                    de desarrollo de software.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Posee conocimientos y aptitudes necesarias para contribuir positivamente en la
+                                    sociedad que usa intensivamente los sistemas de software.
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </ibm-tile>
+    </div>
+</div>
+
+<div ibmRow>
+    <div ibmCol>
+        <ibm-tile class="clickeable-element" (click)="onAlcancesDelTituloTileClick()">
+            <div ibmRow>
+                <div ibmCol class="column-with-margin">
+                    <h1>
+                        <strong>
+                            Alcances del Título o Incumbencias Profesionales
+                        </strong>
+                    </h1>
+                </div>
+            </div>
+        </ibm-tile>
+    </div>
+</div>
+
+<div ibmRow *ngIf="isAlcancesDelTituloTileVisible">
+    <div ibmCol>
+        <ibm-tile class="inner-tile">
+            <div>
+                <div ibmRow>
+                    <div ibmCol class="column-with-margin">
+                        <ul>
+                            <li>
+                                <p>
+                                    Analizar, diseñar, construir, instalar, organizar y administrar sistemas de
+                                    procesamiento de datos destinados a actividades de producción, servicios, gobierno y
+                                    autogestión social.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Elaborar proyectos y realizar estudios de factibilidad técnico económica de sistemas
+                                    de información destinados a:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            Identificación de requisitos, evaluación y selección de equipos e
+                                            instalaciones de computación.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Definición, identificación, evaluación y selección del software apropiado a
+                                            necesidades específicas de gestión u operación.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Desarrollo de sistemas socio-técnicos de gestión, producción y servicio.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p>
+                                    Intervenir en procesos de decisiones estratégicas, tácticas y operativas vinculadas
+                                    con la obtención, elaboración, resguardo y aplicación de información sistematizada
+                                    relativa a la gestión de organizaciones públicas y privadas.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Realizar funciones de auditoría de sistemas de información y procesamiento de datos.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Diseñar, organizar, dirigir y controlar centros de procesamiento informático de
+                                    datos y redes de computación.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Elaborar, desarrollar y aplicar modelos y soluciones informáticas en otras
+                                    disciplinas y campos de actividad y saber humano.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Desempeñarse en funciones, cargos y comisiones y empleos públicos y privados que
+                                    requieran idoneidad y conocimientos informáticos específicos.
+
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Realizar pericias, tasaciones e informes referidos a sistemas, equipamiento y temas
+                                    referidos a la obtención, elaboración, distribución, acceso y seguridad de datos e
+                                    información.
+
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Intervenir en cuestiones relativas a la aplicación de normas, reglamentaciones y
+                                    leyes que afecten a los sistemas de procesamiento de datos de empresas y
+                                    organizaciones públicas y privadas.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Desarrollar actividades de investigación, docencia universitaria superior,
+                                    capacitación y extensión en áreas relativas o vinculadas a la especialidad
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </ibm-tile>
+    </div>
+</div>

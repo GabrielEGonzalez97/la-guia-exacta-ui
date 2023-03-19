@@ -1,0 +1,16 @@
+.quarter-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.subject-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 2px solid black;
+  flex: 1 0 calc(20% - 20px);
+  margin: 5px;
+  height: 50px;
+  font-size: calc(0.75vw + 0.75vh);
+}
