@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalService } from 'carbon-components-angular';
+import { CatedraModalWindowComponent } from '../catedras/catedra-modal-window/catedra-modal-window.component';
+import { SUBJECTS } from '../catedras/constants';
 import {
   CORRELATIVE_FINAL_NAME,
   ICorrelativeSubject,
@@ -169,7 +172,7 @@ export class IngenieriaDeSistemasComponent implements OnInit {
     this.teoria_de_la_informacion,
   ];
 
-  constructor() {}
+  constructor(private modalService: ModalService) {}
 
   public ngOnInit(): void {}
 
@@ -185,7 +188,17 @@ export class IngenieriaDeSistemasComponent implements OnInit {
     });
   }
 
-  public paintCorrelativesSubjects(
+  public showCatedraModalWindow(subject: ISubjectWithSelection): void {
+    this.modalService.create({
+      component: CatedraModalWindowComponent,
+      inputs: {
+        subject: subject.subject,
+        allSubjects: SUBJECTS,
+      },
+    });
+  }
+
+  private paintCorrelativesSubjects(
     subjectToEvaluate: ISubjectWithSelection
   ): void {
     subjectToEvaluate.subject.correlatives.forEach(

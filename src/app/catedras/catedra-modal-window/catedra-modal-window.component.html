@@ -1,0 +1,7 @@
+<ibm-modal [open]="true" (overlaySelected)="closeModal()">
+    <ibm-modal-header (closeSelect)="closeModal()">
+    </ibm-modal-header>
+
+    <app-catedra [subject]="subject" [allSubjects]="allSubjects">
+    </app-catedra>
+</ibm-modal>

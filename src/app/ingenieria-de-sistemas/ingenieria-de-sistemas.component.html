@@ -3,7 +3,8 @@
 <div>
     <div class="quarter-container">
         <div class="subject-container" [style.background-color]="algebra_1.color"
-            (mouseover)="onMouseOverSubject(algebra_1)" (mouseleave)="onMouseLeaveSubject()">{{
+            (mouseover)="onMouseOverSubject(algebra_1)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(algebra_1)">{{
             algebra_1.subject.name }}</div>
         <div class="subject-container" [style.background-color]="analisis_matematico_1.color"
             (mouseover)="onMouseOverSubject(analisis_matematico_1)" (mouseleave)="onMouseLeaveSubject()">{{
