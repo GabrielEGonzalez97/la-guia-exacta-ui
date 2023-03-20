@@ -4,7 +4,15 @@ import { CatedraModalWindowComponent } from '../catedras/catedra-modal-window/ca
 import { SUBJECTS } from '../catedras/constants';
 import {
   CORRELATIVE_FINAL_NAME,
+  FIFTH_YEAR_NAME,
+  FIRST_QUARTER_NAME,
+  FIRST_YEAR_NAME,
+  FOURTH_YEAR_NAME,
   ICorrelativeSubject,
+  ISubject,
+  SECOND_QUARTER_NAME,
+  SECOND_YEAR_NAME,
+  THIRD_YEAR_NAME,
 } from '../catedras/interfaces';
 import {
   algebra_1_with_selection,
@@ -178,7 +186,7 @@ export class IngenieriaDeSistemasComponent implements OnInit {
 
   public onMouseOverSubject(subjectToEvaluate: ISubjectWithSelection): void {
     subjectToEvaluate.color = selectedColorSubject;
-    this.paintCorrelativesSubjects(subjectToEvaluate);
+    this.paintCorrelativesSubjects(subjectToEvaluate, subjectToEvaluate);
     this.paintSubjectsThatObstruct(subjectToEvaluate);
   }
 
@@ -199,29 +207,92 @@ export class IngenieriaDeSistemasComponent implements OnInit {
   }
 
   private paintCorrelativesSubjects(
-    subjectToEvaluate: ISubjectWithSelection
+    subjectToEvaluateOriginal: ISubjectWithSelection,
+    nextSubjectToEvaluate: ISubjectWithSelection
   ): void {
-    subjectToEvaluate.subject.correlatives.forEach(
+    nextSubjectToEvaluate.subject.correlatives.forEach(
       (correlativeSubject: ICorrelativeSubject) => {
         this.allSubjects.forEach((subject: ISubjectWithSelection) => {
           if (correlativeSubject.subject.id == subject.subject.id) {
             if (
-              correlativeSubject.typeOfCorrelativity == CORRELATIVE_FINAL_NAME
+              correlativeSubject.typeOfCorrelativity ===
+                CORRELATIVE_FINAL_NAME ||
+              this.isRequisitoN5(
+                subjectToEvaluateOriginal.subject,
+                subject.subject
+              )
             ) {
               subject.color = requisitoFinalColorSubject;
             } else {
-              if (subject.color === requisitoCursadaColorSubject) {
-                subject.color = requisitoFinalColorSubject;
-              } else if (subject.color !== requisitoFinalColorSubject) {
+              if (subject.color !== requisitoFinalColorSubject) {
                 subject.color = requisitoCursadaColorSubject;
               }
             }
-            console.log(subject.subject.name + ': ' + subject.color);
-            this.paintCorrelativesSubjects(subject);
+            this.paintCorrelativesSubjects(subjectToEvaluateOriginal, subject);
           }
         });
       }
     );
+  }
+
+  private isRequisitoN5(
+    subject: ISubject,
+    subjectToEvaluate: ISubject
+  ): boolean {
+    if (
+      subject.year === THIRD_YEAR_NAME &&
+      subject.quarter === SECOND_QUARTER_NAME
+    ) {
+      if (
+        subjectToEvaluate.year === FIRST_YEAR_NAME &&
+        subjectToEvaluate.quarter === FIRST_QUARTER_NAME
+      ) {
+        return true;
+      }
+    } else if (
+      subject.year === FOURTH_YEAR_NAME &&
+      subject.quarter === FIRST_QUARTER_NAME
+    ) {
+      if (
+        (subjectToEvaluate.year === FIRST_YEAR_NAME &&
+          subjectToEvaluate.quarter === FIRST_QUARTER_NAME) ||
+        (subjectToEvaluate.year === FIRST_YEAR_NAME &&
+          subjectToEvaluate.quarter === SECOND_QUARTER_NAME)
+      ) {
+        return true;
+      }
+    } else if (
+      subject.year === FOURTH_YEAR_NAME &&
+      subject.quarter === SECOND_QUARTER_NAME
+    ) {
+      if (
+        (subjectToEvaluate.year === FIRST_YEAR_NAME &&
+          subjectToEvaluate.quarter === FIRST_QUARTER_NAME) ||
+        (subjectToEvaluate.year === FIRST_YEAR_NAME &&
+          subjectToEvaluate.quarter === SECOND_QUARTER_NAME) ||
+        (subjectToEvaluate.year === SECOND_YEAR_NAME &&
+          subjectToEvaluate.quarter === FIRST_QUARTER_NAME)
+      ) {
+        return true;
+      }
+    } else if (
+      subject.year === FIFTH_YEAR_NAME &&
+      subject.quarter === FIRST_QUARTER_NAME
+    ) {
+      if (
+        (subjectToEvaluate.year === FIRST_YEAR_NAME &&
+          subjectToEvaluate.quarter === FIRST_QUARTER_NAME) ||
+        (subjectToEvaluate.year === FIRST_YEAR_NAME &&
+          subjectToEvaluate.quarter === SECOND_QUARTER_NAME) ||
+        (subjectToEvaluate.year === SECOND_YEAR_NAME &&
+          subjectToEvaluate.quarter === FIRST_QUARTER_NAME) ||
+        (subjectToEvaluate.year === SECOND_YEAR_NAME &&
+          subjectToEvaluate.quarter === SECOND_QUARTER_NAME)
+      ) {
+        return true;
+      }
+    }
+    return false;
   }
 
   private paintSubjectsThatObstruct(
