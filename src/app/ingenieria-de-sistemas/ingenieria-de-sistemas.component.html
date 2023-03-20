@@ -1,6 +1,22 @@
 <app-ingenieria-de-sistemas-descripcion></app-ingenieria-de-sistemas-descripcion>
 
-<div>
+<div ibmRow>
+    <div ibmCol>
+        <ibm-tile class="clickeable-element" (click)="onPlanEstudiosTileClick()">
+            <div ibmRow>
+                <div ibmCol class="column-with-margin">
+                    <h1>
+                        <strong>
+                            Plan de estudios
+                        </strong>
+                    </h1>
+                </div>
+            </div>
+        </ibm-tile>
+    </div>
+</div>
+
+<div *ngIf="isPlanEstudiosTileVisible">
     <div class="quarter-container">
         <div class="subject-container" [style.background-color]="algebra_1.color"
             (mouseover)="onMouseOverSubject(algebra_1)" (mouseleave)="onMouseLeaveSubject()"

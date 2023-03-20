@@ -67,6 +67,8 @@ import { ISubjectWithSelection } from './interfaces';
   styleUrls: ['./ingenieria-de-sistemas.component.scss'],
 })
 export class IngenieriaDeSistemasComponent implements OnInit {
+  public isPlanEstudiosTileVisible: boolean = false;
+
   public algebra_1: ISubjectWithSelection = algebra_1_with_selection;
   public algebra_lineal: ISubjectWithSelection = algebra_lineal_with_selection;
   public analisis_matematico_1: ISubjectWithSelection =
@@ -204,6 +206,10 @@ export class IngenieriaDeSistemasComponent implements OnInit {
         allSubjects: SUBJECTS,
       },
     });
+  }
+
+  public onPlanEstudiosTileClick(): void {
+    this.isPlanEstudiosTileVisible = !this.isPlanEstudiosTileVisible;
   }
 
   private paintCorrelativesSubjects(

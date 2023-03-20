@@ -1,3 +1,11 @@
+@import "src/styles/carbon-utils.scss";
+
+@include adjustPaddingInIBMGridAndCol();
+
+h1 {
+  font-size: calc(1.25vw + 1.25vh);
+}
+
 .quarter-container {
   display: flex;
   flex-wrap: wrap;
@@ -17,4 +25,17 @@
 
 .subject-container:hover {
   cursor: pointer;
+}
+
+.column-with-margin {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.clickeable-element {
+  cursor: pointer;
+}
+
+.clickeable-element:hover {
+  background-color: #cbcbcb;
 }
