@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalService } from 'carbon-components-angular';
 import { CatedraModalWindowComponent } from '../catedras/catedra-modal-window/catedra-modal-window.component';
-import { SUBJECTS } from '../catedras/constants';
+import { ingenieria_de_sistemas_subjects_plan_2011 } from '../catedras/constants';
 import {
   CORRELATIVE_FINAL_NAME,
   FIFTH_YEAR_NAME,
@@ -203,7 +203,7 @@ export class IngenieriaDeSistemasComponent implements OnInit {
       component: CatedraModalWindowComponent,
       inputs: {
         subject: subject.subject,
-        allSubjects: SUBJECTS,
+        allSubjects: ingenieria_de_sistemas_subjects_plan_2011,
       },
     });
   }

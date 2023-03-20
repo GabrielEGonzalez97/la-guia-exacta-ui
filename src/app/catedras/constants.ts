@@ -1783,7 +1783,7 @@ export let legislacion_y_gestion_ambiental: ISubject = {
   ],
 };
 
-export let SUBJECTS: ISubject[] = [
+export let ingenieria_de_sistemas_subjects_plan_2011: ISubject[] = [
   algebra_1,
   algebra_1_recursada,
   algebra_lineal,

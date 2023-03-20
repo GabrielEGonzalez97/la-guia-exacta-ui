@@ -3,7 +3,7 @@ import { ListItem } from 'carbon-components-angular';
 import {
   CAREERS_DROPDOWN_ITEMS,
   QUARTERS_DROPDOWN_ITEMS,
-  SUBJECTS,
+  ingenieria_de_sistemas_subjects_plan_2011,
 } from './constants';
 import { ISubject } from './interfaces';
 
@@ -15,7 +15,7 @@ import { ISubject } from './interfaces';
 export class CatedrasComponent implements OnInit {
   public careers_dropdown_items: ListItem[] = CAREERS_DROPDOWN_ITEMS;
   public quarters_dropdown_items: ListItem[] = QUARTERS_DROPDOWN_ITEMS;
-  public subjects: ISubject[] = SUBJECTS;
+  public subjects: ISubject[] = ingenieria_de_sistemas_subjects_plan_2011;
 
   private selectedCareerContent: string = '';
   private selectedQuarterContent: string = '';
@@ -29,7 +29,7 @@ export class CatedrasComponent implements OnInit {
   private onFilterChange(): void {
     const filterFunction = (field: string, fieldToSearch: string) =>
       field.toLowerCase().indexOf(fieldToSearch.toLowerCase()) !== -1;
-    this.subjects = SUBJECTS.filter(
+    this.subjects = ingenieria_de_sistemas_subjects_plan_2011.filter(
       (subject: ISubject) =>
         filterFunction(subject.career, this.selectedCareerContent) &&
         filterFunction(subject.quarter, this.selectedQuarterContent) &&
