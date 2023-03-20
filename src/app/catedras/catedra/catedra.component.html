@@ -19,11 +19,11 @@
     <div class="buttons-container">
         <div ibmRow>
             <app-catedra-column-with-button [elementIconImagePath]="'../assets/images/lupa.svg'"
-                [elementName]="'Correlativas'" (onButtonClickEmitter)="showCorrelativesModalWindow()">
+                [elementName]="'Requisitos'" (onButtonClickEmitter)="showCorrelativesModalWindow()">
             </app-catedra-column-with-button>
 
             <app-catedra-column-with-button [elementIconImagePath]="'../assets/images/lupa.svg'"
-                [elementName]="'Requisitos'" (onButtonClickEmitter)="showSubjectsThatObstructModalWindow()">
+                [elementName]="'Correlativas'" (onButtonClickEmitter)="showSubjectsThatObstructModalWindow()">
             </app-catedra-column-with-button>
 
             <app-catedra-column-with-button *ngIf="subject.modalidadLink"
