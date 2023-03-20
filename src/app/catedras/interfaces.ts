@@ -4,6 +4,18 @@ export const INGENIERIA_DE_SISTEMAS_NAME = 'Ingenieria de Sistemas';
 
 export const TUDAI_NAME = 'TUDAI';
 
+export type YearType = 'Primero' | 'Segundo' | 'Tercero' | 'Cuarto' | 'Quinto';
+
+export const FIRST_YEAR_NAME = 'Primero';
+
+export const SECOND_YEAR_NAME = 'Segundo';
+
+export const THIRD_YEAR_NAME = 'Tercero';
+
+export const FOURTH_YEAR_NAME = 'Cuarto';
+
+export const FIFTH_YEAR_NAME = 'Quinto';
+
 export type QuarterType = 'Primero' | 'Segundo';
 
 export const FIRST_QUARTER_NAME = 'Primero';
@@ -15,6 +27,7 @@ export interface ISubject {
   name: string;
   status: string;
   career: CareerName;
+  year: YearType;
   quarter: QuarterType;
   teacher: string;
   contactEmail: string;
