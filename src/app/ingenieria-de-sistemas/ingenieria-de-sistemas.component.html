@@ -17,6 +17,23 @@
 </div>
 
 <div *ngIf="isPlanEstudiosTileVisible">
+    <div class="explanation-quarter-container">
+        <div class="explanation-container" [style.background-color]="'#24A148'">
+            Requisito Cursada y Final
+        </div>
+        <div class="explanation-container" [style.background-color]="'#6FDC8C'">
+            Requisito Cursada
+        </div>
+        <div class="explanation-container" [style.background-color]="'#C6C6C6'">
+            Materia Seleccionada
+        </div>
+        <div class="explanation-container" [style.background-color]="'#FA4D56'">
+            Correlativas
+        </div>
+    </div>
+</div>
+
+<div *ngIf="isPlanEstudiosTileVisible">
     <div class="quarter-container">
         <div class="subject-container" [style.background-color]="algebra_1.color"
             (mouseover)="onMouseOverSubject(algebra_1)" (mouseleave)="onMouseLeaveSubject()"

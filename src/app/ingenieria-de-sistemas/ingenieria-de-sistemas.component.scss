@@ -6,12 +6,18 @@ h1 {
   font-size: calc(1.25vw + 1.25vh);
 }
 
-.quarter-container {
+.quarter-container,
+.explanation-quarter-container {
   display: flex;
   flex-wrap: wrap;
 }
 
-.subject-container {
+.explanation-quarter-container {
+  margin-bottom: 1.5rem;
+}
+
+.subject-container,
+.explanation-container {
   display: flex;
   align-items: center;
   justify-content: center;
