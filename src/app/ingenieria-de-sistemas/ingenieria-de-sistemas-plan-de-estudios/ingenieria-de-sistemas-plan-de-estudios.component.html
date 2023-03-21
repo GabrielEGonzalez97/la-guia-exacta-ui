@@ -1,0 +1,257 @@
+<div ibmRow>
+    <div ibmCol>
+        <ibm-tile class="clickeable-element" (click)="onPlanEstudiosTileClick()">
+            <div ibmRow>
+                <div ibmCol class="column-with-margin">
+                    <h1>
+                        <strong>
+                            Plan de estudios
+                        </strong>
+                    </h1>
+                </div>
+            </div>
+        </ibm-tile>
+    </div>
+</div>
+
+<div *ngIf="isPlanEstudiosTileVisible">
+    <div class="explanation-quarter-container">
+        <div class="explanation-container" [style.background-color]="'#24A148'">
+            Requisito Cursada y Final
+        </div>
+        <div class="explanation-container" [style.background-color]="'#6FDC8C'">
+            Requisito Cursada
+        </div>
+        <div class="explanation-container" [style.background-color]="'#C6C6C6'">
+            Materia Seleccionada
+        </div>
+        <div class="explanation-container" [style.background-color]="'#FA4D56'">
+            Correlativas
+        </div>
+    </div>
+</div>
+
+<div *ngIf="isPlanEstudiosTileVisible">
+    <div class="quarter-container">
+        <div class="subject-container" [style.background-color]="algebra_1.color"
+            (mouseover)="onMouseOverSubject(algebra_1)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(algebra_1)">
+            {{ algebra_1.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="analisis_matematico_1.color"
+            (mouseover)="onMouseOverSubject(analisis_matematico_1)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(analisis_matematico_1)">
+            {{ analisis_matematico_1.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="introduccion_a_la_programacion_1.color"
+            (mouseover)="onMouseOverSubject(introduccion_a_la_programacion_1)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(introduccion_a_la_programacion_1)">
+            {{ introduccion_a_la_programacion_1.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="quimica.color"
+            (mouseover)="onMouseOverSubject(quimica)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(quimica)">
+            {{ quimica.subject.name }}
+        </div>
+    </div>
+
+    <div class="quarter-container">
+        <div class="subject-container" [style.background-color]="algebra_lineal.color"
+            (mouseover)="onMouseOverSubject(algebra_lineal)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(algebra_lineal)">
+            {{ algebra_lineal.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="ciencias_de_la_computacion_1.color"
+            (mouseover)="onMouseOverSubject(ciencias_de_la_computacion_1)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(ciencias_de_la_computacion_1)">
+            {{ ciencias_de_la_computacion_1.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="fisica_general.color"
+            (mouseover)="onMouseOverSubject(fisica_general)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(fisica_general)">
+            {{ fisica_general.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="introduccion_a_la_programacion_2.color"
+            (mouseover)="onMouseOverSubject(introduccion_a_la_programacion_2)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(introduccion_a_la_programacion_2)">
+            {{ introduccion_a_la_programacion_2.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="matematica_discreta.color"
+            (mouseover)="onMouseOverSubject(matematica_discreta)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(matematica_discreta)">
+            {{ matematica_discreta.subject.name }}
+        </div>
+    </div>
+
+    <div class="quarter-container">
+        <div class="subject-container" [style.background-color]="analisis_matematico_2.color"
+            (mouseover)="onMouseOverSubject(analisis_matematico_2)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(analisis_matematico_2)">
+            {{ analisis_matematico_2.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="analisis_y_disenio_de_algoritmos_1.color"
+            (mouseover)="onMouseOverSubject(analisis_y_disenio_de_algoritmos_1)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(analisis_y_disenio_de_algoritmos_1)">
+            {{ analisis_y_disenio_de_algoritmos_1.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="ciencias_de_la_computacion_2.color"
+            (mouseover)="onMouseOverSubject(ciencias_de_la_computacion_2)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(ciencias_de_la_computacion_2)">
+            {{ ciencias_de_la_computacion_2.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="electricidad_y_magnetismo.color"
+            (mouseover)="onMouseOverSubject(electricidad_y_magnetismo)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(electricidad_y_magnetismo)">
+            {{ electricidad_y_magnetismo.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="introduccion_a_la_arquitectura_de_sistemas.color"
+            (mouseover)="onMouseOverSubject(introduccion_a_la_arquitectura_de_sistemas)"
+            (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(introduccion_a_la_arquitectura_de_sistemas)">
+            {{ introduccion_a_la_arquitectura_de_sistemas.subject.name }}
+        </div>
+    </div>
+
+    <div class="quarter-container">
+        <div class="subject-container" [style.background-color]="analisis_y_disenio_de_algoritmos_2.color"
+            (mouseover)="onMouseOverSubject(analisis_y_disenio_de_algoritmos_2)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(analisis_y_disenio_de_algoritmos_2)">
+            {{ analisis_y_disenio_de_algoritmos_2.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="comunicacion_de_datos_1.color"
+            (mouseover)="onMouseOverSubject(comunicacion_de_datos_1)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(comunicacion_de_datos_1)">
+            {{ comunicacion_de_datos_1.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="electronica_digital.color"
+            (mouseover)="onMouseOverSubject(electronica_digital)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(electronica_digital)">
+            {{ electronica_digital.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="ingles.color" (mouseover)="onMouseOverSubject(ingles)"
+            (mouseleave)="onMouseLeaveSubject()" (click)="showCatedraModalWindow(ingles)">
+            {{ ingles.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="probabilidades_y_estadistica.color"
+            (mouseover)="onMouseOverSubject(probabilidades_y_estadistica)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(probabilidades_y_estadistica)">
+            {{ probabilidades_y_estadistica.subject.name }}
+        </div>
+    </div>
+
+    <div class="quarter-container">
+        <div class="subject-container" [style.background-color]="arquitectura_de_computadoras_1.color"
+            (mouseover)="onMouseOverSubject(arquitectura_de_computadoras_1)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(arquitectura_de_computadoras_1)">
+            {{ arquitectura_de_computadoras_1.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="estructuras_de_almacenamiento_de_datos.color"
+            (mouseover)="onMouseOverSubject(estructuras_de_almacenamiento_de_datos)"
+            (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(estructuras_de_almacenamiento_de_datos)">
+            {{ estructuras_de_almacenamiento_de_datos.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="metodologias_de_desarrollo_de_software_1.color"
+            (mouseover)="onMouseOverSubject(metodologias_de_desarrollo_de_software_1)"
+            (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(metodologias_de_desarrollo_de_software_1)">
+            {{ metodologias_de_desarrollo_de_software_1.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="programacion_orientada_a_objetos.color"
+            (mouseover)="onMouseOverSubject(programacion_orientada_a_objetos)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(programacion_orientada_a_objetos)">
+            {{ programacion_orientada_a_objetos.subject.name }}
+        </div>
+    </div>
+
+    <div class="quarter-container">
+        <div class="subject-container" [style.background-color]="bases_de_datos_1.color"
+            (mouseover)="onMouseOverSubject(bases_de_datos_1)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(bases_de_datos_1)">
+            {{ bases_de_datos_1.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="investigacion_operativa_1.color"
+            (mouseover)="onMouseOverSubject(investigacion_operativa_1)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(investigacion_operativa_1)">
+            {{ investigacion_operativa_1.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="lenguajes_de_programacion_1.color"
+            (mouseover)="onMouseOverSubject(lenguajes_de_programacion_1)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(lenguajes_de_programacion_1)">
+            {{ lenguajes_de_programacion_1.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="programacion_exploratoria.color"
+            (mouseover)="onMouseOverSubject(programacion_exploratoria)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(programacion_exploratoria)">
+            {{ programacion_exploratoria.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="sistemas_operativos_1.color"
+            (mouseover)="onMouseOverSubject(sistemas_operativos_1)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(sistemas_operativos_1)">
+            {{ sistemas_operativos_1.subject.name }}
+        </div>
+    </div>
+
+    <div class="quarter-container">
+        <div class="subject-container"
+            [style.background-color]="arquitectura_de_computadoras_y_tecnicas_digitales.color"
+            (mouseover)="onMouseOverSubject(arquitectura_de_computadoras_y_tecnicas_digitales)"
+            (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(arquitectura_de_computadoras_y_tecnicas_digitales)">
+            {{ arquitectura_de_computadoras_y_tecnicas_digitales.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="comunicacion_de_datos_2.color"
+            (mouseover)="onMouseOverSubject(comunicacion_de_datos_2)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(comunicacion_de_datos_2)">
+            {{ comunicacion_de_datos_2.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="introduccion_al_calculo_diferencial_e_integral.color"
+            (mouseover)="onMouseOverSubject(introduccion_al_calculo_diferencial_e_integral)"
+            (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(introduccion_al_calculo_diferencial_e_integral)">
+            {{ introduccion_al_calculo_diferencial_e_integral.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="teoria_de_la_informacion.color"
+            (mouseover)="onMouseOverSubject(teoria_de_la_informacion)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(teoria_de_la_informacion)">
+            {{ teoria_de_la_informacion.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="organizacion_empresarial.color"
+            (mouseover)="onMouseOverSubject(organizacion_empresarial)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(organizacion_empresarial)">
+            {{ organizacion_empresarial.subject.name }}
+        </div>
+    </div>
+
+    <div class="quarter-container">
+        <div class="subject-container" [style.background-color]="disenio_de_compiladores_1.color"
+            (mouseover)="onMouseOverSubject(disenio_de_compiladores_1)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(disenio_de_compiladores_1)">
+            {{ disenio_de_compiladores_1.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="disenio_de_sistemas_de_software.color"
+            (mouseover)="onMouseOverSubject(disenio_de_sistemas_de_software)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(disenio_de_sistemas_de_software)">
+            {{ disenio_de_sistemas_de_software.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="fundamentos_de_economia_y_proyectos_de_inversion.color"
+            (mouseover)="onMouseOverSubject(fundamentos_de_economia_y_proyectos_de_inversion)"
+            (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(fundamentos_de_economia_y_proyectos_de_inversion)">
+            {{ fundamentos_de_economia_y_proyectos_de_inversion.subject.name }}
+        </div>
+    </div>
+
+    <div class="quarter-container">
+        <div class="subject-container" [style.background-color]="ingenieria_de_software.color"
+            (mouseover)="onMouseOverSubject(ingenieria_de_software)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(ingenieria_de_software)">
+            {{ ingenieria_de_software.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="legislacion_y_gestion_ambiental.color"
+            (mouseover)="onMouseOverSubject(legislacion_y_gestion_ambiental)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(legislacion_y_gestion_ambiental)">
+            {{ legislacion_y_gestion_ambiental.subject.name }}
+        </div>
+    </div>
+</div>
