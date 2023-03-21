@@ -15,6 +15,13 @@ import {
   THIRD_YEAR_NAME,
 } from 'src/app/catedras/interfaces';
 import {
+  CORRELATIVE_COLOR_SUBJECT,
+  DEFAULT_COLOR_SUBJECT,
+  REQUISITO_CURSADA_COLOR_SUBJECT,
+  REQUISITO_FINAL_COLOR_SUBJECT,
+  SELECTED_COLOR_SUBJECT,
+} from 'src/app/common/constants';
+import {
   algebra_1_with_selection,
   algebra_lineal_with_selection,
   analisis_matematico_1_with_selection,
@@ -28,8 +35,6 @@ import {
   ciencias_de_la_computacion_2_with_selection,
   comunicacion_de_datos_1_with_selection,
   comunicacion_de_datos_2_with_selection,
-  correlativeColorSubject,
-  defaultColorSubject,
   diseño_de_compiladores_1_with_selection,
   diseño_de_sistemas_de_software_with_selection,
   electricidad_y_magnetismo_with_selection,
@@ -53,12 +58,9 @@ import {
   programacion_exploratoria_with_selection,
   programacion_orientada_a_objetos_with_selection,
   quimica_with_selection,
-  requisitoCursadaColorSubject,
-  requisitoFinalColorSubject,
-  selectedColorSubject,
   sistemas_operativos_1_with_selection,
   teoria_de_la_informacion_with_selection,
-} from '../constants';
+} from './constants';
 import { ISubjectWithSelection } from '../interfaces';
 
 @Component({
@@ -187,14 +189,14 @@ export class IngenieriaDeSistemasPlanDeEstudiosComponent implements OnInit {
   public ngOnInit(): void {}
 
   public onMouseOverSubject(subjectToEvaluate: ISubjectWithSelection): void {
-    subjectToEvaluate.color = selectedColorSubject;
+    subjectToEvaluate.color = SELECTED_COLOR_SUBJECT;
     this.paintCorrelativesSubjects(subjectToEvaluate, subjectToEvaluate);
     this.paintSubjectsThatObstruct(subjectToEvaluate);
   }
 
   public onMouseLeaveSubject(): void {
     this.allSubjects.forEach((subject: ISubjectWithSelection) => {
-      subject.color = defaultColorSubject;
+      subject.color = DEFAULT_COLOR_SUBJECT;
     });
   }
 
@@ -228,10 +230,10 @@ export class IngenieriaDeSistemasPlanDeEstudiosComponent implements OnInit {
                 subject.subject
               )
             ) {
-              subject.color = requisitoFinalColorSubject;
+              subject.color = REQUISITO_FINAL_COLOR_SUBJECT;
             } else {
-              if (subject.color !== requisitoFinalColorSubject) {
-                subject.color = requisitoCursadaColorSubject;
+              if (subject.color !== REQUISITO_FINAL_COLOR_SUBJECT) {
+                subject.color = REQUISITO_CURSADA_COLOR_SUBJECT;
               }
             }
             this.paintCorrelativesSubjects(subjectToEvaluateOriginal, subject);
@@ -308,7 +310,7 @@ export class IngenieriaDeSistemasPlanDeEstudiosComponent implements OnInit {
       subject.subject.correlatives.forEach(
         (correlativeSubject: ICorrelativeSubject) => {
           if (correlativeSubject.subject.id == subjectToEvaluate.subject.id) {
-            subject.color = correlativeColorSubject;
+            subject.color = CORRELATIVE_COLOR_SUBJECT;
             this.paintSubjectsThatObstruct(subject);
           }
         }
