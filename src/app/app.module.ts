@@ -10,6 +10,7 @@ import { CatedrasModule } from './catedras/catedras.module';
 import { FinalesModule } from './finales/finales.module';
 import { IngenieriaDeSistemasModule } from './ingenieria-de-sistemas/ingenieria-de-sistemas.module';
 import { NavbarModule } from './navbar/navbar.module';
+import { TudaiModule } from './tudai/tudai.module';
 import { VideosClasesModule } from './videos-clases/videos-clases.module';
 
 const MODULE_IMPORTS = [AppRoutingModule, BrowserModule, HttpClientModule];
@@ -21,6 +22,7 @@ const COMPONENT_IMPORTS = [
   IngenieriaDeSistemasModule,
   NavbarModule,
   VideosClasesModule,
+  TudaiModule,
 ];
 
 const CARBON_COMPONENTS_IMPORTS = [PlaceholderModule];
