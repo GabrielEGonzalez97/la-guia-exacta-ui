@@ -9,6 +9,7 @@ h1 {
 .quarter-container,
 .explanation-quarter-container {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -22,8 +23,8 @@ h1 {
   align-items: center;
   justify-content: center;
   text-align: center;
+  width: calc(20% - 10px);
   border: 2px solid black;
-  flex: 1 0 calc(20% - 20px);
   margin: 5px;
   height: 75px;
   font-size: calc(0.75vw + 0.75vh);
