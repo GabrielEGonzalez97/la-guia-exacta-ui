@@ -1,4 +1,5 @@
 import {
+  CORRELATIVE_CURSADA_NAME,
   FIRST_QUARTER_NAME,
   FIRST_YEAR_NAME,
   ISubject,
@@ -114,7 +115,12 @@ export let ingles_2: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: ingles_1,
+    },
+  ],
 };
 
 export let programacion_2: ISubject = {
@@ -136,13 +142,20 @@ export let programacion_2: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: programacion_1,
+    },
+  ],
 };
 
-export let tecnicas_de_documentacion_y_validacion: ISubject = {
-  id: 'tecnicas_de_documentacion_y_validacion',
-  name: 'Técnicas de documentación y validación',
-  status: localStorage.getItem('tecnicas_de_documentacion_y_validacion'),
+export let tecnologia_de_la_informacion_en_las_organizaciones: ISubject = {
+  id: 'tecnologia_de_la_informacion_en_las_organizaciones',
+  name: 'Tecnología de la información en las organizaciones',
+  status: localStorage.getItem(
+    'tecnologia_de_la_informacion_en_las_organizaciones'
+  ),
   career: TUDAI_NAME,
   year: FIRST_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
@@ -180,7 +193,12 @@ export let web_2: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: web_1,
+    },
+  ],
 };
 
 export let bases_de_datos_tudai: ISubject = {
@@ -202,7 +220,12 @@ export let bases_de_datos_tudai: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: web_2,
+    },
+  ],
 };
 
 export let configuracion_y_desarrollo_de_aplicaciones_en_redes: ISubject = {
@@ -226,27 +249,166 @@ export let configuracion_y_desarrollo_de_aplicaciones_en_redes: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: web_2,
+    },
+  ],
 };
 
-export let a: ISubject = {
-  id: '',
-  name: '',
-  status: localStorage.getItem(''),
+export let introduccion_a_las_metodologias_de_desarrollo_de_software: ISubject =
+  {
+    id: 'introduccion_a_las_metodologias_de_desarrollo_de_software',
+    name: 'Introducción a las Metodologías de desarrollo de software',
+    status: localStorage.getItem(
+      'introduccion_a_las_metodologias_de_desarrollo_de_software'
+    ),
+    career: TUDAI_NAME,
+    year: SECOND_YEAR_NAME,
+    quarter: FIRST_QUARTER_NAME,
+    teacher: 'Vidal, Santiago Agustin',
+    contactEmail: 'santiago.a.vidal@gmail.com',
+    modalidadLink:
+      'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0225',
+    programaLink:
+      'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0225',
+    webLink: 'http://tudai2-1.alumnos.exa.unicen.edu.ar/',
+    moodleLink: 'https://moodle.exa.unicen.edu.ar/user/index.php?id=600',
+    clasesLink: '',
+    resumenesLink: '',
+    parcialesLink: '',
+    finalesLink: '',
+    correlatives: [
+      {
+        typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+        subject: programacion_2,
+      },
+      {
+        typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+        subject: tecnologia_de_la_informacion_en_las_organizaciones,
+      },
+    ],
+  };
+
+export let programacion_3: ISubject = {
+  id: 'programacion_3',
+  name: 'Programación 3',
+  status: localStorage.getItem('programacion_3'),
   career: TUDAI_NAME,
-  year: FIRST_YEAR_NAME,
+  year: SECOND_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
-  modalidadLink: '',
-  programaLink: '',
-  webLink: '',
-  moodleLink: '',
+  teacher: 'Casanova, Federico Martin',
+  contactEmail: 'fedecasanova@gmail.com',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0224',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0224',
+  webLink: 'http://tudai2-1.alumnos.exa.unicen.edu.ar/',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=596',
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: programacion_2,
+    },
+  ],
+};
+
+export let arquitecturas_web: ISubject = {
+  id: 'arquitecturas_web',
+  name: 'Arquitecturas Web',
+  status: localStorage.getItem('arquitecturas_web'),
+  career: TUDAI_NAME,
+  year: SECOND_YEAR_NAME,
+  quarter: SECOND_QUARTER_NAME,
+  teacher: 'Diaz Pace, Jorge Andres',
+  contactEmail: 'adiazpace@gmail.com',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0230',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0230',
+  webLink: 'http://tudai2-2.alumnos.exa.unicen.edu.ar/',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/user/index.php?id=706',
+  clasesLink: '',
+  resumenesLink: '',
+  parcialesLink: '',
+  finalesLink: '',
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: configuracion_y_desarrollo_de_aplicaciones_en_redes,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: introduccion_a_las_metodologias_de_desarrollo_de_software,
+    },
+  ],
+};
+
+export let interfaces_de_usuario_e_interaccion: ISubject = {
+  id: 'interfaces_de_usuario_e_interaccion',
+  name: 'Interfaces de usuario e Interacción',
+  status: localStorage.getItem('interfaces_de_usuario_e_interaccion'),
+  career: TUDAI_NAME,
+  year: SECOND_YEAR_NAME,
+  quarter: SECOND_QUARTER_NAME,
+  teacher: 'Garcia Bauza, Cristian Dario',
+  contactEmail: 'cristiangb@gmail.com',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0229',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0229',
+  webLink: 'http://tudai2-2.alumnos.exa.unicen.edu.ar/',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/user/index.php?id=125',
+  clasesLink: '',
+  resumenesLink: '',
+  parcialesLink: '',
+  finalesLink: '',
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: web_2,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: taller_de_matematica_computacional,
+    },
+  ],
+};
+
+export let tecnicas_de_documentacion_y_validacion: ISubject = {
+  id: 'tecnicas_de_documentacion_y_validacion',
+  name: 'Técnicas de documentación y validación',
+  status: localStorage.getItem('tecnicas_de_documentacion_y_validacion'),
+  career: TUDAI_NAME,
+  year: SECOND_YEAR_NAME,
+  quarter: SECOND_QUARTER_NAME,
+  teacher: 'Goñi, Oscar Enrique',
+  contactEmail: 'oegoni@gmail.com',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0228',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0228',
+  webLink: 'http://tudai2-2.alumnos.exa.unicen.edu.ar/',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=126',
+  clasesLink: '',
+  resumenesLink: '',
+  parcialesLink: '',
+  finalesLink: '',
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: programacion_3,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: tecnologia_de_la_informacion_en_las_organizaciones,
+    },
+  ],
 };
 
 export let tudai_subjects: ISubject[] = [
@@ -256,8 +418,13 @@ export let tudai_subjects: ISubject[] = [
   web_1,
   ingles_2,
   programacion_2,
-  tecnicas_de_documentacion_y_validacion,
+  tecnologia_de_la_informacion_en_las_organizaciones,
   web_2,
   bases_de_datos_tudai,
   configuracion_y_desarrollo_de_aplicaciones_en_redes,
+  introduccion_a_las_metodologias_de_desarrollo_de_software,
+  programacion_3,
+  arquitecturas_web,
+  interfaces_de_usuario_e_interaccion,
+  tecnicas_de_documentacion_y_validacion,
 ];
