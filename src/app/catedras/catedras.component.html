@@ -24,9 +24,9 @@
     </div>
 </div>
 <div ibmRow>
-    <ng-container *ngFor="let subject of subjects">
+    <ng-container *ngFor="let subject of subjectsToDisplay">
         <div ibmCol [columnNumbers]="{ max: 4, xlg: 4, lg: 4, md: 4, sm: 4 }">
-            <app-catedra [subject]="subject" [allSubjects]="subjects">
+            <app-catedra [subject]="subject" [allSubjects]="allSubjects">
             </app-catedra>
         </div>
     </ng-container>

@@ -20,7 +20,7 @@ export class CatedrasComponent implements OnInit {
     ...ingenieria_de_sistemas_subjects_plan_2011,
     ...tudai_subjects,
   ];
-  public subjects: ISubject[] = this.allSubjects;
+  public subjectsToDisplay: ISubject[] = this.allSubjects;
 
   private selectedCareerContent: string = '';
   private selectedQuarterContent: string = '';
@@ -29,12 +29,16 @@ export class CatedrasComponent implements OnInit {
 
   constructor() {}
 
-  public ngOnInit(): void {}
+  public ngOnInit(): void {
+    this.subjectsToDisplay.sort((a: ISubject, b: ISubject) => {
+      return a.name.localeCompare(b.name);
+    });
+  }
 
   private onFilterChange(): void {
     const filterFunction = (field: string, fieldToSearch: string) =>
       field.toLowerCase().indexOf(fieldToSearch.toLowerCase()) !== -1;
-    this.subjects = this.allSubjects.filter(
+    this.subjectsToDisplay = this.allSubjects.filter(
       (subject: ISubject) =>
         filterFunction(subject.career, this.selectedCareerContent) &&
         filterFunction(subject.quarter, this.selectedQuarterContent) &&
