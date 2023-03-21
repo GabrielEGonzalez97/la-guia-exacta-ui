@@ -2,7 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ListItem, ModalService } from 'carbon-components-angular';
 import { UtilsService } from 'src/app/services/utils.service';
 import { CorrelativesModalWindowComponent } from '../correlatives-modal-window/correlatives-modal-window.component';
-import { ISubject } from '../interfaces';
+import {
+  INGENIERIA_DE_SISTEMAS_NAME,
+  ISubject,
+  TUDAI_NAME,
+} from '../interfaces';
 import { SubjectsThatObstructModalWindowComponent } from '../subjects-that-obstruct-modal-window/subjects-that-obstruct-modal-window.component';
 
 @Component({
@@ -15,6 +19,9 @@ export class CatedraComponent implements OnInit {
   @Input() public allSubjects: ISubject[];
 
   public isOpenCorrelativesModalWindow: boolean = false;
+
+  public ingenieriaDeSistemasName: string = INGENIERIA_DE_SISTEMAS_NAME;
+  public tudaiName: string = TUDAI_NAME;
 
   public subjectStatus: ListItem[] = [];
 
