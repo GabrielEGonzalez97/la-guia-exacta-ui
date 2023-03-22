@@ -39,7 +39,7 @@ import {
   teoria_de_la_informacion,
 } from '../../catedras/constants';
 import { DEFAULT_COLOR_SUBJECT } from '../../common/constants';
-import { ISubjectWithSelection } from '../interfaces';
+import { ISubjectWithSelection } from '../../common/interfaces';
 
 export let algebra_1_with_selection: ISubjectWithSelection = {
   subject: algebra_1,

@@ -1,0 +1,126 @@
+<div ibmRow>
+    <div ibmCol>
+        <ibm-tile class="clickeable-element" (click)="onPlanEstudiosTileClick()">
+            <div ibmRow>
+                <div ibmCol class="column-with-margin">
+                    <h1>
+                        <strong>
+                            Plan de estudios
+                        </strong>
+                    </h1>
+                </div>
+            </div>
+        </ibm-tile>
+    </div>
+</div>
+
+<div *ngIf="isPlanEstudiosTileVisible">
+    <div class="explanation-quarter-container">
+        <div class="explanation-container" [style.background-color]="'#24A148'">
+            Requisito Cursada y Final
+        </div>
+        <div class="explanation-container" [style.background-color]="'#6FDC8C'">
+            Requisito Cursada
+        </div>
+        <div class="explanation-container" [style.background-color]="'#C6C6C6'">
+            Materia Seleccionada
+        </div>
+        <div class="explanation-container" [style.background-color]="'#FA4D56'">
+            Correlativas
+        </div>
+    </div>
+</div>
+
+<div *ngIf="isPlanEstudiosTileVisible">
+    <div class="quarter-container">
+        <div class="subject-container" [style.background-color]="ingles_1.color"
+            (mouseover)="onMouseOverSubject(ingles_1)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(ingles_1)">
+            {{ ingles_1.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="programacion_1.color"
+            (mouseover)="onMouseOverSubject(programacion_1)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(programacion_1)">
+            {{ programacion_1.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="taller_de_matematica_computacional.color"
+            (mouseover)="onMouseOverSubject(taller_de_matematica_computacional)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(taller_de_matematica_computacional)">
+            {{ taller_de_matematica_computacional.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="web_1.color" (mouseover)="onMouseOverSubject(web_1)"
+            (mouseleave)="onMouseLeaveSubject()" (click)="showCatedraModalWindow(web_1)">
+            {{ web_1.subject.name }}
+        </div>
+    </div>
+
+    <div class="quarter-container">
+        <div class="subject-container" [style.background-color]="ingles_2.color"
+            (mouseover)="onMouseOverSubject(ingles_2)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(ingles_2)">
+            {{ ingles_2.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="programacion_2.color"
+            (mouseover)="onMouseOverSubject(programacion_2)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(programacion_2)">
+            {{ programacion_2.subject.name }}
+        </div>
+        <div class="subject-container"
+            [style.background-color]="tecnologia_de_la_informacion_en_las_organizaciones.color"
+            (mouseover)="onMouseOverSubject(tecnologia_de_la_informacion_en_las_organizaciones)"
+            (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(tecnologia_de_la_informacion_en_las_organizaciones)">
+            {{ tecnologia_de_la_informacion_en_las_organizaciones.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="web_2.color" (mouseover)="onMouseOverSubject(web_2)"
+            (mouseleave)="onMouseLeaveSubject()" (click)="showCatedraModalWindow(web_2)">
+            {{ web_2.subject.name }}
+        </div>
+    </div>
+
+    <div class="quarter-container">
+        <div class="subject-container" [style.background-color]="bases_de_datos_tudai.color"
+            (mouseover)="onMouseOverSubject(bases_de_datos_tudai)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(bases_de_datos_tudai)">
+            {{ bases_de_datos_tudai.subject.name }}
+        </div>
+        <div class="subject-container"
+            [style.background-color]="configuracion_y_desarrollo_de_aplicaciones_en_redes.color"
+            (mouseover)="onMouseOverSubject(configuracion_y_desarrollo_de_aplicaciones_en_redes)"
+            (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(configuracion_y_desarrollo_de_aplicaciones_en_redes)">
+            {{ configuracion_y_desarrollo_de_aplicaciones_en_redes.subject.name }}
+        </div>
+        <div class="subject-container"
+            [style.background-color]="introduccion_a_las_metodologias_de_desarrollo_de_software.color"
+            (mouseover)="onMouseOverSubject(introduccion_a_las_metodologias_de_desarrollo_de_software)"
+            (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(introduccion_a_las_metodologias_de_desarrollo_de_software)">
+            {{ introduccion_a_las_metodologias_de_desarrollo_de_software.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="programacion_3.color"
+            (mouseover)="onMouseOverSubject(programacion_3)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(programacion_3)">
+            {{ programacion_3.subject.name }}
+        </div>
+    </div>
+
+    <div class="quarter-container">
+        <div class="subject-container" [style.background-color]="arquitecturas_web.color"
+            (mouseover)="onMouseOverSubject(arquitecturas_web)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(arquitecturas_web)">
+            {{ arquitecturas_web.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="interfaces_de_usuario_e_interaccion.color"
+            (mouseover)="onMouseOverSubject(interfaces_de_usuario_e_interaccion)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(interfaces_de_usuario_e_interaccion)">
+            {{ interfaces_de_usuario_e_interaccion.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="tecnicas_de_documentacion_y_validacion.color"
+            (mouseover)="onMouseOverSubject(tecnicas_de_documentacion_y_validacion)"
+            (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(tecnicas_de_documentacion_y_validacion)">
+            {{ tecnicas_de_documentacion_y_validacion.subject.name }}
+        </div>
+    </div>
+</div>

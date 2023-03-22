@@ -61,7 +61,7 @@ import {
   sistemas_operativos_1_with_selection,
   teoria_de_la_informacion_with_selection,
 } from './constants';
-import { ISubjectWithSelection } from '../interfaces';
+import { ISubjectWithSelection } from '../../common/interfaces';
 
 @Component({
   selector: 'app-ingenieria-de-sistemas-plan-de-estudios',

@@ -8,10 +8,14 @@ import {
 import { CatedraModule } from '../catedras/catedra/catedra.module';
 import { TudaiDescripcionComponent } from './tudai-descripcion/tudai-descripcion.component';
 import { TudaiComponent } from './tudai.component';
+import { TudaiPlanDeEstudiosComponent } from './tudai-plan-de-estudios/tudai-plan-de-estudios.component';
 
 const CARBON_IMPORTS = [GridModule, ModalModule, TilesModule];
 
-const COMPONENT_IMPORTS = [TudaiDescripcionComponent];
+const COMPONENT_IMPORTS = [
+  TudaiDescripcionComponent,
+  TudaiPlanDeEstudiosComponent,
+];
 
 @NgModule({
   declarations: [TudaiComponent, COMPONENT_IMPORTS],
