@@ -9,6 +9,7 @@ import {
   FIRST_YEAR_NAME,
   FOURTH_YEAR_NAME,
   ICorrelativeSubject,
+  INGENIERIA_DE_SISTEMAS_NAME,
   ISubject,
   SECOND_QUARTER_NAME,
   SECOND_YEAR_NAME,
@@ -143,6 +144,110 @@ export class IngenieriaDeSistemasPlanDeEstudiosComponent implements OnInit {
   public teoria_de_la_informacion: ISubjectWithSelection =
     teoria_de_la_informacion_with_selection;
 
+  public pps: ISubjectWithSelection = {
+    subject: {
+      id: '',
+      name: 'Práctica Profesional Supervisada',
+      status: '',
+      career: INGENIERIA_DE_SISTEMAS_NAME,
+      year: FIFTH_YEAR_NAME,
+      quarter: SECOND_QUARTER_NAME,
+      teacher: '',
+      contactEmail: '',
+      modalidadLink: '',
+      programaLink: '',
+      webLink: '',
+      moodleLink: '',
+      clasesLink: '',
+      resumenesLink: '',
+      parcialesLink: '',
+      finalesLink: '',
+      correlatives: [
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.quimica.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.comunicacion_de_datos_1.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.ingles.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.arquitectura_de_computadoras_1.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.estructuras_de_almacenamiento_de_datos.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.metodologias_de_desarrollo_de_software_1.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.programacion_orientada_a_objetos.subject,
+        },
+      ],
+    },
+    color: DEFAULT_COLOR_SUBJECT,
+  };
+
+  public proyecto_final: ISubjectWithSelection = {
+    subject: {
+      id: '',
+      name: 'Proyecto Final',
+      status: '',
+      career: INGENIERIA_DE_SISTEMAS_NAME,
+      year: FIFTH_YEAR_NAME,
+      quarter: SECOND_QUARTER_NAME,
+      teacher: '',
+      contactEmail: '',
+      modalidadLink: '',
+      programaLink: '',
+      webLink: '',
+      moodleLink: '',
+      clasesLink: '',
+      resumenesLink: '',
+      parcialesLink: '',
+      finalesLink: '',
+      correlatives: [
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.quimica.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.comunicacion_de_datos_1.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.ingles.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.arquitectura_de_computadoras_1.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.estructuras_de_almacenamiento_de_datos.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.metodologias_de_desarrollo_de_software_1.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.programacion_orientada_a_objetos.subject,
+        },
+      ],
+    },
+    color: DEFAULT_COLOR_SUBJECT,
+  };
+
   public allSubjects: ISubjectWithSelection[] = [
     this.algebra_1,
     this.algebra_lineal,
@@ -182,6 +287,8 @@ export class IngenieriaDeSistemasPlanDeEstudiosComponent implements OnInit {
     this.quimica,
     this.sistemas_operativos_1,
     this.teoria_de_la_informacion,
+    this.pps,
+    this.proyecto_final,
   ];
 
   constructor(private modalService: ModalService) {}
@@ -296,6 +403,24 @@ export class IngenieriaDeSistemasPlanDeEstudiosComponent implements OnInit {
           subjectToEvaluate.quarter === FIRST_QUARTER_NAME) ||
         (subjectToEvaluate.year === SECOND_YEAR_NAME &&
           subjectToEvaluate.quarter === SECOND_QUARTER_NAME)
+      ) {
+        return true;
+      }
+    } else if (
+      subject.year === FIFTH_YEAR_NAME &&
+      subject.quarter === SECOND_QUARTER_NAME
+    ) {
+      if (
+        (subjectToEvaluate.year === FIRST_YEAR_NAME &&
+          subjectToEvaluate.quarter === FIRST_QUARTER_NAME) ||
+        (subjectToEvaluate.year === FIRST_YEAR_NAME &&
+          subjectToEvaluate.quarter === SECOND_QUARTER_NAME) ||
+        (subjectToEvaluate.year === SECOND_YEAR_NAME &&
+          subjectToEvaluate.quarter === FIRST_QUARTER_NAME) ||
+        (subjectToEvaluate.year === SECOND_YEAR_NAME &&
+          subjectToEvaluate.quarter === SECOND_QUARTER_NAME) ||
+        (subjectToEvaluate.year === THIRD_YEAR_NAME &&
+          subjectToEvaluate.quarter === FIRST_QUARTER_NAME)
       ) {
         return true;
       }
