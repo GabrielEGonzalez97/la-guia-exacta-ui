@@ -76,6 +76,10 @@
             (mouseleave)="onMouseLeaveSubject()" (click)="showCatedraModalWindow(web_2)">
             {{ web_2.subject.name }}
         </div>
+        <div class="subject-container" [style.background-color]="seminario_tecnologico_1.color"
+            (mouseover)="onMouseOverSubject(seminario_tecnologico_1)" (mouseleave)="onMouseLeaveSubject()">
+            {{ seminario_tecnologico_1.subject.name }}
+        </div>
     </div>
 
     <div class="quarter-container">
@@ -103,6 +107,10 @@
             (click)="showCatedraModalWindow(programacion_3)">
             {{ programacion_3.subject.name }}
         </div>
+        <div class="subject-container" [style.background-color]="seminario_tecnologico_2.color"
+            (mouseover)="onMouseOverSubject(seminario_tecnologico_2)" (mouseleave)="onMouseLeaveSubject()">
+            {{ seminario_tecnologico_2.subject.name }}
+        </div>
     </div>
 
     <div class="quarter-container">
@@ -121,6 +129,17 @@
             (mouseleave)="onMouseLeaveSubject()"
             (click)="showCatedraModalWindow(tecnicas_de_documentacion_y_validacion)">
             {{ tecnicas_de_documentacion_y_validacion.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="seminario_tecnologico_3.color"
+            (mouseover)="onMouseOverSubject(seminario_tecnologico_3)" (mouseleave)="onMouseLeaveSubject()">
+            {{ seminario_tecnologico_3.subject.name }}
+        </div>
+    </div>
+
+    <div class="quarter-container">
+        <div class="subject-container" [style.background-color]="pps.color" (mouseover)="onMouseOverSubject(pps)"
+            (mouseleave)="onMouseLeaveSubject()">
+            {{ pps.subject.name }}
         </div>
     </div>
 </div>

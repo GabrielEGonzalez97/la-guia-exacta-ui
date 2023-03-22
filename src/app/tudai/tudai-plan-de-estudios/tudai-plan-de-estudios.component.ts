@@ -28,6 +28,7 @@ import {
 import { CatedraModalWindowComponent } from 'src/app/catedras/catedra-modal-window/catedra-modal-window.component';
 import { tudai_subjects } from 'src/app/catedras/tudai_subjects';
 import {
+  CORRELATIVE_CURSADA_NAME,
   CORRELATIVE_FINAL_NAME,
   FIFTH_YEAR_NAME,
   FIRST_QUARTER_NAME,
@@ -38,6 +39,7 @@ import {
   SECOND_QUARTER_NAME,
   SECOND_YEAR_NAME,
   THIRD_YEAR_NAME,
+  TUDAI_NAME,
 } from 'src/app/catedras/interfaces';
 
 @Component({
@@ -72,6 +74,105 @@ export class TudaiPlanDeEstudiosComponent implements OnInit {
   public tecnicas_de_documentacion_y_validacion: ISubjectWithSelection =
     tecnicas_de_documentacion_y_validacion_with_selection;
 
+  public seminario_tecnologico_1: ISubjectWithSelection = {
+    subject: {
+      id: '',
+      name: 'Seminario Tecnológico 1',
+      status: '',
+      career: TUDAI_NAME,
+      year: null,
+      quarter: null,
+      teacher: '',
+      contactEmail: '',
+      modalidadLink: '',
+      programaLink: '',
+      webLink: '',
+      moodleLink: '',
+      clasesLink: '',
+      resumenesLink: '',
+      parcialesLink: '',
+      finalesLink: '',
+      correlatives: [],
+    },
+    color: DEFAULT_COLOR_SUBJECT,
+  };
+
+  public seminario_tecnologico_2: ISubjectWithSelection = {
+    subject: {
+      id: '',
+      name: 'Seminario Tecnológico 2',
+      status: '',
+      career: TUDAI_NAME,
+      year: null,
+      quarter: null,
+      teacher: '',
+      contactEmail: '',
+      modalidadLink: '',
+      programaLink: '',
+      webLink: '',
+      moodleLink: '',
+      clasesLink: '',
+      resumenesLink: '',
+      parcialesLink: '',
+      finalesLink: '',
+      correlatives: [],
+    },
+    color: DEFAULT_COLOR_SUBJECT,
+  };
+
+  public seminario_tecnologico_3: ISubjectWithSelection = {
+    subject: {
+      id: '',
+      name: 'Seminario Tecnológico 3',
+      status: '',
+      career: TUDAI_NAME,
+      year: null,
+      quarter: null,
+      teacher: '',
+      contactEmail: '',
+      modalidadLink: '',
+      programaLink: '',
+      webLink: '',
+      moodleLink: '',
+      clasesLink: '',
+      resumenesLink: '',
+      parcialesLink: '',
+      finalesLink: '',
+      correlatives: [],
+    },
+    color: DEFAULT_COLOR_SUBJECT,
+  };
+
+  public pps: ISubjectWithSelection = {
+    subject: {
+      id: '',
+      name: 'Prácticas Profesionales (PPS)',
+      status: '',
+      career: TUDAI_NAME,
+      year: null,
+      quarter: null,
+      teacher: '',
+      contactEmail: '',
+      modalidadLink: '',
+      programaLink: '',
+      webLink: '',
+      moodleLink: '',
+      clasesLink: '',
+      resumenesLink: '',
+      parcialesLink: '',
+      finalesLink: '',
+      correlatives: [
+        {
+          typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+          subject:
+            this.introduccion_a_las_metodologias_de_desarrollo_de_software
+              .subject,
+        },
+      ],
+    },
+    color: DEFAULT_COLOR_SUBJECT,
+  };
+
   public allSubjects: ISubjectWithSelection[] = [
     this.ingles_1,
     this.programacion_1,
@@ -80,14 +181,18 @@ export class TudaiPlanDeEstudiosComponent implements OnInit {
     this.ingles_2,
     this.programacion_2,
     this.tecnologia_de_la_informacion_en_las_organizaciones,
+    this.seminario_tecnologico_1,
     this.web_2,
     this.bases_de_datos_tudai,
     this.configuracion_y_desarrollo_de_aplicaciones_en_redes,
     this.introduccion_a_las_metodologias_de_desarrollo_de_software,
     this.programacion_3,
+    this.seminario_tecnologico_2,
     this.arquitecturas_web,
     this.interfaces_de_usuario_e_interaccion,
     this.tecnicas_de_documentacion_y_validacion,
+    this.seminario_tecnologico_3,
+    this.pps,
   ];
 
   constructor(private modalService: ModalService) {}
