@@ -14,7 +14,25 @@
     </div>
 </div>
 
-<div *ngIf="isPlanEstudiosTileVisible">
+<ng-container *ngIf="isPlanEstudiosTileVisible">
+    <div ibmRow>
+        <div ibmCol>
+            <ibm-tile class="inner-clickeable-element" (click)="onPlanEstudios2011TileClick()">
+                <div ibmRow>
+                    <div ibmCol class="column-with-margin">
+                        <h1>
+                            <strong>
+                                Plan de estudios 2011
+                            </strong>
+                        </h1>
+                    </div>
+                </div>
+            </ibm-tile>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="isPlanEstudios2011TileVisible">
     <div class="explanation-quarter-container">
         <div class="explanation-container" [style.background-color]="'#24A148'">
             Requisito Cursada y Final
@@ -29,9 +47,9 @@
             Correlativas
         </div>
     </div>
-</div>
+</ng-container>
 
-<div *ngIf="isPlanEstudiosTileVisible">
+<ng-container *ngIf="isPlanEstudios2011TileVisible">
     <div class="quarter-container">
         <div class="subject-container" [style.background-color]="algebra_1.color"
             (mouseover)="onMouseOverSubject(algebra_1)" (mouseleave)="onMouseLeaveSubject()"
@@ -269,16 +287,54 @@
     <div ibmRow>
         <div ibmCol>
             <p>
-                * Curso facultativo con un examen obligatorio. A los fines del régimen de correlatividades, esta materia es
+                * Curso facultativo con un examen obligatorio. A los fines del régimen de correlatividades, esta materia
+                es
                 considerada como perteneciente al segundo cuatrimestre del segundo año.
             </p>
             <p>
-                ** Para realizar la Práctica Profesional Supervisada, se necesita haber cursado el 60% de las cursadas de la
+                ** Para realizar la Práctica Profesional Supervisada, se necesita haber cursado el 60% de las cursadas
+                de la
                 carrera.
             </p>
             <p>
-                *** Para poder realizar el Trabajo Final, se necesita haber cursado el 80% de las cursadas de la carrera.
+                *** Para poder realizar el Trabajo Final, se necesita haber cursado el 80% de las cursadas de la
+                carrera.
             </p>
         </div>
     </div>
-</div>
+</ng-container>
+
+<ng-container *ngIf="isPlanEstudiosTileVisible">
+    <div ibmRow>
+        <div ibmCol>
+            <ibm-tile class="inner-clickeable-element" (click)="onPlanEstudios2024TileClick()">
+                <div ibmRow>
+                    <div ibmCol class="column-with-margin">
+                        <h1>
+                            <strong>
+                                Plan de estudios 2024
+                            </strong>
+                        </h1>
+                    </div>
+                </div>
+            </ibm-tile>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="isPlanEstudios2024TileVisible">
+    <div class="explanation-quarter-container">
+        <div class="explanation-container" [style.background-color]="'#24A148'">
+            Requisito Cursada y Final
+        </div>
+        <div class="explanation-container" [style.background-color]="'#6FDC8C'">
+            Requisito Cursada
+        </div>
+        <div class="explanation-container" [style.background-color]="'#C6C6C6'">
+            Materia Seleccionada
+        </div>
+        <div class="explanation-container" [style.background-color]="'#FA4D56'">
+            Correlativas
+        </div>
+    </div>
+</ng-container>

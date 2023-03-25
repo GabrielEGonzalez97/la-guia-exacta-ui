@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ListItem } from 'carbon-components-angular';
-import {
-  CAREERS_DROPDOWN_ITEMS,
-  QUARTERS_DROPDOWN_ITEMS,
-  ingenieria_de_sistemas_subjects_plan_2011,
-} from './constants';
+import { CAREERS_DROPDOWN_ITEMS, QUARTERS_DROPDOWN_ITEMS } from './constants';
+import { ingenieria_de_sistemas_subjects_plan_2011 } from './ingenieria-de-sistemas-plan-2011';
 import { ISubject } from './interfaces';
 import { tudai_subjects } from './tudai_subjects';
 

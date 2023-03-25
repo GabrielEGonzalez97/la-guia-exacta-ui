@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalService } from 'carbon-components-angular';
 import { CatedraModalWindowComponent } from 'src/app/catedras/catedra-modal-window/catedra-modal-window.component';
-import { ingenieria_de_sistemas_subjects_plan_2011 } from 'src/app/catedras/constants';
 import {
   CORRELATIVE_FINAL_NAME,
   FIFTH_YEAR_NAME,
@@ -61,8 +60,9 @@ import {
   quimica_with_selection,
   sistemas_operativos_1_with_selection,
   teoria_de_la_informacion_with_selection,
-} from './constants';
+} from './plan-2011-constants';
 import { ISubjectWithSelection } from '../../common/interfaces';
+import { ingenieria_de_sistemas_subjects_plan_2011 } from 'src/app/catedras/ingenieria-de-sistemas-plan-2011';
 
 @Component({
   selector: 'app-ingenieria-de-sistemas-plan-de-estudios',
@@ -71,6 +71,8 @@ import { ISubjectWithSelection } from '../../common/interfaces';
 })
 export class IngenieriaDeSistemasPlanDeEstudiosComponent implements OnInit {
   public isPlanEstudiosTileVisible: boolean = false;
+  public isPlanEstudios2011TileVisible: boolean = false;
+  public isPlanEstudios2024TileVisible: boolean = false;
 
   public algebra_1: ISubjectWithSelection = algebra_1_with_selection;
   public algebra_lineal: ISubjectWithSelection = algebra_lineal_with_selection;
@@ -319,6 +321,14 @@ export class IngenieriaDeSistemasPlanDeEstudiosComponent implements OnInit {
 
   public onPlanEstudiosTileClick(): void {
     this.isPlanEstudiosTileVisible = !this.isPlanEstudiosTileVisible;
+  }
+
+  public onPlanEstudios2011TileClick(): void {
+    this.isPlanEstudios2011TileVisible = !this.isPlanEstudios2011TileVisible;
+  }
+
+  public onPlanEstudios2024TileClick(): void {
+    this.isPlanEstudios2024TileVisible = !this.isPlanEstudios2024TileVisible;
   }
 
   private paintCorrelativesSubjects(

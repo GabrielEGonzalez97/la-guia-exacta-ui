@@ -50,3 +50,13 @@ p {
 .clickeable-element:hover {
   background-color: #cbcbcb;
 }
+
+.inner-clickeable-element {
+  cursor: pointer;
+  background-color: #fbfbfb;
+  margin-left: 2rem;
+}
+
+.inner-clickeable-element:hover {
+  background-color: #cbcbcb;
+}

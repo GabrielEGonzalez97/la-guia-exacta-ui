@@ -37,7 +37,7 @@ import {
   quimica,
   sistemas_operativos_1,
   teoria_de_la_informacion,
-} from '../../catedras/constants';
+} from '../../catedras/ingenieria-de-sistemas-plan-2011';
 import { DEFAULT_COLOR_SUBJECT } from '../../common/constants';
 import { ISubjectWithSelection } from '../../common/interfaces';
 
