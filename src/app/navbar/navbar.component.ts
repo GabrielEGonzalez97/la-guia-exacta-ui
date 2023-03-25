@@ -7,9 +7,15 @@ import { UtilsService } from '../services/utils.service';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
+  public isRightPanelVisible: boolean = false;
+
   constructor(private utilsService: UtilsService) {}
 
   public ngOnInit(): void {}
+
+  public updateRightPanelVisibility() {
+    this.isRightPanelVisible = !this.isRightPanelVisible;
+  }
 
   public navigateTo(route: string): void {
     this.utilsService.navigateTo(route);

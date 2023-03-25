@@ -1,6 +1,4 @@
 <header class="bx--header">
-    <ibm-header-navigation style="flex-grow: 1;">
-    </ibm-header-navigation>
     <ibm-header-navigation>
         <ibm-header-menu title="Carreras">
             <ibm-header-item (click)="navigateTo('carreras/ingenieria-de-sistemas')">
@@ -21,6 +19,26 @@
             Cursos gratuitos
         </ibm-header-item>
     </ibm-header-navigation>
-    <ibm-header-navigation style="flex-grow: 1;">
-    </ibm-header-navigation>
+
+    <ibm-hamburger (click)="updateRightPanelVisibility()"></ibm-hamburger>
+    <ibm-panel [expanded]="isRightPanelVisible">
+        <div class="close-panel-button-container">
+            <button ibmButton="primary" [iconOnly]="true" (click)="updateRightPanelVisibility()">
+                <svg class="bx--btn__icon" ibmIcon="close" size="16"></svg>
+            </button>
+        </div>
+        <div class="sidenav-options-container">
+            <ibm-sidenav-menu title="Carreras">
+                <ibm-sidenav-item [route]="['carreras/ingenieria-de-sistemas']">Ingeniería de Sistemas
+                </ibm-sidenav-item>
+                <ibm-sidenav-item [route]="['carreras/tudai']">TUDAI</ibm-sidenav-item>
+            </ibm-sidenav-menu>
+            <ibm-sidenav-item [route]="['catedras']">
+                Cátedras
+            </ibm-sidenav-item>
+            <ibm-sidenav-item>
+                Cursos gratuitos
+            </ibm-sidenav-item>
+        </div>
+    </ibm-panel>
 </header>
