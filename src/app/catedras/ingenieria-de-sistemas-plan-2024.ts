@@ -1,4 +1,5 @@
 import {
+  CORRELATIVE_CURSADA_NAME,
   FIFTH_YEAR_NAME,
   FIRST_QUARTER_NAME,
   FIRST_YEAR_NAME,
@@ -129,7 +130,16 @@ export let disenio_logico_plan_2024: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: introduccion_al_algebra_plan_2024,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: introduccion_a_los_sistemas_informaticos_plan_2024,
+    },
+  ],
 };
 
 export let introduccion_a_la_programacion_2_plan_2024: ISubject = {
@@ -149,7 +159,12 @@ export let introduccion_a_la_programacion_2_plan_2024: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: introduccion_a_la_programacion_1_plan_2024,
+    },
+  ],
 };
 
 export let lenguajes_formales_y_automatas_plan_2024: ISubject = {
@@ -169,7 +184,12 @@ export let lenguajes_formales_y_automatas_plan_2024: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: introduccion_al_algebra_plan_2024,
+    },
+  ],
 };
 
 export let algebra_lineal_plan_2024: ISubject = {
@@ -189,7 +209,12 @@ export let algebra_lineal_plan_2024: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: introduccion_al_algebra_plan_2024,
+    },
+  ],
 };
 
 export let analisis_y_disenio_de_algoritmos_1_plan_2024: ISubject = {
@@ -209,7 +234,20 @@ export let analisis_y_disenio_de_algoritmos_1_plan_2024: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: introduccion_al_algebra_plan_2024,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: introduccion_a_la_programacion_2_plan_2024,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: calculo_1_plan_2024,
+    },
+  ],
 };
 
 export let arquitectura_de_computadoras_1_plan_2024: ISubject = {
@@ -229,7 +267,12 @@ export let arquitectura_de_computadoras_1_plan_2024: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: disenio_logico_plan_2024,
+    },
+  ],
 };
 
 export let programacion_orientada_a_objetos_plan_2024: ISubject = {
@@ -249,7 +292,12 @@ export let programacion_orientada_a_objetos_plan_2024: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: introduccion_a_la_programacion_2_plan_2024,
+    },
+  ],
 };
 
 export let analisis_y_disenio_de_algoritmos_2_plan_2024: ISubject = {
@@ -269,7 +317,12 @@ export let analisis_y_disenio_de_algoritmos_2_plan_2024: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: analisis_y_disenio_de_algoritmos_1_plan_2024,
+    },
+  ],
 };
 
 export let calculo_2_plan_2024: ISubject = {
@@ -289,7 +342,12 @@ export let calculo_2_plan_2024: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: calculo_1_plan_2024,
+    },
+  ],
 };
 
 export let metodologias_de_desarrollo_de_software_plan_2024: ISubject = {
@@ -311,7 +369,12 @@ export let metodologias_de_desarrollo_de_software_plan_2024: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: programacion_orientada_a_objetos_plan_2024,
+    },
+  ],
 };
 
 export let redes_de_computadoras_1_plan_2024: ISubject = {
@@ -331,7 +394,16 @@ export let redes_de_computadoras_1_plan_2024: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: introduccion_a_los_sistemas_informaticos_plan_2024,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: introduccion_a_la_programacion_2_plan_2024,
+    },
+  ],
 };
 
 export let base_de_datos_1_plan_2024: ISubject = {
@@ -351,7 +423,12 @@ export let base_de_datos_1_plan_2024: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: analisis_y_disenio_de_algoritmos_1_plan_2024,
+    },
+  ],
 };
 
 export let fisica_1_plan_2024: ISubject = {
@@ -371,7 +448,16 @@ export let fisica_1_plan_2024: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: calculo_1_plan_2024,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: algebra_lineal_plan_2024,
+    },
+  ],
 };
 
 export let lenguajes_y_paradigmas_plan_2024: ISubject = {
@@ -391,7 +477,16 @@ export let lenguajes_y_paradigmas_plan_2024: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: lenguajes_formales_y_automatas_plan_2024,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: arquitectura_de_computadoras_1_plan_2024,
+    },
+  ],
 };
 
 export let sistemas_operativos_plan_2024: ISubject = {
@@ -411,7 +506,16 @@ export let sistemas_operativos_plan_2024: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: arquitectura_de_computadoras_1_plan_2024,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: analisis_y_disenio_de_algoritmos_2_plan_2024,
+    },
+  ],
 };
 
 export let base_de_datos_2_plan_2024: ISubject = {
@@ -431,13 +535,22 @@ export let base_de_datos_2_plan_2024: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: analisis_y_disenio_de_algoritmos_2_plan_2024,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: base_de_datos_1_plan_2024,
+    },
+  ],
 };
 
-export let ingeniera_de_software_1_plan_2024: ISubject = {
-  id: 'ingeniera_de_software_1_plan_2024',
+export let ingenieria_de_software_1_plan_2024: ISubject = {
+  id: 'ingenieria_de_software_1_plan_2024',
   name: 'Ingeniera de Software I',
-  status: localStorage.getItem('ingeniera_de_software_1_plan_2024'),
+  status: localStorage.getItem('ingenieria_de_software_1_plan_2024'),
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: THIRD_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
@@ -451,7 +564,12 @@ export let ingeniera_de_software_1_plan_2024: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: metodologias_de_desarrollo_de_software_plan_2024,
+    },
+  ],
 };
 
 export let probabilidad_y_estadistica_plan_2024: ISubject = {
@@ -471,7 +589,12 @@ export let probabilidad_y_estadistica_plan_2024: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: calculo_1_plan_2024,
+    },
+  ],
 };
 
 export let programacion_web_plan_2024: ISubject = {
@@ -491,7 +614,16 @@ export let programacion_web_plan_2024: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: metodologias_de_desarrollo_de_software_plan_2024,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: base_de_datos_1_plan_2024,
+    },
+  ],
 };
 
 export let fisica_2_plan_2024: ISubject = {
@@ -511,7 +643,16 @@ export let fisica_2_plan_2024: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: calculo_2_plan_2024,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: fisica_1_plan_2024,
+    },
+  ],
 };
 
 export let organizacion_empresarial_plan_2024: ISubject = {
@@ -531,7 +672,16 @@ export let organizacion_empresarial_plan_2024: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: metodologias_de_desarrollo_de_software_plan_2024,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: probabilidad_y_estadistica_plan_2024,
+    },
+  ],
 };
 
 export let redes_de_computadoras_2_plan_2024: ISubject = {
@@ -551,7 +701,12 @@ export let redes_de_computadoras_2_plan_2024: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: redes_de_computadoras_1_plan_2024,
+    },
+  ],
 };
 
 export let teoria_de_la_informacion_plan_2024: ISubject = {
@@ -571,7 +726,16 @@ export let teoria_de_la_informacion_plan_2024: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: algebra_lineal_plan_2024,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: analisis_y_disenio_de_algoritmos_2_plan_2024,
+    },
+  ],
 };
 
 export let arquitectura_de_computadoras_2_plan_2024: ISubject = {
@@ -591,7 +755,12 @@ export let arquitectura_de_computadoras_2_plan_2024: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: arquitectura_de_computadoras_1_plan_2024,
+    },
+  ],
 };
 
 export let calidad_de_software_plan_2024: ISubject = {
@@ -611,7 +780,12 @@ export let calidad_de_software_plan_2024: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: ingenieria_de_software_1_plan_2024,
+    },
+  ],
 };
 
 export let compiladores_e_interpretes_plan_2024: ISubject = {
@@ -631,7 +805,12 @@ export let compiladores_e_interpretes_plan_2024: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: lenguajes_y_paradigmas_plan_2024,
+    },
+  ],
 };
 
 export let fundamentos_de_la_ciencia_de_datos_plan_2024: ISubject = {
@@ -651,7 +830,20 @@ export let fundamentos_de_la_ciencia_de_datos_plan_2024: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: algebra_lineal_plan_2024,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: base_de_datos_1_plan_2024,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: probabilidad_y_estadistica_plan_2024,
+    },
+  ],
 };
 
 export let ciberseguridad_plan_2024: ISubject = {
@@ -671,7 +863,20 @@ export let ciberseguridad_plan_2024: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: analisis_y_disenio_de_algoritmos_2_plan_2024,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: redes_de_computadoras_1_plan_2024,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: probabilidad_y_estadistica_plan_2024,
+    },
+  ],
 };
 
 export let ingenieria_de_software_2_plan_2024: ISubject = {
@@ -691,7 +896,12 @@ export let ingenieria_de_software_2_plan_2024: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: calidad_de_software_plan_2024,
+    },
+  ],
 };
 
 export let inteligencia_artificial_plan_2024: ISubject = {
@@ -711,7 +921,16 @@ export let inteligencia_artificial_plan_2024: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: fundamentos_de_la_ciencia_de_datos_plan_2024,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: analisis_y_disenio_de_algoritmos_2_plan_2024,
+    },
+  ],
 };
 
 export let etica_y_legislacion_de_la_practica_profesional_plan_2024: ISubject =
@@ -734,7 +953,12 @@ export let etica_y_legislacion_de_la_practica_profesional_plan_2024: ISubject =
     resumenesLink: '',
     parcialesLink: '',
     finalesLink: '',
-    correlatives: [],
+    correlatives: [
+      {
+        typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+        subject: organizacion_empresarial_plan_2024,
+      },
+    ],
   };
 
 export let formulacion_y_evaluacion_de_proyectos_tics_plan_2024: ISubject = {
@@ -756,7 +980,12 @@ export let formulacion_y_evaluacion_de_proyectos_tics_plan_2024: ISubject = {
   resumenesLink: '',
   parcialesLink: '',
   finalesLink: '',
-  correlatives: [],
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: organizacion_empresarial_plan_2024,
+    },
+  ],
 };
 
 export let practicas_profesionales_supervisadas_y_proyecto_integrador_plan_2024: ISubject =
@@ -781,3 +1010,44 @@ export let practicas_profesionales_supervisadas_y_proyecto_integrador_plan_2024:
     finalesLink: '',
     correlatives: [],
   };
+
+export let ingenieria_de_sistemas_subjects_plan_2024: ISubject[] = [
+  ingles_plan_2024,
+  introduccion_al_algebra_plan_2024,
+  introduccion_a_la_programacion_1_plan_2024,
+  introduccion_a_los_sistemas_informaticos_plan_2024,
+  calculo_1_plan_2024,
+  disenio_logico_plan_2024,
+  introduccion_a_la_programacion_2_plan_2024,
+  lenguajes_formales_y_automatas_plan_2024,
+  algebra_lineal_plan_2024,
+  analisis_y_disenio_de_algoritmos_1_plan_2024,
+  arquitectura_de_computadoras_1_plan_2024,
+  programacion_orientada_a_objetos_plan_2024,
+  analisis_y_disenio_de_algoritmos_2_plan_2024,
+  calculo_2_plan_2024,
+  metodologias_de_desarrollo_de_software_plan_2024,
+  redes_de_computadoras_1_plan_2024,
+  base_de_datos_1_plan_2024,
+  fisica_1_plan_2024,
+  lenguajes_y_paradigmas_plan_2024,
+  sistemas_operativos_plan_2024,
+  base_de_datos_2_plan_2024,
+  ingenieria_de_software_1_plan_2024,
+  probabilidad_y_estadistica_plan_2024,
+  programacion_web_plan_2024,
+  fisica_2_plan_2024,
+  organizacion_empresarial_plan_2024,
+  redes_de_computadoras_2_plan_2024,
+  teoria_de_la_informacion_plan_2024,
+  arquitectura_de_computadoras_2_plan_2024,
+  calidad_de_software_plan_2024,
+  compiladores_e_interpretes_plan_2024,
+  fundamentos_de_la_ciencia_de_datos_plan_2024,
+  ciberseguridad_plan_2024,
+  ingenieria_de_software_2_plan_2024,
+  inteligencia_artificial_plan_2024,
+  etica_y_legislacion_de_la_practica_profesional_plan_2024,
+  formulacion_y_evaluacion_de_proyectos_tics_plan_2024,
+  practicas_profesionales_supervisadas_y_proyecto_integrador_plan_2024,
+];

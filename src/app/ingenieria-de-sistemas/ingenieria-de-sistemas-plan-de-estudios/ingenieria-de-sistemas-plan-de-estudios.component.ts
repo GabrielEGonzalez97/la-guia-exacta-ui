@@ -61,6 +61,46 @@ import {
   sistemas_operativos_1_with_selection,
   teoria_de_la_informacion_with_selection,
 } from './plan-2011-constants';
+import {
+  ingles_plan_2024_with_selection,
+  introduccion_al_algebra_plan_2024_with_selection,
+  introduccion_a_la_programacion_1_plan_2024_with_selection,
+  introduccion_a_los_sistemas_informaticos_plan_2024_with_selection,
+  calculo_1_plan_2024_with_selection,
+  disenio_logico_plan_2024_with_selection,
+  introduccion_a_la_programacion_2_plan_2024_with_selection,
+  lenguajes_formales_y_automatas_plan_2024_with_selection,
+  algebra_lineal_plan_2024_with_selection,
+  analisis_y_disenio_de_algoritmos_1_plan_2024_with_selection,
+  arquitectura_de_computadoras_1_plan_2024_with_selection,
+  programacion_orientada_a_objetos_plan_2024_with_selection,
+  analisis_y_disenio_de_algoritmos_2_plan_2024_with_selection,
+  calculo_2_plan_2024_with_selection,
+  metodologias_de_desarrollo_de_software_plan_2024_with_selection,
+  redes_de_computadoras_1_plan_2024_with_selection,
+  base_de_datos_1_plan_2024_with_selection,
+  fisica_1_plan_2024_with_selection,
+  lenguajes_y_paradigmas_plan_2024_with_selection,
+  sistemas_operativos_plan_2024_with_selection,
+  base_de_datos_2_plan_2024_with_selection,
+  ingenieria_de_software_1_plan_2024_with_selection,
+  probabilidad_y_estadistica_plan_2024_with_selection,
+  programacion_web_plan_2024_with_selection,
+  fisica_2_plan_2024_with_selection,
+  organizacion_empresarial_plan_2024_with_selection,
+  redes_de_computadoras_2_plan_2024_with_selection,
+  teoria_de_la_informacion_plan_2024_with_selection,
+  arquitectura_de_computadoras_2_plan_2024_with_selection,
+  calidad_de_software_plan_2024_with_selection,
+  compiladores_e_interpretes_plan_2024_with_selection,
+  fundamentos_de_la_ciencia_de_datos_plan_2024_with_selection,
+  ciberseguridad_plan_2024_with_selection,
+  ingenieria_de_software_2_plan_2024_with_selection,
+  inteligencia_artificial_plan_2024_with_selection,
+  etica_y_legislacion_de_la_practica_profesional_plan_2024_with_selection,
+  formulacion_y_evaluacion_de_proyectos_tics_plan_2024_with_selection,
+  practicas_profesionales_supervisadas_y_proyecto_integrador_plan_2024_with_selection,
+} from './plan-2024-constants';
 import { ISubjectWithSelection } from '../../common/interfaces';
 import { ingenieria_de_sistemas_subjects_plan_2011 } from 'src/app/catedras/ingenieria-de-sistemas-plan-2011';
 
@@ -250,7 +290,7 @@ export class IngenieriaDeSistemasPlanDeEstudiosComponent implements OnInit {
     color: DEFAULT_COLOR_SUBJECT,
   };
 
-  public allSubjects: ISubjectWithSelection[] = [
+  public allPlan2011Subjects: ISubjectWithSelection[] = [
     this.algebra_1,
     this.algebra_lineal,
     this.analisis_matematico_1,
@@ -293,18 +333,143 @@ export class IngenieriaDeSistemasPlanDeEstudiosComponent implements OnInit {
     this.proyecto_final,
   ];
 
+  public ingles_plan_2024: ISubjectWithSelection =
+    ingles_plan_2024_with_selection;
+  public introduccion_al_algebra_plan_2024: ISubjectWithSelection =
+    introduccion_al_algebra_plan_2024_with_selection;
+  public introduccion_a_la_programacion_1_plan_2024: ISubjectWithSelection =
+    introduccion_a_la_programacion_1_plan_2024_with_selection;
+  public introduccion_a_los_sistemas_informaticos_plan_2024: ISubjectWithSelection =
+    introduccion_a_los_sistemas_informaticos_plan_2024_with_selection;
+  public calculo_1_plan_2024: ISubjectWithSelection =
+    calculo_1_plan_2024_with_selection;
+  public disenio_logico_plan_2024: ISubjectWithSelection =
+    disenio_logico_plan_2024_with_selection;
+  public introduccion_a_la_programacion_2_plan_2024: ISubjectWithSelection =
+    introduccion_a_la_programacion_2_plan_2024_with_selection;
+  public lenguajes_formales_y_automatas_plan_2024: ISubjectWithSelection =
+    lenguajes_formales_y_automatas_plan_2024_with_selection;
+  public algebra_lineal_plan_2024: ISubjectWithSelection =
+    algebra_lineal_plan_2024_with_selection;
+  public analisis_y_disenio_de_algoritmos_1_plan_2024: ISubjectWithSelection =
+    analisis_y_disenio_de_algoritmos_1_plan_2024_with_selection;
+  public arquitectura_de_computadoras_1_plan_2024: ISubjectWithSelection =
+    arquitectura_de_computadoras_1_plan_2024_with_selection;
+  public programacion_orientada_a_objetos_plan_2024: ISubjectWithSelection =
+    programacion_orientada_a_objetos_plan_2024_with_selection;
+  public analisis_y_disenio_de_algoritmos_2_plan_2024: ISubjectWithSelection =
+    analisis_y_disenio_de_algoritmos_2_plan_2024_with_selection;
+  public calculo_2_plan_2024: ISubjectWithSelection =
+    calculo_2_plan_2024_with_selection;
+  public metodologias_de_desarrollo_de_software_plan_2024: ISubjectWithSelection =
+    metodologias_de_desarrollo_de_software_plan_2024_with_selection;
+  public redes_de_computadoras_1_plan_2024: ISubjectWithSelection =
+    redes_de_computadoras_1_plan_2024_with_selection;
+  public base_de_datos_1_plan_2024: ISubjectWithSelection =
+    base_de_datos_1_plan_2024_with_selection;
+  public fisica_1_plan_2024: ISubjectWithSelection =
+    fisica_1_plan_2024_with_selection;
+  public lenguajes_y_paradigmas_plan_2024: ISubjectWithSelection =
+    lenguajes_y_paradigmas_plan_2024_with_selection;
+  public sistemas_operativos_plan_2024: ISubjectWithSelection =
+    sistemas_operativos_plan_2024_with_selection;
+  public base_de_datos_2_plan_2024: ISubjectWithSelection =
+    base_de_datos_2_plan_2024_with_selection;
+  public ingenieria_de_software_1_plan_2024: ISubjectWithSelection =
+    ingenieria_de_software_1_plan_2024_with_selection;
+  public probabilidad_y_estadistica_plan_2024: ISubjectWithSelection =
+    probabilidad_y_estadistica_plan_2024_with_selection;
+  public programacion_web_plan_2024: ISubjectWithSelection =
+    programacion_web_plan_2024_with_selection;
+  public fisica_2_plan_2024: ISubjectWithSelection =
+    fisica_2_plan_2024_with_selection;
+  public organizacion_empresarial_plan_2024: ISubjectWithSelection =
+    organizacion_empresarial_plan_2024_with_selection;
+  public redes_de_computadoras_2_plan_2024: ISubjectWithSelection =
+    redes_de_computadoras_2_plan_2024_with_selection;
+  public teoria_de_la_informacion_plan_2024: ISubjectWithSelection =
+    teoria_de_la_informacion_plan_2024_with_selection;
+  public arquitectura_de_computadoras_2_plan_2024: ISubjectWithSelection =
+    arquitectura_de_computadoras_2_plan_2024_with_selection;
+  public calidad_de_software_plan_2024: ISubjectWithSelection =
+    calidad_de_software_plan_2024_with_selection;
+  public compiladores_e_interpretes_plan_2024: ISubjectWithSelection =
+    compiladores_e_interpretes_plan_2024_with_selection;
+  public fundamentos_de_la_ciencia_de_datos_plan_2024: ISubjectWithSelection =
+    fundamentos_de_la_ciencia_de_datos_plan_2024_with_selection;
+  public ciberseguridad_plan_2024: ISubjectWithSelection =
+    ciberseguridad_plan_2024_with_selection;
+  public ingenieria_de_software_2_plan_2024: ISubjectWithSelection =
+    ingenieria_de_software_2_plan_2024_with_selection;
+  public inteligencia_artificial_plan_2024: ISubjectWithSelection =
+    inteligencia_artificial_plan_2024_with_selection;
+  public etica_y_legislacion_de_la_practica_profesional_plan_2024: ISubjectWithSelection =
+    etica_y_legislacion_de_la_practica_profesional_plan_2024_with_selection;
+  public formulacion_y_evaluacion_de_proyectos_tics_plan_2024: ISubjectWithSelection =
+    formulacion_y_evaluacion_de_proyectos_tics_plan_2024_with_selection;
+  public practicas_profesionales_supervisadas_y_proyecto_integrador_plan_2024: ISubjectWithSelection =
+    practicas_profesionales_supervisadas_y_proyecto_integrador_plan_2024_with_selection;
+
+  public allPlan2024Subjects: ISubjectWithSelection[] = [
+    this.ingles_plan_2024,
+    this.introduccion_al_algebra_plan_2024,
+    this.introduccion_a_la_programacion_1_plan_2024,
+    this.introduccion_a_los_sistemas_informaticos_plan_2024,
+    this.calculo_1_plan_2024,
+    this.disenio_logico_plan_2024,
+    this.introduccion_a_la_programacion_2_plan_2024,
+    this.lenguajes_formales_y_automatas_plan_2024,
+    this.algebra_lineal_plan_2024,
+    this.analisis_y_disenio_de_algoritmos_1_plan_2024,
+    this.arquitectura_de_computadoras_1_plan_2024,
+    this.programacion_orientada_a_objetos_plan_2024,
+    this.analisis_y_disenio_de_algoritmos_2_plan_2024,
+    this.calculo_2_plan_2024,
+    this.metodologias_de_desarrollo_de_software_plan_2024,
+    this.redes_de_computadoras_1_plan_2024,
+    this.base_de_datos_1_plan_2024,
+    this.fisica_1_plan_2024,
+    this.lenguajes_y_paradigmas_plan_2024,
+    this.sistemas_operativos_plan_2024,
+    this.base_de_datos_2_plan_2024,
+    this.ingenieria_de_software_1_plan_2024,
+    this.probabilidad_y_estadistica_plan_2024,
+    this.programacion_web_plan_2024,
+    this.fisica_2_plan_2024,
+    this.organizacion_empresarial_plan_2024,
+    this.redes_de_computadoras_2_plan_2024,
+    this.teoria_de_la_informacion_plan_2024,
+    this.arquitectura_de_computadoras_2_plan_2024,
+    this.calidad_de_software_plan_2024,
+    this.compiladores_e_interpretes_plan_2024,
+    this.fundamentos_de_la_ciencia_de_datos_plan_2024,
+    this.ciberseguridad_plan_2024,
+    this.ingenieria_de_software_2_plan_2024,
+    this.inteligencia_artificial_plan_2024,
+    this.etica_y_legislacion_de_la_practica_profesional_plan_2024,
+    this.formulacion_y_evaluacion_de_proyectos_tics_plan_2024,
+    this.practicas_profesionales_supervisadas_y_proyecto_integrador_plan_2024,
+  ];
+
   constructor(private modalService: ModalService) {}
 
   public ngOnInit(): void {}
 
-  public onMouseOverSubject(subjectToEvaluate: ISubjectWithSelection): void {
+  public onMouseOverSubject(
+    allPlanSubjects: ISubjectWithSelection[],
+    subjectToEvaluate: ISubjectWithSelection
+  ): void {
     subjectToEvaluate.color = SELECTED_COLOR_SUBJECT;
-    this.paintCorrelativesSubjects(subjectToEvaluate, subjectToEvaluate);
-    this.paintSubjectsThatObstruct(subjectToEvaluate);
+    this.paintCorrelativesSubjects(
+      subjectToEvaluate,
+      subjectToEvaluate,
+      allPlanSubjects
+    );
+    this.paintSubjectsThatObstruct(subjectToEvaluate, allPlanSubjects);
   }
 
-  public onMouseLeaveSubject(): void {
-    this.allSubjects.forEach((subject: ISubjectWithSelection) => {
+  public onMouseLeaveSubject(allPlanSubjects: ISubjectWithSelection[]): void {
+    allPlanSubjects.forEach((subject: ISubjectWithSelection) => {
       subject.color = DEFAULT_COLOR_SUBJECT;
     });
   }
@@ -333,11 +498,12 @@ export class IngenieriaDeSistemasPlanDeEstudiosComponent implements OnInit {
 
   private paintCorrelativesSubjects(
     subjectToEvaluateOriginal: ISubjectWithSelection,
-    nextSubjectToEvaluate: ISubjectWithSelection
+    nextSubjectToEvaluate: ISubjectWithSelection,
+    allPlanSubjects: ISubjectWithSelection[]
   ): void {
     nextSubjectToEvaluate.subject.correlatives.forEach(
       (correlativeSubject: ICorrelativeSubject) => {
-        this.allSubjects.forEach((subject: ISubjectWithSelection) => {
+        allPlanSubjects.forEach((subject: ISubjectWithSelection) => {
           if (correlativeSubject.subject.id == subject.subject.id) {
             if (
               correlativeSubject.typeOfCorrelativity ===
@@ -353,7 +519,11 @@ export class IngenieriaDeSistemasPlanDeEstudiosComponent implements OnInit {
                 subject.color = REQUISITO_CURSADA_COLOR_SUBJECT;
               }
             }
-            this.paintCorrelativesSubjects(subjectToEvaluateOriginal, subject);
+            this.paintCorrelativesSubjects(
+              subjectToEvaluateOriginal,
+              subject,
+              allPlanSubjects
+            );
           }
         });
       }
@@ -439,14 +609,15 @@ export class IngenieriaDeSistemasPlanDeEstudiosComponent implements OnInit {
   }
 
   private paintSubjectsThatObstruct(
-    subjectToEvaluate: ISubjectWithSelection
+    subjectToEvaluate: ISubjectWithSelection,
+    allPlanSubjects: ISubjectWithSelection[]
   ): void {
-    this.allSubjects.forEach((subject: ISubjectWithSelection) => {
+    allPlanSubjects.forEach((subject: ISubjectWithSelection) => {
       subject.subject.correlatives.forEach(
         (correlativeSubject: ICorrelativeSubject) => {
           if (correlativeSubject.subject.id == subjectToEvaluate.subject.id) {
             subject.color = CORRELATIVE_COLOR_SUBJECT;
-            this.paintSubjectsThatObstruct(subject);
+            this.paintSubjectsThatObstruct(subject, allPlanSubjects);
           }
         }
       );
