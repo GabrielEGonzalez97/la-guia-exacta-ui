@@ -15,6 +15,7 @@ import { IFinalesInformation } from './interfaces';
 export class FinalesComponent implements OnInit {
   public finales: IFinalesInformation[] = [];
   public finalesToShow: IFinalesInformation[] = [];
+  public areFinalesLoading: boolean = true;
   public yearDropdownItems: ListItem[] = [
     {
       content: 'Todos',
@@ -67,6 +68,7 @@ export class FinalesComponent implements OnInit {
               }
             );
             this.finalesToShow = this.finales;
+            this.areFinalesLoading = false;
           }
         }
       );

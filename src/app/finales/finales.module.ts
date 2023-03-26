@@ -4,12 +4,19 @@ import {
   ButtonModule,
   DropdownModule,
   GridModule,
+  SkeletonModule,
   TilesModule,
 } from 'carbon-components-angular';
 import { SafePipeModule } from '../safe-pipe/safe-pipe.module';
 import { FinalesComponent } from './finales.component';
 
-const CARBON_IMPORTS = [ButtonModule, DropdownModule, GridModule, TilesModule];
+const CARBON_IMPORTS = [
+  ButtonModule,
+  DropdownModule,
+  GridModule,
+  SkeletonModule,
+  TilesModule,
+];
 
 @NgModule({
   declarations: [FinalesComponent],
