@@ -33,6 +33,19 @@
 </ng-container>
 
 <ng-container *ngIf="isPlanEstudios2011TileVisible">
+    <div class="buttons-container">
+        <div ibmRow>
+            <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 3 }">
+                <button ibmButton="primary"
+                    (click)="openLinkNewTab('https://drive.google.com/file/d/1Q5r03q7cH3CC3ZNHhRKJxnUc8uH6H4Cj/view')">
+                    <app-action-bar-element [elementIconImagePath]="'../assets/images/download-logo.svg'"
+                        [elementName]="'Detalle'">
+                    </app-action-bar-element>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <div class="explanation-quarter-container">
         <div class="explanation-container" [style.background-color]="'#24A148'">
             Requisito Cursada y Final

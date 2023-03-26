@@ -509,6 +509,9 @@ export class IngenieriaDeSistemasPlanDeEstudiosComponent implements OnInit {
 
   public onPlanEstudiosTileClick(): void {
     this.isPlanEstudiosTileVisible = !this.isPlanEstudiosTileVisible;
+    this.isPlanEstudios2011TileVisible = false;
+    this.isPlanEstudios2024TileVisible = false;
+    this.isPlanTransicionTileVisible = false;
   }
 
   public onPlanEstudios2011TileClick(): void {
