@@ -1,5 +1,92 @@
 <footer>
     <ibm-tile>
-        
+        <div ibmRow>
+            <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 3 }">
+                <ibm-tile>
+                    <div ibmRow class="row-with-action-bar-element-container">
+                        <strong>
+                            <p>
+                                Accesos rápidos
+                            </p>
+                        </strong>
+                    </div>
+                    <div ibmRow class="row-with-action-bar-element-container">
+                        <button ibmButton="primary">
+                            <app-action-bar-element [elementIconImagePath]="'../assets/images/instagram-logo.svg'"
+                                [elementName]="'La guía exacta'">
+                            </app-action-bar-element>
+                        </button>
+                    </div>
+                    <div ibmRow class="row-with-action-bar-element-container">
+                        <button ibmButton="primary">
+                            <app-action-bar-element [elementIconImagePath]="'../assets/images/you-tube-logo.svg'"
+                                [elementName]="'La guía exacta'">
+                            </app-action-bar-element>
+                        </button>
+                    </div>
+                    <div ibmRow class="row-with-action-bar-element-container">
+                        <button ibmButton="primary"
+                            (click)="openLinkNewTab('https://www.instagram.com/amu.mpe.exactas/')">
+                            <app-action-bar-element [elementIconImagePath]="'../assets/images/instagram-logo.svg'"
+                                [elementName]="'AMU'">
+                            </app-action-bar-element>
+                        </button>
+                    </div>
+                    <div ibmRow class="row-with-action-bar-element-container">
+                        <button ibmButton="primary" (click)="openLinkNewTab('https://moodle.exa.unicen.edu.ar/')">
+                            <app-action-bar-element [elementIconImagePath]="'../assets/images/moodle-logo.svg'"
+                                [elementName]="'Moodle'">
+                            </app-action-bar-element>
+                        </button>
+                    </div>
+                    <div ibmRow class="row-with-action-bar-element-container">
+                        <button ibmButton="primary"
+                            (click)="openLinkNewTab('https://guarani.unicen.edu.ar/autogestion/exactas/')">
+                            <app-action-bar-element class="siu-logo"
+                                [elementIconImagePath]="'../assets/images/siu-logo.png'" [elementName]="'Guaraní'">
+                            </app-action-bar-element>
+                        </button>
+                    </div>
+                    <div ibmRow class="row-with-action-bar-element-container">
+                        <button ibmButton="primary" (click)="openLinkNewTab('https://exa.unicen.edu.ar/')">
+                            <app-action-bar-element [elementIconImagePath]="'../assets/images/www-logo.svg'"
+                                [elementName]="'Exactas'">
+                            </app-action-bar-element>
+                        </button>
+                    </div>
+                </ibm-tile>
+            </div>
+            <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 3 }">
+                <ibm-tile>
+                    <div ibmRow class="row-with-action-bar-element-container">
+                        <strong>
+                            <p>
+                                Mapa del sitio
+                            </p>
+                        </strong>
+                    </div>
+                    <div ibmRow class="row-with-action-bar-element-container">
+                        <button ibmButton="primary" (click)="navigateTo('carreras/ingenieria-de-sistemas')">
+                            Ingenieria de Sistemas
+                        </button>
+                    </div>
+                    <div ibmRow class="row-with-action-bar-element-container">
+                        <button ibmButton="primary" (click)="navigateTo('carreras/tudai')">
+                            TUDAI
+                        </button>
+                    </div>
+                    <div ibmRow class="row-with-action-bar-element-container">
+                        <button ibmButton="primary" (click)="navigateTo('catedras')">
+                            Cátedras
+                        </button>
+                    </div>
+                    <div ibmRow class="row-with-action-bar-element-container">
+                        <button ibmButton="primary">
+                            Cursos gratuitos
+                        </button>
+                    </div>
+                </ibm-tile>
+            </div>
+        </div>
     </ibm-tile>
 </footer>

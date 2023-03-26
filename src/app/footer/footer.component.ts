@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UtilsService } from '../services/utils.service';
 
 @Component({
   selector: 'app-footer',
@@ -6,7 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent implements OnInit {
-  constructor() {}
+  constructor(private utilsService: UtilsService) {}
 
   public ngOnInit(): void {}
+
+  public openLinkNewTab(link: string): void {
+    window.open(link, '_blank');
+  }
+
+  public navigateTo(route: string): void {
+    this.utilsService.navigateTo(route);
+  }
 }

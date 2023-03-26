@@ -9,3 +9,27 @@ ibm-tile {
   width: 100%;
   background-color: $ibm-color__cool-gray-80;
 }
+
+.row-with-action-bar-element-container {
+  justify-content: center;
+
+  p {
+    font-size: 1.5rem;
+    color: $ibm-color__gray-30;
+  }
+}
+
+.bx--btn--primary {
+  padding-right: 15px;
+  background-color: transparent;
+}
+
+.bx--btn--primary:hover {
+  background-color: $ibm-color__cool-gray-90;
+}
+
+.siu-logo ::ng-deep {
+  img {
+    width: 24px;
+  }
+}
