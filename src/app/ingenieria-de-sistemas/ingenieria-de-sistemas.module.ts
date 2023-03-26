@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import {
+  ButtonModule,
   GridModule,
   ModalModule,
   TableModule,
@@ -11,8 +12,15 @@ import { IngenieriaDeSistemasDescripcionComponent } from './ingenieria-de-sistem
 import { CatedraModalWindowComponent } from '../catedras/catedra-modal-window/catedra-modal-window.component';
 import { CatedraModule } from '../catedras/catedra/catedra.module';
 import { IngenieriaDeSistemasPlanDeEstudiosComponent } from './ingenieria-de-sistemas-plan-de-estudios/ingenieria-de-sistemas-plan-de-estudios.component';
+import { ActionBarElementModule } from '../actions-bar/action-bar-element/action-bar-element.module';
 
-const CARBON_IMPORTS = [GridModule, ModalModule, TableModule, TilesModule];
+const CARBON_IMPORTS = [
+  ButtonModule,
+  GridModule,
+  ModalModule,
+  TableModule,
+  TilesModule,
+];
 
 const COMPONENT_IMPORTS = [
   IngenieriaDeSistemasDescripcionComponent,
@@ -25,7 +33,12 @@ const COMPONENT_IMPORTS = [
     CatedraModalWindowComponent,
     COMPONENT_IMPORTS,
   ],
-  imports: [CommonModule, CARBON_IMPORTS, CatedraModule],
+  imports: [
+    CommonModule,
+    CARBON_IMPORTS,
+    CatedraModule,
+    ActionBarElementModule,
+  ],
   providers: [],
   exports: [IngenieriaDeSistemasComponent],
 })

@@ -61,12 +61,21 @@ p {
   background-color: #cbcbcb;
 }
 
+.bx--btn--primary {
+  background-color: black;
+}
+
+.bx--btn--primary:hover {
+  background-color: #333;
+}
+
 .table-header {
   font-size: calc(1.25vw + 1.25vh);
   text-align: center;
 }
 
-.table-container {
+.table-container,
+.buttons-container {
   margin-left: 2rem;
   margin-right: 2rem;
 }
