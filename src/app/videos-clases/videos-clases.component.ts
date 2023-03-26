@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ListItem } from 'carbon-components-angular';
 import { HttpService } from '../services/http.service';
 import { IWithState } from '../services/utils.service';
+import { IVideosInformation } from './interfaces';
 
 @Component({
   selector: 'app-videos-clases',
@@ -10,15 +11,10 @@ import { IWithState } from '../services/utils.service';
   styleUrls: ['./videos-clases.component.scss'],
 })
 export class VideosClasesComponent implements OnInit {
-  public videos: any[] = [];
-  public videosToShow: any[] = [];
+  public videos: IVideosInformation[] = [];
+  public videosToShow: IVideosInformation[] = [];
+  public areVideosLoading: boolean = true;
   public yearDropdownItems: ListItem[] = [
-    {
-      content: 'Todos',
-      selected: true,
-    },
-  ];
-  public monthDropdownItems: ListItem[] = [
     {
       content: 'Todos',
       selected: true,
@@ -46,14 +42,15 @@ export class VideosClasesComponent implements OnInit {
             .getJSONFileById(videoFolderWithState.value[0].id)
             .subscribe((fileWithState: IWithState<any>) => {
               if (fileWithState.state === 'done') {
-                console.log(fileWithState);
                 fileWithState.value.forEach((video) => {
                   this.videos.push({
                     videoName: video.videoName,
+                    year: video.year,
                     videoUrl: video.videoUrl,
                     showFile: false,
                   });
                 });
+                this.areVideosLoading = false;
               }
             });
           this.videosToShow = this.videos;

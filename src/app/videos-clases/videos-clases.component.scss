@@ -26,3 +26,9 @@
   width: 100%;
   height: 100%;
 }
+
+:host ::ng-deep {
+  .bx--skeleton__placeholder {
+    width: 100%;
+  }
+}

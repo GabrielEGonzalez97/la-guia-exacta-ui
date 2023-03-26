@@ -1,28 +1,40 @@
-<div ibmRow *ngFor="let video of videosToShow">
-    <div ibmCol>
-        <ibm-tile>
-            <div ibmRow>
-                <div ibmCol style="display: flex; align-items: center; margin-left: 1rem;">
-                    <h3 style="font-size: calc(1.5vw + 1.5vh);"> {{ video.videoName }} </h3>
-                </div>
-            </div>
-            <div ibmRow>
-                <div ibmCol style="display: flex; align-items: center; margin-left: 1rem;">
-                    <button ibmButton="primary" (click)="onVerVideoButtonClick(video)">
-                        <p *ngIf="!video.showFile">Ver video</p>
-                        <p *ngIf="video.showFile">Ocultar video</p>
-                    </button>
-                </div>
-            </div>
-            <div ibmRow *ngIf="video.showFile">
-                <div ibmCol>
-                    <div class="video-container">
-                        <iframe width="100%" height="750px" [src]="video.videoUrl | safe" frameborder="0"
-                            allowfullscreen>
-                        </iframe>
+<ng-container *ngIf="!areVideosLoading; else loadingVideosTemplate">
+    <div ibmRow *ngFor="let video of videosToShow">
+        <div ibmCol>
+            <ibm-tile>
+                <div ibmRow>
+                    <div ibmCol style="display: flex; align-items: center; margin-left: 1rem;">
+                        <h3 style="font-size: calc(1.5vw + 1.5vh);"> {{ video.videoName }} </h3>
                     </div>
                 </div>
-            </div>
-        </ibm-tile>
+                <div ibmRow>
+                    <div ibmCol style="display: flex; align-items: center; margin-left: 1rem;">
+                        <button ibmButton="primary" (click)="onVerVideoButtonClick(video)">
+                            <p *ngIf="!video.showFile">Ver video</p>
+                            <p *ngIf="video.showFile">Ocultar video</p>
+                        </button>
+                    </div>
+                </div>
+                <div ibmRow *ngIf="video.showFile">
+                    <div ibmCol>
+                        <div class="video-container">
+                            <iframe width="100%" height="750px" [src]="video.videoUrl | safe" frameborder="0"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </ibm-tile>
+        </div>
     </div>
-</div>
+</ng-container>
+
+<ng-template #loadingVideosTemplate>
+    <div ibmRow *ngFor="let i of [0,1,2,3,4]">
+        <div ibmCol>
+            <ibm-tile>
+                <ibm-skeleton-placeholder></ibm-skeleton-placeholder>
+            </ibm-tile>
+        </div>
+    </div>
+</ng-template>
