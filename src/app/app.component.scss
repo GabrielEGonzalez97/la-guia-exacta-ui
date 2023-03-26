@@ -1,10 +1,15 @@
 .page-container {
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
+  margin: 0;
 }
 
 .page-content {
   position: relative;
   top: 6rem;
+  min-height: 100vh;
+  height: auto;
+  margin: 0;
   margin-top: 2.5%;
   margin-left: 5%;
   margin-right: 5%;
