@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ListItem } from 'carbon-components-angular';
-import { MONTHS } from '../common/constants';
 import { HttpService } from '../services/http.service';
 import { IWithState } from '../services/utils.service';
 
@@ -11,8 +10,8 @@ import { IWithState } from '../services/utils.service';
   styleUrls: ['./videos-clases.component.scss'],
 })
 export class VideosClasesComponent implements OnInit {
-  public finales: any[] = [];
-  public finalesToShow: any[] = [];
+  public videos: any[] = [];
+  public videosToShow: any[] = [];
   public yearDropdownItems: ListItem[] = [
     {
       content: 'Todos',
@@ -49,7 +48,7 @@ export class VideosClasesComponent implements OnInit {
               if (fileWithState.state === 'done') {
                 console.log(fileWithState);
                 fileWithState.value.forEach((video) => {
-                  this.finales.push({
+                  this.videos.push({
                     videoName: video.videoName,
                     videoUrl: video.videoUrl,
                     showFile: false,
@@ -57,13 +56,13 @@ export class VideosClasesComponent implements OnInit {
                 });
               }
             });
-          this.finalesToShow = this.finales;
+          this.videosToShow = this.videos;
         }
       });
   }
 
-  public onVerFinalButtonClick(final: any): void {
-    final.showFile = !final.showFile;
+  public onVerVideoButtonClick(video: any): void {
+    video.showFile = !video.showFile;
   }
 
   public onSelectedYearChange(selectedYear: any): void {
@@ -81,10 +80,10 @@ export class VideosClasesComponent implements OnInit {
   private onFilterChange(): void {
     const filterFunction = (field: string, fieldToSearch: string) =>
       field.toLowerCase().indexOf(fieldToSearch.toLowerCase()) !== -1;
-    this.finalesToShow = this.finales.filter(
-      (final: any) =>
-        filterFunction(final.year, this.selectedYearContent) &&
-        filterFunction(final.month, this.selectedMonthContent)
+    this.videosToShow = this.videos.filter(
+      (video: any) =>
+        filterFunction(video.year, this.selectedYearContent) &&
+        filterFunction(video.month, this.selectedMonthContent)
     );
   }
 
@@ -96,28 +95,5 @@ export class VideosClasesComponent implements OnInit {
         selected: false,
       });
     }
-  }
-
-  private completeDropdownWithMonths(): void {
-    MONTHS.forEach((month: string) => {
-      this.monthDropdownItems.push({
-        content: month,
-        selected: false,
-      });
-    });
-  }
-
-  private extractYearFromFinalName(finalName: string): string {
-    return /(^|\s)(\d{4})(\s|$)/.exec(finalName)[2];
-  }
-
-  private sortFinalesByMonthAndYear(): void {
-    this.finales.sort((a: any, b: any) => {
-      return MONTHS.indexOf(b.month) - MONTHS.indexOf(a.month);
-    });
-
-    this.finales.sort((a: any, b: any) => {
-      return Number(b.year) - Number(a.year);
-    });
   }
 }

@@ -1,23 +1,26 @@
-<div ibmRow *ngFor="let final of finalesToShow">
+<div ibmRow *ngFor="let video of videosToShow">
     <div ibmCol>
         <ibm-tile>
             <div ibmRow>
                 <div ibmCol style="display: flex; align-items: center; margin-left: 1rem;">
-                    <h3 style="font-size: calc(1.5vw + 1.5vh);"> {{ final.videoName }} </h3>
+                    <h3 style="font-size: calc(1.5vw + 1.5vh);"> {{ video.videoName }} </h3>
                 </div>
             </div>
             <div ibmRow>
                 <div ibmCol style="display: flex; align-items: center; margin-left: 1rem;">
-                    <button ibmButton="primary" (click)="onVerFinalButtonClick(final)">
-                        <p *ngIf="!final.showFile">Ver final</p>
-                        <p *ngIf="final.showFile">Ocultar final</p>
+                    <button ibmButton="primary" (click)="onVerVideoButtonClick(video)">
+                        <p *ngIf="!video.showFile">Ver video</p>
+                        <p *ngIf="video.showFile">Ocultar video</p>
                     </button>
                 </div>
             </div>
-            <div ibmRow *ngIf="final.showFile">
+            <div ibmRow *ngIf="video.showFile">
                 <div ibmCol>
-                    <iframe width="100%" height="750px" [src]="final.videoUrl | safe" frameborder="0"
-                        allowfullscreen></iframe>
+                    <div class="video-container">
+                        <iframe width="100%" height="750px" [src]="video.videoUrl | safe" frameborder="0"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
                 </div>
             </div>
         </ibm-tile>
