@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { ModalService } from 'carbon-components-angular';
 import { CatedraModalWindowComponent } from 'src/app/catedras/catedra-modal-window/catedra-modal-window.component';
 import {
@@ -103,6 +103,7 @@ import {
 } from './plan-2024-constants';
 import { ISubjectWithSelection } from '../../common/interfaces';
 import { ingenieria_de_sistemas_subjects_plan_2011 } from 'src/app/catedras/ingenieria-de-sistemas-plan-2011';
+import { PlanTransicionPlan2011Plan2024TableModel } from './plan-transicion-plan-2011-2024';
 
 @Component({
   selector: 'app-ingenieria-de-sistemas-plan-de-estudios',
@@ -110,9 +111,19 @@ import { ingenieria_de_sistemas_subjects_plan_2011 } from 'src/app/catedras/inge
   styleUrls: ['./ingenieria-de-sistemas-plan-de-estudios.component.scss'],
 })
 export class IngenieriaDeSistemasPlanDeEstudiosComponent implements OnInit {
+  @ViewChild('headerTemplate', { static: true })
+  private headerTemplate: TemplateRef<unknown>;
+
+  @ViewChild('columnTemplate', { static: true })
+  private columnTemplate: TemplateRef<unknown>;
+
   public isPlanEstudiosTileVisible: boolean = false;
   public isPlanEstudios2011TileVisible: boolean = false;
   public isPlanEstudios2024TileVisible: boolean = false;
+  public isPlanTransicionTileVisible: boolean = false;
+
+  public planTransicionPlan2011Plan2024TableModel: PlanTransicionPlan2011Plan2024TableModel =
+    null;
 
   public algebra_1: ISubjectWithSelection = algebra_1_with_selection;
   public algebra_lineal: ISubjectWithSelection = algebra_lineal_with_selection;
@@ -453,7 +464,13 @@ export class IngenieriaDeSistemasPlanDeEstudiosComponent implements OnInit {
 
   constructor(private modalService: ModalService) {}
 
-  public ngOnInit(): void {}
+  public ngOnInit(): void {
+    this.planTransicionPlan2011Plan2024TableModel =
+      new PlanTransicionPlan2011Plan2024TableModel(
+        this.headerTemplate,
+        this.columnTemplate
+      );
+  }
 
   public onMouseOverSubject(
     allPlanSubjects: ISubjectWithSelection[],
@@ -494,6 +511,10 @@ export class IngenieriaDeSistemasPlanDeEstudiosComponent implements OnInit {
 
   public onPlanEstudios2024TileClick(): void {
     this.isPlanEstudios2024TileVisible = !this.isPlanEstudios2024TileVisible;
+  }
+
+  public onPlanTransicionTileVisible(): void {
+    this.isPlanTransicionTileVisible = !this.isPlanTransicionTileVisible;
   }
 
   private paintCorrelativesSubjects(

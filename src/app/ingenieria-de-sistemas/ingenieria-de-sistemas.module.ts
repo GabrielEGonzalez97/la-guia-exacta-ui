@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import {
   GridModule,
   ModalModule,
+  TableModule,
   TilesModule,
 } from 'carbon-components-angular';
 import { IngenieriaDeSistemasComponent } from './ingenieria-de-sistemas.component';
@@ -11,7 +12,7 @@ import { CatedraModalWindowComponent } from '../catedras/catedra-modal-window/ca
 import { CatedraModule } from '../catedras/catedra/catedra.module';
 import { IngenieriaDeSistemasPlanDeEstudiosComponent } from './ingenieria-de-sistemas-plan-de-estudios/ingenieria-de-sistemas-plan-de-estudios.component';
 
-const CARBON_IMPORTS = [GridModule, ModalModule, TilesModule];
+const CARBON_IMPORTS = [GridModule, ModalModule, TableModule, TilesModule];
 
 const COMPONENT_IMPORTS = [
   IngenieriaDeSistemasDescripcionComponent,

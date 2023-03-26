@@ -593,3 +593,82 @@
         </div>
     </div>
 </ng-container>
+
+<ng-container *ngIf="isPlanEstudiosTileVisible">
+    <div ibmRow>
+        <div ibmCol>
+            <ibm-tile class="inner-clickeable-element" (click)="onPlanTransicionTileVisible()">
+                <div ibmRow>
+                    <div ibmCol class="column-with-margin">
+                        <h1>
+                            <strong>
+                                Plan de transición entre planes 2011 y 2024
+                            </strong>
+                        </h1>
+                    </div>
+                </div>
+            </ibm-tile>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="isPlanTransicionTileVisible">
+    <div class="table-container">
+        <div ibmRow>
+            <div ibmCol>
+                <ibm-table-container>
+                    <ibm-table [model]="planTransicionPlan2011Plan2024TableModel" [showSelectionColumn]="false"
+                        [sortable]="false">
+                        <tbody>
+                            <tr>
+                                <td class="no-data-table" colspan="4">
+                                    <div>No data.</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </ibm-table>
+                </ibm-table-container>
+            </div>
+        </div>
+
+        <div ibmRow>
+            <div ibmCol>
+                <p>
+                    (*) Si la/ el estudiante hubiera aprobado una optativa con los contenidos comprendidos en la
+                    asignatura de la derecha, se le otorgará la equivalencia, a partir de la solicitud del
+                    estudiante, parcial o total de acuerdo a la optativa cursada y aprobada.
+                </p>
+            </div>
+        </div>
+
+        <div ibmRow>
+            <div ibmCol>
+                <p>
+                    (**) Si la/el estudiante hubiera realizado Práctica Profesional Supervisada (PPS) o solicitado
+                    su reconocimiento previo a la transición de plan de estudios, las mismas se reconocerán
+                    como parte del trayecto PPS más Trabajo integrador
+                </p>
+            </div>
+        </div>
+
+        <div ibmRow>
+            <div ibmCol>
+                <p>
+                    Si la/el estudiante hubiera realizado actividades de libre elección acreditadas por el HCA, las
+                    mismas serán reconocidas con hs hasta completar 60 hs.
+                </p>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<ng-template #headerTemplate let-data="data">
+    <div class="table-header" [title]="data.description">{{ data.title }}</div>
+</ng-template>
+
+<ng-template #columnTemplate let-data="data">
+    <div class="table-row-data-container">
+        <strong *ngIf="data.includes('Año')">{{ data }}</strong>
+        <p *ngIf="!data.includes('Año')">{{ data }}</p>
+    </div>
+</ng-template>
