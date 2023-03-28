@@ -19,49 +19,49 @@
     <hr class="bx--side-nav__divider" />
     <div class="buttons-container">
         <div ibmRow>
-            <app-catedra-column-with-button [elementIconImagePath]="'../assets/images/lupa.svg'"
+            <app-catedra-column-with-button [elementIconImagePath]="'assets/images/lupa.svg'"
                 [elementName]="'Requisitos'" (onButtonClickEmitter)="showCorrelativesModalWindow()">
             </app-catedra-column-with-button>
 
-            <app-catedra-column-with-button [elementIconImagePath]="'../assets/images/lupa.svg'"
+            <app-catedra-column-with-button [elementIconImagePath]="'assets/images/lupa.svg'"
                 [elementName]="'Correlativas'" (onButtonClickEmitter)="showSubjectsThatObstructModalWindow()">
             </app-catedra-column-with-button>
 
             <app-catedra-column-with-button *ngIf="subject.modalidadLink"
-                [elementIconImagePath]="'../assets/images/www-logo.svg'" [elementName]="'Modalidad'"
+                [elementIconImagePath]="'assets/images/www-logo.svg'" [elementName]="'Modalidad'"
                 (onButtonClickEmitter)="openLinkNewTab(subject.modalidadLink)">
             </app-catedra-column-with-button>
 
             <app-catedra-column-with-button *ngIf="subject.programaLink"
-                [elementIconImagePath]="'../assets/images/www-logo.svg'" [elementName]="'Programa'"
+                [elementIconImagePath]="'assets/images/www-logo.svg'" [elementName]="'Programa'"
                 (onButtonClickEmitter)="openLinkNewTab(subject.programaLink)">
             </app-catedra-column-with-button>
 
             <app-catedra-column-with-button *ngIf="subject.webLink"
-                [elementIconImagePath]="'../assets/images/www-logo.svg'" [elementName]="'Web / Material'"
+                [elementIconImagePath]="'assets/images/www-logo.svg'" [elementName]="'Web / Material'"
                 (onButtonClickEmitter)="openLinkNewTab(subject.webLink)">
             </app-catedra-column-with-button>
 
             <app-catedra-column-with-button *ngIf="subject.moodleLink"
-                [elementIconImagePath]="'../assets/images/moodle-logo.svg'" [elementName]="'Moodle'"
+                [elementIconImagePath]="'assets/images/moodle-logo.svg'" [elementName]="'Moodle'"
                 (onButtonClickEmitter)="openLinkNewTab(subject.moodleLink)">
             </app-catedra-column-with-button>
 
             <app-catedra-column-with-button *ngIf="subject.clasesLink"
-                [elementIconImagePath]="'../assets/images/you-tube-logo.svg'" [elementName]="'Clases'"
+                [elementIconImagePath]="'assets/images/you-tube-logo.svg'" [elementName]="'Clases'"
                 (onButtonClickEmitter)="navigateTo('videos-clases/' + subject.clasesLink)">
             </app-catedra-column-with-button>
 
             <app-catedra-column-with-button *ngIf="subject.resumenesLink"
-                [elementIconImagePath]="'../assets/images/pencil-logo.svg'" [elementName]="'Resúmenes'">
+                [elementIconImagePath]="'assets/images/pencil-logo.svg'" [elementName]="'Resúmenes'">
             </app-catedra-column-with-button>
 
             <app-catedra-column-with-button *ngIf="subject.parcialesLink"
-                [elementIconImagePath]="'../assets/images/studying-logo.svg'" [elementName]="'Parciales'">
+                [elementIconImagePath]="'assets/images/studying-logo.svg'" [elementName]="'Parciales'">
             </app-catedra-column-with-button>
 
             <app-catedra-column-with-button *ngIf="subject.finalesLink"
-                [elementIconImagePath]="'../assets/images/finish-flag-logo.svg'" [elementName]="'Finales'"
+                [elementIconImagePath]="'assets/images/finish-flag-logo.svg'" [elementName]="'Finales'"
                 (onButtonClickEmitter)="navigateTo('finales/' + subject.finalesLink)">
             </app-catedra-column-with-button>
         </div>
