@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { IGoogleDriveFolderInformation } from '../common/interfaces';
 import { IWithState, UtilsService } from './utils.service';
 
-const API_URL = 'http://127.0.0.1:5000';
+const API_URL = 'https://la-guia-exacta.vercel.app';
 
 @Injectable({
   providedIn: 'root',
