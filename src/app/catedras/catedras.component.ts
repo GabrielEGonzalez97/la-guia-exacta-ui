@@ -60,8 +60,9 @@ export class CatedrasComponent implements OnInit {
     this.onFilterChange();
   }
 
-  public onChangeSearchingByTeacher(teacherNameToSearch: string): void {
-    this.searchingByTeacherContent = teacherNameToSearch;
+  public onChangeSearchingByTeacher(teacherNameToSearch: any): void {
+    console.log(teacherNameToSearch);
+    this.searchingByTeacherContent = teacherNameToSearch.target.value;
     this.onFilterChange();
   }
 

@@ -12,8 +12,9 @@
     </div>
     <div ibmCol>
         <ibm-label>Docente</ibm-label>
+        <input type="search"  placeholder='Buscar por nombre de docente' autocomplete='on' (input)="onChangeSearchingByTeacher($event)">
         <ibm-search placeholder='Buscar por nombre de docente' autocomplete='on'
-            (valueChange)="onChangeSearchingByTeacher($event)" (clear)="onChangeSearchingByTeacher('')">
+            (keyUp)="onChangeSearchingByTeacher($event)" (clear)="onChangeSearchingByTeacher('')">
         </ibm-search>
     </div>
     <div ibmCol>
