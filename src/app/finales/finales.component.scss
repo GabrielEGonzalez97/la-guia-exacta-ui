@@ -27,6 +27,17 @@
   height: 100%;
 }
 
+.no-finals-tile {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  p {
+    font-size: calc(2vw + 2vh);
+  }
+}
+
 :host ::ng-deep {
   .bx--skeleton__placeholder {
     width: 100%;

@@ -69,6 +69,8 @@ export class FinalesComponent implements OnInit {
             );
             this.finalesToShow = this.finales;
             this.areFinalesLoading = false;
+          } else if (filesFinalesFolderWithState.state === 'error') {
+            this.areFinalesLoading = false;
           }
         }
       );
