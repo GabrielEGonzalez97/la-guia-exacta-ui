@@ -12,16 +12,19 @@
     </div>
     <div ibmCol>
         <ibm-label>Docente</ibm-label>
-        <input type="search"  placeholder='Buscar por nombre de docente' autocomplete='on' (input)="onChangeSearchingByTeacher($event)">
-        <ibm-search placeholder='Buscar por nombre de docente' autocomplete='on'
-            (keyUp)="onChangeSearchingByTeacher($event)" (clear)="onChangeSearchingByTeacher('')">
-        </ibm-search>
+        <div class="bx--search">
+            <input class="bx--search-input" type="search" placeholder='Buscar por nombre de docente' autocomplete='on'
+                (input)="onChangeSearchingByTeacher($event)">
+            <svg class="bx--search-magnifier-icon" ibmIcon="search" size="16"></svg>
+        </div>
     </div>
     <div ibmCol>
         <ibm-label>Cátedra</ibm-label>
-        <ibm-search placeholder='Buscar por nombre de cátedra' autocomplete='on'
-            (valueChange)="onChangeSearchingBySubject($event)" (clear)="onChangeSearchingBySubject('')">
-        </ibm-search>
+        <div class="bx--search">
+            <input class="bx--search-input" type="search" placeholder='Buscar por nombre de cátedra' autocomplete='on'
+                (input)="onChangeSearchingBySubject($event)">
+            <svg class="bx--search-magnifier-icon" ibmIcon="search" size="16"></svg>
+        </div>
     </div>
 </div>
 <div ibmRow>

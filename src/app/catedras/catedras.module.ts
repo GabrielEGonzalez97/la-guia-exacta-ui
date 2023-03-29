@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import {
   DropdownModule,
   GridModule,
+  IconModule,
+  IconService,
   InputModule,
   SearchModule,
 } from 'carbon-components-angular';
@@ -10,7 +12,15 @@ import { ActionBarElementModule } from '../actions-bar/action-bar-element/action
 import { CatedrasComponent } from './catedras.component';
 import { CatedraModule } from './catedra/catedra.module';
 
-const CARBON_IMPORTS = [DropdownModule, GridModule, InputModule, SearchModule];
+import Search16 from '@carbon/icons/es/search/16';
+
+const CARBON_IMPORTS = [
+  DropdownModule,
+  GridModule,
+  IconModule,
+  InputModule,
+  SearchModule,
+];
 
 @NgModule({
   declarations: [CatedrasComponent],
@@ -24,5 +34,7 @@ const CARBON_IMPORTS = [DropdownModule, GridModule, InputModule, SearchModule];
   exports: [CatedrasComponent],
 })
 export class CatedrasModule {
-  constructor() {}
+  constructor(protected iconService: IconService) {
+    iconService.registerAll([Search16]);
+  }
 }
