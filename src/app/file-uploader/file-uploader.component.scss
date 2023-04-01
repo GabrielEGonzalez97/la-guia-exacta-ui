@@ -1,0 +1,33 @@
+@import "~carbon-components/scss/globals/scss/colors";
+
+.bx--btn--primary {
+  background-color: black;
+  padding-right: 15px;
+  margin-top: 1rem;
+  justify-content: center;
+  font-size: calc(1vw + 1vh);
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
+.bx--btn--primary:hover {
+  background-color: #333;
+}
+
+:host ::ng-deep {
+  .bx--file-browse-btn {
+    max-width: none;
+    color: $ibm-color__warm-gray-60;
+  }
+
+  .bx--file__drop-container {
+    height: 40rem;
+    justify-content: center;
+    align-items: center;
+
+    font-size: calc(2vw + 2vh);
+  }
+}

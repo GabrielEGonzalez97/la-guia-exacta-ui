@@ -10,11 +10,21 @@ import { HttpService } from '../services/http.service';
 export class FileUploaderComponent implements OnInit {
   public uploadFiles: Set<FileItem> = new Set<FileItem>();
 
+  public isSubmitFilesButtonDisabled: boolean = true;
+
   constructor(private httpService: HttpService) {}
 
   public ngOnInit(): void {}
 
   public onDroppedFile(_): void {
+    if (this.uploadFiles.size > 0) {
+      this.isSubmitFilesButtonDisabled = false;
+    } else {
+      this.isSubmitFilesButtonDisabled = true;
+    }
+  }
+
+  public onSubmitFiles(): void {
     this.uploadFiles.forEach((file: FileItem) => {
       let fileReader = new FileReader();
       fileReader.onload = (_) => {
@@ -22,12 +32,13 @@ export class FileUploaderComponent implements OnInit {
       };
       fileReader.readAsText(file.file);
       this.httpService.uploadFileToDrive(file.file).subscribe(
-        (response) => {
-          console.log(response);
-          console.log('El archivo se subió correctamente');
+        (_) => {
+          this.uploadFiles = new Set<FileItem>();
+          this.isSubmitFilesButtonDisabled = true;
         },
-        (error) => {
-          console.error('Error al subir el archivo', error);
+        (_) => {
+          this.uploadFiles = new Set<FileItem>();
+          this.isSubmitFilesButtonDisabled = true;
         }
       );
     });
