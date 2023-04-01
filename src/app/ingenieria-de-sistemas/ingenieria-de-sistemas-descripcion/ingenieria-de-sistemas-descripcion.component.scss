@@ -2,6 +2,10 @@
 
 @include adjustPaddingInIBMGridAndCol();
 
+[ibmRow] {
+  margin-bottom: 1rem;
+}
+
 h1 {
   font-size: calc(1.25vw + 1.25vh);
 }
@@ -40,6 +44,11 @@ ul {
 
 .clickeable-element {
   cursor: pointer;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
 }
 
 .clickeable-element:hover {

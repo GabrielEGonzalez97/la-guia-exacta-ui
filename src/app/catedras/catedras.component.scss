@@ -7,6 +7,11 @@
 }
 
 :host ::ng-deep {
+  .bx--search,
+  .bx--dropdown {
+    min-width: 10rem;
+  }
+
   .bx--search-input {
     height: 40px;
   }
