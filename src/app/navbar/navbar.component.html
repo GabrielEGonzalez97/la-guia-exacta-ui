@@ -19,6 +19,11 @@
             Cursos gratuitos
         </ibm-header-item>
     </ibm-header-navigation>
+    <ibm-header-navigation>
+        <ibm-header-item (click)="navigateTo('subir-aportes')">
+            Subir aportes
+        </ibm-header-item>
+    </ibm-header-navigation>
 
     <ibm-hamburger (click)="updateRightPanelVisibility()"></ibm-hamburger>
     <ibm-panel [expanded]="isRightPanelVisible">
@@ -38,6 +43,9 @@
             </ibm-sidenav-item>
             <ibm-sidenav-item>
                 Cursos gratuitos
+            </ibm-sidenav-item>
+            <ibm-sidenav-item [route]="['subir-aportes']">
+                Subir aportes
             </ibm-sidenav-item>
         </div>
     </ibm-panel>

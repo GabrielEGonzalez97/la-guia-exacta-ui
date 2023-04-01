@@ -1,0 +1,4 @@
+<ibm-file-uploader [accept]="['.pdf', '.png', '.jpg', '.jpeg']" [drop]="true"
+    [dropText]="'Drag and drop files here or upload'" [multiple]="true" [(files)]="uploadFiles"
+    (filesChange)="onDroppedFile($event)">
+</ibm-file-uploader>
