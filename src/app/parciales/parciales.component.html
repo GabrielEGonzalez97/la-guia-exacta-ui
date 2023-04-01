@@ -1,0 +1,73 @@
+<ng-container *ngIf="!areParcialesLoading; else loadingParcialesTemplate">
+    <div ibmRow>
+        <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 3 }">
+            <ibm-dropdown label="Año" placeholder="Selecciona un año" (selected)="onSelectedYearChange($event)">
+                <ibm-dropdown-list [items]="yearDropdownItems"></ibm-dropdown-list>
+            </ibm-dropdown>
+        </div>
+        <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 3 }">
+            <ibm-dropdown label="Tipo de parcial" placeholder="Selecciona un tipo de parcial"
+                (selected)="onSelectedParcialTypeChange($event)">
+                <ibm-dropdown-list [items]="parcialTypesItems"></ibm-dropdown-list>
+            </ibm-dropdown>
+        </div>
+    </div>
+    <ng-container *ngIf="parciales.length > 0 && parcialesToShow.length > 0; else noParcialesToShowTemplate">
+        <div ibmRow *ngFor="let parcial of parcialesToShow">
+            <div ibmCol>
+                <ibm-tile>
+                    <div ibmRow>
+                        <div ibmCol style="display: flex; align-items: center; margin-left: 1rem;">
+                            <h3 style="font-size: calc(1.5vw + 1.5vh);"> {{ parcial.name }} </h3>
+                        </div>
+                    </div>
+                    <div ibmRow>
+                        <div ibmCol style="display: flex; align-items: center; margin-left: 1rem;">
+                            <button ibmButton="primary" (click)="onVerParcialButtonClick(parcial)">
+                                <p *ngIf="!parcial.showFile">Ver parcial</p>
+                                <p *ngIf="parcial.showFile">Ocultar parcial</p>
+                            </button>
+                        </div>
+                    </div>
+                    <div ibmRow *ngIf="parcial.showFile">
+                        <div ibmCol>
+                            <ng-container *ngIf="parcial.fileUrl; else loadingPdfTemplate">
+                                <div class="parcial-container">
+                                    <embed [src]="parcial.fileUrl | safe" style="width: 100%; height: 750px;"
+                                        type="application/pdf">
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </ibm-tile>
+            </div>
+        </div>
+    </ng-container>
+</ng-container>
+
+<ng-template #loadingParcialesTemplate>
+    <div ibmRow *ngFor="let i of [0,1,2,3,4]">
+        <div ibmCol>
+            <ibm-tile>
+                <ibm-skeleton-placeholder></ibm-skeleton-placeholder>
+            </ibm-tile>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #loadingPdfTemplate>
+    <div class="parcial-container">
+        <ibm-skeleton-placeholder style="width: 100%; height: 750px;"></ibm-skeleton-placeholder>
+    </div>
+</ng-template>
+
+<ng-template #noParcialesToShowTemplate>
+    <div ibmRow>
+        <div ibmCol>
+            <ibm-tile class="no-parciales-tile">
+                <p *ngIf="parciales.length > 0">No se encontraron parciales para el año y tipo de parcial elegido</p>
+                <p *ngIf="!(parciales.length > 0)">No se encontraron parciales para esta materia</p>
+            </ibm-tile>
+        </div>
+    </div>
+</ng-template>

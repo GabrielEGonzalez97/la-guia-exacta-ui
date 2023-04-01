@@ -64,9 +64,9 @@ export class FinalesComponent implements OnInit {
                   showFile: false,
                   fileUrl: '',
                 });
-                this.sortFinalesByMonthAndYear();
               }
             );
+            this.sortFinalesByMonthAndYear();
             this.finalesToShow = this.finales;
             this.areFinalesLoading = false;
           } else if (filesFinalesFolderWithState.state === 'error') {

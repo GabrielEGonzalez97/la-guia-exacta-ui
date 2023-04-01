@@ -1053,7 +1053,7 @@ export let lenguajes_de_programacion_1: ISubject = {
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=562',
   clasesLink: 'lenguajes-de-programacion-i',
   resumenesLink: '',
-  parcialesLink: '',
+  parcialesLink: 'lenguajes-de-programacion-i',
   finalesLink: 'lenguajes-de-programacion-i',
   correlatives: [
     {

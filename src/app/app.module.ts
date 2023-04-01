@@ -12,6 +12,7 @@ import { FinalesModule } from './finales/finales.module';
 import { FooterModule } from './footer/footer.module';
 import { IngenieriaDeSistemasModule } from './ingenieria-de-sistemas/ingenieria-de-sistemas.module';
 import { NavbarModule } from './navbar/navbar.module';
+import { ParcialesModule } from './parciales/parciales.module';
 import { TudaiModule } from './tudai/tudai.module';
 import { VideosClasesModule } from './videos-clases/videos-clases.module';
 
@@ -25,6 +26,7 @@ const COMPONENT_IMPORTS = [
   FooterModule,
   IngenieriaDeSistemasModule,
   NavbarModule,
+  ParcialesModule,
   VideosClasesModule,
   TudaiModule,
 ];
