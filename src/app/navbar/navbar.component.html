@@ -15,7 +15,7 @@
         </ibm-header-item>
     </ibm-header-navigation>
     <ibm-header-navigation>
-        <ibm-header-item>
+        <ibm-header-item (click)="navigateTo('cursos-gratuitos')">
             Cursos gratuitos
         </ibm-header-item>
     </ibm-header-navigation>
@@ -41,7 +41,7 @@
             <ibm-sidenav-item [route]="['catedras']">
                 Cátedras
             </ibm-sidenav-item>
-            <ibm-sidenav-item>
+            <ibm-sidenav-item [route]="['cursos-gratuitos']">
                 Cursos gratuitos
             </ibm-sidenav-item>
             <ibm-sidenav-item [route]="['subir-aportes']">

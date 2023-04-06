@@ -7,6 +7,7 @@ import { ActionsBarModule } from './actions-bar/actions-bar.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CatedrasModule } from './catedras/catedras.module';
+import { CursosGratuitosModule } from './cursos-gratuitos/cursos-gratuitos.module';
 import { FileUploaderComponentModule } from './file-uploader/file-uploader.module';
 import { FinalesModule } from './finales/finales.module';
 import { FooterModule } from './footer/footer.module';
@@ -22,6 +23,7 @@ const MODULE_IMPORTS = [AppRoutingModule, BrowserModule, HttpClientModule];
 const COMPONENT_IMPORTS = [
   ActionsBarModule,
   CatedrasModule,
+  CursosGratuitosModule,
   FileUploaderComponentModule,
   FinalesModule,
   FooterModule,
