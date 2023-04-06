@@ -10,6 +10,10 @@ import { HttpService } from '../services/http.service';
 export class FileUploaderComponent implements OnInit {
   public uploadFiles: Set<FileItem> = new Set<FileItem>();
 
+  public filesName: string = '';
+
+  public isFilesInputNameVisible: boolean = false;
+
   public isSubmitFilesButtonDisabled: boolean = true;
 
   constructor(private httpService: HttpService) {}
@@ -18,6 +22,16 @@ export class FileUploaderComponent implements OnInit {
 
   public onDroppedFile(_): void {
     if (this.uploadFiles.size > 0) {
+      this.isFilesInputNameVisible = true;
+    } else {
+      this.isFilesInputNameVisible = false;
+    }
+  }
+
+  public onFileInputNameChange(newFileName: any): void {
+    this.filesName = newFileName.target.value;
+
+    if (this.filesName !== '') {
       this.isSubmitFilesButtonDisabled = false;
     } else {
       this.isSubmitFilesButtonDisabled = true;
@@ -31,14 +45,18 @@ export class FileUploaderComponent implements OnInit {
         fileReader.result;
       };
       fileReader.readAsText(file.file);
-      this.httpService.uploadFileToDrive(file.file).subscribe(
+      this.httpService.uploadFileToDrive(file.file, this.filesName).subscribe(
         (_) => {
           this.uploadFiles = new Set<FileItem>();
+          this.isFilesInputNameVisible = false;
           this.isSubmitFilesButtonDisabled = true;
+          this.filesName = '';
         },
         (_) => {
           this.uploadFiles = new Set<FileItem>();
+          this.isFilesInputNameVisible = false;
           this.isSubmitFilesButtonDisabled = true;
+          this.filesName = '';
         }
       );
     });

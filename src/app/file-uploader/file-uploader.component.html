@@ -2,4 +2,9 @@
     [multiple]="true" [(files)]="uploadFiles" (filesChange)="onDroppedFile($event)">
 </ibm-file-uploader>
 
+<ng-container *ngIf="isFilesInputNameVisible">
+    <input ibmText placeholder="Ingresa un nombre representativo para los archivos" [value]="filesName"
+        (change)="onFileInputNameChange($event)">
+</ng-container>
+
 <button ibmButton="primary" [disabled]="isSubmitFilesButtonDisabled" (click)="onSubmitFiles()">Subir aportes</button>

@@ -33,9 +33,10 @@ export class HttpService {
     return this.getWithState<any>(API_URL + `/getFileById/${fileId}`);
   }
 
-  public uploadFileToDrive(file: File) {
+  public uploadFileToDrive(file: File, filesName: string) {
     const formData: FormData = new FormData();
     formData.append('file', file);
+    formData.append('filesName', filesName);
 
     // Hace la solicitud HTTP a la API para subir el archivo a Google Drive
     return this.postWithState<any>(
