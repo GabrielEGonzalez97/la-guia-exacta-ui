@@ -10,6 +10,7 @@ import { CatedrasModule } from './catedras/catedras.module';
 import { FileUploaderComponentModule } from './file-uploader/file-uploader.module';
 import { FinalesModule } from './finales/finales.module';
 import { FooterModule } from './footer/footer.module';
+import { HomeModule } from './home/home.module';
 import { IngenieriaDeSistemasModule } from './ingenieria-de-sistemas/ingenieria-de-sistemas.module';
 import { NavbarModule } from './navbar/navbar.module';
 import { ParcialesModule } from './parciales/parciales.module';
@@ -24,6 +25,7 @@ const COMPONENT_IMPORTS = [
   FileUploaderComponentModule,
   FinalesModule,
   FooterModule,
+  HomeModule,
   IngenieriaDeSistemasModule,
   NavbarModule,
   ParcialesModule,
