@@ -65,8 +65,26 @@
     <div ibmRow>
         <div ibmCol>
             <ibm-tile class="no-finals-tile">
-                <p *ngIf="finales.length > 0">No se encontraron finales para el año y mesa de llamado elegido</p>
-                <p *ngIf="!(finales.length > 0)">No se encontraron finales para esta materia</p>
+                <p *ngIf="finales.length > 0">
+                    <span>No se encontraron finales para el año y mesa de llamado elegido</span>
+                    <br>
+                    <br>
+                    <span>
+                        Si tienes algún final para este llamado, no dudes en
+                        <br>
+                        <a href="#/subir-aportes">subir tu aporte</a>
+                    </span>
+                </p>
+                <p *ngIf="!(finales.length > 0)">
+                    <span>No se encontraron finales para esta materia</span>
+                    <br>
+                    <br>
+                    <span>
+                        Si tienes algún final de esta materia, no dudes en
+                        <br>
+                        <a href="#/subir-aportes">subir tu aporte</a>
+                    </span>
+                </p>
             </ibm-tile>
         </div>
     </div>

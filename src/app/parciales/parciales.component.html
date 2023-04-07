@@ -65,8 +65,26 @@
     <div ibmRow>
         <div ibmCol>
             <ibm-tile class="no-parciales-tile">
-                <p *ngIf="parciales.length > 0">No se encontraron parciales para el año y tipo de parcial elegido</p>
-                <p *ngIf="!(parciales.length > 0)">No se encontraron parciales para esta materia</p>
+                <p *ngIf="parciales.length > 0">
+                    <span>No se encontraron parciales para el año y tipo de parcial elegido</span>
+                    <br>
+                    <br>
+                    <span>
+                        Si tienes algún parcial del año elegido, no dudes en
+                        <br>
+                        <a href="#/subir-aportes">subir tu aporte</a>
+                    </span>
+                </p>
+                <p *ngIf="!(parciales.length > 0)">
+                    <span>No se encontraron parciales para esta materia</span>
+                    <br>
+                    <br>
+                    <span>
+                        Si tienes algún parcial de esta materia, no dudes en
+                        <br>
+                        <a href="#/subir-aportes">subir tu aporte</a>
+                    </span>
+                </p>
             </ibm-tile>
         </div>
     </div>
