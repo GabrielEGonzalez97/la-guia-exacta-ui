@@ -47,18 +47,16 @@ export class FileUploaderComponent implements OnInit {
       fileReader.readAsText(file.file);
       this.httpService.uploadFileToDrive(file.file, this.filesName).subscribe(
         (_) => {
-          this.uploadFiles = new Set<FileItem>();
           this.isFilesInputNameVisible = false;
           this.isSubmitFilesButtonDisabled = true;
-          this.filesName = '';
         },
         (_) => {
-          this.uploadFiles = new Set<FileItem>();
           this.isFilesInputNameVisible = false;
           this.isSubmitFilesButtonDisabled = true;
-          this.filesName = '';
         }
       );
     });
+    this.uploadFiles = new Set<FileItem>();
+    this.filesName = '';
   }
 }
