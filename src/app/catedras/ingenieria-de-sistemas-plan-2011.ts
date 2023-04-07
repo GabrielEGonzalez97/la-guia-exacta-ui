@@ -28,8 +28,8 @@ export let algebra_1: ISubject = {
   webLink: '',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=604',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'algebra-i',
+  parcialesLink: 'algebra-i',
   finalesLink: 'algebra-i',
   correlatives: [],
 };
@@ -50,8 +50,8 @@ export let algebra_1_recursada: ISubject = {
   webLink: '',
   moodleLink: '',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'algebra-i',
+  parcialesLink: 'algebra-i',
   finalesLink: 'algebra-i',
   correlatives: [],
 };
@@ -72,8 +72,8 @@ export let analisis_matematico_1: ISubject = {
   webLink: 'https://analisis-matematico-i.alumnos.exa.unicen.edu.ar/',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=712',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'analisis-matematico-i',
+  parcialesLink: 'analisis-matematico-i',
   finalesLink: 'analisis-matematico-i',
   correlatives: [],
 };
@@ -94,8 +94,8 @@ export let analisis_matematico_1_recursada: ISubject = {
   webLink: 'https://analisis-matematico-i.alumnos.exa.unicen.edu.ar/',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/view.php?id=712',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'analisis-matematico-i',
+  parcialesLink: 'analisis-matematico-i',
   finalesLink: 'analisis-matematico-i',
   correlatives: [],
 };
@@ -116,8 +116,8 @@ export let introduccion_a_la_programacion_1: ISubject = {
   webLink: '',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=737',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'introduccion-a-la-programacion-i',
+  parcialesLink: 'introduccion-a-la-programacion-i',
   finalesLink: 'introduccion-a-la-programacion-i',
   correlatives: [],
 };
@@ -138,8 +138,8 @@ export let introduccion_a_la_programacion_1_recursada: ISubject = {
   webLink: '',
   moodleLink: '',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'introduccion-a-la-programacion-i',
+  parcialesLink: 'introduccion-a-la-programacion-i',
   finalesLink: 'introduccion-a-la-programacion-i',
   correlatives: [],
 };
@@ -158,8 +158,8 @@ export let quimica: ISubject = {
   webLink: '',
   moodleLink: '',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'quimica',
+  parcialesLink: 'quimica',
   finalesLink: 'quimica',
   correlatives: [],
 };
@@ -180,8 +180,8 @@ export let algebra_lineal: ISubject = {
   webLink: 'http://algebra-lineal.alumnos.exa.unicen.edu.ar/',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=761',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'algebra-lineal',
+  parcialesLink: 'algebra-lineal',
   finalesLink: 'algebra-lineal',
   correlatives: [
     { typeOfCorrelativity: CORRELATIVE_CURSADA_NAME, subject: algebra_1 },
@@ -204,8 +204,8 @@ export let algebra_lineal_recursada: ISubject = {
   webLink: '',
   moodleLink: '',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'algebra-lineal',
+  parcialesLink: 'algebra-lineal',
   finalesLink: 'algebra-lineal',
   correlatives: [
     { typeOfCorrelativity: CORRELATIVE_CURSADA_NAME, subject: algebra_1 },
@@ -228,8 +228,8 @@ export let ciencias_de_la_computacion_1: ISubject = {
   webLink: '',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=739',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'ciencias-de-la-computacion-i',
+  parcialesLink: 'ciencias-de-la-computacion-i',
   finalesLink: 'ciencias-de-la-computacion-i',
   correlatives: [],
 };
@@ -250,8 +250,8 @@ export let ciencias_de_la_computacion_1_recursada: ISubject = {
   webLink: '',
   moodleLink: '',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'ciencias-de-la-computacion-i',
+  parcialesLink: 'ciencias-de-la-computacion-i',
   finalesLink: 'ciencias-de-la-computacion-i',
   correlatives: [],
 };
@@ -272,8 +272,8 @@ export let fisica_general: ISubject = {
   webLink: 'https://fisica-general.alumnos.exa.unicen.edu.ar/home',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=749',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'fisica-general',
+  parcialesLink: 'fisica-general',
   finalesLink: 'fisica-general',
   correlatives: [
     {
@@ -299,9 +299,9 @@ export let fisica_general_recursada: ISubject = {
   webLink: '',
   moodleLink: '',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: 'fisica_general',
+  resumenesLink: 'fisica-general',
+  parcialesLink: 'fisica-general',
+  finalesLink: 'fisica-general',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -326,8 +326,8 @@ export let introduccion_a_la_programacion_2: ISubject = {
   webLink: '',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=780',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'introduccion-a-la-programacion-ii',
+  parcialesLink: 'introduccion-a-la-programacion-ii',
   finalesLink: 'introduccion-a-la-programacion-ii',
   correlatives: [
     {
@@ -353,8 +353,8 @@ export let introduccion_a_la_programacion_2_recursada: ISubject = {
   webLink: '',
   moodleLink: '',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'introduccion-a-la-programacion-ii',
+  parcialesLink: 'introduccion-a-la-programacion-ii',
   finalesLink: 'introduccion-a-la-programacion-ii',
   correlatives: [
     {
@@ -380,8 +380,8 @@ export let matematica_discreta: ISubject = {
   webLink: '',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=718',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'matematica-discreta',
+  parcialesLink: 'matematica-discreta',
   finalesLink: 'matematica-discreta',
   correlatives: [
     {
@@ -407,8 +407,8 @@ export let matematica_discreta_recursada: ISubject = {
   webLink: '',
   moodleLink: '',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'matematica-discreta',
+  parcialesLink: 'matematica-discreta',
   finalesLink: 'matematica-discreta',
   correlatives: [
     {
@@ -434,8 +434,8 @@ export let analisis_matematico_2: ISubject = {
   webLink: 'http://analisis-matematico-ii.alumnos.exa.unicen.edu.ar/',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=664',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'analisis-matematico-ii',
+  parcialesLink: 'analisis-matematico-ii',
   finalesLink: 'analisis-matematico-ii',
   correlatives: [
     {
@@ -459,8 +459,8 @@ export let analisis_matematico_2_recursada: ISubject = {
   webLink: '',
   moodleLink: '',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'analisis-matematico-ii',
+  parcialesLink: 'analisis-matematico-ii',
   finalesLink: 'analisis-matematico-ii',
   correlatives: [
     {
@@ -486,8 +486,8 @@ export let analisis_y_diseño_de_algoritmos_1: ISubject = {
   webLink: '',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=740',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'analisis-y-diseño-de-algoritmos-i',
+  parcialesLink: 'analisis-y-diseño-de-algoritmos-i',
   finalesLink: 'analisis-y-diseño-de-algoritmos-i',
   correlatives: [
     {
@@ -521,8 +521,8 @@ export let ciencias_de_la_computacion_2: ISubject = {
   webLink: '',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=644',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'ciencias-de-la-computacion-ii',
+  parcialesLink: 'ciencias-de-la-computacion-ii',
   finalesLink: 'ciencias-de-la-computacion-ii',
   correlatives: [
     {
@@ -556,8 +556,8 @@ export let ciencias_de_la_computacion_2_recursada: ISubject = {
   webLink: '',
   moodleLink: '',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'ciencias-de-la-computacion-ii',
+  parcialesLink: 'ciencias-de-la-computacion-ii',
   finalesLink: 'ciencias-de-la-computacion-ii',
   correlatives: [
     {
@@ -592,8 +592,8 @@ export let electricidad_y_magnetismo: ISubject = {
     'https://drive.google.com/drive/folders/1IpRsJmRVRwEgmuy9b4ktLdegFyrv2KCd',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=657',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'electricidad-y-magnetismo',
+  parcialesLink: 'electricidad-y-magnetismo',
   finalesLink: 'electricidad-y-magnetismo',
   correlatives: [
     {
@@ -619,8 +619,8 @@ export let introduccion_a_la_arquitectura_de_sistemas: ISubject = {
   webLink: '',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=593',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'introduccion-a-la-arquitectura-de-sistemas',
+  parcialesLink: 'introduccion-a-la-arquitectura-de-sistemas',
   finalesLink: 'introduccion-a-la-arquitectura-de-sistemas',
   correlatives: [
     {
@@ -646,8 +646,8 @@ export let analisis_y_diseño_de_algoritmos_2: ISubject = {
   webLink: '',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=766',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'analisis-y-diseño-de-algoritmos-ii',
+  parcialesLink: 'analisis-y-diseño-de-algoritmos-ii',
   finalesLink: 'analisis-y-diseño-de-algoritmos-ii',
   correlatives: [
     {
@@ -677,8 +677,8 @@ export let analisis_y_diseño_de_algoritmos_2_recursada: ISubject = {
   webLink: '',
   moodleLink: '',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'analisis-y-diseño-de-algoritmos-ii',
+  parcialesLink: 'analisis-y-diseño-de-algoritmos-ii',
   finalesLink: 'analisis-y-diseño-de-algoritmos-ii',
   correlatives: [
     {
@@ -708,8 +708,8 @@ export let comunicacion_de_datos_1: ISubject = {
   webLink: '',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=771',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'comunicacion-de-datos-i',
+  parcialesLink: 'comunicacion-de-datos-i',
   finalesLink: 'comunicacion-de-datos-i',
   correlatives: [
     {
@@ -735,8 +735,8 @@ export let electronica_digital: ISubject = {
   webLink: '',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=747',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'electronica-digital',
+  parcialesLink: 'electronica-digital',
   finalesLink: 'electronica-digital',
   correlatives: [
     {
@@ -762,8 +762,8 @@ export let ingles: ISubject = {
   webLink: '',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=710',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'ingles',
+  parcialesLink: 'ingles',
   finalesLink: 'ingles',
   correlatives: [],
 };
@@ -784,8 +784,8 @@ export let probabilidades_y_estadistica: ISubject = {
   webLink: '',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=704',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'probabilidades-y-estadistica',
+  parcialesLink: 'probabilidades-y-estadistica',
   finalesLink: 'probabilidades-y-estadistica',
   correlatives: [
     {
@@ -819,8 +819,8 @@ export let arquitectura_de_computadoras_1: ISubject = {
   webLink: '',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=610',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'arquitectura-de-computadoras-i',
+  parcialesLink: 'arquitectura-de-computadoras-i',
   finalesLink: 'arquitectura-de-computadoras-i',
   correlatives: [
     {
@@ -850,8 +850,8 @@ export let estructuras_de_almacenamiento_de_datos: ISubject = {
   webLink: '',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=637',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'estructuras-de-almacenamiento-de-datos',
+  parcialesLink: 'estructuras-de-almacenamiento-de-datos',
   finalesLink: 'estructuras-de-almacenamiento-de-datos',
   correlatives: [
     {
@@ -881,8 +881,8 @@ export let metodologias_de_desarrollo_de_software_1: ISubject = {
   webLink: '',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=599',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'metodologias-de-desarrollo-de-software-i',
+  parcialesLink: 'metodologias-de-desarrollo-de-software-i',
   finalesLink: 'metodologias-de-desarrollo-de-software-i',
   correlatives: [
     {
@@ -908,8 +908,8 @@ export let programacion_orientada_a_objetos: ISubject = {
   webLink: '',
   moodleLink: '',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'programacion-orientada-a-objetos',
+  parcialesLink: 'programacion-orientada-a-objetos',
   finalesLink: 'programacion-orientada-a-objetos',
   correlatives: [
     {
@@ -935,8 +935,8 @@ export let programacion_orientada_a_objetos_recursada: ISubject = {
   webLink: '',
   moodleLink: '',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'programacion-orientada-a-objetos',
+  parcialesLink: 'programacion-orientada-a-objetos',
   finalesLink: 'programacion-orientada-a-objetos',
   correlatives: [
     {
@@ -962,8 +962,8 @@ export let bases_de_datos_1: ISubject = {
   webLink: 'https://bdatos1.alumnos.exa.unicen.edu.ar/',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=721',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'bases-de-datos-i',
+  parcialesLink: 'bases-de-datos-i',
   finalesLink: 'bases-de-datos-i',
   correlatives: [
     {
@@ -1009,8 +1009,8 @@ export let investigacion_operativa_1: ISubject = {
   webLink: 'http://invop.alumnos.exa.unicen.edu.ar/',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=717',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'investigacion-operativa-i',
+  parcialesLink: 'investigacion-operativa-i',
   finalesLink: 'investigacion-operativa-i',
   correlatives: [
     {
@@ -1052,7 +1052,7 @@ export let lenguajes_de_programacion_1: ISubject = {
   webLink: 'https://lengprg1.alumnos.exa.unicen.edu.ar/',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=562',
   clasesLink: 'lenguajes-de-programacion-i',
-  resumenesLink: '',
+  resumenesLink: 'lenguajes-de-programacion-i',
   parcialesLink: 'lenguajes-de-programacion-i',
   finalesLink: 'lenguajes-de-programacion-i',
   correlatives: [
@@ -1095,7 +1095,7 @@ export let programacion_exploratoria: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: 'programacion-exploratoria',
+  finalesLink: '',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
@@ -1136,8 +1136,8 @@ export let sistemas_operativos_1: ISubject = {
   webLink: 'https://users.exa.unicen.edu.ar/catedras/sisop1/',
   moodleLink: '',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'sistemas-operativos-i',
+  parcialesLink: 'sistemas-operativos-i',
   finalesLink: 'sistemas-operativos-i',
   correlatives: [
     {
@@ -1185,8 +1185,8 @@ export let arquitectura_de_computadoras_y_tecnicas_digitales: ISubject = {
   webLink: '',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=611',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'arquitectura-de-computadoras-y-tecnicas-digitales',
+  parcialesLink: 'arquitectura-de-computadoras-y-tecnicas-digitales',
   finalesLink: 'arquitectura-de-computadoras-y-tecnicas-digitales',
   correlatives: [
     {
@@ -1236,8 +1236,8 @@ export let comunicacion_de_datos_2: ISubject = {
   webLink: '',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=669',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'comunicacion-de-datos-ii',
+  parcialesLink: 'comunicacion-de-datos-ii',
   finalesLink: 'comunicacion-de-datos-ii',
   correlatives: [
     {
@@ -1289,8 +1289,8 @@ export let introduccion_al_calculo_diferencial_e_integral: ISubject = {
   webLink: '',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=615',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'introduccion-al-calculo-diferencial-e-integral',
+  parcialesLink: 'introduccion-al-calculo-diferencial-e-integral',
   finalesLink: 'introduccion-al-calculo-diferencial-e-integral',
   correlatives: [
     {
@@ -1340,8 +1340,8 @@ export let organizacion_empresarial: ISubject = {
   webLink: '',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=616',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'organizacion-empresarial',
+  parcialesLink: 'organizacion-empresarial',
   finalesLink: 'organizacion-empresarial',
   correlatives: [
     {
@@ -1411,8 +1411,8 @@ export let teoria_de_la_informacion: ISubject = {
   webLink: 'https://teoinfo.alumnos.exa.unicen.edu.ar/',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=643',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'teoria-de-la-informacion',
+  parcialesLink: 'teoria-de-la-informacion',
   finalesLink: 'teoria-de-la-informacion',
   correlatives: [
     {
@@ -1469,9 +1469,9 @@ export let diseño_de_compiladores_1: ISubject = {
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0032',
   webLink: '',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=778',
-  clasesLink: 'diseño-de-compiladores-i',
-  resumenesLink: '',
-  parcialesLink: '',
+  clasesLink: '',
+  resumenesLink: 'diseño-de-compiladores-i',
+  parcialesLink: 'diseño-de-compiladores-i',
   finalesLink: 'diseño-de-compiladores-i',
   correlatives: [
     {
@@ -1521,7 +1521,7 @@ export let diseño_de_sistemas_de_software: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: 'diseño-de-sistemas-de-software',
+  finalesLink: '',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -1578,8 +1578,8 @@ export let fundamentos_de_economia_y_proyectos_de_inversion: ISubject = {
   webLink: '',
   moodleLink: '',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'fundamentos-de-economia-y-proyectos-de-inversion',
+  parcialesLink: 'fundamentos-de-economia-y-proyectos-de-inversion',
   finalesLink: 'fundamentos-de-economia-y-proyectos-de-inversion',
   correlatives: [
     {
@@ -1653,7 +1653,7 @@ export let ingenieria_de_software: ISubject = {
   clasesLink: '',
   resumenesLink: '',
   parcialesLink: '',
-  finalesLink: 'ingenieria-de-software',
+  finalesLink: '',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -1702,8 +1702,8 @@ export let legislacion_y_gestion_ambiental: ISubject = {
   webLink: '',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=626',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
+  resumenesLink: 'legislacion-y-gestion-ambiental',
+  parcialesLink: 'legislacion-y-gestion-ambiental',
   finalesLink: 'legislacion-y-gestion-ambiental',
   correlatives: [
     {
