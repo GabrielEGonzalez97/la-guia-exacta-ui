@@ -24,9 +24,9 @@ export let ingles_1: ISubject = {
   webLink: 'http://ingles-i.alumnos.exa.unicen.edu.ar/',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=655',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'ingles-i',
+  parcialesLink: 'ingles-i',
+  finalesLink: 'ingles-i',
   correlatives: [],
 };
 
@@ -46,9 +46,9 @@ export let programacion_1: ISubject = {
   webLink: 'http://tudai1-1.alumnos.exa.unicen.edu.ar/',
   moodleLink: '',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'programacion-i',
+  parcialesLink: 'programacion-i',
+  finalesLink: 'programacion-i',
   correlatives: [],
 };
 
@@ -68,9 +68,9 @@ export let taller_de_matematica_computacional: ISubject = {
   webLink: 'http://tudai1-1.alumnos.exa.unicen.edu.ar/',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=679',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'taller-de-matematica-computacional',
+  parcialesLink: 'taller-de-matematica-computacional',
+  finalesLink: 'taller-de-matematica-computacional',
   correlatives: [],
 };
 
@@ -90,9 +90,9 @@ export let web_1: ISubject = {
   webLink: 'http://tudai1-1.alumnos.exa.unicen.edu.ar/',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=651',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'web-i',
+  parcialesLink: 'web-i',
+  finalesLink: 'web-i',
   correlatives: [],
 };
 
@@ -112,9 +112,9 @@ export let ingles_2: ISubject = {
   webLink: '',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=711',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'ingles-ii',
+  parcialesLink: 'ingles-ii',
+  finalesLink: 'ingles-ii',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -139,9 +139,9 @@ export let programacion_2: ISubject = {
   webLink: 'http://tudai1-2.alumnos.exa.unicen.edu.ar/',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=784',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'programacion-ii',
+  parcialesLink: 'programacion-ii',
+  finalesLink: 'programacion-ii',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -168,9 +168,9 @@ export let tecnologia_de_la_informacion_en_las_organizaciones: ISubject = {
   webLink: 'http://tudai1-2.alumnos.exa.unicen.edu.ar/',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=773',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'tecnologia-de-la-informacion-en-las-organizaciones',
+  parcialesLink: 'tecnologia-de-la-informacion-en-las-organizaciones',
+  finalesLink: 'tecnologia-de-la-informacion-en-las-organizaciones',
   correlatives: [],
 };
 
@@ -190,9 +190,9 @@ export let web_2: ISubject = {
   webLink: 'http://tudai1-2.alumnos.exa.unicen.edu.ar/',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=757',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'web-ii',
+  parcialesLink: 'web-ii',
+  finalesLink: 'web-ii',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -217,9 +217,9 @@ export let bases_de_datos_tudai: ISubject = {
   webLink: '',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=638',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'bases-de-datos-tudai',
+  parcialesLink: 'bases-de-datos-tudai',
+  finalesLink: 'bases-de-datos-tudai',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -246,9 +246,9 @@ export let configuracion_y_desarrollo_de_aplicaciones_en_redes: ISubject = {
   webLink: 'http://tudai2-1.alumnos.exa.unicen.edu.ar/',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=670',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'configuracion-y-desarrollo-de-aplicaciones-en-redes',
+  parcialesLink: 'configuracion-y-desarrollo-de-aplicaciones-en-redes',
+  finalesLink: 'configuracion-y-desarrollo-de-aplicaciones-en-redes',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -276,9 +276,9 @@ export let introduccion_a_las_metodologias_de_desarrollo_de_software: ISubject =
     webLink: 'http://tudai2-1.alumnos.exa.unicen.edu.ar/',
     moodleLink: 'https://moodle.exa.unicen.edu.ar/user/index.php?id=600',
     clasesLink: '',
-    resumenesLink: '',
-    parcialesLink: '',
-    finalesLink: '',
+    resumenesLink: 'introduccion-a-las-metodologias-de-desarrollo-de-software',
+    parcialesLink: 'introduccion-a-las-metodologias-de-desarrollo-de-software',
+    finalesLink: 'introduccion-a-las-metodologias-de-desarrollo-de-software',
     correlatives: [
       {
         typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -307,9 +307,9 @@ export let programacion_3: ISubject = {
   webLink: 'http://tudai2-1.alumnos.exa.unicen.edu.ar/',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=596',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'programacion-iii',
+  parcialesLink: 'programacion-iii',
+  finalesLink: 'programacion-iii',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -334,9 +334,9 @@ export let arquitecturas_web: ISubject = {
   webLink: 'http://tudai2-2.alumnos.exa.unicen.edu.ar/',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/user/index.php?id=706',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'arquitecturas-web',
+  parcialesLink: 'arquitecturas-web',
+  finalesLink: 'arquitecturas-web',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -365,9 +365,9 @@ export let interfaces_de_usuario_e_interaccion: ISubject = {
   webLink: 'http://tudai2-2.alumnos.exa.unicen.edu.ar/',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/user/index.php?id=125',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'interfaces-de-usuario-e-interaccion',
+  parcialesLink: 'interfaces-de-usuario-e-interaccion',
+  finalesLink: 'interfaces-de-usuario-e-interaccion',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -396,9 +396,9 @@ export let tecnicas_de_documentacion_y_validacion: ISubject = {
   webLink: 'http://tudai2-2.alumnos.exa.unicen.edu.ar/',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=126',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'tecnicas-de-documentacion-y-validacion',
+  parcialesLink: 'tecnicas-de-documentacion-y-validacion',
+  finalesLink: 'tecnicas-de-documentacion-y-validacion',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
