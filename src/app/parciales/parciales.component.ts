@@ -70,6 +70,7 @@ export class ParcialesComponent implements OnInit {
                 this.parciales.push({
                   id: parcial.id,
                   name: parcial.name.split('.pdf')[0],
+                  webViewLink: parcial.webViewLink,
                   year: this.extractYearFromParcialName(parcial.name),
                   month: '',
                   showFile: false,

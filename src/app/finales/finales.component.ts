@@ -59,6 +59,7 @@ export class FinalesComponent implements OnInit {
                 this.finales.push({
                   id: final.id,
                   name: final.name.split('.pdf')[0],
+                  webViewLink: final.webViewLink,
                   year: this.extractYearFromFinalName(final.name),
                   month: final.name.split(' ')[2].split('.pdf')[0],
                   showFile: false,

@@ -8,4 +8,5 @@ export interface ISubjectWithSelection {
 export interface IGoogleDriveFolderInformation {
   id: string;
   name: string;
+  webViewLink: string;
 }

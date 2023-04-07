@@ -33,8 +33,14 @@
                         <div ibmCol>
                             <ng-container *ngIf="parcial.fileUrl; else loadingPdfTemplate">
                                 <div class="parcial-container">
-                                    <embed [src]="parcial.fileUrl | safe" style="width: 100%; height: 750px;"
+                                    <object [data]="parcial.fileUrl | safe" width="100%" height="750px"
                                         type="application/pdf">
+                                        <p>
+                                            Si estás viendo esto desde un teléfono puedes
+                                            <a [href]="parcial.webViewLink">cliquear aquí</a>
+                                            para mirar el parcial
+                                        </p>
+                                    </object>
                                 </div>
                             </ng-container>
                         </div>
