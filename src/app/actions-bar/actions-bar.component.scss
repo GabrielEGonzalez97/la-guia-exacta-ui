@@ -2,8 +2,71 @@ app-action-bar-element {
   display: contents;
 }
 
+.bx--header {
+  ibm-hamburger {
+    position: fixed;
+    right: 0;
+    display: none;
+  }
+}
+
+@media (max-width: 1055px) {
+  ibm-hamburger {
+    display: block !important;
+  }
+}
+
+.close-panel-button-container {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.sidenav-options-container {
+  margin-top: 2rem;
+}
+
 .siu-logo ::ng-deep {
   img {
     width: 24px;
+  }
+}
+
+:host ::ng-deep {
+  .bx--panel--expanded {
+    background-color: yellow;
+  }
+
+  .bx--side-nav__item {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  ibm-sidenav-menu {
+    .bx--side-nav__link {
+      padding-left: 48px !important;
+    }
+  }
+
+  .bx--side-nav__submenu:hover,
+  .bx--side-nav__submenu:focus,
+  .bx--side-nav__link:hover,
+  .bx--side-nav__link:focus {
+    background-color: rgb(191, 191, 0) !important;
+    color: black;
+  }
+
+  .bx--side-nav__icon {
+    margin-right: 0;
+  }
+
+  .bx--btn--primary {
+    background-color: yellow;
+    color: black;
+  }
+
+  .bx--btn--primary:hover,
+  .bx--btn--primary:focus {
+    background-color: rgb(191, 191, 0);
   }
 }

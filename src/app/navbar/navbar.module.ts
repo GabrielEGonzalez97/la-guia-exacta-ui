@@ -1,23 +1,8 @@
 import { NgModule } from '@angular/core';
-import {
-  ButtonModule,
-  HeaderModule,
-  IconModule,
-  IconService,
-  PanelModule,
-  SideNavModule,
-} from 'carbon-components-angular';
+import { HeaderModule } from 'carbon-components-angular';
 import { NavbarComponent } from './navbar.component';
 
-import Close16 from '@carbon/icons/es/close/16';
-
-const CARBON_IMPORTS = [
-  ButtonModule,
-  HeaderModule,
-  IconModule,
-  PanelModule,
-  SideNavModule,
-];
+const CARBON_IMPORTS = [HeaderModule];
 
 @NgModule({
   declarations: [NavbarComponent],
@@ -26,7 +11,5 @@ const CARBON_IMPORTS = [
   exports: [NavbarComponent],
 })
 export class NavbarModule {
-  constructor(protected iconService: IconService) {
-    iconService.registerAll([Close16]);
-  }
+  constructor() {}
 }
