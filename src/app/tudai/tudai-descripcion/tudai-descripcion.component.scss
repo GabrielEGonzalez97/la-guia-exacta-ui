@@ -2,10 +2,6 @@
 
 @include adjustPaddingInIBMGridAndCol();
 
-[ibmRow] {
-  margin-bottom: 1rem;
-}
-
 h1 {
   font-size: calc(1.25vw + 1.25vh);
 }
@@ -35,6 +31,11 @@ ul {
 
 .inner-tile {
   background-color: #fbfbfb;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
 }
 
 .column-with-margin {
@@ -53,4 +54,12 @@ ul {
 
 .clickeable-element:hover {
   background-color: #cbcbcb;
+}
+
+.chevron-icon {
+  width: calc(2vw + 2vh);
+  height: calc(2vw + 2vh);
+  position: absolute;
+  right: 0;
+  margin-right: 1rem;
 }

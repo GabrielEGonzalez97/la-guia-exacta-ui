@@ -9,6 +9,12 @@
                         </strong>
                     </h1>
                 </div>
+
+                <div ibmCol class="column-with-margin" style="display: flex; align-items: center; position: relative;">
+                    <svg *ngIf="!isPlanEstudiosTileVisible" class="chevron-icon" ibmIcon="chevron--down"
+                        size="32"></svg>
+                    <svg *ngIf="isPlanEstudiosTileVisible" class="chevron-icon" ibmIcon="chevron--up" size="32"></svg>
+                </div>
             </div>
         </ibm-tile>
     </div>

@@ -51,3 +51,11 @@ h1 {
 .clickeable-element:hover {
   background-color: #cbcbcb;
 }
+
+.chevron-icon {
+  width: calc(2vw + 2vh);
+  height: calc(2vw + 2vh);
+  position: absolute;
+  right: 0;
+  margin-right: 1rem;
+}

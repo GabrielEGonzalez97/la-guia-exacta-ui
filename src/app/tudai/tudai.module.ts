@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import {
   GridModule,
+  IconModule,
+  IconService,
   ModalModule,
   TilesModule,
 } from 'carbon-components-angular';
@@ -10,7 +12,10 @@ import { TudaiDescripcionComponent } from './tudai-descripcion/tudai-descripcion
 import { TudaiComponent } from './tudai.component';
 import { TudaiPlanDeEstudiosComponent } from './tudai-plan-de-estudios/tudai-plan-de-estudios.component';
 
-const CARBON_IMPORTS = [GridModule, ModalModule, TilesModule];
+import ChevronDown32 from '@carbon/icons/es/chevron--down/32';
+import ChevronUp32 from '@carbon/icons/es/chevron--up/32';
+
+const CARBON_IMPORTS = [GridModule, IconModule, ModalModule, TilesModule];
 
 const COMPONENT_IMPORTS = [
   TudaiDescripcionComponent,
@@ -24,5 +29,7 @@ const COMPONENT_IMPORTS = [
   exports: [TudaiComponent],
 })
 export class TudaiModule {
-  constructor() {}
+  constructor(protected iconService: IconService) {
+    iconService.registerAll([ChevronDown32, ChevronUp32]);
+  }
 }
