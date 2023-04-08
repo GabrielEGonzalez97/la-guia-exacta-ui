@@ -9,6 +9,11 @@
                         </strong>
                     </h1>
                 </div>
+                <div ibmCol class="column-with-margin" style="display: flex; align-items: center; position: relative;">
+                    <svg *ngIf="!isPlanEstudiosTileVisible" class="chevron-icon" ibmIcon="chevron--down"
+                        size="32"></svg>
+                    <svg *ngIf="isPlanEstudiosTileVisible" class="chevron-icon" ibmIcon="chevron--up" size="32"></svg>
+                </div>
             </div>
         </ibm-tile>
     </div>
@@ -25,6 +30,13 @@
                                 Plan de estudios 2011
                             </strong>
                         </h1>
+                    </div>
+                    <div ibmCol class="column-with-margin"
+                        style="display: flex; align-items: center; position: relative;">
+                        <svg *ngIf="!isPlanEstudios2011TileVisible" class="chevron-icon" ibmIcon="chevron--down"
+                            size="32"></svg>
+                        <svg *ngIf="isPlanEstudios2011TileVisible" class="chevron-icon" ibmIcon="chevron--up"
+                            size="32"></svg>
                     </div>
                 </div>
             </ibm-tile>
@@ -358,6 +370,13 @@
                             </strong>
                         </h1>
                     </div>
+                    <div ibmCol class="column-with-margin"
+                        style="display: flex; align-items: center; position: relative;">
+                        <svg *ngIf="!isPlanEstudios2024TileVisible" class="chevron-icon" ibmIcon="chevron--down"
+                            size="32"></svg>
+                        <svg *ngIf="isPlanEstudios2024TileVisible" class="chevron-icon" ibmIcon="chevron--up"
+                            size="32"></svg>
+                    </div>
                 </div>
             </ibm-tile>
         </div>
@@ -639,6 +658,13 @@
                                 Plan de transición entre planes 2011 y 2024
                             </strong>
                         </h1>
+                    </div>
+                    <div ibmCol class="column-with-margin"
+                        style="display: flex; align-items: center; position: relative;">
+                        <svg *ngIf="!isPlanTransicionTileVisible" class="chevron-icon" ibmIcon="chevron--down"
+                            size="32"></svg>
+                        <svg *ngIf="isPlanTransicionTileVisible" class="chevron-icon" ibmIcon="chevron--up"
+                            size="32"></svg>
                     </div>
                 </div>
             </ibm-tile>
