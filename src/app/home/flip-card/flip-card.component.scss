@@ -1,0 +1,116 @@
+.flip-card {
+  cursor: pointer;
+  background-color: transparent;
+  perspective: 1000px;
+
+  .flip-card-inner {
+    text-align: center;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    -webkit-transition: transform 0.6s;
+    -moz-transition: transform 0.6s;
+    -ms-transition: transform 0.6s;
+    -o-transition: transform 0.6s;
+
+    /* Position the front and back side */
+    .flip-card-back {
+      display: none;
+    }
+
+    /* Style the front side (fallback if image is missing) */
+    .flip-card-front {
+      .logo-outside-container {
+        display: flex;
+        width: fit-content;
+        justify-content: center;
+        padding: 10px;
+        background-color: #f0c316;
+        border: 5px solid black;
+        border-radius: 50px;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        -ms-border-radius: 50px;
+        -o-border-radius: 50px;
+
+        .logo-inner-container {
+          width: fit-content;
+          justify-content: center;
+          padding: 20px;
+          background-color: white;
+          border-radius: 50px;
+          -webkit-border-radius: 50px;
+          -moz-border-radius: 50px;
+          -ms-border-radius: 50px;
+          -o-border-radius: 50px;
+
+          img {
+            width: calc(10vw + 10vh);
+            height: calc(10vw + 10vh);
+          }
+
+          p {
+            text-align: center;
+            font-size: calc(1.25vw + 1.25vh);
+            font-weight: 500;
+          }
+        }
+      }
+    }
+
+    /* Style the back side */
+    .flip-card-back {
+      .logo-outside-container {
+        display: flex;
+        width: fit-content;
+        justify-content: center;
+        padding: 10px;
+        background-color: black;
+        border: 5px solid #f0c316;
+        border-radius: 50px;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        -ms-border-radius: 50px;
+        -o-border-radius: 50px;
+
+        .logo-inner-container {
+          width: fit-content;
+          justify-content: center;
+          padding: 20px;
+          background-color: black;
+          border-radius: 50px;
+          -webkit-border-radius: 50px;
+          -moz-border-radius: 50px;
+          -ms-border-radius: 50px;
+          -o-border-radius: 50px;
+
+          img {
+            width: calc(10vw + 10vh);
+            height: calc(10vw + 10vh);
+          }
+
+          p {
+            text-align: center;
+            font-size: calc(1.25vw + 1.25vh);
+            font-weight: 500;
+            color: #f0c316;
+          }
+        }
+      }
+
+      transform: rotateY(180deg);
+    }
+  }
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+
+  .flip-card-front {
+    display: none;
+  }
+
+  .flip-card-back {
+    display: flex;
+  }
+}

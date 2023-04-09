@@ -1,0 +1,20 @@
+<div class="flip-card" (click)="navigateTo(navigateToPath)">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <div class="logo-outside-container">
+                <div class="logo-inner-container">
+                    <img [src]="cardFrontImagePath">
+                    <p>{{ cardName }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="flip-card-back">
+            <div class="logo-outside-container">
+                <div class="logo-inner-container">
+                    <img [src]="cardBackImagePath">
+                    <p>{{ cardName }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

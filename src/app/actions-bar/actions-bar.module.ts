@@ -11,6 +11,7 @@ import {
 } from 'carbon-components-angular';
 
 import Close16 from '@carbon/icons/es/close/16';
+import Home24 from '@carbon/icons/es/home/24';
 
 const CARBON_IMPORTS = [
   ButtonModule,
@@ -29,6 +30,6 @@ const COMPONENT_IMPORTS = [ActionBarElementModule];
 })
 export class ActionsBarModule {
   constructor(protected iconService: IconService) {
-    iconService.registerAll([Close16]);
+    iconService.registerAll([Close16, Home24]);
   }
 }

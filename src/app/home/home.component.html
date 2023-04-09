@@ -1,10 +1,33 @@
-<div ibmRow>
-    <!-- <div class="roster-column">
-        <img src="assets/images/guia_exacta_gallo.png" style='height: 100%; width: 100%; object-fit: contain'>
-    </div> -->
+<div ibmRow class="home-container">
     <div class="title-column">
         <div class="title-container">
             <p>La guía exacta</p>
+        </div>
+    </div>
+    <div ibmRow class="logos-row">
+        <div ibmCol>
+            <app-flip-card [navigateToPath]="'carreras/ingenieria-de-sistemas'" [cardName]="'Carreras'"
+                [cardFrontImagePath]="'assets/images/home-logos/carreras-front-logo.svg'"
+                [cardBackImagePath]="'assets/images/home-logos/carreras-back-logo.svg'">
+            </app-flip-card>
+        </div>
+        <div ibmCol>
+            <app-flip-card [navigateToPath]="'catedras'" [cardName]="'Cátedras'"
+                [cardFrontImagePath]="'assets/images/home-logos/catedras-front-logo.svg'"
+                [cardBackImagePath]="'assets/images/home-logos/catedras-back-logo.svg'">
+            </app-flip-card>
+        </div>
+        <div ibmCol>
+            <app-flip-card [navigateToPath]="'cursos-gratuitos'" [cardName]="'Cursos gratuitos'"
+                [cardFrontImagePath]="'assets/images/home-logos/cursos-gratuitos-front-logo.svg'"
+                [cardBackImagePath]="'assets/images/home-logos/cursos-gratuitos-back-logo.svg'">
+            </app-flip-card>
+        </div>
+        <div ibmCol>
+            <app-flip-card [navigateToPath]="'subir-aportes'" [cardName]="'Subir aportes'"
+                [cardFrontImagePath]="'assets/images/home-logos/subir-aportes-front-logo.svg'"
+                [cardBackImagePath]="'assets/images/home-logos/subir-aportes-back-logo.svg'">
+            </app-flip-card>
         </div>
     </div>
 </div>

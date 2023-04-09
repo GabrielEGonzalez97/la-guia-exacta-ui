@@ -1,34 +1,47 @@
 @import "~carbon-components/scss/globals/scss/colors";
 
-.roster-column {
-  width: 20%;
-}
-
-.title-column {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  padding: 2.5%;
-}
-
-.title-container {
+.home-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  background-color: $ibm-color__gray-80;
-  color: white;
-  border-radius: 3rem;
-  -webkit-border-radius: 3rem;
-  -moz-border-radius: 3rem;
-  -ms-border-radius: 3rem;
-  -o-border-radius: 3rem;
 
-  p {
-    font-size: calc(7vw + 2.5vh);
-    font-weight: 600;
-    text-align: center;
-    word-break: keep-all;
+  .title-column {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 2.5%;
+  }
+
+  .title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: $ibm-color__gray-80;
+    color: white;
+    border-radius: 3rem;
+    -webkit-border-radius: 3rem;
+    -moz-border-radius: 3rem;
+    -ms-border-radius: 3rem;
+    -o-border-radius: 3rem;
+
+    p {
+      font-size: calc(7vw + 2.5vh);
+      font-weight: 600;
+      text-align: center;
+      word-break: keep-all;
+    }
+  }
+
+  .logos-row {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+    [ibmCol] {
+      display: flex;
+      justify-content: center;
+      padding-top: 1rem;
+    }
   }
 }

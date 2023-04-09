@@ -16,6 +16,13 @@ app-action-bar-element {
   }
 }
 
+.bx--header__name {
+  svg {
+    fill: white;
+    margin-right: 0.5rem;
+  }
+}
+
 .close-panel-button-container {
   position: absolute;
   right: 0;
