@@ -24,7 +24,7 @@
         width: fit-content;
         justify-content: center;
         padding: 10px;
-        background-color: #f0c316;
+        background-color: black;
         border: 5px solid black;
         border-radius: 50px;
         -webkit-border-radius: 50px;
@@ -36,7 +36,7 @@
           width: fit-content;
           justify-content: center;
           padding: 20px;
-          background-color: white;
+          background-color: yellow;
           border-radius: 50px;
           -webkit-border-radius: 50px;
           -moz-border-radius: 50px;
@@ -64,8 +64,8 @@
         width: fit-content;
         justify-content: center;
         padding: 10px;
-        background-color: black;
-        border: 5px solid #f0c316;
+        background-color: yellow;
+        border: 5px solid yellow;
         border-radius: 50px;
         -webkit-border-radius: 50px;
         -moz-border-radius: 50px;
@@ -92,7 +92,7 @@
             text-align: center;
             font-size: calc(1.25vw + 1.25vh);
             font-weight: 500;
-            color: #f0c316;
+            color: yellow;
           }
         }
       }
