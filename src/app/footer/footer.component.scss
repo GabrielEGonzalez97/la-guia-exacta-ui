@@ -1,3 +1,4 @@
+@import "src/styles/utils.scss";
 @import "~carbon-components/scss/globals/scss/colors";
 
 footer {
@@ -7,7 +8,7 @@ footer {
 
 ibm-tile {
   width: 100%;
-  background-color: black;
+  background-color: $principal-color;
 }
 
 .footer-columns-container {

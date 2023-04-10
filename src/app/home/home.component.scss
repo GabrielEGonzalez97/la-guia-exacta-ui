@@ -1,3 +1,4 @@
+@import "src/styles/utils.scss";
 @import "~carbon-components/scss/globals/scss/colors";
 
 .home-container {
@@ -17,9 +18,9 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    background-color: yellow;
-    color: black;
-    border: 10px solid black;
+    background-color: $secondary-color;
+    color: $principal-color;
+    border: 10px solid $principal-color;
     border-radius: 3rem;
     -webkit-border-radius: 3rem;
     -moz-border-radius: 3rem;

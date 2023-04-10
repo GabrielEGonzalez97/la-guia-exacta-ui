@@ -1,14 +1,14 @@
-@import "src/styles/carbon-utils.scss";
+@import "src/styles/utils.scss";
 
 @include adjustPaddingInIBMGridAndCol();
 
 .bx--btn--primary {
   padding-right: 15px;
-  background-color: black;
+  background-color: $principal-color;
 }
 
 .bx--btn--primary:hover {
-  background-color: #333;
+  background-color: $principal-color-hover;
 }
 
 .parcial-container {
