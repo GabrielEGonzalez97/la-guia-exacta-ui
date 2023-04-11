@@ -25,6 +25,10 @@ app-action-bar-element {
   }
 }
 
+.bx--header__name:hover {
+  background-color: $principal-color-hover;
+}
+
 .close-panel-button-container {
   position: absolute;
   right: 0;
