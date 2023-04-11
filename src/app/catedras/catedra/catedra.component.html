@@ -53,7 +53,8 @@
             </app-catedra-column-with-button>
 
             <app-catedra-column-with-button *ngIf="subject.resumenesLink"
-                [elementIconImagePath]="'assets/images/pencil-logo.svg'" [elementName]="'Resúmenes'">
+                [elementIconImagePath]="'assets/images/pencil-logo.svg'" [elementName]="'Resúmenes'"
+                (onButtonClickEmitter)="navigateTo('resumenes/' + subject.finalesLink)">
             </app-catedra-column-with-button>
 
             <app-catedra-column-with-button *ngIf="subject.parcialesLink"

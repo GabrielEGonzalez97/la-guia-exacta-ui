@@ -1,0 +1,74 @@
+<ng-container *ngIf="!areResumenesLoading; else loadingResumenesTemplate">
+    <ng-container *ngIf="resumenes.length > 0; else noResumenesToShowTemplate">
+        <div ibmRow *ngFor="let resumen of resumenes">
+            <div ibmCol>
+                <ibm-tile>
+                    <div ibmRow>
+                        <div ibmCol style="display: flex; align-items: center; margin-left: 1rem;">
+                            <h3 style="font-size: calc(1.5vw + 1.5vh);"> {{ resumen.name }} </h3>
+                        </div>
+                    </div>
+                    <div ibmRow>
+                        <div ibmCol style="display: flex; align-items: center; margin-left: 1rem;">
+                            <button ibmButton="primary" (click)="onVerResumenButtonClick(resumen)">
+                                <p *ngIf="!resumen.showFile">Ver resumen</p>
+                                <p *ngIf="resumen.showFile">Ocultar resumen</p>
+                            </button>
+                        </div>
+                    </div>
+                    <div ibmRow *ngIf="resumen.showFile">
+                        <div ibmCol>
+                            <ng-container *ngIf="resumen.fileUrl; else loadingPdfTemplate">
+                                <div class="resumen-container">
+                                    <object [data]="resumen.fileUrl | safe" width="100%" height="750px"
+                                        type="application/pdf">
+                                        <p>
+                                            Si estás viendo esto desde un teléfono puedes
+                                            <a [href]="resumen.webViewLink">cliquear aquí</a>
+                                            para mirar el resumen
+                                        </p>
+                                    </object>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </ibm-tile>
+            </div>
+        </div>
+    </ng-container>
+</ng-container>
+
+<ng-template #loadingResumenesTemplate>
+    <div ibmRow *ngFor="let i of [0,1,2,3,4]">
+        <div ibmCol>
+            <ibm-tile>
+                <ibm-skeleton-placeholder></ibm-skeleton-placeholder>
+            </ibm-tile>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #loadingPdfTemplate>
+    <div class="resumen-container">
+        <ibm-skeleton-placeholder style="width: 100%; height: 750px;"></ibm-skeleton-placeholder>
+    </div>
+</ng-template>
+
+<ng-template #noResumenesToShowTemplate>
+    <div ibmRow>
+        <div ibmCol>
+            <ibm-tile class="no-resumenes-tile">
+                <p *ngIf="!(resumenes.length > 0)">
+                    <span>No se encontraron resúmenes para esta materia</span>
+                    <br>
+                    <br>
+                    <span>
+                        Si tienes algún resumen de esta materia, no dudes en
+                        <br>
+                        <a href="#/subir-aportes">subir tu aporte</a>
+                    </span>
+                </p>
+            </ibm-tile>
+        </div>
+    </div>
+</ng-template>

@@ -15,6 +15,7 @@ import { HomeModule } from './home/home.module';
 import { IngenieriaDeSistemasModule } from './ingenieria-de-sistemas/ingenieria-de-sistemas.module';
 import { NavbarModule } from './navbar/navbar.module';
 import { ParcialesModule } from './parciales/parciales.module';
+import { ResumenesModule } from './resumenes/resumenes.module';
 import { TudaiModule } from './tudai/tudai.module';
 import { VideosClasesModule } from './videos-clases/videos-clases.module';
 
@@ -31,6 +32,7 @@ const COMPONENT_IMPORTS = [
   IngenieriaDeSistemasModule,
   NavbarModule,
   ParcialesModule,
+  ResumenesModule,
   VideosClasesModule,
   TudaiModule,
 ];

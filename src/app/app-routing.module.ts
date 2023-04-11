@@ -7,6 +7,7 @@ import { FinalesComponent } from './finales/finales.component';
 import { HomeComponent } from './home/home.component';
 import { IngenieriaDeSistemasComponent } from './ingenieria-de-sistemas/ingenieria-de-sistemas.component';
 import { ParcialesComponent } from './parciales/parciales.component';
+import { ResumenesComponent } from './resumenes/resumenes.component';
 import { TudaiComponent } from './tudai/tudai.component';
 import { VideosClasesComponent } from './videos-clases/videos-clases.component';
 
@@ -34,6 +35,10 @@ const routes: Routes = [
   {
     path: 'finales/:subjectName',
     component: FinalesComponent,
+  },
+  {
+    path: 'resumenes/:subjectName',
+    component: ResumenesComponent,
   },
   {
     path: 'videos-clases/:subjectName',
