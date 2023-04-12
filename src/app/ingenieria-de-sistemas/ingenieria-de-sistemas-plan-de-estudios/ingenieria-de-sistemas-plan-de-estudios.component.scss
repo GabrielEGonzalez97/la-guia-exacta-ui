@@ -84,10 +84,45 @@ p {
   text-align: center;
 }
 
-.table-container,
-.buttons-container {
+.table-container {
   margin-left: 2rem;
   margin-right: 2rem;
+
+  button {
+    margin: 2rem;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+  }
+
+  button ::ng-deep {
+    .action-bar-element-container {
+      margin: 10px;
+    }
+  }
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+
+  button {
+    padding: 5px;
+    margin: 2rem;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+  }
+
+  button ::ng-deep {
+    .action-bar-element-container {
+      margin: 10px;
+    }
+  }
 }
 
 .table-row-data-container {
