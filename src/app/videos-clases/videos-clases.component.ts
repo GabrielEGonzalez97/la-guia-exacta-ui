@@ -83,14 +83,4 @@ export class VideosClasesComponent implements OnInit {
         filterFunction(video.month, this.selectedMonthContent)
     );
   }
-
-  private completeDropdownWithYears(): void {
-    const currentYear: number = new Date().getFullYear();
-    for (let index: number = currentYear; index >= 2010; index--) {
-      this.yearDropdownItems.push({
-        content: index.toString(),
-        selected: false,
-      });
-    }
-  }
 }

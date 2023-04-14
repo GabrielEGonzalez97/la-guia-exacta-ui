@@ -4,7 +4,7 @@ import { ListItem } from 'carbon-components-angular';
 import { PARCIALES_TYPES } from '../common/constants';
 import { IGoogleDriveFolderInformation } from '../common/interfaces';
 import { HttpService } from '../services/http.service';
-import { IWithState } from '../services/utils.service';
+import { IWithState, UtilsService } from '../services/utils.service';
 import { IParcialesInformation } from './interfaces';
 
 @Component({
@@ -47,14 +47,15 @@ export class ParcialesComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private httpService: HttpService
+    private httpService: HttpService,
+    private utilsService: UtilsService
   ) {}
 
   public ngOnInit(): void {
     this.subjectFolderName =
       this.activatedRoute.snapshot.paramMap.get('subjectName');
 
-    this.completeDropdownWithYears();
+    this.utilsService.completeDropdownWithYears(this.yearDropdownItems);
 
     this.httpService
       .getFilesFromFolderWithinASubject(this.subjectFolderName, 'Parciales')
@@ -130,16 +131,6 @@ export class ParcialesComponent implements OnInit {
           this.selectedParcialTypeContent
         )
     );
-  }
-
-  private completeDropdownWithYears(): void {
-    const currentYear: number = new Date().getFullYear();
-    for (let index: number = currentYear; index >= 2010; index--) {
-      this.yearDropdownItems.push({
-        content: index.toString(),
-        selected: false,
-      });
-    }
   }
 
   private extractYearFromParcialName(parcialName: string): string {

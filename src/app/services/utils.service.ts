@@ -1,5 +1,6 @@
 import { Injectable, OnDestroy, TemplateRef } from '@angular/core';
 import { Router } from '@angular/router';
+import { ListItem } from 'carbon-components-angular';
 import {
   catchError,
   combineLatest,
@@ -16,6 +17,7 @@ import {
   take,
   takeUntil,
 } from 'rxjs';
+import { MONTHS } from '../common/constants';
 
 export const LOADING_STATE = 'loading';
 export const ERROR_STATE = 'error';
@@ -241,18 +243,6 @@ export class UtilsService {
           : null,
     }));
 
-  public quarterToString = (quarter: number) => {
-    return `Q${quarter % 4 ? quarter % 4 : 4}'${Math.floor((quarter - 1) / 4)}`;
-  };
-
-  public quarterToParam = (quarter: number) => {
-    return `Q${quarter % 4 ? quarter % 4 : 4}${Math.floor((quarter - 1) / 4)}`;
-  };
-
-  public paramToQuarter = (quarter: string) => {
-    return +quarter.slice(1, 2) + +quarter.slice(2) * 4;
-  };
-
   /** Returns a new iterable where the values are numbers from 0 up to but not including `upTo`.
    * Similar to [python's range](https://docs.python.org/3.3/library/stdtypes.html?highlight=range#range) built in type
    * You can pass a @param shift and will be added to each value
@@ -274,5 +264,24 @@ export class UtilsService {
 
   public navigateTo(route: string): void {
     this.router.navigate([route]);
+  }
+
+  public completeDropdownWithYears(yearDropdownItems: ListItem[]): void {
+    const currentYear: number = new Date().getFullYear();
+    for (let index: number = currentYear; index >= 2010; index--) {
+      yearDropdownItems.push({
+        content: index.toString(),
+        selected: false,
+      });
+    }
+  }
+
+  public completeDropdownWithMonths(monthDropdownItems: ListItem[]): void {
+    MONTHS.forEach((month: string) => {
+      monthDropdownItems.push({
+        content: month,
+        selected: false,
+      });
+    });
   }
 }

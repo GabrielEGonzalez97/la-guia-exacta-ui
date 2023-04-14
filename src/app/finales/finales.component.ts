@@ -4,7 +4,7 @@ import { ListItem } from 'carbon-components-angular';
 import { MONTHS } from '../common/constants';
 import { IGoogleDriveFolderInformation } from '../common/interfaces';
 import { HttpService } from '../services/http.service';
-import { IWithState } from '../services/utils.service';
+import { IWithState, UtilsService } from '../services/utils.service';
 import { IFinalesInformation } from './interfaces';
 
 @Component({
@@ -35,15 +35,16 @@ export class FinalesComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private httpService: HttpService
+    private httpService: HttpService,
+    private utilsService: UtilsService
   ) {}
 
   public ngOnInit(): void {
     this.subjectFolderName =
       this.activatedRoute.snapshot.paramMap.get('subjectName');
 
-    this.completeDropdownWithYears();
-    this.completeDropdownWithMonths();
+    this.utilsService.completeDropdownWithYears(this.yearDropdownItems);
+    this.utilsService.completeDropdownWithMonths(this.monthDropdownItems);
 
     this.httpService
       .getFilesFromFolderWithinASubject(this.subjectFolderName, 'Finales')
@@ -114,25 +115,6 @@ export class FinalesComponent implements OnInit {
         filterFunction(final.year, this.selectedYearContent) &&
         filterFunction(final.month, this.selectedMonthContent)
     );
-  }
-
-  private completeDropdownWithYears(): void {
-    const currentYear: number = new Date().getFullYear();
-    for (let index: number = currentYear; index >= 2010; index--) {
-      this.yearDropdownItems.push({
-        content: index.toString(),
-        selected: false,
-      });
-    }
-  }
-
-  private completeDropdownWithMonths(): void {
-    MONTHS.forEach((month: string) => {
-      this.monthDropdownItems.push({
-        content: month,
-        selected: false,
-      });
-    });
   }
 
   private extractYearFromFinalName(finalName: string): string {

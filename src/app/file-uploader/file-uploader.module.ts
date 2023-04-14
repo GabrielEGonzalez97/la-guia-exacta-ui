@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import {
   ButtonModule,
+  ComboBoxModule,
   FileUploaderModule,
   GridModule,
   InputModule,
@@ -12,6 +13,7 @@ import { FileUploaderComponent } from './file-uploader.component';
 
 const CARBON_IMPORTS = [
   ButtonModule,
+  ComboBoxModule,
   FileUploaderModule,
   GridModule,
   InputModule,

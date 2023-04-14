@@ -3,8 +3,28 @@
 </ibm-file-uploader>
 
 <ng-container *ngIf="isFilesInputNameVisible">
-    <input ibmText placeholder="Ingresa un nombre representativo para los archivos" [value]="filesName"
-        (change)="onFileInputNameChange($event)">
+    <ibm-label>Ingresa un nombre representativo para los archivos</ibm-label>
+
+    <ibm-combo-box [appendInline]="false" [label]="'Cátedra'" [invalid]="!subjectFileName" [theme]="'light'"
+        [items]="subjectsComboBoxItems" (selected)="onSubjectFileNameChange($event)" (close)="onClearSubjectFileName()">
+        <ibm-dropdown-list></ibm-dropdown-list>
+    </ibm-combo-box>
+
+    <ibm-combo-box [appendInline]="false" [label]="'Tipo de aporte'" [invalid]="!typeOfContributionFileName"
+        [theme]="'light'" [items]="typeOfContributionsComboBoxItems"
+        (selected)="onTypeOfContributionFileNameChange($event)" (close)="onClearTypeOfContributionFileName()">
+        <ibm-dropdown-list></ibm-dropdown-list>
+    </ibm-combo-box>
+
+    <ibm-combo-box [appendInline]="false" [label]="'Año'" [invalid]="!yearFileName" [theme]="'light'"
+        [items]="yearComboBoxItems" (selected)="onYearFileNameChange($event)" (close)="onClearYearFileName()">
+        <ibm-dropdown-list></ibm-dropdown-list>
+    </ibm-combo-box>
+
+    <ibm-combo-box [appendInline]="false" [label]="'Llamado'" [invalid]="!monthFileName" [theme]="'light'"
+        [items]="monthComboBoxItems" (selected)="onMonthFileNameChange($event)" (close)="onClearMonthYearFileName()">
+        <ibm-dropdown-list></ibm-dropdown-list>
+    </ibm-combo-box>
 </ng-container>
 
 <button ibmButton="primary" [disabled]="isSubmitFilesButtonDisabled" (click)="onSubmitFiles()">Subir aportes</button>
