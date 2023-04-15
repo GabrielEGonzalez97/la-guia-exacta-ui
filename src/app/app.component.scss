@@ -16,3 +16,9 @@
   margin-left: 5%;
   margin-right: 5%;
 }
+
+@media (max-width: 1055px) {
+  .page-content {
+    top: 3rem;
+  }
+}
