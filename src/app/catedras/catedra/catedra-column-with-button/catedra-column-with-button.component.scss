@@ -4,8 +4,11 @@
 
 .bx--btn--primary {
   width: 100%;
+  min-width: 12rem;
+  max-width: 100%;
   background-color: $principal-color;
   padding: calc(0.875rem - 3px) 0px calc(0.875rem - 3px) 15px;
+  padding-right: 15px;
   line-break: anywhere;
   border-radius: 20px;
   -webkit-border-radius: 20px;
