@@ -19,11 +19,11 @@
     <hr class="bx--side-nav__divider" />
     <div class="buttons-container">
         <div ibmRow>
-            <app-catedra-column-with-button [elementIconImagePath]="'assets/images/lupa.svg'"
+            <app-catedra-column-with-button [elementIconImagePath]="'assets/images/search-icon.svg'"
                 [elementName]="'Requisitos'" (onButtonClickEmitter)="showCorrelativesModalWindow()">
             </app-catedra-column-with-button>
 
-            <app-catedra-column-with-button [elementIconImagePath]="'assets/images/lupa.svg'"
+            <app-catedra-column-with-button [elementIconImagePath]="'assets/images/search-icon.svg'"
                 [elementName]="'Correlativas'" (onButtonClickEmitter)="showSubjectsThatObstructModalWindow()">
             </app-catedra-column-with-button>
 
@@ -53,7 +53,7 @@
             </app-catedra-column-with-button>
 
             <app-catedra-column-with-button *ngIf="subject.resumenesLink"
-                [elementIconImagePath]="'assets/images/pencil-logo.svg'" [elementName]="'Resúmenes'"
+                [elementIconImagePath]="'assets/images/page-file-icon.svg'" [elementName]="'Resúmenes'"
                 (onButtonClickEmitter)="navigateTo('resumenes/' + subject.finalesLink)">
             </app-catedra-column-with-button>
 
