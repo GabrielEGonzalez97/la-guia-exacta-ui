@@ -39,12 +39,6 @@ app-action-bar-element {
   margin-top: 2rem;
 }
 
-.siu-logo ::ng-deep {
-  img {
-    width: 24px;
-  }
-}
-
 :host ::ng-deep {
   .bx--panel--expanded {
     background-color: $secondary-color;
