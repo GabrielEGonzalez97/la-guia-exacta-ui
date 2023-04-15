@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
+import { UtilsService } from '../services/utils.service';
 
 @Component({
   selector: 'app-action-bar',
@@ -11,12 +12,15 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 export class ActionsBarComponent implements OnInit {
   public isRightPanelVisible: boolean = false;
 
-  constructor(private elementRef: ElementRef) {}
+  constructor(
+    private elementRef: ElementRef,
+    private utilsService: UtilsService
+  ) {}
 
   public ngOnInit(): void {}
 
   public openLinkNewTab(link: string): void {
-    window.open(link, '_blank');
+    this.utilsService.openLinkNewTab(link);
   }
 
   public updateRightPanelVisibility() {

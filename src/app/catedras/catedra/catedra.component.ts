@@ -78,9 +78,7 @@ export class CatedraComponent implements OnInit {
   }
 
   public openLinkNewTab(link: string): void {
-    if (link) {
-      window.open(link, '_blank');
-    }
+    this.utilsService.openLinkNewTab(link);
   }
 
   public navigateTo(route: string): void {

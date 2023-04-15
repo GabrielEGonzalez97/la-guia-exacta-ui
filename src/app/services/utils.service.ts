@@ -262,6 +262,12 @@ export class UtilsService {
   public withDisabledState = <T>(values: T[]) =>
     values.map((v) => ({ ...v, disabled: false } as IWithDisabledState & T));
 
+  public openLinkNewTab(link: string): void {
+    if (link) {
+      window.open(link, '_blank');
+    }
+  }
+
   public navigateTo(route: string): void {
     this.router.navigate([route]);
   }

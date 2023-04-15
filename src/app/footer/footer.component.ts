@@ -12,7 +12,7 @@ export class FooterComponent implements OnInit {
   public ngOnInit(): void {}
 
   public openLinkNewTab(link: string): void {
-    window.open(link, '_blank');
+    this.utilsService.navigateTo(link);
   }
 
   public navigateTo(route: string): void {

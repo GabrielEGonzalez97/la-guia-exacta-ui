@@ -104,6 +104,7 @@ import {
 import { ISubjectWithSelection } from '../../common/interfaces';
 import { ingenieria_de_sistemas_subjects_plan_2011 } from 'src/app/catedras/ingenieria-de-sistemas-plan-2011';
 import { PlanTransicionPlan2011Plan2024TableModel } from './plan-transicion-plan-2011-2024';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-ingenieria-de-sistemas-plan-de-estudios',
@@ -462,7 +463,10 @@ export class IngenieriaDeSistemasPlanDeEstudiosComponent implements OnInit {
     this.practicas_profesionales_supervisadas_y_proyecto_integrador_plan_2024,
   ];
 
-  constructor(private modalService: ModalService) {}
+  constructor(
+    private modalService: ModalService,
+    private utilsService: UtilsService
+  ) {}
 
   public ngOnInit(): void {
     this.planTransicionPlan2011Plan2024TableModel =
@@ -473,9 +477,7 @@ export class IngenieriaDeSistemasPlanDeEstudiosComponent implements OnInit {
   }
 
   public openLinkNewTab(link: string): void {
-    if (link) {
-      window.open(link, '_blank');
-    }
+    this.utilsService.openLinkNewTab(link);
   }
 
   public onMouseOverSubject(
