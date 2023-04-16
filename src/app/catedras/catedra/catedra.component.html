@@ -2,14 +2,16 @@
     <h3>{{subject.name}}</h3>
     <ibm-tag *ngIf="subject.career === ingenieriaDeSistemasName" type="green">{{subject.career}}</ibm-tag>
     <ibm-tag *ngIf="subject.career === tudaiName" type="teal">{{subject.career}}</ibm-tag>
-    <div ibmRow style="align-items: end;">
+    <!-- <div ibmRow style="align-items: end;">
         <div ibmCol>
             <ibm-dropdown label="Estado de la materia" placeholder="Selecciona el estado de la materia"
                 (selected)="onSelectedStatusChange($event)">
                 <ibm-dropdown-list [items]="subjectStatus"></ibm-dropdown-list>
             </ibm-dropdown>
         </div>
-    </div>
+    </div> -->
+    <br>
+    <br>
     <hr class="bx--side-nav__divider" />
     <span class="info-catedra"><strong>Cuatrimestre:</strong> {{subject.quarter}}</span>
     <hr class="bx--side-nav__divider" />
