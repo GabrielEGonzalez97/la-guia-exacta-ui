@@ -20,7 +20,7 @@
     height: 100%;
     background-color: $secondary-color;
     color: $principal-color;
-    border: 10px solid $principal-color;
+    border: calc(0.5vw + 0.5vh) solid $principal-color;
     border-radius: 3rem;
     -webkit-border-radius: 3rem;
     -moz-border-radius: 3rem;

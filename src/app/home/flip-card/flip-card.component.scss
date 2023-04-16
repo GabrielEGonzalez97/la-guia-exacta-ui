@@ -25,7 +25,7 @@
         display: flex;
         width: fit-content;
         justify-content: center;
-        padding: 10px;
+        padding: calc(0.1vw + 0.1vh);
         background-color: $principal-color;
         border: 5px solid $principal-color;
         border-radius: 50px;
@@ -65,7 +65,7 @@
         display: flex;
         width: fit-content;
         justify-content: center;
-        padding: 10px;
+        padding: calc(0.1vw + 0.1vh);
         background-color: $secondary-color;
         border: 5px solid $secondary-color;
         border-radius: 50px;
