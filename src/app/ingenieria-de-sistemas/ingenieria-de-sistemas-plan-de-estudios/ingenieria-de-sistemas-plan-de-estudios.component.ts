@@ -482,13 +482,15 @@ export class IngenieriaDeSistemasPlanDeEstudiosComponent implements OnInit {
 
   public onMouseOverSubject(
     allPlanSubjects: ISubjectWithSelection[],
-    subjectToEvaluate: ISubjectWithSelection
+    subjectToEvaluate: ISubjectWithSelection,
+    isPlanEstudios2024: boolean
   ): void {
     subjectToEvaluate.color = SELECTED_COLOR_SUBJECT;
     this.paintCorrelativesSubjects(
       subjectToEvaluate,
       subjectToEvaluate,
-      allPlanSubjects
+      allPlanSubjects,
+      isPlanEstudios2024
     );
     this.paintSubjectsThatObstruct(subjectToEvaluate, allPlanSubjects);
   }
@@ -531,7 +533,8 @@ export class IngenieriaDeSistemasPlanDeEstudiosComponent implements OnInit {
   private paintCorrelativesSubjects(
     subjectToEvaluateOriginal: ISubjectWithSelection,
     nextSubjectToEvaluate: ISubjectWithSelection,
-    allPlanSubjects: ISubjectWithSelection[]
+    allPlanSubjects: ISubjectWithSelection[],
+    isPlanEstudios2024: boolean
   ): void {
     nextSubjectToEvaluate.subject.correlatives.forEach(
       (correlativeSubject: ICorrelativeSubject) => {
@@ -542,7 +545,8 @@ export class IngenieriaDeSistemasPlanDeEstudiosComponent implements OnInit {
                 CORRELATIVE_FINAL_NAME ||
               this.isRequisitoN5(
                 subjectToEvaluateOriginal.subject,
-                subject.subject
+                subject.subject,
+                isPlanEstudios2024
               )
             ) {
               subject.color = REQUISITO_FINAL_COLOR_SUBJECT;
@@ -554,7 +558,8 @@ export class IngenieriaDeSistemasPlanDeEstudiosComponent implements OnInit {
             this.paintCorrelativesSubjects(
               subjectToEvaluateOriginal,
               subject,
-              allPlanSubjects
+              allPlanSubjects,
+              isPlanEstudios2024
             );
           }
         });
@@ -564,8 +569,12 @@ export class IngenieriaDeSistemasPlanDeEstudiosComponent implements OnInit {
 
   private isRequisitoN5(
     subject: ISubject,
-    subjectToEvaluate: ISubject
+    subjectToEvaluate: ISubject,
+    isPlanEstudios2024: boolean
   ): boolean {
+    if (isPlanEstudios2024) {
+      return false;
+    }
     if (
       subject.year === THIRD_YEAR_NAME &&
       subject.quarter === SECOND_QUARTER_NAME
