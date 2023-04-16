@@ -22,6 +22,28 @@ input {
   background-color: $principal-color-hover;
 }
 
+.modal-content-container {
+  margin: 1rem;
+
+  .image-container {
+    display: flex;
+    justify-content: center;
+
+    img {
+      width: calc(10vw + 10vh);
+    }
+  }
+
+  .text-container {
+    display: flex;
+    justify-content: center;
+
+    p {
+      margin-top: 2rem;
+    }
+  }
+}
+
 :host ::ng-deep {
   .bx--file-browse-btn {
     max-width: none;
@@ -47,5 +69,9 @@ input {
 
   .bx--combo-box {
     margin-bottom: 1rem;
+  }
+
+  .bx--modal-container {
+    overflow-y: scroll;
   }
 }

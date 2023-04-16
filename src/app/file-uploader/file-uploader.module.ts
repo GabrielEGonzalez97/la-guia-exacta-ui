@@ -7,6 +7,7 @@ import {
   FileUploaderModule,
   GridModule,
   InputModule,
+  ModalModule,
   TilesModule,
 } from 'carbon-components-angular';
 import { FileUploaderComponent } from './file-uploader.component';
@@ -17,6 +18,7 @@ const CARBON_IMPORTS = [
   FileUploaderModule,
   GridModule,
   InputModule,
+  ModalModule,
   TilesModule,
 ];
 

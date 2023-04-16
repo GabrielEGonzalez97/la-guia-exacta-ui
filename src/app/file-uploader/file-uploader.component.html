@@ -28,3 +28,37 @@
 </ng-container>
 
 <button ibmButton="primary" [disabled]="isSubmitFilesButtonDisabled" (click)="onSubmitFiles()">Subir aportes</button>
+
+<ibm-modal [open]="isFileSuccessfullySubmittedModalOpen" (overlaySelected)="closeFileSuccessfullySubmittedModal()">
+    <ibm-modal-header (closeSelect)="closeFileSuccessfullySubmittedModal()">
+        <h3>Gracias por tu aporte!</h3>
+    </ibm-modal-header>
+
+    <div class="modal-content-container">
+        <div class="image-container">
+            <img src="assets/images/result-right-icon.png">
+        </div>
+        <div class="text-container">
+            <p>Estaremos evaluando el aporte subido para que pronto pueda verse en la página</p>
+        </div>
+    </div>
+</ibm-modal>
+
+<ibm-modal [open]="isFileUnsuccessfullySubmittedModalOpen" (overlaySelected)="closeFileUnsuccessfullySubmittedModal()">
+    <ibm-modal-header (closeSelect)="closeFileUnsuccessfullySubmittedModal()">
+        <h3>Algo salió mal</h3>
+    </ibm-modal-header>
+
+    <div class="modal-content-container">
+        <div class="image-container">
+            <img src="assets/images/result-wrong-icon.png">
+        </div>
+        <div class="text-container">
+            <p>
+                La operación para subir el archivo falló, por favor prueba de nuevo y si el problema
+                sigue persistiendo por favor reportalo como mensaje privado en
+                <a href="https://www.instagram.com/laguiaexacta/">instagram</a>
+            </p>
+        </div>
+    </div>
+</ibm-modal>

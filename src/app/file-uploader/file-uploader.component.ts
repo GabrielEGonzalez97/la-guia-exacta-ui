@@ -4,7 +4,7 @@ import { ingenieria_de_sistemas_subjects_plan_2011 } from '../catedras/ingenieri
 import { ISubject } from '../catedras/interfaces';
 import { tudai_subjects } from '../catedras/tudai_subjects';
 import { HttpService } from '../services/http.service';
-import { UtilsService } from '../services/utils.service';
+import { IWithState, UtilsService } from '../services/utils.service';
 
 @Component({
   selector: 'app-file-uploader',
@@ -33,6 +33,8 @@ export class FileUploaderComponent implements OnInit {
   public isFilesInputNameVisible: boolean = false;
 
   public isSubmitFilesButtonDisabled: boolean = true;
+  public isFileSuccessfullySubmittedModalOpen: boolean = false;
+  public isFileUnsuccessfullySubmittedModalOpen: boolean = false;
 
   constructor(
     private httpService: HttpService,
@@ -141,13 +143,19 @@ export class FileUploaderComponent implements OnInit {
       };
       fileReader.readAsText(file.file);
       this.httpService.uploadFileToDrive(file.file, this.filesName).subscribe(
-        (_) => {
+        (result: IWithState<any>) => {
           this.isFilesInputNameVisible = false;
           this.isSubmitFilesButtonDisabled = true;
+          if (result.state === 'done') {
+            this.isFileSuccessfullySubmittedModalOpen = true;
+          } else if (result.state === 'error') {
+            this.isFileUnsuccessfullySubmittedModalOpen = true;
+          }
         },
         (_) => {
           this.isFilesInputNameVisible = false;
           this.isSubmitFilesButtonDisabled = true;
+          this.isFileUnsuccessfullySubmittedModalOpen = true;
         }
       );
     });
@@ -158,5 +166,13 @@ export class FileUploaderComponent implements OnInit {
     this.onClearTypeOfContributionFileName();
     this.onClearYearFileName();
     this.onClearMonthYearFileName();
+  }
+
+  public closeFileSuccessfullySubmittedModal(): void {
+    this.isFileSuccessfullySubmittedModalOpen = false;
+  }
+
+  public closeFileUnsuccessfullySubmittedModal(): void {
+    this.isFileUnsuccessfullySubmittedModalOpen = false;
   }
 }
