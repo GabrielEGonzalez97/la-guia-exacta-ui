@@ -65,6 +65,8 @@ export class ResumenesComponent implements OnInit {
               type: 'application/pdf',
             });
             resumen.fileUrl = URL.createObjectURL(file);
+          } else if (fileWithState.state === 'error') {
+            resumen.fileUrl = 'large file'
           }
         });
     }
