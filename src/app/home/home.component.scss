@@ -5,6 +5,26 @@
   display: flex;
   justify-content: center;
 
+  .info-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 2.5%;
+    p {
+      font-size: calc(1vw + 1vh);
+      font-weight: 600;
+      text-align: center;
+      word-break: keep-all;
+    }
+
+    border: calc(0.25vw + 0.25vh) solid $principal-color;
+    border-radius: 3rem;
+    -webkit-border-radius: 3rem;
+    -moz-border-radius: 3rem;
+    -ms-border-radius: 3rem;
+    -o-border-radius: 3rem;
+  }
+
   .title-column {
     display: flex;
     width: 100%;
