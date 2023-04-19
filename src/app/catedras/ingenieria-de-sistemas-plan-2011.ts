@@ -486,9 +486,9 @@ export let analisis_y_diseño_de_algoritmos_1: ISubject = {
   webLink: '',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=740',
   clasesLink: '',
-  resumenesLink: 'analisis-y-diseño-de-algoritmos-i',
-  parcialesLink: 'analisis-y-diseño-de-algoritmos-i',
-  finalesLink: 'analisis-y-diseño-de-algoritmos-i',
+  resumenesLink: 'analisis-y-disenio-de-algoritmos-i',
+  parcialesLink: 'analisis-y-disenio-de-algoritmos-i',
+  finalesLink: 'analisis-y-disenio-de-algoritmos-i',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -646,9 +646,9 @@ export let analisis_y_diseño_de_algoritmos_2: ISubject = {
   webLink: '',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=766',
   clasesLink: '',
-  resumenesLink: 'analisis-y-diseño-de-algoritmos-ii',
-  parcialesLink: 'analisis-y-diseño-de-algoritmos-ii',
-  finalesLink: 'analisis-y-diseño-de-algoritmos-ii',
+  resumenesLink: 'analisis-y-disenio-de-algoritmos-ii',
+  parcialesLink: 'analisis-y-disenio-de-algoritmos-ii',
+  finalesLink: 'analisis-y-disenio-de-algoritmos-ii',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -677,9 +677,9 @@ export let analisis_y_diseño_de_algoritmos_2_recursada: ISubject = {
   webLink: '',
   moodleLink: '',
   clasesLink: '',
-  resumenesLink: 'analisis-y-diseño-de-algoritmos-ii',
-  parcialesLink: 'analisis-y-diseño-de-algoritmos-ii',
-  finalesLink: 'analisis-y-diseño-de-algoritmos-ii',
+  resumenesLink: 'analisis-y-disenio-de-algoritmos-ii',
+  parcialesLink: 'analisis-y-disenio-de-algoritmos-ii',
+  finalesLink: 'analisis-y-disenio-de-algoritmos-ii',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -1470,9 +1470,9 @@ export let diseño_de_compiladores_1: ISubject = {
   webLink: '',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=778',
   clasesLink: '',
-  resumenesLink: 'diseño-de-compiladores-i',
-  parcialesLink: 'diseño-de-compiladores-i',
-  finalesLink: 'diseño-de-compiladores-i',
+  resumenesLink: 'disenio-de-compiladores-i',
+  parcialesLink: 'disenio-de-compiladores-i',
+  finalesLink: 'disenio-de-compiladores-i',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
