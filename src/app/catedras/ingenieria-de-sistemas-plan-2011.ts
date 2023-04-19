@@ -19,8 +19,8 @@ export let algebra_1: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: FIRST_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Velazquez, Maria Ester',
-  contactEmail: 'mary.velazquez2011@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0003',
   programaLink:
@@ -41,8 +41,8 @@ export let algebra_1_recursada: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: FIRST_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: 'Morelli, Graciela',
-  contactEmail: 'morelligracielaangelica@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0003',
   programaLink:
@@ -63,8 +63,8 @@ export let analisis_matematico_1: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: FIRST_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Madrid, Ana Paula',
-  contactEmail: 'apmadrid@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0500',
   programaLink:
@@ -85,8 +85,8 @@ export let analisis_matematico_1_recursada: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: FIRST_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: 'Maestri, Maria Laura',
-  contactEmail: 'marialauramaestri@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0500',
   programaLink:
@@ -107,8 +107,8 @@ export let introduccion_a_la_programacion_1: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: FIRST_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Cobo, Hernan',
-  contactEmail: 'hernanjcobo@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0001',
   programaLink:
@@ -129,7 +129,7 @@ export let introduccion_a_la_programacion_1_recursada: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: FIRST_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: 'Leonardi, Carmen',
+  teacher: '',
   contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0001',
@@ -171,8 +171,8 @@ export let algebra_lineal: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: FIRST_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: 'Calomino, Ismael',
-  contactEmail: 'ismaelcalomino@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0125',
   programaLink:
@@ -195,8 +195,8 @@ export let algebra_lineal_recursada: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: FIRST_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Nagy, Agustin',
-  contactEmail: 'agustin.nagy@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0125',
   programaLink:
@@ -219,8 +219,8 @@ export let ciencias_de_la_computacion_1: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: FIRST_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: 'Mauco, Maria Virginia',
-  contactEmail: 'virginiamauco@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0004',
   programaLink:
@@ -241,8 +241,8 @@ export let ciencias_de_la_computacion_1_recursada: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: FIRST_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Mauco, Maria Virginia',
-  contactEmail: 'virginiamauco@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0004',
   programaLink:
@@ -263,8 +263,8 @@ export let fisica_general: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: FIRST_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: 'Tognana, Sebastian',
-  contactEmail: 'stognana@exa.unicen.edu.ar',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0007',
   programaLink:
@@ -290,8 +290,8 @@ export let fisica_general_recursada: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: FIRST_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Morando, Carina',
-  contactEmail: 'carinamorando@yahoo.com.ar',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0007',
   programaLink:
@@ -317,8 +317,8 @@ export let introduccion_a_la_programacion_2: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: FIRST_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: 'Cobo, Hernan',
-  contactEmail: 'hcobo@rec.unicen.edu.ar',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0005',
   programaLink:
@@ -344,8 +344,8 @@ export let introduccion_a_la_programacion_2_recursada: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: FIRST_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Boroni, Gustavo Adolfo',
-  contactEmail: 'gboroni@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0005',
   programaLink:
@@ -371,8 +371,8 @@ export let matematica_discreta: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: FIRST_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: 'Velazquez, Maria Ester',
-  contactEmail: 'mary.velazquez2011@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0127',
   programaLink:
@@ -398,8 +398,8 @@ export let matematica_discreta_recursada: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: FIRST_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Bigeon, Juan Jose',
-  contactEmail: 'jbigeon@exa.unicen.edu.ar',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0127',
   programaLink:
@@ -425,8 +425,8 @@ export let analisis_matematico_2: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: SECOND_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Galotto, Maria Jose',
-  contactEmail: 'mariajogalotto@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0504',
   programaLink:
@@ -477,8 +477,8 @@ export let analisis_y_diseño_de_algoritmos_1: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: SECOND_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Favre, Liliana Maria',
-  contactEmail: 'liliana.favre@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0009',
   programaLink:
@@ -512,8 +512,8 @@ export let ciencias_de_la_computacion_2: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: SECOND_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Mauco, Maria Virginia',
-  contactEmail: 'virginiamauco@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0008',
   programaLink:
@@ -547,8 +547,8 @@ export let ciencias_de_la_computacion_2_recursada: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: SECOND_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: 'Schiaffino, Silvia Noemi',
-  contactEmail: 'silvia.schiaffino@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0008',
   programaLink:
@@ -582,8 +582,8 @@ export let electricidad_y_magnetismo: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: SECOND_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Irurzun, Alicia',
-  contactEmail: 'imalicia@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0012',
   programaLink:
@@ -610,8 +610,8 @@ export let introduccion_a_la_arquitectura_de_sistemas: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: SECOND_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Curti, Hugo Javier',
-  contactEmail: 'hcurti@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=1024',
   programaLink:
@@ -637,8 +637,8 @@ export let analisis_y_diseño_de_algoritmos_2: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: SECOND_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: 'Favre, Liliana Maria',
-  contactEmail: 'liliana.favre@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0013',
   programaLink:
@@ -668,8 +668,8 @@ export let analisis_y_diseño_de_algoritmos_2_recursada: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: SECOND_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Cifuentes, Maria Virginia',
-  contactEmail: 'mvcifuentes@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0013',
   programaLink:
@@ -699,8 +699,8 @@ export let comunicacion_de_datos_1: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: SECOND_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: 'Mayorano, Fernando',
-  contactEmail: 'fermayorano@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0014',
   programaLink:
@@ -726,8 +726,8 @@ export let electronica_digital: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: SECOND_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: 'Wainschenker, Ruben',
-  contactEmail: 'ruben.wain@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0016',
   programaLink:
@@ -753,7 +753,7 @@ export let ingles: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: SECOND_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: 'Batrandiaran, Carolina',
+  teacher: '',
   contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0017',
@@ -775,8 +775,8 @@ export let probabilidades_y_estadistica: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: SECOND_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: 'Marinelli, Claudia Beatriz',
-  contactEmail: 'marinelli.claudia@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0015',
   programaLink:
@@ -810,8 +810,8 @@ export let arquitectura_de_computadoras_1: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: THIRD_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Tosini, Marcelo',
-  contactEmail: 'marcelo.tosini@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0021',
   programaLink:
@@ -841,8 +841,8 @@ export let estructuras_de_almacenamiento_de_datos: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: THIRD_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Rinaldi, Pablo Rafael',
-  contactEmail: 'rinaldipablo@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0019',
   programaLink:
@@ -872,8 +872,8 @@ export let metodologias_de_desarrollo_de_software_1: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: THIRD_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Marcos, Claudia Andrea',
-  contactEmail: 'cmarcos@exa.unicen.edu.ar',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0020',
   programaLink:
@@ -899,8 +899,8 @@ export let programacion_orientada_a_objetos: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: THIRD_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Berdun, Luis Sebastian',
-  contactEmail: 'lberdun@exa.unicen.edu.ar',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0022',
   programaLink:
@@ -926,8 +926,8 @@ export let programacion_orientada_a_objetos_recursada: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: THIRD_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: 'Teyseyre, Alfredo',
-  contactEmail: 'alfredo.teyseyre@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0022',
   programaLink:
@@ -953,8 +953,8 @@ export let bases_de_datos_1: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: THIRD_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: 'Del Fresno, Mirta Mariana',
-  contactEmail: 'mdelfres@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0023',
   programaLink:
@@ -1000,8 +1000,8 @@ export let investigacion_operativa_1: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: THIRD_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: 'Illescas, Roberto Gustavo',
-  contactEmail: 'gustavo.illescas@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0026',
   programaLink:
@@ -1043,8 +1043,8 @@ export let lenguajes_de_programacion_1: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: THIRD_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: 'Massa, Jose Maria',
-  contactEmail: 'josem.massa@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0024',
   programaLink:
@@ -1127,8 +1127,8 @@ export let sistemas_operativos_1: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: THIRD_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: 'Zunino, Alejandro Octavio',
-  contactEmail: 'azunino@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0025',
   programaLink:
@@ -1176,8 +1176,8 @@ export let arquitectura_de_computadoras_y_tecnicas_digitales: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: FOURTH_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Tosini, Marcelo',
-  contactEmail: 'marcelo.tosini@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0027',
   programaLink:
@@ -1227,8 +1227,8 @@ export let comunicacion_de_datos_2: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: FOURTH_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Rubiales, Aldo Jose',
-  contactEmail: 'aldorubiales@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0029',
   programaLink:
@@ -1280,8 +1280,8 @@ export let introduccion_al_calculo_diferencial_e_integral: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: FOURTH_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Marinelli, Claudia Beatriz',
-  contactEmail: 'marinelli.claudia@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0030',
   programaLink:
@@ -1331,8 +1331,8 @@ export let organizacion_empresarial: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: FOURTH_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Illescas, Roberto Gustavo',
-  contactEmail: 'gustavo.illescas@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=1188',
   programaLink:
@@ -1402,8 +1402,8 @@ export let teoria_de_la_informacion: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: FOURTH_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Del Fresno, Mirta Mariana',
-  contactEmail: 'mdelfres@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0028',
   programaLink:
@@ -1461,8 +1461,8 @@ export let diseño_de_compiladores_1: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: FOURTH_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: 'Ridao, Marcela Natividad',
-  contactEmail: 'marceridao@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0032',
   programaLink:
@@ -1693,8 +1693,8 @@ export let legislacion_y_gestion_ambiental: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_NAME,
   year: FIFTH_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Mauhourat, Ricardo',
-  contactEmail: 'ricardo.mauhourat@mauhourat.com.ar',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=1190',
   programaLink:

@@ -2,6 +2,8 @@
     <h3>{{subject.name}}</h3>
     <ibm-tag *ngIf="subject.career === ingenieriaDeSistemasName" type="green">{{subject.career}}</ibm-tag>
     <ibm-tag *ngIf="subject.career === tudaiName" type="teal">{{subject.career}}</ibm-tag>
+    <ibm-tag *ngIf="subject.quarter === firstQuarterName" type="gray">{{ subject.quarter }}</ibm-tag>
+    <ibm-tag *ngIf="subject.quarter === secondQuarterName" type="cool-gray">{{ subject.quarter }}</ibm-tag>
     <!-- <div ibmRow style="align-items: end;">
         <div ibmCol>
             <ibm-dropdown label="Estado de la materia" placeholder="Selecciona el estado de la materia"
@@ -11,14 +13,13 @@
         </div>
     </div> -->
     <br>
-    <br>
-    <hr class="bx--side-nav__divider" />
+    <!-- <hr class="bx--side-nav__divider" />
     <span class="info-catedra"><strong>Cuatrimestre:</strong> {{subject.quarter}}</span>
-    <hr class="bx--side-nav__divider" />
-    <span class="info-catedra"><strong>Docente:</strong> {{subject.teacher}}</span>
+    <hr class="bx--side-nav__divider" /> -->
+    <!-- <span class="info-catedra"><strong>Docente:</strong> {{subject.teacher}}</span>
     <hr class="bx--side-nav__divider" />
     <span class="info-catedra"><strong>Email de contacto:</strong> {{subject.contactEmail}}</span>
-    <hr class="bx--side-nav__divider" />
+    <hr class="bx--side-nav__divider" /> -->
     <div class="buttons-container">
         <div ibmRow>
             <app-catedra-column-with-button [elementIconImagePath]="'assets/images/search-icon.svg'"

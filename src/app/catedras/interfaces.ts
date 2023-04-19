@@ -16,11 +16,11 @@ export const FOURTH_YEAR_NAME = 'Cuarto';
 
 export const FIFTH_YEAR_NAME = 'Quinto';
 
-export type QuarterType = 'Primero' | 'Segundo';
+export type QuarterType = '1er cuatri' | '2do cuatri';
 
-export const FIRST_QUARTER_NAME = 'Primero';
+export const FIRST_QUARTER_NAME = '1er cuatri';
 
-export const SECOND_QUARTER_NAME = 'Segundo';
+export const SECOND_QUARTER_NAME = '2do cuatri';
 
 export interface ISubject {
   id: string;

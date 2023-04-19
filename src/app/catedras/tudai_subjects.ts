@@ -15,8 +15,8 @@ export let ingles_1: ISubject = {
   career: TUDAI_NAME,
   year: FIRST_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Barandiaran, Carolina',
-  contactEmail: 'barandiarancarolina@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0198',
   programaLink:
@@ -37,8 +37,8 @@ export let programacion_1: ISubject = {
   career: TUDAI_NAME,
   year: FIRST_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Boroni, Gustavo Adolfo',
-  contactEmail: 'gboroni@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0216',
   programaLink:
@@ -59,8 +59,8 @@ export let taller_de_matematica_computacional: ISubject = {
   career: TUDAI_NAME,
   year: FIRST_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Dalponte, Diego David',
-  contactEmail: 'diego.dalponte@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0218',
   programaLink:
@@ -103,8 +103,8 @@ export let ingles_2: ISubject = {
   career: TUDAI_NAME,
   year: FIRST_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: 'Cañedo, Claudia',
-  contactEmail: 'clcanedo@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0199',
   programaLink:
@@ -130,8 +130,8 @@ export let programacion_2: ISubject = {
   career: TUDAI_NAME,
   year: FIRST_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: 'Berdun, Luis Sebastian',
-  contactEmail: 'lberdun@exa.unicen.edu.ar',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0221',
   programaLink:
@@ -159,8 +159,8 @@ export let tecnologia_de_la_informacion_en_las_organizaciones: ISubject = {
   career: TUDAI_NAME,
   year: FIRST_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: 'Gonzalez Cisaro, Sandra Elizabeth',
-  contactEmail: 'sagonci@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0219',
   programaLink:
@@ -208,8 +208,8 @@ export let bases_de_datos_tudai: ISubject = {
   career: TUDAI_NAME,
   year: SECOND_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Ferraggine, Viviana Elizabeth',
-  contactEmail: 'viviana.ferraggine@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0519',
   programaLink:
@@ -237,8 +237,8 @@ export let configuracion_y_desarrollo_de_aplicaciones_en_redes: ISubject = {
   career: TUDAI_NAME,
   year: SECOND_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Rubiales, Aldo Jose',
-  contactEmail: 'aldorubiales@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0223',
   programaLink:
@@ -267,8 +267,8 @@ export let introduccion_a_las_metodologias_de_desarrollo_de_software: ISubject =
     career: TUDAI_NAME,
     year: SECOND_YEAR_NAME,
     quarter: FIRST_QUARTER_NAME,
-    teacher: 'Vidal, Santiago Agustin',
-    contactEmail: 'santiago.a.vidal@gmail.com',
+    teacher: '',
+    contactEmail: '',
     modalidadLink:
       'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0225',
     programaLink:
@@ -298,8 +298,8 @@ export let programacion_3: ISubject = {
   career: TUDAI_NAME,
   year: SECOND_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: 'Casanova, Federico Martin',
-  contactEmail: 'fedecasanova@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0224',
   programaLink:
@@ -325,8 +325,8 @@ export let arquitecturas_web: ISubject = {
   career: TUDAI_NAME,
   year: SECOND_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: 'Diaz Pace, Jorge Andres',
-  contactEmail: 'adiazpace@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0230',
   programaLink:
@@ -356,8 +356,8 @@ export let interfaces_de_usuario_e_interaccion: ISubject = {
   career: TUDAI_NAME,
   year: SECOND_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: 'Garcia Bauza, Cristian Dario',
-  contactEmail: 'cristiangb@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0229',
   programaLink:
@@ -387,8 +387,8 @@ export let tecnicas_de_documentacion_y_validacion: ISubject = {
   career: TUDAI_NAME,
   year: SECOND_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: 'Goñi, Oscar Enrique',
-  contactEmail: 'oegoni@gmail.com',
+  teacher: '',
+  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0228',
   programaLink:

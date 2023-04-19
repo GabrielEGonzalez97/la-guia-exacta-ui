@@ -3,8 +3,10 @@ import { ListItem, ModalService } from 'carbon-components-angular';
 import { UtilsService } from 'src/app/services/utils.service';
 import { CorrelativesModalWindowComponent } from '../correlatives-modal-window/correlatives-modal-window.component';
 import {
+  FIRST_QUARTER_NAME,
   INGENIERIA_DE_SISTEMAS_NAME,
   ISubject,
+  SECOND_QUARTER_NAME,
   TUDAI_NAME,
 } from '../interfaces';
 import { SubjectsThatObstructModalWindowComponent } from '../subjects-that-obstruct-modal-window/subjects-that-obstruct-modal-window.component';
@@ -22,6 +24,9 @@ export class CatedraComponent implements OnInit {
 
   public ingenieriaDeSistemasName: string = INGENIERIA_DE_SISTEMAS_NAME;
   public tudaiName: string = TUDAI_NAME;
+
+  public firstQuarterName: string = FIRST_QUARTER_NAME;
+  public secondQuarterName: string = SECOND_QUARTER_NAME;
 
   public subjectStatus: ListItem[] = [];
 
