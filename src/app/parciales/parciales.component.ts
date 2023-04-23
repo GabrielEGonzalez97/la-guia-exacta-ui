@@ -6,6 +6,7 @@ import { IGoogleDriveFolderInformation } from '../common/interfaces';
 import { HttpService } from '../services/http.service';
 import { IWithState, UtilsService } from '../services/utils.service';
 import { IParcialesInformation } from './interfaces';
+import * as JSZip from 'jszip';
 
 @Component({
   selector: 'app-parciales',
@@ -16,6 +17,7 @@ export class ParcialesComponent implements OnInit {
   public parciales: IParcialesInformation[] = [];
   public parcialesToShow: IParcialesInformation[] = [];
   public areParcialesLoading: boolean = true;
+  public isDownloadZipLoading: boolean = false;
   public yearDropdownItems: ListItem[] = [
     {
       content: 'Todos',
@@ -44,6 +46,7 @@ export class ParcialesComponent implements OnInit {
   private subjectFolderName: string = '';
   private selectedYearContent: string = '';
   private selectedParcialTypeContent: string = '';
+  private filesReadyToBeDownloaded: boolean[] = [];
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -118,6 +121,80 @@ export class ParcialesComponent implements OnInit {
         ? selectedParcialType.item.content
         : '';
     this.onFilterChange();
+  }
+
+  public downloadZip(): void {
+    const zip = new JSZip();
+    const parcialitosFolder: JSZip = zip.folder('Parcialitos');
+    const parcialesFolder: JSZip = zip.folder('Parciales');
+    const recuperatoriosFolder: JSZip = zip.folder('Recuperatorios');
+    const prefinalesFolder: JSZip = zip.folder('Prefinales');
+
+    this.isDownloadZipLoading = true;
+
+    this.parciales.forEach((parcial: IParcialesInformation) => {
+      this.httpService
+        .getFileById(parcial.id)
+        .subscribe((fileWithState: IWithState<ArrayBuffer>) => {
+          if (fileWithState.state === 'done') {
+            let file = new Blob([fileWithState.value], {
+              type: 'application/pdf',
+            });
+
+            switch (true) {
+              case parcial.name.startsWith('Parcialito'): {
+                parcialitosFolder.file(parcial.name + '.pdf', file);
+                break;
+              }
+              case parcial.name.startsWith('Parcial'): {
+                parcialesFolder.file(parcial.name + '.pdf', file);
+                break;
+              }
+              case parcial.name.startsWith('Recuperatorio'): {
+                recuperatoriosFolder.file(parcial.name + '.pdf', file);
+                break;
+              }
+              case parcial.name.startsWith('Prefinal'): {
+                prefinalesFolder.file(parcial.name + '.pdf', file);
+                break;
+              }
+              default: {
+                break;
+              }
+            }
+
+            this.filesReadyToBeDownloaded.push(true);
+            this.verifyIfDownloadCanStart(zip);
+          }
+        });
+    });
+
+    this.isDownloadZipLoading = false;
+  }
+
+  private verifyIfDownloadCanStart(zip: JSZip): void {
+    this.isDownloadZipLoading = true;
+
+    if (this.filesReadyToBeDownloaded.length === this.parciales.length) {
+      zip.generateAsync({ type: 'blob' }).then((blob) => {
+        // Crea un objeto URL para descargar el archivo
+        const url: string = URL.createObjectURL(blob);
+
+        // Crea un enlace de descarga y lo agrega al DOM
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = this.subjectFolderName + '-parciales.zip';
+        document.body.appendChild(a);
+
+        // Simula un click en el enlace para descargar el archivo
+        a.click();
+
+        // Elimina el objeto URL
+        URL.revokeObjectURL(url);
+
+        this.isDownloadZipLoading = false;
+      });
+    }
   }
 
   private onFilterChange(): void {
