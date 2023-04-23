@@ -11,6 +11,34 @@
                 <ibm-dropdown-list [items]="monthDropdownItems"></ibm-dropdown-list>
             </ibm-dropdown>
         </div>
+        <ng-container *ngIf="finales.length > 0">
+            <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 3 }"
+                style="display: flex; align-items: end;">
+                <button ibmButton="primary" (click)="downloadZip()" [disabled]="isDownloadZipLoading"
+                    style="width: 100%; margin-top: 1rem;">
+                    <div class="zip-button-elements-container">
+                        <img [src]="'assets/images/download-zip-icon.svg'" />
+                        <span>Descargar un zip con los exámenes</span>
+                        <ng-container *ngIf="isDownloadZipLoading">
+                            <div class="holder">
+                                <div class="preloader">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </button>
+            </div>
+        </ng-container>
     </div>
     <ng-container *ngIf="finales.length > 0 && finalesToShow.length > 0; else noFinalesToShowTemplate">
         <div ibmRow *ngFor="let final of finalesToShow">

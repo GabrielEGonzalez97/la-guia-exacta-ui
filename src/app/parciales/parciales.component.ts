@@ -193,6 +193,7 @@ export class ParcialesComponent implements OnInit {
         URL.revokeObjectURL(url);
 
         this.isDownloadZipLoading = false;
+        this.filesReadyToBeDownloaded = [];
       });
     }
   }
