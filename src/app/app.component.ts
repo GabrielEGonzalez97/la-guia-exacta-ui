@@ -20,7 +20,6 @@ export class AppComponent {
 
   constructor(
     public router: Router,
-    private titleService: Title,
     @Inject(DOCUMENT) private document: Document
   ) {
     this.router.events.subscribe((event) => {
@@ -29,8 +28,6 @@ export class AppComponent {
           this.router.routerState,
           this.router.routerState.root
         ).join('-');
-        console.log(title);
-        this.titleService.setTitle(title);
         gtag('event', 'page_view', {
           page_title: title,
           page_path: event.urlAfterRedirects,
