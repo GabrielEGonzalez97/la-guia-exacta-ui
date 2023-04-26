@@ -15,40 +15,53 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+    data: { title: 'Homepage' },
   },
   {
     path: 'carreras/ingenieria-de-sistemas',
     component: IngenieriaDeSistemasComponent,
+    data: { title: 'Carrera-Ingenieria-de-Sistemas' },
   },
   {
     path: 'carreras/tudai',
     component: TudaiComponent,
+    data: { title: 'Carrera-TUDAI' },
   },
   {
     path: 'catedras',
     component: CatedrasComponent,
+    data: { title: 'Catedras' },
   },
   {
     path: 'parciales/:subjectName',
     component: ParcialesComponent,
+    data: { title: 'Parciales' },
   },
   {
     path: 'finales/:subjectName',
     component: FinalesComponent,
+    data: { title: 'Finales' },
   },
   {
     path: 'resumenes/:subjectName',
     component: ResumenesComponent,
+    data: { title: 'Resumenes' },
   },
   {
     path: 'videos-clases/:subjectName',
     component: VideosClasesComponent,
+    data: { title: 'Videos-Clases' },
   },
   {
     path: 'cursos-gratuitos',
     component: CursosGratuitosComponent,
+    data: { title: 'Cursos-Gratuitos' },
   },
-  { path: 'subir-aportes', component: FileUploaderComponent },
+  {
+    path: 'subir-aportes',
+    component: FileUploaderComponent,
+    data: { title: 'Subir-Aportes' },
+  },
 ];
 
 @NgModule({

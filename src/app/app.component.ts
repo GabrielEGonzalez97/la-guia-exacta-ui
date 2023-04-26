@@ -1,5 +1,12 @@
-import { Component } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import {
+  ActivatedRoute,
+  NavigationEnd,
+  Router,
+  RouterState,
+} from '@angular/router';
 
 declare const gtag: Function;
 
@@ -11,13 +18,42 @@ declare const gtag: Function;
 export class AppComponent {
   title = 'ingenieria-sistemas-app';
 
-  constructor(public router: Router) {
+  constructor(
+    public router: Router,
+    private titleService: Title,
+    @Inject(DOCUMENT) private document: Document
+  ) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        gtag('config', 'G-QD8PY9PFZ8', {
+        const title = this.getTitle(
+          this.router.routerState,
+          this.router.routerState.root
+        ).join('-');
+        console.log(title);
+        this.titleService.setTitle(title);
+        gtag('event', 'page_view', {
+          page_title: title,
           page_path: event.urlAfterRedirects,
+          page_location: this.document.location.href,
         });
       }
     });
+  }
+
+  private getTitle(state: RouterState, parent: ActivatedRoute): string[] {
+    const data = [];
+    const subjectFolderName: string =
+      parent.snapshot.paramMap.get('subjectName');
+    if (parent && parent.snapshot.data && parent.snapshot.data['title']) {
+      let title: string = parent.snapshot.data['title'];
+      if (subjectFolderName) {
+        title = title + '-' + subjectFolderName;
+      }
+      data.push(title);
+    }
+    if (state && parent && parent.firstChild) {
+      data.push(...this.getTitle(state, parent.firstChild));
+    }
+    return data;
   }
 }
