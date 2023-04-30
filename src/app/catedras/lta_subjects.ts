@@ -274,7 +274,7 @@ export let quimica_ambiental_LTA: ISubject = {
 
 export let calculo_numerico_LTA: ISubject = {
   id: 'calculo_numerico_LTA',
-  name: 'Cálculo Ambiental',
+  name: 'Cálculo Numérico',
   status: localStorage.getItem('calculo_numerico_LTA'),
   career: LTA_NAME,
   year: SECOND_YEAR_NAME,
