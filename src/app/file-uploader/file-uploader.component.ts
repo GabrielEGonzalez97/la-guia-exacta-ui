@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FileItem, ListItem } from 'carbon-components-angular';
 import { ingenieria_de_sistemas_subjects_plan_2011 } from '../catedras/ingenieria-de-sistemas-plan-2011';
 import { ISubject } from '../catedras/interfaces';
+import { lta_subjects } from '../catedras/lta_subjects';
 import { tudai_subjects } from '../catedras/tudai_subjects';
 import { HttpService } from '../services/http.service';
 import { IWithState, UtilsService } from '../services/utils.service';
@@ -17,6 +18,7 @@ export class FileUploaderComponent implements OnInit {
   public allSubjects: ISubject[] = [
     ...ingenieria_de_sistemas_subjects_plan_2011,
     ...tudai_subjects,
+    ...lta_subjects,
   ];
 
   public subjectsComboBoxItems: ListItem[] = [];

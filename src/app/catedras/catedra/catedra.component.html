@@ -1,7 +1,8 @@
 <ibm-tile>
     <h3>{{subject.name}}</h3>
-    <ibm-tag *ngIf="subject.career === ingenieriaDeSistemasName" type="green">{{subject.career}}</ibm-tag>
+    <ibm-tag *ngIf="subject.career === ingenieriaDeSistemasName" type="blue">{{subject.career}}</ibm-tag>
     <ibm-tag *ngIf="subject.career === tudaiName" type="teal">{{subject.career}}</ibm-tag>
+    <ibm-tag *ngIf="subject.career === ltaName" type="green">{{subject.career}}</ibm-tag>
     <ibm-tag *ngIf="subject.quarter === firstQuarterName" type="gray">{{ subject.quarter }}</ibm-tag>
     <ibm-tag *ngIf="subject.quarter === secondQuarterName" type="cool-gray">{{ subject.quarter }}</ibm-tag>
     <!-- <div ibmRow style="align-items: end;">
@@ -57,12 +58,12 @@
 
             <app-catedra-column-with-button *ngIf="subject.resumenesLink"
                 [elementIconImagePath]="'assets/images/page-file-icon.svg'" [elementName]="'Resúmenes'"
-                (onButtonClickEmitter)="navigateTo('resumenes/' + subject.finalesLink)">
+                (onButtonClickEmitter)="navigateTo('resumenes/' + subject.resumenesLink)">
             </app-catedra-column-with-button>
 
             <app-catedra-column-with-button *ngIf="subject.parcialesLink"
                 [elementIconImagePath]="'assets/images/parciales-icon.svg'" [elementName]="'Parciales'"
-                (onButtonClickEmitter)="navigateTo('parciales/' + subject.finalesLink)">
+                (onButtonClickEmitter)="navigateTo('parciales/' + subject.parcialesLink)">
             </app-catedra-column-with-button>
 
             <app-catedra-column-with-button *ngIf="subject.finalesLink"

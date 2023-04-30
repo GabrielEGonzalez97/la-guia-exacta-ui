@@ -2,6 +2,7 @@ import { ListItem } from 'carbon-components-angular';
 import {
   FIRST_QUARTER_NAME,
   INGENIERIA_DE_SISTEMAS_NAME,
+  LTA_NAME,
   SECOND_QUARTER_NAME,
   TUDAI_NAME,
 } from './interfaces';
@@ -18,6 +19,7 @@ export const CAREERS_DROPDOWN_ITEMS: ListItem[] = [
     selected: false,
   },
   { content: TUDAI_NAME, value: TUDAI_NAME, selected: false },
+  { content: LTA_NAME, value: LTA_NAME, selected: false },
 ];
 
 export const QUARTERS_DROPDOWN_ITEMS: ListItem[] = [

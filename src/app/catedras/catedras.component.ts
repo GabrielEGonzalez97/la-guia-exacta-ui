@@ -3,6 +3,7 @@ import { ListItem } from 'carbon-components-angular';
 import { CAREERS_DROPDOWN_ITEMS, QUARTERS_DROPDOWN_ITEMS } from './constants';
 import { ingenieria_de_sistemas_subjects_plan_2011 } from './ingenieria-de-sistemas-plan-2011';
 import { ISubject } from './interfaces';
+import { lta_subjects } from './lta_subjects';
 import { tudai_subjects } from './tudai_subjects';
 
 @Component({
@@ -16,6 +17,7 @@ export class CatedrasComponent implements OnInit {
   public allSubjects: ISubject[] = [
     ...ingenieria_de_sistemas_subjects_plan_2011,
     ...tudai_subjects,
+    ...lta_subjects,
   ];
   public subjectsToDisplay: ISubject[] = this.allSubjects;
 
