@@ -1051,7 +1051,7 @@ export let lenguajes_de_programacion_1: ISubject = {
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0024',
   webLink: 'https://lengprg1.alumnos.exa.unicen.edu.ar/',
   moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=562',
-  clasesLink: 'lenguajes-de-programacion-i',
+  clasesLink: '',
   resumenesLink: 'lenguajes-de-programacion-i',
   parcialesLink: 'lenguajes-de-programacion-i',
   finalesLink: 'lenguajes-de-programacion-i',
