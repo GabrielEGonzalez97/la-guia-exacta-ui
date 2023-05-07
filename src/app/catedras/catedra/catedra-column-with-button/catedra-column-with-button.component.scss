@@ -6,7 +6,7 @@
   width: 100%;
   min-width: 12rem;
   max-width: 100%;
-  background-color: $principal-color;
+  background: linear-gradient(220.55deg, #565656 0%, #181818 100%);
   padding: calc(0.875rem - 3px) 0px calc(0.875rem - 3px) 15px;
   padding-right: 15px;
   line-break: anywhere;
@@ -18,7 +18,7 @@
 }
 
 .bx--btn--primary:hover {
-  background-color: $principal-color-hover;
+  background: $principal-color-hover;
 }
 
 :host ::ng-deep {

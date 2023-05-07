@@ -5,12 +5,25 @@
 ibm-tile {
   height: 100%;
   border: 2px solid $principal-color;
+  --shadow-color: 0deg 0% 63%;
+  --shadow-elevation-medium: 0.5px 0.5px 0.8px hsl(var(--shadow-color) / 0.43),
+    1.8px 1.9px 2.9px -0.8px hsl(var(--shadow-color) / 0.43),
+    4.5px 4.8px 7.4px -1.7px hsl(var(--shadow-color) / 0.43),
+    10.9px 11.7px 18px -2.5px hsl(var(--shadow-color) / 0.43);
+  box-shadow: var(--shadow-elevation-medium);
   border-radius: 40px;
-  padding: 1.5rem;
   -webkit-border-radius: 40px;
   -moz-border-radius: 40px;
   -ms-border-radius: 40px;
   -o-border-radius: 40px;
+}
+
+.subject-info-container {
+  background-color: white;
+  padding: 2rem;
+  margin: -1rem;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
 }
 
 ibm-tag {
@@ -36,4 +49,29 @@ app-catedra-column-with-button {
   margin-top: 1rem;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
+}
+
+.highlight-container,
+.highlight {
+  position: relative;
+}
+
+.highlight-container {
+  display: inline-block;
+}
+
+.highlight-container:before {
+  content: " ";
+  display: block;
+  height: 90%;
+  width: 100%;
+  margin-left: -3px;
+  margin-right: -3px;
+  position: absolute;
+  background: yellow;
+  transform: rotate(2deg);
+  top: -1px;
+  left: -1px;
+  border-radius: 20% 25% 20% 24%;
+  padding: 10px 3px 3px 10px;
 }

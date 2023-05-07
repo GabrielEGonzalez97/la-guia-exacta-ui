@@ -2,6 +2,10 @@
 
 @include adjustPaddingInIBMGridAndCol();
 
+.filters-container {
+  margin-bottom: 1.25rem;
+}
+
 .bx--search-magnifier-icon {
   left: 0.75rem;
 }

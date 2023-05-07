@@ -1,10 +1,19 @@
 <ibm-tile>
-    <h3>{{subject.name}}</h3>
-    <ibm-tag *ngIf="subject.career === ingenieriaDeSistemasName" type="blue">{{subject.career}}</ibm-tag>
-    <ibm-tag *ngIf="subject.career === tudaiName" type="teal">{{subject.career}}</ibm-tag>
-    <ibm-tag *ngIf="subject.career === ltaName" type="green">{{subject.career}}</ibm-tag>
-    <ibm-tag *ngIf="subject.quarter === firstQuarterName" type="gray">{{ subject.quarter }}</ibm-tag>
-    <ibm-tag *ngIf="subject.quarter === secondQuarterName" type="cool-gray">{{ subject.quarter }}</ibm-tag>
+    <div class="subject-info-container">
+        <h3>
+            <span class="highlight-container">
+                <span class="highlight">
+                    {{subject.name}}
+                </span>
+            </span>
+        </h3>
+        <br>
+        <ibm-tag *ngIf="subject.career === ingenieriaDeSistemasName" type="blue">{{subject.career}}</ibm-tag>
+        <ibm-tag *ngIf="subject.career === tudaiName" type="teal">{{subject.career}}</ibm-tag>
+        <ibm-tag *ngIf="subject.career === ltaName" type="green">{{subject.career}}</ibm-tag>
+        <ibm-tag *ngIf="subject.quarter === firstQuarterName" type="gray">{{ subject.quarter }}</ibm-tag>
+        <ibm-tag *ngIf="subject.quarter === secondQuarterName" type="cool-gray">{{ subject.quarter }}</ibm-tag>
+    </div>
     <!-- <div ibmRow style="align-items: end;">
         <div ibmCol>
             <ibm-dropdown label="Estado de la materia" placeholder="Selecciona el estado de la materia"
