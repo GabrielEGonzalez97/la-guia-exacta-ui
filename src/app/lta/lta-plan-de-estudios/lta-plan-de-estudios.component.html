@@ -95,6 +95,10 @@
             (click)="showCatedraModalWindow(biologia_LTA)">
             {{ biologia_LTA.subject.name }}
         </div>
+        <div class="subject-container" [style.background-color]="optativa_1.color" (mouseover)="onMouseOverSubject(optativa_1)"
+            (mouseleave)="onMouseLeaveSubject()">
+            {{ optativa_1.subject.name }}
+        </div>
     </div>
 
     <div class="quarter-container">
@@ -112,6 +116,10 @@
             (mouseover)="onMouseOverSubject(calculo_numerico_LTA)" (mouseleave)="onMouseLeaveSubject()"
             (click)="showCatedraModalWindow(calculo_numerico_LTA)">
             {{ calculo_numerico_LTA.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="optativa_2.color" (mouseover)="onMouseOverSubject(optativa_2)"
+            (mouseleave)="onMouseLeaveSubject()">
+            {{ optativa_2.subject.name }}
         </div>
     </div>
 
@@ -148,6 +156,10 @@
             (mouseover)="onMouseOverSubject(residuos_solidos)" (mouseleave)="onMouseLeaveSubject()"
             (click)="showCatedraModalWindow(residuos_solidos)">
             {{ residuos_solidos.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="optativa_3.color" (mouseover)="onMouseOverSubject(optativa_3)"
+            (mouseleave)="onMouseLeaveSubject()">
+            {{ optativa_3.subject.name }}
         </div>
     </div>
 
@@ -204,6 +216,10 @@
             (click)="showCatedraModalWindow(tratamiento_de_residuos_solidos)">
             {{ tratamiento_de_residuos_solidos.subject.name }}
         </div>
+        <div class="subject-container" [style.background-color]="optativa_4.color" (mouseover)="onMouseOverSubject(optativa_4)"
+            (mouseleave)="onMouseLeaveSubject()">
+            {{ optativa_4.subject.name }}
+        </div>
     </div>
 
     <div class="quarter-container">
@@ -212,5 +228,17 @@
             (click)="showCatedraModalWindow(evaluacion_de_impacto_ambiental)">
             {{ evaluacion_de_impacto_ambiental.subject.name }}
         </div>
+        <div class="subject-container" [style.background-color]="optativa_5.color" (mouseover)="onMouseOverSubject(optativa_5)"
+            (mouseleave)="onMouseLeaveSubject()">
+            {{ optativa_5.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="pps.color" (mouseover)="onMouseOverSubject(pps)"
+            (mouseleave)="onMouseLeaveSubject()">
+            {{ pps.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="proyecto_final.color"
+            (mouseover)="onMouseOverSubject(proyecto_final)" (mouseleave)="onMouseLeaveSubject()">
+            {{ proyecto_final.subject.name }}
+        </div>
     </div>
-    </div>
+</div>

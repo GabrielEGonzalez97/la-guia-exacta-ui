@@ -49,6 +49,7 @@ import {
   FOURTH_YEAR_NAME,
   ICorrelativeSubject,
   ISubject,
+  LTA_NAME,
   SECOND_QUARTER_NAME,
   SECOND_YEAR_NAME,
   THIRD_YEAR_NAME,
@@ -119,6 +120,432 @@ export class LtaPlanDeEstudiosComponent implements OnInit {
   public evaluacion_de_impacto_ambiental: ISubjectWithSelection =
     evaluacion_de_impacto_ambiental_with_selection;
 
+  public optativa_1: ISubjectWithSelection = {
+    subject: {
+      id: 'optativa_1',
+      name: 'Optativa I',
+      status: '',
+      career: LTA_NAME,
+      year: SECOND_YEAR_NAME,
+      quarter: FIRST_QUARTER_NAME,
+      teacher: '',
+      contactEmail: '',
+      modalidadLink: '',
+      programaLink: '',
+      webLink: '',
+      moodleLink: '',
+      clasesLink: '',
+      resumenesLink: '',
+      parcialesLink: '',
+      finalesLink: '',
+      correlatives: [],
+    },
+    color: DEFAULT_COLOR_SUBJECT,
+  };
+
+  public optativa_2: ISubjectWithSelection = {
+    subject: {
+      id: 'optativa_2',
+      name: 'Optativa II',
+      status: '',
+      career: LTA_NAME,
+      year: SECOND_YEAR_NAME,
+      quarter: SECOND_QUARTER_NAME,
+      teacher: '',
+      contactEmail: '',
+      modalidadLink: '',
+      programaLink: '',
+      webLink: '',
+      moodleLink: '',
+      clasesLink: '',
+      resumenesLink: '',
+      parcialesLink: '',
+      finalesLink: '',
+      correlatives: [],
+    },
+    color: DEFAULT_COLOR_SUBJECT,
+  };
+
+  public optativa_3: ISubjectWithSelection = {
+    subject: {
+      id: 'optativa_3',
+      name: 'Optativa III',
+      status: '',
+      career: LTA_NAME,
+      year: THIRD_YEAR_NAME,
+      quarter: SECOND_QUARTER_NAME,
+      teacher: '',
+      contactEmail: '',
+      modalidadLink: '',
+      programaLink: '',
+      webLink: '',
+      moodleLink: '',
+      clasesLink: '',
+      resumenesLink: '',
+      parcialesLink: '',
+      finalesLink: '',
+      correlatives: [
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.analisis_matematico_1_LTA.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.tecnologia_ambiente_y_sociedad.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.introduccion_a_la_informatica.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.fisica_general_1_LTA.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.geometria_y_algebra_lineal_LTA.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.quimica_organica_y_biologica_LTA.subject,
+        },
+      ],
+    },
+    color: DEFAULT_COLOR_SUBJECT,
+  };
+
+  public optativa_4: ISubjectWithSelection = {
+    subject: {
+      id: 'optativa_4',
+      name: 'Optativa IV',
+      status: '',
+      career: LTA_NAME,
+      year: FIFTH_YEAR_NAME,
+      quarter: FIRST_QUARTER_NAME,
+      teacher: '',
+      contactEmail: '',
+      modalidadLink: '',
+      programaLink: '',
+      webLink: '',
+      moodleLink: '',
+      clasesLink: '',
+      resumenesLink: '',
+      parcialesLink: '',
+      finalesLink: '',
+      correlatives: [
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.biologia_LTA.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.fundamentos_de_ecologia.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.quimica_ambiental_LTA.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.calculo_numerico_LTA.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.ciencias_de_la_tierra_1.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.mecanica_de_fluidos.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.legislacion_ambiental_LTA.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.economia_ambiental_LTA.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.optativa_1.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.optativa_2.subject,
+        },
+      ],
+    },
+    color: DEFAULT_COLOR_SUBJECT,
+  };
+
+  public optativa_5: ISubjectWithSelection = {
+    subject: {
+      id: 'optativa_5',
+      name: 'Optativa V',
+      status: '',
+      career: LTA_NAME,
+      year: FIFTH_YEAR_NAME,
+      quarter: SECOND_QUARTER_NAME,
+      teacher: '',
+      contactEmail: '',
+      modalidadLink: '',
+      programaLink: '',
+      webLink: '',
+      moodleLink: '',
+      clasesLink: '',
+      resumenesLink: '',
+      parcialesLink: '',
+      finalesLink: '',
+      correlatives: [
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.fisica_general_2_LTA.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.analisis_matematico_2_LTA.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.biologia_LTA.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.optativa_1.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.fundamentos_de_ecologia.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.quimica_ambiental_LTA.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.fundamentos_de_ecologia.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.calculo_numerico_LTA.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.optativa_2.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.ciencias_de_la_tierra_1.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.mecanica_de_fluidos.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.legislacion_ambiental_LTA.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.economia_ambiental_LTA.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.probabilidades_y_estadistica_LTA.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.residuos_solidos.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.optativa_3.subject,
+        },
+      ],
+    },
+    color: DEFAULT_COLOR_SUBJECT,
+  };
+
+  public pps: ISubjectWithSelection = {
+    subject: {
+      id: 'pps',
+      name: 'Práctica Profesional Supervisada',
+      status: '',
+      career: LTA_NAME,
+      year: FIFTH_YEAR_NAME,
+      quarter: SECOND_QUARTER_NAME,
+      teacher: '',
+      contactEmail: '',
+      modalidadLink: '',
+      programaLink: '',
+      webLink: '',
+      moodleLink: '',
+      clasesLink: '',
+      resumenesLink: '',
+      parcialesLink: '',
+      finalesLink: '',
+      correlatives: [
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.fisica_general_2_LTA.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.analisis_matematico_2_LTA.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.biologia_LTA.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.optativa_1.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.fundamentos_de_ecologia.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.quimica_ambiental_LTA.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.fundamentos_de_ecologia.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.calculo_numerico_LTA.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.optativa_2.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.ciencias_de_la_tierra_1.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.mecanica_de_fluidos.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.legislacion_ambiental_LTA.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.economia_ambiental_LTA.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.probabilidades_y_estadistica_LTA.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.residuos_solidos.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.optativa_3.subject,
+        },
+      ],
+    },
+    color: DEFAULT_COLOR_SUBJECT,
+  };
+
+  public proyecto_final: ISubjectWithSelection = {
+    subject: {
+      id: 'proyecto_final',
+      name: 'Proyecto Final',
+      status: '',
+      career: LTA_NAME,
+      year: FIFTH_YEAR_NAME,
+      quarter: SECOND_QUARTER_NAME,
+      teacher: '',
+      contactEmail: '',
+      modalidadLink: '',
+      programaLink: '',
+      webLink: '',
+      moodleLink: '',
+      clasesLink: '',
+      resumenesLink: '',
+      parcialesLink: '',
+      finalesLink: '',
+      correlatives: [
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.fundamentos_de_ecologia.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.quimica_ambiental_LTA.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.fundamentos_de_ecologia.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.calculo_numerico_LTA.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.ciencias_de_la_tierra_1.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.mecanica_de_fluidos.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.legislacion_ambiental_LTA.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.economia_ambiental_LTA.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.probabilidades_y_estadistica_LTA.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.residuos_solidos.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.contaminacion_atmosferica.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.contaminacion_en_agua.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.formulacion_y_evaluacion_de_proyectos_LTA.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.ciencias_de_la_tierra_2.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.fluodinamica_ambiental.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.radiacion.subject,
+        },
+        {
+          typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+          subject: this.optativa_3.subject,
+        },
+      ],
+    },
+    color: DEFAULT_COLOR_SUBJECT,
+  };
+
   public allSubjects: ISubjectWithSelection[] = [
     this.analisis_matematico_1_LTA,
     this.tecnologia_ambiente_y_sociedad,
@@ -149,11 +576,79 @@ export class LtaPlanDeEstudiosComponent implements OnInit {
     this.tratamiento_de_efluentes_liquidos,
     this.tratamiento_de_residuos_solidos,
     this.evaluacion_de_impacto_ambiental,
+    this.optativa_1,
+    this.optativa_2,
+    this.optativa_3,
+    this.optativa_4,
+    this.optativa_5,
+    this.pps,
+    this.proyecto_final,
   ];
 
   constructor(private modalService: ModalService) {}
 
-  public ngOnInit(): void {}
+  public ngOnInit(): void {
+    this.contaminacion_atmosferica.subject.correlatives.push({
+      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+      subject: this.optativa_1.subject,
+    });
+    this.contaminacion_en_agua.subject.correlatives.push({
+      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+      subject: this.optativa_1.subject,
+    });
+    this.formulacion_y_evaluacion_de_proyectos_LTA.subject.correlatives.push({
+      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+      subject: this.optativa_1.subject,
+    });
+    this.ciencias_de_la_tierra_2.subject.correlatives.push({
+      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+      subject: this.optativa_1.subject,
+    });
+    this.ciencias_de_la_tierra_2.subject.correlatives.push({
+      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+      subject: this.optativa_2.subject,
+    });
+    this.fluodinamica_ambiental.subject.correlatives.push({
+      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+      subject: this.optativa_1.subject,
+    });
+    this.fluodinamica_ambiental.subject.correlatives.push({
+      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+      subject: this.optativa_2.subject,
+    });
+    this.radiacion.subject.correlatives.push({
+      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+      subject: this.optativa_1.subject,
+    });
+    this.radiacion.subject.correlatives.push({
+      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+      subject: this.optativa_2.subject,
+    });
+    this.tratamiento_de_efluentes_gaseosos.subject.correlatives.push({
+      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+      subject: this.optativa_2.subject,
+    });
+    this.tratamiento_de_efluentes_liquidos.subject.correlatives.push({
+      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+      subject: this.optativa_2.subject,
+    });
+    this.tratamiento_de_residuos_solidos.subject.correlatives.push({
+      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+      subject: this.optativa_1.subject,
+    });
+    this.tratamiento_de_residuos_solidos.subject.correlatives.push({
+      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+      subject: this.optativa_2.subject,
+    });
+    this.evaluacion_de_impacto_ambiental.subject.correlatives.push({
+      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+      subject: this.optativa_2.subject,
+    });
+    this.evaluacion_de_impacto_ambiental.subject.correlatives.push({
+      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+      subject: this.optativa_3.subject,
+    });
+  }
 
   public onMouseOverSubject(subjectToEvaluate: ISubjectWithSelection): void {
     subjectToEvaluate.color = SELECTED_COLOR_SUBJECT;
