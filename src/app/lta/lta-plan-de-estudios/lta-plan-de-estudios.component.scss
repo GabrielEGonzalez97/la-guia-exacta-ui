@@ -1,0 +1,61 @@
+@import "src/styles/utils.scss";
+
+@include adjustPaddingInIBMGridAndCol();
+
+h1 {
+  font-size: calc(1.25vw + 1.25vh);
+}
+
+.quarter-container,
+.explanation-quarter-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.explanation-quarter-container {
+  margin-bottom: 1.5rem;
+}
+
+.subject-container,
+.explanation-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: calc(20% - 10px);
+  border: 2px solid $principal-color;
+  margin: 5px;
+  height: 75px;
+  font-size: calc(0.75vw + 0.75vh);
+}
+
+.subject-container:hover {
+  cursor: pointer;
+}
+
+.column-with-margin {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.clickeable-element {
+  cursor: pointer;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}
+
+.clickeable-element:hover {
+  background-color: #cbcbcb;
+}
+
+.chevron-icon {
+  width: calc(2vw + 2vh);
+  height: calc(2vw + 2vh);
+  position: absolute;
+  right: 0;
+  margin-right: 1rem;
+}

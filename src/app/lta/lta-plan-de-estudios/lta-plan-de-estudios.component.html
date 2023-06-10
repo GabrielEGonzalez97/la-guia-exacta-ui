@@ -1,1 +1,216 @@
-<p>lta-plan-de-estudios works!</p>
+<div ibmRow>
+    <div ibmCol>
+        <ibm-tile class="clickeable-element" (click)="onPlanEstudiosTileClick()">
+            <div ibmRow>
+                <div ibmCol class="column-with-margin">
+                    <h1>
+                        <strong>
+                            Plan de estudios
+                        </strong>
+                    </h1>
+                </div>
+
+                <div ibmCol class="column-with-margin" style="display: flex; align-items: center; position: relative;">
+                    <svg *ngIf="!isPlanEstudiosTileVisible" class="chevron-icon" ibmIcon="chevron--down"
+                        size="32"></svg>
+                    <svg *ngIf="isPlanEstudiosTileVisible" class="chevron-icon" ibmIcon="chevron--up" size="32"></svg>
+                </div>
+            </div>
+        </ibm-tile>
+    </div>
+</div>
+
+<div *ngIf="isPlanEstudiosTileVisible">
+    <div class="explanation-quarter-container">
+        <div class="explanation-container" [style.background-color]="'#24A148'">
+            Requisito Cursada y Final
+        </div>
+        <div class="explanation-container" [style.background-color]="'#6FDC8C'">
+            Requisito Cursada
+        </div>
+        <div class="explanation-container" [style.background-color]="'#C6C6C6'">
+            Materia Seleccionada
+        </div>
+        <div class="explanation-container" [style.background-color]="'#FA4D56'">
+            Correlativas
+        </div>
+    </div>
+</div>
+
+<div *ngIf="isPlanEstudiosTileVisible">
+    <div class="quarter-container">
+        <div class="subject-container" [style.background-color]="analisis_matematico_1_LTA.color"
+            (mouseover)="onMouseOverSubject(analisis_matematico_1_LTA)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(analisis_matematico_1_LTA)">
+            {{ analisis_matematico_1_LTA.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="tecnologia_ambiente_y_sociedad.color"
+            (mouseover)="onMouseOverSubject(tecnologia_ambiente_y_sociedad)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(tecnologia_ambiente_y_sociedad)">
+            {{ tecnologia_ambiente_y_sociedad.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="quimica_general_e_inorganica.color"
+            (mouseover)="onMouseOverSubject(quimica_general_e_inorganica)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(quimica_general_e_inorganica)">
+            {{ quimica_general_e_inorganica.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="introduccion_a_la_informatica.color"
+            (mouseover)="onMouseOverSubject(introduccion_a_la_informatica)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(introduccion_a_la_informatica)">
+            {{ introduccion_a_la_informatica.subject.name }}
+        </div>
+    </div>
+
+    <div class="quarter-container">
+        <div class="subject-container" [style.background-color]="fisica_general_1_LTA.color"
+            (mouseover)="onMouseOverSubject(fisica_general_1_LTA)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(fisica_general_1_LTA)">
+            {{ fisica_general_1_LTA.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="geometria_y_algebra_lineal_LTA.color"
+            (mouseover)="onMouseOverSubject(geometria_y_algebra_lineal_LTA)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(geometria_y_algebra_lineal_LTA)">
+            {{ geometria_y_algebra_lineal_LTA.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="quimica_organica_y_biologica_LTA.color"
+            (mouseover)="onMouseOverSubject(quimica_organica_y_biologica_LTA)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(quimica_organica_y_biologica_LTA)">
+            {{ quimica_organica_y_biologica_LTA.subject.name }}
+        </div>
+    </div>
+
+    <div class="quarter-container">
+        <div class="subject-container" [style.background-color]="fisica_general_2_LTA.color"
+            (mouseover)="onMouseOverSubject(fisica_general_2_LTA)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(fisica_general_2_LTA)">
+            {{ fisica_general_2_LTA.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="analisis_matematico_2_LTA.color"
+            (mouseover)="onMouseOverSubject(analisis_matematico_2_LTA)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(analisis_matematico_2_LTA)">
+            {{ analisis_matematico_2_LTA.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="biologia_LTA.color"
+            (mouseover)="onMouseOverSubject(biologia_LTA)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(biologia_LTA)">
+            {{ biologia_LTA.subject.name }}
+        </div>
+    </div>
+
+    <div class="quarter-container">
+        <div class="subject-container" [style.background-color]="fundamentos_de_ecologia.color"
+            (mouseover)="onMouseOverSubject(fundamentos_de_ecologia)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(fundamentos_de_ecologia)">
+            {{ fundamentos_de_ecologia.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="quimica_ambiental_LTA.color"
+            (mouseover)="onMouseOverSubject(quimica_ambiental_LTA)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(quimica_ambiental_LTA)">
+            {{ quimica_ambiental_LTA.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="calculo_numerico_LTA.color"
+            (mouseover)="onMouseOverSubject(calculo_numerico_LTA)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(calculo_numerico_LTA)">
+            {{ calculo_numerico_LTA.subject.name }}
+        </div>
+    </div>
+
+    <div class="quarter-container">
+        <div class="subject-container" [style.background-color]="ciencias_de_la_tierra_1.color"
+            (mouseover)="onMouseOverSubject(ciencias_de_la_tierra_1)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(ciencias_de_la_tierra_1)">
+            {{ ciencias_de_la_tierra_1.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="mecanica_de_fluidos.color"
+            (mouseover)="onMouseOverSubject(mecanica_de_fluidos)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(mecanica_de_fluidos)">
+            {{ mecanica_de_fluidos.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="legislacion_ambiental_LTA.color"
+            (mouseover)="onMouseOverSubject(legislacion_ambiental_LTA)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(legislacion_ambiental_LTA)">
+            {{ legislacion_ambiental_LTA.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="economia_ambiental_LTA.color"
+            (mouseover)="onMouseOverSubject(economia_ambiental_LTA)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(economia_ambiental_LTA)">
+            {{ economia_ambiental_LTA.subject.name }}
+        </div>
+    </div>
+
+    <div class="quarter-container">
+        <div class="subject-container" [style.background-color]="probabilidades_y_estadistica_LTA.color"
+            (mouseover)="onMouseOverSubject(probabilidades_y_estadistica_LTA)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(probabilidades_y_estadistica_LTA)">
+            {{ probabilidades_y_estadistica_LTA.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="residuos_solidos.color"
+            (mouseover)="onMouseOverSubject(residuos_solidos)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(residuos_solidos)">
+            {{ residuos_solidos.subject.name }}
+        </div>
+    </div>
+
+    <div class="quarter-container">
+        <div class="subject-container" [style.background-color]="contaminacion_atmosferica.color"
+            (mouseover)="onMouseOverSubject(contaminacion_atmosferica)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(contaminacion_atmosferica)">
+            {{ contaminacion_atmosferica.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="contaminacion_en_agua.color"
+            (mouseover)="onMouseOverSubject(contaminacion_en_agua)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(contaminacion_en_agua)">
+            {{ contaminacion_en_agua.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="formulacion_y_evaluacion_de_proyectos_LTA.color"
+            (mouseover)="onMouseOverSubject(formulacion_y_evaluacion_de_proyectos_LTA)"
+            (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(formulacion_y_evaluacion_de_proyectos_LTA)">
+            {{ formulacion_y_evaluacion_de_proyectos_LTA.subject.name }}
+        </div>
+    </div>
+
+    <div class="quarter-container">
+        <div class="subject-container" [style.background-color]="ciencias_de_la_tierra_2.color"
+            (mouseover)="onMouseOverSubject(ciencias_de_la_tierra_2)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(ciencias_de_la_tierra_2)">
+            {{ ciencias_de_la_tierra_2.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="fluodinamica_ambiental.color"
+            (mouseover)="onMouseOverSubject(fluodinamica_ambiental)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(fluodinamica_ambiental)">
+            {{ fluodinamica_ambiental.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="radiacion.color"
+            (mouseover)="onMouseOverSubject(radiacion)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(radiacion)">
+            {{ radiacion.subject.name }}
+        </div>
+    </div>
+
+    <div class="quarter-container">
+        <div class="subject-container" [style.background-color]="tratamiento_de_efluentes_gaseosos.color"
+            (mouseover)="onMouseOverSubject(tratamiento_de_efluentes_gaseosos)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(tratamiento_de_efluentes_gaseosos)">
+            {{ tratamiento_de_efluentes_gaseosos.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="tratamiento_de_efluentes_liquidos.color"
+            (mouseover)="onMouseOverSubject(tratamiento_de_efluentes_liquidos)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(tratamiento_de_efluentes_liquidos)">
+            {{ tratamiento_de_efluentes_liquidos.subject.name }}
+        </div>
+        <div class="subject-container" [style.background-color]="tratamiento_de_residuos_solidos.color"
+            (mouseover)="onMouseOverSubject(tratamiento_de_residuos_solidos)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(tratamiento_de_residuos_solidos)">
+            {{ tratamiento_de_residuos_solidos.subject.name }}
+        </div>
+    </div>
+
+    <div class="quarter-container">
+        <div class="subject-container" [style.background-color]="evaluacion_de_impacto_ambiental.color"
+            (mouseover)="onMouseOverSubject(evaluacion_de_impacto_ambiental)" (mouseleave)="onMouseLeaveSubject()"
+            (click)="showCatedraModalWindow(evaluacion_de_impacto_ambiental)">
+            {{ evaluacion_de_impacto_ambiental.subject.name }}
+        </div>
+    </div>
+    </div>

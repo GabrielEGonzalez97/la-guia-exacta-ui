@@ -321,7 +321,7 @@ export let ciencias_de_la_tierra_1: ISubject = {
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
-      subject: fisica_general_1_LTA,
+      subject: fisica_general_2_LTA,
     },
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
@@ -481,10 +481,6 @@ export let probabilidades_y_estadistica_LTA: ISubject = {
     },
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
-      subject: analisis_matematico_1_LTA,
-    },
-    {
-      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
       subject: tecnologia_ambiente_y_sociedad,
     },
     {
@@ -501,7 +497,7 @@ export let probabilidades_y_estadistica_LTA: ISubject = {
     },
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
-      subject: quimica_general_e_inorganica,
+      subject: quimica_organica_y_biologica_LTA,
     },
   ],
 };
@@ -546,7 +542,7 @@ export let residuos_solidos: ISubject = {
     },
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
-      subject: quimica_general_e_inorganica,
+      subject: quimica_organica_y_biologica_LTA,
     },
   ],
 };
@@ -579,15 +575,11 @@ export let contaminacion_atmosferica: ISubject = {
     },
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
-      subject: analisis_matematico_2_LTA,
+      subject: geometria_y_algebra_lineal_LTA,
     },
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
-      subject: tecnologia_ambiente_y_sociedad,
-    },
-    {
-      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
-      subject: introduccion_a_la_informatica,
+      subject: quimica_organica_y_biologica_LTA,
     },
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
@@ -595,11 +587,11 @@ export let contaminacion_atmosferica: ISubject = {
     },
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
-      subject: geometria_y_algebra_lineal_LTA,
+      subject: analisis_matematico_2_LTA,
     },
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
-      subject: quimica_general_e_inorganica,
+      subject: biologia_LTA,
     },
   ],
 };
@@ -632,15 +624,11 @@ export let contaminacion_en_agua: ISubject = {
     },
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
-      subject: analisis_matematico_2_LTA,
+      subject: geometria_y_algebra_lineal_LTA,
     },
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
-      subject: tecnologia_ambiente_y_sociedad,
-    },
-    {
-      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
-      subject: introduccion_a_la_informatica,
+      subject: quimica_organica_y_biologica_LTA,
     },
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
@@ -648,11 +636,11 @@ export let contaminacion_en_agua: ISubject = {
     },
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
-      subject: geometria_y_algebra_lineal_LTA,
+      subject: analisis_matematico_2_LTA,
     },
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
-      subject: quimica_general_e_inorganica,
+      subject: biologia_LTA,
     },
   ],
 };
@@ -677,10 +665,6 @@ export let formulacion_y_evaluacion_de_proyectos_LTA: ISubject = {
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
-      subject: analisis_matematico_2_LTA,
-    },
-    {
-      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
       subject: tecnologia_ambiente_y_sociedad,
     },
     {
@@ -689,15 +673,23 @@ export let formulacion_y_evaluacion_de_proyectos_LTA: ISubject = {
     },
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
-      subject: fisica_general_2_LTA,
-    },
-    {
-      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
       subject: geometria_y_algebra_lineal_LTA,
     },
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
-      subject: quimica_general_e_inorganica,
+      subject: quimica_organica_y_biologica_LTA,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+      subject: fisica_general_2_LTA,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+      subject: analisis_matematico_2_LTA,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+      subject: biologia_LTA,
     },
   ],
 };
@@ -734,15 +726,19 @@ export let ciencias_de_la_tierra_2: ISubject = {
     },
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
-      subject: fisica_general_2_LTA,
+      subject: biologia_LTA,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+      subject: fundamentos_de_ecologia,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+      subject: quimica_ambiental_LTA,
     },
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
       subject: calculo_numerico_LTA,
-    },
-    {
-      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
-      subject: quimica_organica_y_biologica_LTA,
     },
   ],
 };
@@ -783,11 +779,19 @@ export let fluodinamica_ambiental: ISubject = {
     },
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
-      subject: calculo_numerico_LTA,
+      subject: biologia_LTA,
     },
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
-      subject: quimica_organica_y_biologica_LTA,
+      subject: fundamentos_de_ecologia,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+      subject: quimica_ambiental_LTA,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+      subject: calculo_numerico_LTA,
     },
   ],
 };
@@ -824,11 +828,19 @@ export let radiacion: ISubject = {
     },
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
-      subject: calculo_numerico_LTA,
+      subject: biologia_LTA,
     },
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
-      subject: quimica_organica_y_biologica_LTA,
+      subject: fundamentos_de_ecologia,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+      subject: quimica_ambiental_LTA,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+      subject: calculo_numerico_LTA,
     },
   ],
 };
@@ -862,10 +874,6 @@ export let tratamiento_de_efluentes_gaseosos: ISubject = {
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
       subject: quimica_ambiental_LTA,
-    },
-    {
-      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
-      subject: fundamentos_de_ecologia,
     },
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
@@ -922,10 +930,6 @@ export let tratamiento_de_efluentes_liquidos: ISubject = {
     },
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
-      subject: fundamentos_de_ecologia,
-    },
-    {
-      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
       subject: calculo_numerico_LTA,
     },
     {
@@ -971,15 +975,15 @@ export let tratamiento_de_residuos_solidos: ISubject = {
     },
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
+      subject: biologia_LTA,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
       subject: fundamentos_de_ecologia,
     },
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
       subject: quimica_ambiental_LTA,
-    },
-    {
-      typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
-      subject: fundamentos_de_ecologia,
     },
     {
       typeOfCorrelativity: CORRELATIVE_FINAL_NAME,
