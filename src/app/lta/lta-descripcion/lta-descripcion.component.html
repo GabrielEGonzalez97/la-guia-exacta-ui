@@ -1,0 +1,173 @@
+<div ibmRow>
+    <div ibmCol>
+        <ibm-tile class="clickeable-element" (click)="onPerfilProfesionalTileClick()">
+            <div ibmRow>
+                <div ibmCol class="column-with-margin">
+                    <h1>
+                        <strong>
+                            Perfil profesional
+                        </strong>
+                    </h1>
+                </div>
+                <div ibmCol class="column-with-margin" style="display: flex; align-items: center; position: relative;">
+                    <svg *ngIf="!isPerfilProfesionalTileVisible" class="chevron-icon" ibmIcon="chevron--down"
+                        size="32"></svg>
+                    <svg *ngIf="isPerfilProfesionalTileVisible" class="chevron-icon" ibmIcon="chevron--up"
+                        size="32"></svg>
+                </div>
+            </div>
+
+            <div ibmRow *ngIf="isPerfilProfesionalTileVisible">
+                <div ibmCol>
+                    <ibm-tile class="inner-tile">
+                        <div ibmRow>
+                            <div ibmCol class="column-with-margin">
+                                <p>
+                                    El título intermedio "Analista Universitario en Monitoreo del Ambiente" acredita
+                                    conocimiento a) de la fenomenología física y química relacionada con la biosfera
+                                    y su entorno, b) de los conceptos matemáticos indispensables para la comprensión
+                                    de las teorías básicas que apuntan a la interpretación de dicha fenomenología,
+                                    c) del uso de herramientas informáticas y de cálculo auxiliares, d) de las
+                                    técnicas de detección de contaminantes en aire y agua. Además, acredita el
+                                    conocimiento de nociones generales de ecología y de derecho ambiental. Finalmente,
+                                    mediante una práctica profesional acredita la integración de esos conocimientos en
+                                    función de problemas de interés concreto y práctico.
+                                </p>
+                                <p>
+                                    El título final "Licenciado en Tecnología Ambiental" acredita, además de los
+                                    conocimientos propios del título intermedio, una profundización sobre la
+                                    fenomenología físico-química del ambiente biosférico y una formación sobre procesos
+                                    que tiendan a asegurar la calidad del aire y agua y a tratar residuos sólidos y
+                                    materiales de riesgo de modo de asegurar un impacto mínimo sobre el ambiente.
+                                    Estos conocimientos pueden ser profundizados en determinadas
+                                    orientaciones a través de la elección por parte del estudiante de materias optativas
+                                    especializadas. También se proporciona conocimiento de los aspectos básicos de la
+                                    problemática económica relacionada con los impactos sobre el ambiente y con su
+                                    mitigación. Finalmente, un proyecto final permite la integración de la formación
+                                    adquirida mediante su aplicación a problemas concretos originados en empresas u
+                                    organismos.
+                                </p>
+                            </div>
+                        </div>
+                    </ibm-tile>
+                </div>
+            </div>
+        </ibm-tile>
+    </div>
+</div>
+
+<br>
+
+<div ibmRow>
+    <div ibmCol>
+        <ibm-tile class="clickeable-element" (click)="onAlcancesDelTituloTileClick()">
+            <div ibmRow>
+                <div ibmCol class="column-with-margin">
+                    <h1>
+                        <strong>
+                            Alcances del Título o Incumbencias Profesionales
+                        </strong>
+                    </h1>
+                </div>
+                <div ibmCol class="column-with-margin" style="display: flex; align-items: center; position: relative;">
+                    <svg *ngIf="!isAlcancesDelTituloTileVisible" class="chevron-icon" ibmIcon="chevron--down"
+                        size="32"></svg>
+                    <svg *ngIf="isAlcancesDelTituloTileVisible" class="chevron-icon" ibmIcon="chevron--up"
+                        size="32"></svg>
+                </div>
+            </div>
+
+            <div ibmRow *ngIf="isAlcancesDelTituloTileVisible">
+                <div ibmCol>
+                    <ibm-tile class="inner-tile">
+                        <div ibmRow>
+                            <div ibmCol class="column-with-margin">
+                                <p>
+                                    Los estudios proveerán a los egresados de los conocimientos y las habilidades
+                                    básicas para:
+                                </p>
+                                <p>
+                                    <strong>
+                                        a) Analista Universitario en Monitoreo del Ambiente
+                                    </strong>
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            Instalar y utilizar técnicas para medir parámetros físicos y químicos del
+                                            ambiente en lugares abiertos y cerrados.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Determinar cuali y cuantitativamente la presencia de factores de riesgo en
+                                            aire, agua, materiales, productos.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Evaluar los resultados proporcionados por las técnicas utilizadas y señalar
+                                            la necesidad de métodos de mitigación, corrección o recuperación.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Proporcionar apoyo técnico en estudios multidisciplinarios orientados a la
+                                            evaluación del impacto ambiental de obras o de la instalación de empresas.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Proporcionar apoyo técnico en proyectos multidisciplinarios orientados a
+                                            estudios e investigaciones sobre la problemática ambiental en general.
+                                        </p>
+                                    </li>
+                                </ul>
+                                <p>
+                                    <strong>
+                                        b) Licenciado en Tecnología Ambiental
+                                    </strong>
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            Determinar y diferenciar los aspectos físico-químicos de los problemas
+                                            ambientales.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Corregir o mitigar el problema mediante soluciones técnico-económicas,
+                                            enmarcadas en el contexto de las reglamentaciones y leyes vigentes.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Diseñar, instalar, dirigir técnicamente, operar los aspectos tecnológicos de
+                                            sistemas de procesos, equipos, máquinas, materiales, destinados a preservar
+                                            factores ambientales y a corregir o mitigar impactos sobre éstos.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Trabajar en equipos multidisciplinarios dedicados al estudio de impactos
+                                            ambientales originados por obras o instalación de empresas.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Participar en proyectos de investigación multidisciplinarios sobre la
+                                            problemática ambiental en general.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </ibm-tile>
+                </div>
+            </div>
+        </ibm-tile>
+    </div>
+</div>
+
+<br>

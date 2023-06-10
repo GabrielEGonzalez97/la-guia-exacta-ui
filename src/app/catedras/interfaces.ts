@@ -1,13 +1,13 @@
 export type CareerName =
   | 'Ingenieria de Sistemas'
   | 'TUDAI'
-  | 'Licenciatura Tecnología Ambiental';
+  | 'Licenciatura en Tecnología Ambiental';
 
 export const INGENIERIA_DE_SISTEMAS_NAME = 'Ingenieria de Sistemas';
 
-export const TUDAI_NAME = 'TUDAI';
+export const LTA_NAME = 'Licenciatura en Tecnología Ambiental';
 
-export const LTA_NAME = 'Licenciatura Tecnología Ambiental';
+export const TUDAI_NAME = 'TUDAI';
 
 export type YearType = 'Primero' | 'Segundo' | 'Tercero' | 'Cuarto' | 'Quinto';
 

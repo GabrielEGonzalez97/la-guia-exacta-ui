@@ -10,6 +10,7 @@ import { ParcialesComponent } from './parciales/parciales.component';
 import { ResumenesComponent } from './resumenes/resumenes.component';
 import { TudaiComponent } from './tudai/tudai.component';
 import { VideosClasesComponent } from './videos-clases/videos-clases.component';
+import { LtaComponent } from './lta/lta.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,11 @@ const routes: Routes = [
     path: 'carreras/ingenieria-de-sistemas',
     component: IngenieriaDeSistemasComponent,
     data: { title: 'Carrera-Ingenieria-de-Sistemas' },
+  },
+  {
+    path: 'carreras/licenciatura-en-tecnologia-ambiental',
+    component: LtaComponent,
+    data: { title: 'Carrera-Licenciatura-en-Tecnologia-Ambiental' },
   },
   {
     path: 'carreras/tudai',

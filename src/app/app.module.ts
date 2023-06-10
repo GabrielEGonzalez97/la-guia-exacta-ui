@@ -18,6 +18,7 @@ import { ParcialesModule } from './parciales/parciales.module';
 import { ResumenesModule } from './resumenes/resumenes.module';
 import { TudaiModule } from './tudai/tudai.module';
 import { VideosClasesModule } from './videos-clases/videos-clases.module';
+import { LtaModule } from './lta/lta.module';
 
 const MODULE_IMPORTS = [AppRoutingModule, BrowserModule, HttpClientModule];
 
@@ -30,6 +31,7 @@ const COMPONENT_IMPORTS = [
   FooterModule,
   HomeModule,
   IngenieriaDeSistemasModule,
+  LtaModule,
   NavbarModule,
   ParcialesModule,
   ResumenesModule,
