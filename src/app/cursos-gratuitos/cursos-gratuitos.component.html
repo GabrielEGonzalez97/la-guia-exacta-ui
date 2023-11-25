@@ -13,42 +13,40 @@
             <div ibmRow>
                 <div ibmCol>
                     <ul>
-                        <li>
-                            <p>
-                                <a href="https://www.freecodecamp.org/espanol/">
-                                    <strong>freeCodeCamp</strong>
-                                </a>
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <a href="https://formaciononline.eu/cursos-gratis-de-tutellus/">
-                                    <strong>Tutellus</strong>
-                                </a>
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <a href="https://aprendergratis.es/cursos-online/curso-gratuitos-sobre-programacion/">
-                                    <strong>aprendergratis.es</strong>
-                                </a>
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <a href="https://www.bitdegree.org/learn/">
-                                    <strong>BitDegree</strong>
-                                </a>
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <a href="https://learn.mongodb.com/">
-                                    <strong>MongoDB University</strong>
-                                </a>
-                            </p>
-                        </li>
+                        <ng-container *ngFor="let freeCoursePage of freeCoursesPages">
+                            <li>
+                                <p>
+                                    <a [href]="freeCoursePage.pageLink" target="_blank">
+                                        <strong>{{ freeCoursePage.pageName }}</strong>
+                                    </a>
+                                </p>
+                            </li>
+                        </ng-container>
                     </ul>
+                </div>
+            </div>
+        </ibm-tile>
+    </div>
+</div>
+<div ibmRow>
+    <div ibmCol>
+        <ibm-tile class="principal-tile">
+            <div ibmRow>
+                <div ibmCol class="column-with-margin">
+                    <h1>
+                        <strong>
+                            Canales de matemática y física recomendados
+                        </strong>
+                    </h1>
+                </div>
+            </div>
+            <div ibmRow>
+                <div ibmCol>
+                    <div *ngIf="channelInfo">
+                        <img [src]="channelInfo.thumbnails.default.url" alt="Imagen de perfil">
+                        <h3>{{ channelInfo.title }}</h3>
+                        <p>{{ channelInfo.description }}</p>
+                    </div>
                 </div>
             </div>
         </ibm-tile>
