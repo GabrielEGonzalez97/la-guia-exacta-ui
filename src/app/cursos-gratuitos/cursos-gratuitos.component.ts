@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../services/http.service';
+import { FREE_COURSES_PAGES } from './constants';
+import { IFreeCoursesPages } from './interfaces';
 
 @Component({
   selector: 'app-cursos-gratuitos',
@@ -6,7 +9,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cursos-gratuitos.component.scss'],
 })
 export class CursosGratuitosComponent implements OnInit {
-  constructor() {}
+  public freeCoursesPages: IFreeCoursesPages[] = FREE_COURSES_PAGES;
 
-  public ngOnInit(): void {}
+  public channelId = 'UC4FHiPgS1KXkUMx3dxBUtPg';
+  public channelInfo: any;
+
+  constructor(private httpService: HttpService) {}
+
+  public ngOnInit(): void {
+    // this.httpService
+    //   .getYouTubeChannelInfo(this.channelId)
+    //   .subscribe((response: any) => {
+    //     this.channelInfo = response.items[0].snippet;
+    //     console.log(this.channelInfo);
+    //   });
+  }
 }

@@ -45,6 +45,19 @@ export class HttpService {
     );
   }
 
+  public getYouTubeChannelInfo(channelId: string) {
+    const apiKey = 'AIzaSyAAwYKshc8dVlWNVTEv3q-oR8wlDlTk1qU';
+    const url = `https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&key=${apiKey}`;
+
+    return this.http.get(url);
+  }
+
+  public getLogoOfPage(pageName: string) {
+    const url = `https://logo.clearbit.com/${pageName}`;
+
+    return this.http.get(url);
+  }
+
   private getWithState = <T>(url: string, responseType?, params?: HttpParams) =>
     this.utilsService.withState(
       this.http.get<T>(url, { params, responseType })
