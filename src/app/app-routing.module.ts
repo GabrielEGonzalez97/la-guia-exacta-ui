@@ -4,13 +4,14 @@ import { CatedrasComponent } from './catedras/catedras.component';
 import { CursosGratuitosComponent } from './cursos-gratuitos/cursos-gratuitos.component';
 import { FileUploaderComponent } from './file-uploader/file-uploader.component';
 import { FinalesComponent } from './finales/finales.component';
+import { OperacionesConMatricesComponent } from './herramientas/operaciones-con-matrices/operaciones-con-matrices.component';
 import { HomeComponent } from './home/home.component';
 import { IngenieriaDeSistemasComponent } from './ingenieria-de-sistemas/ingenieria-de-sistemas.component';
+import { LtaComponent } from './lta/lta.component';
 import { ParcialesComponent } from './parciales/parciales.component';
 import { ResumenesComponent } from './resumenes/resumenes.component';
 import { TudaiComponent } from './tudai/tudai.component';
 import { VideosClasesComponent } from './videos-clases/videos-clases.component';
-import { LtaComponent } from './lta/lta.component';
 
 const routes: Routes = [
   {
@@ -67,6 +68,11 @@ const routes: Routes = [
     path: 'subir-aportes',
     component: FileUploaderComponent,
     data: { title: 'Subir-Aportes' },
+  },
+  {
+    path: 'herramientas/operaciones-con-matrices',
+    component: OperacionesConMatricesComponent,
+    data: { title: 'Operaciones-con-matrices' },
   },
 ];
 

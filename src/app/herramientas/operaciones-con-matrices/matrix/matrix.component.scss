@@ -1,0 +1,52 @@
+@import "src/styles/utils.scss";
+
+@include adjustPaddingInIBMGridAndCol();
+
+.matrix-container {
+  position: relative;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+}
+
+.column {
+  max-width: calc(100% / 3);
+  min-width: calc(100% / 5);
+}
+
+.cell {
+  margin: 0.5rem;
+}
+
+.cell ::ng-deep {
+  input {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    padding: 0;
+    border: 1px solid;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+}
+
+.trash-can-icon {
+  position: absolute;
+  padding: 0;
+  min-height: 0;
+  top: 0.75rem;
+  right: 0.75rem;
+}
+
+.trash-can-icon:hover {
+  cursor: pointer;
+  fill: red;
+}
+
+:host ::ng-deep {
+  .bx--number__input-wrapper input {
+    padding-right: 1rem;
+    min-width: 100%;
+  }
+}

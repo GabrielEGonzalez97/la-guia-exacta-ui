@@ -1,0 +1,38 @@
+@import "src/styles/utils.scss";
+
+@include adjustPaddingInIBMGridAndCol();
+
+.bx--btn--primary {
+  width: 100%;
+  min-width: 12rem;
+  max-width: 100%;
+  background: linear-gradient(220.55deg, #565656 0%, #181818 100%);
+  padding: calc(0.875rem - 3px) 0px calc(0.875rem - 3px) 15px;
+  padding-right: 15px;
+  line-break: anywhere;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
+.bx--btn--primary:hover {
+  background: $principal-color-hover;
+}
+
+.bx--btn--primary:disabled {
+  opacity: 50%;
+}
+
+:host ::ng-deep {
+  .action-bar-element-container {
+    img {
+      margin-right: 1rem !important;
+    }
+
+    span {
+      font-size: 1.25rem;
+    }
+  }
+}

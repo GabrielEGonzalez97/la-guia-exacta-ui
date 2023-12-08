@@ -1,0 +1,22 @@
+<div ibmRow>
+    <div ibmCol>
+        <h1>
+            <strong>
+                Operaciones con matrices
+            </strong>
+        </h1>
+    </div>
+</div>
+<div ibmRow>
+    <div ibmCol [columnNumbers]="{ max: 2, xlg: 2, lg: 2, md: 2, sm: 2 }">
+        <button ibmButton="primary" [disabled]="matrices.length >= alphabet.length" (click)="addNewMatrix()">
+            <app-action-bar-element [elementName]="'Agregar matriz'">
+            </app-action-bar-element>
+        </button>
+    </div>
+</div>
+<div ibmRow>
+    <div *ngFor="let matrix of matrices;" ibmCol [columnNumbers]="{ max: 2, xlg: 2, lg: 2, md: 2, sm: 2 }">
+        <app-matrix [matrixLetter]="matrix" (onDeleteMatrixEmitter)="deleteMatrix($event)"></app-matrix>
+    </div>
+</div>

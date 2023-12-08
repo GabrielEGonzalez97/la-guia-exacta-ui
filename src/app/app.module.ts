@@ -11,14 +11,15 @@ import { CursosGratuitosModule } from './cursos-gratuitos/cursos-gratuitos.modul
 import { FileUploaderComponentModule } from './file-uploader/file-uploader.module';
 import { FinalesModule } from './finales/finales.module';
 import { FooterModule } from './footer/footer.module';
+import { OperacionesConMatricesModule } from './herramientas/operaciones-con-matrices/operaciones-con-matrices.module';
 import { HomeModule } from './home/home.module';
 import { IngenieriaDeSistemasModule } from './ingenieria-de-sistemas/ingenieria-de-sistemas.module';
+import { LtaModule } from './lta/lta.module';
 import { NavbarModule } from './navbar/navbar.module';
 import { ParcialesModule } from './parciales/parciales.module';
 import { ResumenesModule } from './resumenes/resumenes.module';
 import { TudaiModule } from './tudai/tudai.module';
 import { VideosClasesModule } from './videos-clases/videos-clases.module';
-import { LtaModule } from './lta/lta.module';
 
 const MODULE_IMPORTS = [AppRoutingModule, BrowserModule, HttpClientModule];
 
@@ -33,6 +34,7 @@ const COMPONENT_IMPORTS = [
   IngenieriaDeSistemasModule,
   LtaModule,
   NavbarModule,
+  OperacionesConMatricesModule,
   ParcialesModule,
   ResumenesModule,
   VideosClasesModule,
