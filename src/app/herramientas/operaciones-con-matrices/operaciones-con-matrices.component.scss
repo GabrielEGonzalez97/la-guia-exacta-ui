@@ -2,19 +2,34 @@
 
 @include adjustPaddingInIBMGridAndCol();
 
+.result-viewer {
+  height: 8rem;
+  border: 1px solid $principal-color;
+}
+
 .bx--btn--primary {
   width: 100%;
-  min-width: 12rem;
+  min-width: 100%;
   max-width: 100%;
-  background: linear-gradient(220.55deg, #565656 0%, #181818 100%);
-  padding: calc(0.875rem - 3px) 0px calc(0.875rem - 3px) 15px;
-  padding-right: 15px;
+  background-color: $principal-color;
+  padding: 0;
   line-break: anywhere;
-  border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -o-border-radius: 20px;
+  font-size: 24px;
+  justify-content: center;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+
+.yellow-button {
+  background-color: $secondary-color;
+  color: $principal-color;
+}
+
+.yellow-button:hover {
+  background-color: $secondary-color-hover !important;
 }
 
 .bx--btn--primary:hover {
@@ -23,16 +38,4 @@
 
 .bx--btn--primary:disabled {
   opacity: 50%;
-}
-
-:host ::ng-deep {
-  .action-bar-element-container {
-    img {
-      margin-right: 1rem !important;
-    }
-
-    span {
-      font-size: 1.25rem;
-    }
-  }
 }

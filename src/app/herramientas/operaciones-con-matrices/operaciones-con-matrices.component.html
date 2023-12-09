@@ -8,15 +8,95 @@
     </div>
 </div>
 <div ibmRow>
-    <div ibmCol [columnNumbers]="{ max: 2, xlg: 2, lg: 2, md: 2, sm: 2 }">
-        <button ibmButton="primary" [disabled]="matrices.length >= alphabet.length" (click)="addNewMatrix()">
-            <app-action-bar-element [elementName]="'Agregar matriz'">
-            </app-action-bar-element>
-        </button>
+    <div *ngFor="let matrix of matrices;" ibmCol [columnNumbers]="{ max: 2, xlg: 2, lg: 2, md: 2, sm: 2 }">
+        <app-matrix [matrixLetter]="matrix" (onDeleteMatrixEmitter)="deleteMatrix($event)"></app-matrix>
     </div>
 </div>
 <div ibmRow>
-    <div *ngFor="let matrix of matrices;" ibmCol [columnNumbers]="{ max: 2, xlg: 2, lg: 2, md: 2, sm: 2 }">
-        <app-matrix [matrixLetter]="matrix" (onDeleteMatrixEmitter)="deleteMatrix($event)"></app-matrix>
+    <div ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 6, sm: 6 }">
+        <div class="result-viewer" [innerHTML]="mathExpression">
+            
+        </div>
+    </div>
+</div>
+<div ibmRow>
+    <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 3 }">
+        <div ibmCol>
+            <button class="yellow-button" ibmButton="primary" [disabled]="matrices.length >= alphabet.length" (click)="addNewMatrix()">
+                Agregar matriz
+            </button>
+        </div>
+    </div>
+    <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 3 }">
+        <div ibmRow>
+            <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 1 }">
+                <button ibmButton="primary">(</button>
+            </div>
+            <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 1 }">
+                <button ibmButton="primary">)</button>
+            </div>
+            <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 1 }">
+                <button ibmButton="primary">DEL</button>
+            </div>
+            <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 1 }">
+                <button ibmButton="primary">AC</button>
+            </div>
+        </div>
+        <div ibmRow>
+            <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 1 }">
+                <button ibmButton="primary">7</button>
+            </div>
+            <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 1 }">
+                <button ibmButton="primary">8</button>
+            </div>
+            <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 1 }">
+                <button ibmButton="primary">9</button>
+            </div>
+            <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 1 }">
+                <button ibmButton="primary">/</button>
+            </div>
+        </div>
+        <div ibmRow>
+            <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 1 }">
+                <button ibmButton="primary">4</button>
+            </div>
+            <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 1 }">
+                <button ibmButton="primary">5</button>
+            </div>
+            <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 1 }">
+                <button ibmButton="primary">6</button>
+            </div>
+            <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 1 }">
+                <button ibmButton="primary">x</button>
+            </div>
+        </div>
+        <div ibmRow>
+            <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 1 }">
+                <button ibmButton="primary">1</button>
+            </div>
+            <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 1 }">
+                <button ibmButton="primary">2</button>
+            </div>
+            <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 1 }">
+                <button ibmButton="primary">3</button>
+            </div>
+            <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 1 }">
+                <button ibmButton="primary">-</button>
+            </div>
+        </div>
+        <div ibmRow>
+            <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 1 }">
+                <button ibmButton="primary">0</button>
+            </div>
+            <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 1 }">
+                <button ibmButton="primary">.</button>
+            </div>
+            <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 1 }">
+                <button ibmButton="primary">=</button>
+            </div>
+            <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 1 }">
+                <button ibmButton="primary">+</button>
+            </div>
+        </div>
     </div>
 </div>

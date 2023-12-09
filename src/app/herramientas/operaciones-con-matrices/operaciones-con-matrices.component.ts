@@ -12,6 +12,8 @@ export class OperacionesConMatricesComponent implements OnInit {
 
   private deletedMatrices: string[] = [];
 
+  mathExpression = '<p>La expresión matemática es: $\\sqrt{a^2 + b^2}$</p>';
+
   constructor() {}
 
   public ngOnInit(): void {
