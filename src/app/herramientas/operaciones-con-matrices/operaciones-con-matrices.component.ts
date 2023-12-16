@@ -12,7 +12,7 @@ export class OperacionesConMatricesComponent implements OnInit {
 
   private deletedMatrices: string[] = [];
 
-  mathExpression = '<p>La expresión matemática es: $\\sqrt{a^2 + b^2}$</p>';
+  public expressionToCalculate: string = '';
 
   constructor() {}
 
@@ -42,5 +42,17 @@ export class OperacionesConMatricesComponent implements OnInit {
     } else {
       console.log(`La matriz ${matrixLetter} no existe.`);
     }
+  }
+
+  public addNewSymbolToTheExpressionToBeCalculated(newSymbol: string): void {
+    this.expressionToCalculate += newSymbol;
+  }
+
+  public removeSymbolToTheExpressionToBeCalculated(): void {
+    this.expressionToCalculate = this.expressionToCalculate.slice(0, -1);
+  }
+
+  public resetExpressionToBeCalculated(): void {
+    this.expressionToCalculate = '';
   }
 }
