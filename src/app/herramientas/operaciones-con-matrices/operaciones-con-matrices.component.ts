@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Lexer, Parser } from './Parser';
 
 @Component({
   selector: 'app-operaciones-con-matrices',
@@ -54,5 +55,12 @@ export class OperacionesConMatricesComponent implements OnInit {
 
   public resetExpressionToBeCalculated(): void {
     this.expressionToCalculate = '';
+  }
+
+  public calculate(): void {
+    const input = '(8*7)+4*(5-3)';
+    const lexer = new Lexer(input);
+    const parser = new Parser(lexer);
+    parser.parse();
   }
 }
