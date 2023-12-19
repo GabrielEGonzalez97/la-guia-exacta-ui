@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Lexer, Parser } from './Parser';
+import { Lexer, Parser, TercetoAbstracto } from './Parser';
 
 @Component({
   selector: 'app-operaciones-con-matrices',
@@ -14,6 +14,9 @@ export class OperacionesConMatricesComponent implements OnInit {
   private deletedMatrices: string[] = [];
 
   public expressionToCalculate: string = '';
+  public latexExpression: string = '';
+
+  public expressionResult: TercetoAbstracto = null;
 
   constructor() {}
 
@@ -47,20 +50,39 @@ export class OperacionesConMatricesComponent implements OnInit {
 
   public addNewSymbolToTheExpressionToBeCalculated(newSymbol: string): void {
     this.expressionToCalculate += newSymbol;
+    this.convertToLatexExpression();
   }
 
   public removeSymbolToTheExpressionToBeCalculated(): void {
     this.expressionToCalculate = this.expressionToCalculate.slice(0, -1);
+    this.convertToLatexExpression();
   }
 
   public resetExpressionToBeCalculated(): void {
     this.expressionToCalculate = '';
+    this.convertToLatexExpression();
+  }
+
+  private convertToLatexExpression(): void {
+    if (this.expressionToCalculate) {
+      try {
+        const lexer: Lexer = new Lexer(this.expressionToCalculate);
+        const parser: Parser = new Parser(lexer);
+
+        parser.parse();
+
+        this.expressionResult = parser.getResultado();
+
+        this.latexExpression = `$${this.expressionResult.getLatexForm()}$`;
+      } catch (e) {
+        this.latexExpression = `$${this.expressionToCalculate}$`;
+      }
+    } else {
+      this.latexExpression = '';
+    }
   }
 
   public calculate(): void {
-    const input = '(8*7)+4*(5-3)';
-    const lexer = new Lexer(input);
-    const parser = new Parser(lexer);
-    parser.parse();
+    console.log(this.expressionResult.getResultado());
   }
 }

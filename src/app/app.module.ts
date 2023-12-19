@@ -21,6 +21,8 @@ import { ResumenesModule } from './resumenes/resumenes.module';
 import { TudaiModule } from './tudai/tudai.module';
 import { VideosClasesModule } from './videos-clases/videos-clases.module';
 
+import { MathjaxModule } from 'mathjax-angular';
+
 const MODULE_IMPORTS = [AppRoutingModule, BrowserModule, HttpClientModule];
 
 const COMPONENT_IMPORTS = [
@@ -45,7 +47,12 @@ const CARBON_COMPONENTS_IMPORTS = [PlaceholderModule];
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [MODULE_IMPORTS, COMPONENT_IMPORTS, CARBON_COMPONENTS_IMPORTS],
+  imports: [
+    MODULE_IMPORTS,
+    COMPONENT_IMPORTS,
+    CARBON_COMPONENTS_IMPORTS,
+    MathjaxModule.forRoot(),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

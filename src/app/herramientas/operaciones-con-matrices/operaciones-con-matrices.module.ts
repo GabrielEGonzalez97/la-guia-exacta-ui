@@ -10,6 +10,8 @@ import { ActionBarElementModule } from 'src/app/actions-bar/action-bar-element/a
 import { MatrixModule } from './matrix/matrix.module';
 import { OperacionesConMatricesComponent } from './operaciones-con-matrices.component';
 
+import { MathjaxModule } from 'mathjax-angular';
+
 const CARBON_IMPORTS = [ButtonModule, GridModule, NumberModule];
 
 @NgModule({
@@ -20,6 +22,7 @@ const CARBON_IMPORTS = [ButtonModule, GridModule, NumberModule];
     MatrixModule,
     CommonModule,
     FormsModule,
+    MathjaxModule.forChild(),
   ],
   providers: [],
   exports: [OperacionesConMatricesComponent],

@@ -3,8 +3,15 @@ export class Token {
 }
 
 export abstract class TercetoAbstracto {
-  abstract getValor(): string;
+  public parentheses: { left: boolean; right: boolean };
+
+  constructor(parentheses: { left: boolean; right: boolean }) {
+    this.parentheses = parentheses;
+  }
+
+  abstract getTercetoForm(): string;
   abstract getResultado(): number;
+  abstract getLatexForm(): string;
 }
 
 export class Terceto extends TercetoAbstracto {
@@ -15,18 +22,19 @@ export class Terceto extends TercetoAbstracto {
   constructor(
     operator: string,
     operand1: TercetoAbstracto,
-    operand2: TercetoAbstracto
+    operand2: TercetoAbstracto,
+    parentheses: { left: boolean; right: boolean }
   ) {
-    super();
+    super(parentheses);
     this.operator = operator;
     this.operand1 = operand1;
     this.operand2 = operand2;
   }
 
-  public override getValor(): string {
-    return `(${this.operator},
-              ${this.operand1.getValor()},
-              ${this.operand2.getValor()})`;
+  public override getTercetoForm(): string {
+    return `${this.operator},
+            ${this.operand1.getTercetoForm()},
+            ${this.operand2.getTercetoForm()}`;
   }
 
   public override getResultado(): number {
@@ -42,22 +50,42 @@ export class Terceto extends TercetoAbstracto {
 
     return -1;
   }
+
+  public override getLatexForm(): string {
+    const leftParenthesis: string = this.parentheses.left ? '(' : '';
+    const rightParenthesis: string = this.parentheses.right ? ')' : '';
+    let latexForm: string = '';
+    if (this.operator === '/') {
+      latexForm = `${leftParenthesis}{${this.operand1.getLatexForm()} \\over ${this.operand2.getLatexForm()}}${rightParenthesis}`;
+    } else {
+      latexForm = `${leftParenthesis}${this.operand1.getLatexForm()} ${
+        this.operator
+      } ${this.operand2.getLatexForm()}${rightParenthesis}`;
+    }
+    return latexForm;
+  }
 }
 
 export class TercetoNumerico extends TercetoAbstracto {
   public number: number;
 
-  constructor(number: number) {
-    super();
+  constructor(number: number, parentheses: { left: boolean; right: boolean }) {
+    super(parentheses);
     this.number = number;
   }
 
-  public override getValor(): string {
+  public override getTercetoForm(): string {
     return this.number.toString();
   }
 
   public override getResultado(): number {
     return this.number;
+  }
+
+  public override getLatexForm(): string {
+    const leftParenthesis: string = this.parentheses.left ? '(' : '';
+    const rightParenthesis: string = this.parentheses.right ? ')' : '';
+    return `${leftParenthesis}${this.number.toString()}${rightParenthesis}`;
   }
 }
 
@@ -109,10 +137,14 @@ export class Parser {
 
   parse(): void {
     this.resultado = this.parseExpression();
-    console.log('Tercetos:', this.tercetos);
-    this.tercetos.forEach((terceto: TercetoAbstracto) => {
-      console.log(terceto.getResultado());
-    });
+  }
+
+  getResultado(): TercetoAbstracto | null {
+    return this.resultado;
+  }
+
+  getTercetos(): TercetoAbstracto[] {
+    return this.tercetos;
   }
 
   parseExpression(): TercetoAbstracto {
@@ -124,7 +156,10 @@ export class Parser {
       const operator = this.currentToken;
       this.eat(this.currentToken.type);
       const nuevoTermino = this.parseTerm();
-      termino = new Terceto(operator.value, termino, nuevoTermino);
+      termino = new Terceto(operator.value, termino, nuevoTermino, {
+        left: false,
+        right: false,
+      });
       this.tercetos.push(termino);
     }
     return termino;
@@ -139,7 +174,10 @@ export class Parser {
       const operator = this.currentToken;
       this.eat(this.currentToken.type);
       const nuevoFactor = this.parseFactor();
-      factor = new Terceto(operator.value, factor, nuevoFactor);
+      factor = new Terceto(operator.value, factor, nuevoFactor, {
+        left: false,
+        right: false,
+      });
       this.tercetos.push(factor);
     }
     return factor;
@@ -150,9 +188,13 @@ export class Parser {
       this.eat('(');
       const expresion = this.parseExpression();
       this.eat(')');
+      expresion.parentheses = { left: true, right: true };
       return expresion;
     } else if (this.currentToken && this.currentToken.type === 'NUMBER') {
-      const numero = new TercetoNumerico(Number(this.currentToken.value));
+      const numero = new TercetoNumerico(Number(this.currentToken.value), {
+        left: false,
+        right: false,
+      });
       this.eat('NUMBER');
       return numero;
     } else {

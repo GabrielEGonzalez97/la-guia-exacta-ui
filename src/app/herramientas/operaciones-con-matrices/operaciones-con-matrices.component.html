@@ -15,9 +15,7 @@
 <div ibmRow>
     <div ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 6, sm: 6 }">
         <div class="result-viewer">
-            <p class="math-content">
-                {{expressionToCalculate}}
-            </p>
+            <p class="math-content" [mathjax]="latexExpression"></p>
         </div>
     </div>
 </div>
