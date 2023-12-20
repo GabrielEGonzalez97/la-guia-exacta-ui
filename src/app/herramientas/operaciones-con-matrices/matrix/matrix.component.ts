@@ -14,7 +14,7 @@ import {
   styleUrls: ['./matrix.component.scss'],
 })
 export class MatrixComponent implements OnInit {
-  @ViewChild('myTable') myTable: ElementRef;
+  @ViewChild('tableContainerElement') tableElementReference: ElementRef;
 
   @Input() public matrixLetter: string = '';
 
@@ -34,25 +34,7 @@ export class MatrixComponent implements OnInit {
 
   public ngOnInit(): void {}
 
-  public ngAfterViewInit(): void {
-    this.calculateTableMaxHeight();
-  }
-
-  public calculateTableMaxHeight(): void {
-    // Get the table and its rows
-    const table = this.myTable.nativeElement;
-    const rows = table.getElementsByTagName('tr');
-
-    // Calculate the total height of the rows
-    let totalHeight = 0;
-    for (let i = 0; i < rows.length; i++) {
-      totalHeight += rows[i].getBoundingClientRect().height;
-    }
-
-    // Set the maximum height of the table
-    table.style.minHeight = totalHeight + 'px';
-    table.style.maxHeight = totalHeight + 'px';
-  }
+  public ngAfterViewInit(): void {}
 
   public changeMatrixDimensions(rows: number, columns: number): void {
     if (rows > this.matrix.length) {
