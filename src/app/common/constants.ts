@@ -1,4 +1,4 @@
-import { IPageSection } from './interfaces';
+import { IPageSection, ISocialMedia } from './interfaces';
 
 export const PAGE_SECTIONS: IPageSection[] = [
   {
@@ -50,6 +50,39 @@ export const PAGE_SECTIONS: IPageSection[] = [
         route: 'herramientas/operaciones-con-matrices',
       },
     ],
+  },
+];
+
+export const SOCIAL_MEDIAS: ISocialMedia[] = [
+  {
+    name: 'La guía exacta',
+    link: 'https://www.instagram.com/laguiaexacta/',
+    iconPath: 'assets/images/instagram-logo.svg',
+  },
+  {
+    name: 'La guía exacta',
+    link: 'https://www.youtube.com/@laguiaexacta',
+    iconPath: 'assets/images/you-tube-logo.svg',
+  },
+  {
+    name: 'AMU',
+    link: 'https://www.instagram.com/amu.mpe.exactas/',
+    iconPath: 'assets/images/instagram-logo.svg',
+  },
+  {
+    name: 'Moodle',
+    link: 'https://moodle.exa.unicen.edu.ar/',
+    iconPath: 'assets/images/www-logo.svg',
+  },
+  {
+    name: 'Guaraní',
+    link: 'https://guarani.unicen.edu.ar/autogestion/exactas/',
+    iconPath: 'assets/images/www-logo.svg',
+  },
+  {
+    name: 'Exactas',
+    link: 'https://exa.unicen.edu.ar/',
+    iconPath: 'assets/images/www-logo.svg',
   },
 ];
 

@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-import { PAGE_SECTIONS } from '../common/constants';
-import { IPageSection } from '../common/interfaces';
+import { PAGE_SECTIONS, SOCIAL_MEDIAS } from '../common/constants';
+import { IPageSection, ISocialMedia } from '../common/interfaces';
 import { UtilsService } from '../services/utils.service';
 
 @Component({
@@ -13,6 +13,7 @@ import { UtilsService } from '../services/utils.service';
 })
 export class ActionsBarComponent implements OnInit {
   public pageSections: IPageSection[] = PAGE_SECTIONS;
+  public socialMedias: ISocialMedia[] = SOCIAL_MEDIAS;
 
   public isRightPanelVisible: boolean = false;
 

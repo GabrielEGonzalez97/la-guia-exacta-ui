@@ -8,6 +8,12 @@ export interface IPageSection {
   subSections?: IPageSection[];
 }
 
+export interface ISocialMedia {
+  name: string;
+  link: string;
+  iconPath: string;
+}
+
 export interface ISubjectWithSelection {
   subject: ISubject;
   color: string;

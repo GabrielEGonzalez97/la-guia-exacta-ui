@@ -5,32 +5,14 @@
     </a>
     <ibm-header-navigation style="flex-grow: 1;">
     </ibm-header-navigation>
+
     <ibm-header-navigation>
-        <ibm-header-item (click)="openLinkNewTab('https://www.instagram.com/laguiaexacta/')">
-            <app-action-bar-element [elementIconImagePath]="'assets/images/instagram-logo.svg'"
-                [elementName]="'La guía exacta'">
-            </app-action-bar-element>
-        </ibm-header-item>
-        <ibm-header-item (click)="openLinkNewTab('https://www.youtube.com/@laguiaexacta')">
-            <app-action-bar-element [elementIconImagePath]="'assets/images/you-tube-logo.svg'"
-                [elementName]="'La guía exacta'"></app-action-bar-element>
-        </ibm-header-item>
-        <ibm-header-item (click)="openLinkNewTab('https://www.instagram.com/amu.mpe.exactas/')">
-            <app-action-bar-element [elementIconImagePath]="'assets/images/instagram-logo.svg'" [elementName]="'AMU'">
-            </app-action-bar-element>
-        </ibm-header-item>
-        <ibm-header-item (click)="openLinkNewTab('https://moodle.exa.unicen.edu.ar/')">
-            <app-action-bar-element [elementIconImagePath]="'assets/images/www-logo.svg'" [elementName]="'Moodle'">
-            </app-action-bar-element>
-        </ibm-header-item>
-        <ibm-header-item (click)="openLinkNewTab('https://guarani.unicen.edu.ar/autogestion/exactas/')">
-            <app-action-bar-element [elementIconImagePath]="'assets/images/www-logo.svg'" [elementName]="'Guaraní'">
-            </app-action-bar-element>
-        </ibm-header-item>
-        <ibm-header-item (click)="openLinkNewTab('https://exa.unicen.edu.ar/')">
-            <app-action-bar-element [elementIconImagePath]="'assets/images/www-logo.svg'" [elementName]="'Exactas'">
-            </app-action-bar-element>
-        </ibm-header-item>
+        <ng-container *ngFor="let socialMedia of socialMedias">
+            <ibm-header-item (click)="openLinkNewTab(socialMedia.link)">
+                <app-action-bar-element [elementIconImagePath]="socialMedia.iconPath" [elementName]="socialMedia.name">
+                </app-action-bar-element>
+            </ibm-header-item>
+        </ng-container>
     </ibm-header-navigation>
 
     <ibm-hamburger (click)="updateRightPanelVisibility()"></ibm-hamburger>
