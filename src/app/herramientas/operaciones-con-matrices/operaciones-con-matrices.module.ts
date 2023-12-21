@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
   ButtonModule,
+  DropdownModule,
   GridModule,
   NumberModule,
 } from 'carbon-components-angular';
@@ -12,7 +13,7 @@ import { OperacionesConMatricesComponent } from './operaciones-con-matrices.comp
 
 import { MathjaxModule } from 'mathjax-angular';
 
-const CARBON_IMPORTS = [ButtonModule, GridModule, NumberModule];
+const CARBON_IMPORTS = [ButtonModule, DropdownModule, GridModule, NumberModule];
 
 @NgModule({
   declarations: [OperacionesConMatricesComponent],

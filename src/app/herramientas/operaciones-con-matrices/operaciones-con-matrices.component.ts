@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ListItem } from 'carbon-components-angular';
 import { Lexer, Parser, TercetoAbstracto } from './Parser';
+import { IMatrixElement, IMatrixWithName } from './matrix/interfaces';
 
 @Component({
   selector: 'app-operaciones-con-matrices',
@@ -7,7 +9,7 @@ import { Lexer, Parser, TercetoAbstracto } from './Parser';
   styleUrls: ['./operaciones-con-matrices.component.scss'],
 })
 export class OperacionesConMatricesComponent implements OnInit {
-  public matrices: string[] = [];
+  public matrices: IMatrixWithName[] = [];
 
   public readonly alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
@@ -18,10 +20,29 @@ export class OperacionesConMatricesComponent implements OnInit {
 
   public expressionResult: TercetoAbstracto = null;
 
+  public matricesItems: ListItem[] = [];
+
   constructor() {}
 
   public ngOnInit(): void {
     this.addNewMatrix();
+  }
+
+  private createEmptyMatrix(): IMatrixElement[][] {
+    return [
+      [{ value: '' }, { value: '' }, { value: '' }],
+      [{ value: '' }, { value: '' }, { value: '' }],
+      [{ value: '' }, { value: '' }, { value: '' }],
+    ];
+  }
+
+  public updateMatrix(updatedMatrix: IMatrixWithName): void {
+    const indexMatrixToUpdate: number = this.matrices.findIndex(
+      (matrix: IMatrixWithName) => matrix.name === updatedMatrix.name
+    );
+    if (indexMatrixToUpdate !== -1) {
+      this.matrices[indexMatrixToUpdate].matrix = updatedMatrix.matrix;
+    }
   }
 
   public addNewMatrix(): void {
@@ -33,18 +54,27 @@ export class OperacionesConMatricesComponent implements OnInit {
       newMatrix = this.alphabet[this.matrices.length];
     }
 
-    this.matrices.push(newMatrix);
+    this.matrices.push({ name: newMatrix, matrix: this.createEmptyMatrix() });
+    this.matricesItems = [
+      ...this.matricesItems,
+      {
+        content: newMatrix,
+        selected: false,
+      },
+    ];
   }
 
-  public deleteMatrix(matrixLetter: string): void {
-    const index: number = this.matrices.indexOf(matrixLetter);
+  public deleteMatrix(matrixName: string): void {
+    const indexMatrixToDelete: number = this.matrices.findIndex(
+      (matrix: IMatrixWithName) => matrix.name === matrixName
+    );
 
-    if (index !== -1) {
-      const deletedMatrix: string = this.matrices.splice(index, 1)[0];
-      this.deletedMatrices.push(deletedMatrix);
+    if (indexMatrixToDelete !== -1) {
+      const deletedMatrix = this.matrices.splice(indexMatrixToDelete, 1)[0];
+      this.deletedMatrices.push(deletedMatrix.name);
       this.deletedMatrices.sort();
     } else {
-      console.log(`La matriz ${matrixLetter} no existe.`);
+      console.log(`La matriz ${matrixName} no existe.`);
     }
   }
 
@@ -67,7 +97,7 @@ export class OperacionesConMatricesComponent implements OnInit {
     if (this.expressionToCalculate) {
       try {
         const lexer: Lexer = new Lexer(this.expressionToCalculate);
-        const parser: Parser = new Parser(lexer);
+        const parser: Parser = new Parser(lexer, this.matrices);
 
         parser.parse();
 
@@ -84,5 +114,10 @@ export class OperacionesConMatricesComponent implements OnInit {
 
   public calculate(): void {
     console.log(this.expressionResult.getResultado());
+  }
+
+  public onSelectedMatrix(selectedMatrix: any) {
+    this.addNewSymbolToTheExpressionToBeCalculated(selectedMatrix.item.content);
+    selectedMatrix.item.selected = false;
   }
 }

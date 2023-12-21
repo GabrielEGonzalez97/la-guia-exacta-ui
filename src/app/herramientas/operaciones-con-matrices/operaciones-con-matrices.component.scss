@@ -3,7 +3,8 @@
 @include adjustPaddingInIBMGridAndCol();
 
 .result-viewer {
-  height: 8rem;
+  min-height: 8rem;
+  height: auto;
   border: 1px solid $principal-color;
   padding: 0.5rem 1rem;
 }

@@ -7,6 +7,7 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
+import { IMatrixElement, IMatrixWithName } from './interfaces';
 
 @Component({
   selector: 'app-matrix',
@@ -17,6 +18,10 @@ export class MatrixComponent implements OnInit {
   @ViewChild('tableContainerElement') tableElementReference: ElementRef;
 
   @Input() public matrixLetter: string = '';
+  @Input() public matrix: IMatrixElement[][] = [];
+
+  @Output() onUpdateMatrixEmitter: EventEmitter<IMatrixWithName> =
+    new EventEmitter<IMatrixWithName>();
 
   @Output() onDeleteMatrixEmitter: EventEmitter<string> =
     new EventEmitter<string>();
@@ -24,25 +29,26 @@ export class MatrixComponent implements OnInit {
   public numberOfRows: number = 3;
   public numberOfColumns: number = 3;
 
-  public matrix: { value: string }[][] = [
-    [{ value: '' }, { value: '' }, { value: '' }],
-    [{ value: '' }, { value: '' }, { value: '' }],
-    [{ value: '' }, { value: '' }, { value: '' }],
-  ];
-
   constructor() {}
 
-  public ngOnInit(): void {}
+  public ngOnInit(): void {
+    this.emitUpdateMatrixEvent();
+  }
 
-  public ngAfterViewInit(): void {}
+  private emitUpdateMatrixEvent() {
+    this.onUpdateMatrixEmitter.emit({
+      name: this.matrixLetter,
+      matrix: this.matrix,
+    });
+  }
 
   public changeMatrixDimensions(rows: number, columns: number): void {
     if (rows > this.matrix.length) {
       const rowsToAdd: number = rows - this.matrix.length;
       for (let i = 0; i < rowsToAdd; i++) {
-        const newRow: { value: string }[] = new Array(
-          this.matrix[0].length
-        ).fill(0);
+        const newRow: IMatrixElement[] = new Array(this.matrix[0].length).fill({
+          value: '',
+        });
         this.matrix.push(newRow);
       }
     } else if (rows < this.matrix.length) {
@@ -61,9 +67,20 @@ export class MatrixComponent implements OnInit {
         row.splice(-columnsToRemove, columnsToRemove)
       );
     }
+
+    this.emitUpdateMatrixEvent();
   }
 
   public deleteMatrix(): void {
     this.onDeleteMatrixEmitter.emit(this.matrixLetter);
+  }
+
+  public onCellValueChange(
+    rowIndex: number,
+    colIndex: number,
+    newValue: any
+  ): void {
+    this.matrix[rowIndex][colIndex].value = newValue.target.value;
+    this.emitUpdateMatrixEvent();
   }
 }

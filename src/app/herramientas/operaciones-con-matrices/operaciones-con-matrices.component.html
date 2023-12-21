@@ -9,7 +9,9 @@
 </div>
 <div ibmRow>
     <div *ngFor="let matrix of matrices;" ibmCol [columnNumbers]="{ max: 2, xlg: 2, lg: 2, md: 2, sm: 2 }">
-        <app-matrix [matrixLetter]="matrix" (onDeleteMatrixEmitter)="deleteMatrix($event)"></app-matrix>
+        <app-matrix [matrixLetter]="matrix.name" [matrix]="matrix.matrix" (onUpdateMatrixEmitter)="updateMatrix($event)"
+            (onDeleteMatrixEmitter)="deleteMatrix($event)">
+        </app-matrix>
     </div>
 </div>
 <div ibmRow>
@@ -21,11 +23,23 @@
 </div>
 <div ibmRow>
     <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 3 }">
-        <div ibmCol>
-            <button class="yellow-button" ibmButton="primary" [disabled]="matrices.length >= alphabet.length"
-                (click)="addNewMatrix()">
-                Agregar matriz
-            </button>
+        <div ibmRow>
+            <div ibmCol>
+                <button class="yellow-button" ibmButton="primary" [disabled]="matrices.length >= alphabet.length"
+                    (click)="addNewMatrix()">
+                    Agregar matriz
+                </button>
+            </div>
+        </div>
+        <div ibmRow>
+            <div ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 6, sm: 6 }">
+                <ibm-dropdown placeholder="Elegir matriz" (selected)="onSelectedMatrix($event)">
+                    <ibm-dropdown-list [items]="matricesItems"></ibm-dropdown-list>
+                </ibm-dropdown>
+            </div>
+
+            <div ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 6, sm: 6 }">
+            </div>
         </div>
     </div>
     <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 3 }">
