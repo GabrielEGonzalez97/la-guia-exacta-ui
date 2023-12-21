@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { ActionsBarComponent } from './actions-bar.component';
-import { ActionBarElementModule } from './action-bar-element/action-bar-element.module';
 import {
   ButtonModule,
   HeaderModule,
@@ -9,7 +7,10 @@ import {
   PanelModule,
   SideNavModule,
 } from 'carbon-components-angular';
+import { ActionBarElementModule } from './action-bar-element/action-bar-element.module';
+import { ActionsBarComponent } from './actions-bar.component';
 
+import { CommonModule } from '@angular/common';
 import Close16 from '@carbon/icons/es/close/16';
 import Home24 from '@carbon/icons/es/home/24';
 
@@ -24,7 +25,7 @@ const COMPONENT_IMPORTS = [ActionBarElementModule];
 
 @NgModule({
   declarations: [ActionsBarComponent],
-  imports: [CARBON_IMPORTS, COMPONENT_IMPORTS],
+  imports: [CommonModule, CARBON_IMPORTS, COMPONENT_IMPORTS],
   providers: [],
   exports: [ActionsBarComponent],
 })

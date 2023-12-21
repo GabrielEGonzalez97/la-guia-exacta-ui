@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import {
   ButtonModule,
@@ -11,7 +12,7 @@ const CARBON_IMPORTS = [ButtonModule, GridModule, TilesModule];
 
 @NgModule({
   declarations: [FooterComponent],
-  imports: [CARBON_IMPORTS, ActionBarElementModule],
+  imports: [CommonModule, CARBON_IMPORTS, ActionBarElementModule],
   providers: [],
   exports: [FooterComponent],
 })

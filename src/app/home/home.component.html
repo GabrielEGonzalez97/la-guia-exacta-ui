@@ -5,29 +5,15 @@
         </div>
     </div>
     <div ibmRow class="logos-row">
-        <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 2, sm: 2 }">
-            <app-flip-card [navigateToPath]="'carreras/ingenieria-de-sistemas'" [cardName]="'Carreras'"
-                [cardFrontImagePath]="'assets/images/home-logos/carreras-front-logo.svg'"
-                [cardBackImagePath]="'assets/images/home-logos/carreras-back-logo.svg'">
-            </app-flip-card>
-        </div>
-        <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 2, sm: 2 }">
-            <app-flip-card [navigateToPath]="'catedras'" [cardName]="'Cátedras'"
-                [cardFrontImagePath]="'assets/images/home-logos/catedras-front-logo.svg'"
-                [cardBackImagePath]="'assets/images/home-logos/catedras-back-logo.svg'">
-            </app-flip-card>
-        </div>
-        <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 2, sm: 2 }">
-            <app-flip-card [navigateToPath]="'cursos-gratuitos'" [cardName]="'Cursos gratuitos'"
-                [cardFrontImagePath]="'assets/images/home-logos/cursos-gratuitos-front-logo.svg'"
-                [cardBackImagePath]="'assets/images/home-logos/cursos-gratuitos-back-logo.svg'">
-            </app-flip-card>
-        </div>
-        <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 2, sm: 2 }">
-            <app-flip-card [navigateToPath]="'subir-aportes'" [cardName]="'Subir aportes'"
-                [cardFrontImagePath]="'assets/images/home-logos/subir-aportes-front-logo.svg'"
-                [cardBackImagePath]="'assets/images/home-logos/subir-aportes-back-logo.svg'">
-            </app-flip-card>
-        </div>
+        <ng-container *ngFor="let pageSection of pageSections">
+            <ng-container *ngIf="pageSection.cardFrontImagePath && pageSection.cardBackImagePath">
+                <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 2, sm: 2 }">
+                    <app-flip-card [navigateToPath]="pageSection.route" [cardName]="pageSection.name"
+                        [cardFrontImagePath]="pageSection.cardFrontImagePath"
+                        [cardBackImagePath]="pageSection.cardBackImagePath">
+                    </app-flip-card>
+                </div>
+            </ng-container>
+        </ng-container>
     </div>
 </div>

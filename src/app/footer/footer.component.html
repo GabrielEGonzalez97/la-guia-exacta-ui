@@ -65,36 +65,13 @@
                             </p>
                         </strong>
                     </div>
-                    <div ibmRow class="row-with-action-bar-element-container">
-                        <button ibmButton="primary" (click)="navigateTo('carreras/ingenieria-de-sistemas')">
-                            Ingenieria de Sistemas
-                        </button>
-                    </div>
-                    <div ibmRow class="row-with-action-bar-element-container">
-                        <button ibmButton="primary" (click)="navigateTo('carreras/licenciatura-en-tecnologia-ambiental')">
-                            Licenciatura en Tecnología Ambiental
-                        </button>
-                    </div>
-                    <div ibmRow class="row-with-action-bar-element-container">
-                        <button ibmButton="primary" (click)="navigateTo('carreras/tudai')">
-                            TUDAI
-                        </button>
-                    </div>
-                    <div ibmRow class="row-with-action-bar-element-container">
-                        <button ibmButton="primary" (click)="navigateTo('catedras')">
-                            Cátedras
-                        </button>
-                    </div>
-                    <div ibmRow class="row-with-action-bar-element-container">
-                        <button ibmButton="primary" (click)="navigateTo('cursos-gratuitos')">
-                            Cursos gratuitos
-                        </button>
-                    </div>
-                    <div ibmRow class="row-with-action-bar-element-container">
-                        <button ibmButton="primary" (click)="navigateTo('subir-aportes')">
-                            Subir aportes
-                        </button>
-                    </div>
+                    <ng-container *ngFor="let pageSection of pageSections">
+                        <div ibmRow class="row-with-action-bar-element-container">
+                            <button ibmButton="primary" (click)="navigateTo(pageSection.route)">
+                                {{pageSection.name}}
+                            </button>
+                        </div>
+                    </ng-container>
                 </ibm-tile>
             </div>
         </div>

@@ -1,3 +1,58 @@
+import { IPageSection } from './interfaces';
+
+export const PAGE_SECTIONS: IPageSection[] = [
+  {
+    name: 'Carreras',
+    route: 'carreras/ingenieria-de-sistemas',
+    cardFrontImagePath: 'assets/images/home-logos/carreras-front-logo.svg',
+    cardBackImagePath: 'assets/images/home-logos/carreras-back-logo.svg',
+    subSections: [
+      {
+        name: 'Ingeniería de Sistemas',
+        route: 'carreras/ingenieria-de-sistemas',
+      },
+      {
+        name: 'Licenciatura en Tecnologia Ambiental',
+        route: 'carreras/licenciatura-en-tecnologia-ambiental',
+      },
+      {
+        name: 'TUDAI',
+        route: 'carreras/tudai',
+      },
+    ],
+  },
+  {
+    name: 'Cátedras',
+    route: 'catedras',
+    cardFrontImagePath: 'assets/images/home-logos/catedras-front-logo.svg',
+    cardBackImagePath: 'assets/images/home-logos/catedras-back-logo.svg',
+  },
+  {
+    name: 'Cursos gratuitos',
+    route: 'cursos-gratuitos',
+    cardFrontImagePath:
+      'assets/images/home-logos/cursos-gratuitos-front-logo.svg',
+    cardBackImagePath:
+      'assets/images/home-logos/cursos-gratuitos-back-logo.svg',
+  },
+  {
+    name: 'Subir aportes',
+    route: 'subir-aportes',
+    cardFrontImagePath: 'assets/images/home-logos/subir-aportes-front-logo.svg',
+    cardBackImagePath: 'assets/images/home-logos/subir-aportes-back-logo.svg',
+  },
+  {
+    name: 'Herramientas',
+    route: 'herramientas/operaciones-con-matrices',
+    subSections: [
+      {
+        name: 'Operaciones con matrices',
+        route: 'herramientas/operaciones-con-matrices',
+      },
+    ],
+  },
+];
+
 export const MONTHS: string[] = [
   'Enero',
   'Febrero',

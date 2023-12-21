@@ -1,37 +1,21 @@
 <header class="bx--header">
-    <ibm-header-navigation>
-        <ibm-header-menu title="Carreras">
-            <ibm-header-item (click)="navigateTo('carreras/ingenieria-de-sistemas')">
-                Ingeniería de Sistemas
-            </ibm-header-item>
-            <ibm-header-item (click)="navigateTo('carreras/licenciatura-en-tecnologia-ambiental')">
-                Licenciatura en Tecnología Ambiental
-            </ibm-header-item>
-            <ibm-header-item (click)="navigateTo('carreras/tudai')">
-                TUDAI
-            </ibm-header-item>
-        </ibm-header-menu>
-    </ibm-header-navigation>
-    <ibm-header-navigation>
-        <ibm-header-item (click)="navigateTo('catedras')">
-            Cátedras
-        </ibm-header-item>
-    </ibm-header-navigation>
-    <ibm-header-navigation>
-        <ibm-header-item (click)="navigateTo('cursos-gratuitos')">
-            Cursos gratuitos
-        </ibm-header-item>
-    </ibm-header-navigation>
-    <ibm-header-navigation>
-        <ibm-header-item (click)="navigateTo('subir-aportes')">
-            Subir aportes
-        </ibm-header-item>
-    </ibm-header-navigation>
-    <ibm-header-navigation>
-        <ibm-header-menu title="Herramientas">
-            <ibm-header-item (click)="navigateTo('herramientas/operaciones-con-matrices')">
-                Operaciones con matrices
-            </ibm-header-item>
-        </ibm-header-menu>
-    </ibm-header-navigation>
+    <ng-container *ngFor="let pageSection of pageSections">
+        <ibm-header-navigation>
+            <ng-container *ngIf="pageSection.subSections">
+                <ibm-header-menu [title]="pageSection.name">
+                    <ng-container *ngFor="let subSection of pageSection.subSections">
+                        <ibm-header-item (click)="navigateTo(subSection.route)">
+                            {{subSection.name}}
+                        </ibm-header-item>
+                    </ng-container>
+                </ibm-header-menu>
+            </ng-container>
+
+            <ng-container *ngIf="!pageSection.subSections">
+                <ibm-header-item (click)="navigateTo(pageSection.route)">
+                    {{pageSection.name}}
+                </ibm-header-item>
+            </ng-container>
+        </ibm-header-navigation>
+    </ng-container>
 </header>

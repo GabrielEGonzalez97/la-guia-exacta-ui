@@ -41,26 +41,23 @@
             </button>
         </div>
         <div class="sidenav-options-container">
-            <ibm-sidenav-menu title="Carreras">
-                <ibm-sidenav-item [route]="['carreras/ingenieria-de-sistemas']">
-                    Ingeniería de Sistemas
-                </ibm-sidenav-item>
-                <ibm-sidenav-item [route]="['carreras/licenciatura-en-tecnologia-ambiental']">
-                    Licenciatura en Tecnologia Ambiental
-                </ibm-sidenav-item>
-                <ibm-sidenav-item [route]="['carreras/tudai']">
-                    TUDAI
-                </ibm-sidenav-item>
-            </ibm-sidenav-menu>
-            <ibm-sidenav-item [route]="['catedras']">
-                Cátedras
-            </ibm-sidenav-item>
-            <ibm-sidenav-item [route]="['cursos-gratuitos']">
-                Cursos gratuitos
-            </ibm-sidenav-item>
-            <ibm-sidenav-item [route]="['subir-aportes']">
-                Subir aportes
-            </ibm-sidenav-item>
+            <ng-container *ngFor="let pageSection of pageSections">
+                <ng-container *ngIf="pageSection.subSections">
+                    <ibm-sidenav-menu [title]="pageSection.name">
+                        <ng-container *ngFor="let subSection of pageSection.subSections">
+                            <ibm-sidenav-item [route]="[subSection.route]">
+                                {{subSection.name}}
+                            </ibm-sidenav-item>
+                        </ng-container>
+                    </ibm-sidenav-menu>
+                </ng-container>
+
+                <ng-container *ngIf="!pageSection.subSections">
+                    <ibm-sidenav-item [route]="[pageSection.route]">
+                        {{pageSection.name}}
+                    </ibm-sidenav-item>
+                </ng-container>
+            </ng-container>
         </div>
     </ibm-panel>
 </header>
