@@ -5,12 +5,12 @@
         </div>
     </div>
     <div ibmRow>
-        <div ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 6, sm: 6 }">
-            <ibm-number [label]="'Numero de filas'" [min]="1" [max]="5" [(ngModel)]="numberOfRows"
+        <div ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 4, sm: 2 }">
+            <ibm-number [label]="'Filas'" [min]="1" [max]="5" [(ngModel)]="numberOfRows"
                 (change)="changeMatrixDimensions($event.value, numberOfColumns)"></ibm-number>
         </div>
-        <div ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 6, sm: 6 }">
-            <ibm-number [label]="'Numero de columnas'" [min]="1" [max]="5" [(ngModel)]="numberOfColumns"
+        <div ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 4, sm: 2 }">
+            <ibm-number [label]="'Columnas'" [min]="1" [max]="5" [(ngModel)]="numberOfColumns"
                 (change)="changeMatrixDimensions(numberOfRows, $event.value)"></ibm-number>
         </div>
     </div>
