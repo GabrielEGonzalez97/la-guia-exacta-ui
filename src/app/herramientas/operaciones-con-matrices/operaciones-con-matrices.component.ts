@@ -19,6 +19,7 @@ export class OperacionesConMatricesComponent implements OnInit {
   public latexExpression: string = '';
 
   public expressionResult: TercetoAbstracto = null;
+  public latexExpressionResult: string = '';
 
   public matricesItems: ListItem[] = [];
 
@@ -94,6 +95,7 @@ export class OperacionesConMatricesComponent implements OnInit {
   }
 
   private convertToLatexExpression(): void {
+    this.latexExpressionResult = '';
     if (this.expressionToCalculate) {
       try {
         const lexer: Lexer = new Lexer(this.expressionToCalculate);
@@ -113,7 +115,34 @@ export class OperacionesConMatricesComponent implements OnInit {
   }
 
   public calculate(): void {
-    console.log(this.expressionResult.getResultado());
+    this.latexExpressionResult = `$${this.decimalToFraction(
+      this.expressionResult.getResultado()
+    )}$`;
+  }
+
+  private decimalToFraction(decimal: number): string {
+    // Función para encontrar el máximo común divisor (MCD) de dos números
+    const gcd = (a: number, b: number): number => (b === 0 ? a : gcd(b, a % b));
+
+    // Convertir el decimal a fracción
+    const numerator: number = decimal * 100;
+    const denominator: number = 100;
+
+    // Encontrar el MCD para simplificar la fracción
+    const commonDivisor: number = gcd(numerator, denominator);
+
+    // Simplificar la fracción dividiendo tanto el numerador como el denominador por el MCD
+    const simplifiedNumerator: number = numerator / commonDivisor;
+    const simplifiedDenominator: number = denominator / commonDivisor;
+
+    // Construir la representación de la fracción como cadena
+    const fraction: string = `${simplifiedNumerator}\\over${simplifiedDenominator}`;
+
+    if (simplifiedDenominator > 1) {
+      return fraction;
+    }
+
+    return simplifiedNumerator.toString();
   }
 
   public onSelectedMatrix(selectedMatrix: any) {

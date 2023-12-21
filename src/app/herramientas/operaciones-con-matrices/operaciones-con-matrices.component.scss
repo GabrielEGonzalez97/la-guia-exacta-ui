@@ -3,10 +3,28 @@
 @include adjustPaddingInIBMGridAndCol();
 
 .result-viewer {
-  min-height: 8rem;
-  height: auto;
   border: 1px solid $principal-color;
   padding: 0.5rem 1rem;
+
+  .bx--row {
+    position: relative;
+    min-height: 4rem;
+    height: auto;
+    padding: 0.5rem 1rem;
+
+    .math-content {
+      font-size: 1.5rem;
+      letter-spacing: 0.5rem;
+    }
+
+    .math-content-result {
+      position: absolute;
+      right: 0;
+      margin-right: 1rem;
+      font-size: 1.5rem;
+      letter-spacing: 0.5rem;
+    }
+  }
 }
 
 .bx--btn--primary {
@@ -44,9 +62,4 @@
 
 .delete-icon {
   fill: white;
-}
-
-.math-content {
-  font-size: 1.5rem;
-  letter-spacing: 0.5rem;
 }
