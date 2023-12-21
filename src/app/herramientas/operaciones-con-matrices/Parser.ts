@@ -140,9 +140,9 @@ export class Lexer {
 
     const currentChar = this.input[this.currentPos];
 
-    if (/\d/.test(currentChar)) {
+    if (/\d+(\.\d+)?/.test(currentChar)) {
       let number: string = '';
-      while (/\d/.test(this.input[this.currentPos])) {
+      while (/\d|\./.test(this.input[this.currentPos])) {
         number += this.input[this.currentPos];
         this.currentPos++;
       }
@@ -234,7 +234,7 @@ export class Parser {
       return expresion;
     } else if (this.currentToken && this.currentToken.type === 'NUMBER') {
       const numero: TercetoNumerico = new TercetoNumerico(
-        Number(this.currentToken.value),
+        parseFloat(this.currentToken.value),
         {
           left: false,
           right: false,
