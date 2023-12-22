@@ -171,6 +171,8 @@ export class Parser {
   private tercetos: TercetoAbstracto[] = [];
   private resultado: TercetoAbstracto | null;
 
+  public isLastTokenAFloat: boolean = false;
+
   constructor(lexer: Lexer, matrices: IMatrixWithName[]) {
     this.lexer = lexer;
     this.matrices = matrices;
@@ -261,11 +263,21 @@ export class Parser {
 
   private eat(tokenType: string): void {
     if (this.currentToken && this.currentToken.type === tokenType) {
+      this.checkIfLastTokenIsAFloat();
       this.currentToken = this.lexer.getNextToken();
     } else {
       throw new Error(
         `Unexpected token: ${this.currentToken?.type}, expected: ${tokenType}`
       );
+    }
+  }
+
+  private checkIfLastTokenIsAFloat(): void {
+    this.isLastTokenAFloat = false;
+    if (this.currentToken && this.currentToken.type === 'NUMBER') {
+      if (this.currentToken.value.includes('.')) {
+        this.isLastTokenAFloat = true;
+      }
     }
   }
 }

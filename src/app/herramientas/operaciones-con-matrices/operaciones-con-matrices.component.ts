@@ -9,10 +9,9 @@ import { IMatrixElement, IMatrixWithName } from './matrix/interfaces';
   styleUrls: ['./operaciones-con-matrices.component.scss'],
 })
 export class OperacionesConMatricesComponent implements OnInit {
-  public matrices: IMatrixWithName[] = [];
-
   public readonly alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
+  public matrices: IMatrixWithName[] = [];
   private deletedMatrices: string[] = [];
 
   public expressionToCalculate: string = '';
@@ -22,6 +21,10 @@ export class OperacionesConMatricesComponent implements OnInit {
   public latexExpressionResult: string = '';
 
   public matricesItems: ListItem[] = [];
+
+  public isExpressionToCalculateEmpty: boolean = true;
+  public isLastSymbolAnOperator: boolean = false;
+  public isLastTokenAFloat: boolean = false;
 
   constructor() {}
 
@@ -44,6 +47,7 @@ export class OperacionesConMatricesComponent implements OnInit {
     if (indexMatrixToUpdate !== -1) {
       this.matrices[indexMatrixToUpdate].matrix = updatedMatrix.matrix;
     }
+    this.convertToLatexExpression();
   }
 
   public addNewMatrix(): void {
@@ -81,17 +85,31 @@ export class OperacionesConMatricesComponent implements OnInit {
 
   public addNewSymbolToTheExpressionToBeCalculated(newSymbol: string): void {
     this.expressionToCalculate += newSymbol;
+    this.checkLastSymbol();
     this.convertToLatexExpression();
   }
 
   public removeSymbolToTheExpressionToBeCalculated(): void {
     this.expressionToCalculate = this.expressionToCalculate.slice(0, -1);
+    this.checkLastSymbol();
     this.convertToLatexExpression();
   }
 
   public resetExpressionToBeCalculated(): void {
     this.expressionToCalculate = '';
+    this.checkLastSymbol();
     this.convertToLatexExpression();
+  }
+
+  private checkLastSymbol(): void {
+    const operators: string[] = ['+', '-', '*', '/'];
+
+    const lastChar: string = this.expressionToCalculate.trim().slice(-1);
+
+    this.isExpressionToCalculateEmpty = !this.expressionToCalculate
+      ? true
+      : false;
+    this.isLastSymbolAnOperator = operators.includes(lastChar);
   }
 
   private convertToLatexExpression(): void {
@@ -106,6 +124,12 @@ export class OperacionesConMatricesComponent implements OnInit {
         this.expressionResult = parser.getResultado();
 
         this.latexExpression = `$${this.expressionResult.getLatexForm()}$`;
+        const lastChar: string = this.expressionToCalculate.trim().slice(-1);
+        if (lastChar == '.') {
+          this.latexExpression = `$${this.expressionResult.getLatexForm()}${lastChar}$`;
+        }
+
+        this.isLastTokenAFloat = parser.isLastTokenAFloat;
       } catch (e) {
         this.latexExpression = `$${this.expressionToCalculate}$`;
       }
