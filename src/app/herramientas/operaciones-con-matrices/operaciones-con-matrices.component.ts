@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ListItem } from 'carbon-components-angular';
+import Fraction from 'fraction.js';
 import { Lexer, Parser, TercetoAbstracto } from './Parser';
 import { IMatrixElement, IMatrixWithName } from './matrix/interfaces';
 
@@ -145,28 +146,18 @@ export class OperacionesConMatricesComponent implements OnInit {
   }
 
   private decimalToFraction(decimal: number): string {
-    // Función para encontrar el máximo común divisor (MCD) de dos números
-    const gcd = (a: number, b: number): number => (b === 0 ? a : gcd(b, a % b));
+    const fraction: Fraction = new Fraction(decimal);
 
-    // Convertir el decimal a fracción
-    const numerator: number = decimal * 100;
-    const denominator: number = 100;
+    const numerator: number = fraction.n;
+    const denominator: number = fraction.d;
 
-    // Encontrar el MCD para simplificar la fracción
-    const commonDivisor: number = gcd(numerator, denominator);
+    const fractionString: string = `${numerator}\\over${denominator}`;
 
-    // Simplificar la fracción dividiendo tanto el numerador como el denominador por el MCD
-    const simplifiedNumerator: number = numerator / commonDivisor;
-    const simplifiedDenominator: number = denominator / commonDivisor;
-
-    // Construir la representación de la fracción como cadena
-    const fraction: string = `${simplifiedNumerator}\\over${simplifiedDenominator}`;
-
-    if (simplifiedDenominator > 1) {
-      return fraction;
+    if (denominator > 1) {
+      return fractionString;
     }
 
-    return simplifiedNumerator.toString();
+    return numerator.toString();
   }
 
   public onSelectedMatrix(selectedMatrix: any) {
