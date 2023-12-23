@@ -162,7 +162,9 @@ export class OperacionesConMatricesComponent implements OnInit {
 
   private getMatrixLatexForm(matrix: IMatrixElement[][]): string {
     const rows: string[] = matrix.map((row: IMatrixElement[]) =>
-      row.map((cell: IMatrixElement) => cell.value).join(' & ')
+      row
+        .map((cell: IMatrixElement) => decimalToFraction(Number(cell.value)))
+        .join(' & ')
     );
     const matrixBody: string = rows.join('\\\\ ');
     return `\\begin{pmatrix}${matrixBody}\\end{pmatrix}`;

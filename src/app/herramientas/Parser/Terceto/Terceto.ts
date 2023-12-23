@@ -1,4 +1,3 @@
-import { decimalToFraction } from '../../commonFunctions';
 import { IMatrixElement } from '../../operaciones-con-matrices/matrix/interfaces';
 import { MATRIX_TYPE, NUMBER_TYPE } from '../constants';
 import { TercetoAbstracto } from './TercetoAbstracto';
@@ -56,9 +55,7 @@ export class Terceto extends TercetoAbstracto {
       result[i] = [];
       for (let j = 0; j < matrix[0].length; j++) {
         result[i][j] = {
-          value: decimalToFraction(
-            this.getMatrixCellValue(matrix[i][j]) * number
-          ),
+          value: (this.getMatrixCellValue(matrix[i][j]) * number).toString(),
         };
       }
     }
@@ -76,9 +73,7 @@ export class Terceto extends TercetoAbstracto {
       result[i] = [];
       for (let j = 0; j < matrix[0].length; j++) {
         result[i][j] = {
-          value: decimalToFraction(
-            this.getMatrixCellValue(matrix[i][j]) / number
-          ),
+          value: (this.getMatrixCellValue(matrix[i][j]) / number).toString(),
         };
       }
     }
@@ -105,6 +100,7 @@ export class Terceto extends TercetoAbstracto {
           this.operand1.getResultado() as IMatrixElement[][];
         const matrix2: IMatrixElement[][] =
           this.operand2.getResultado() as IMatrixElement[][];
+
         const numberOfRowsOfMatrix1: number = matrix1.length;
         const numberOfColumnsOfMatrix1: number = matrix1[0].length;
 
@@ -126,7 +122,7 @@ export class Terceto extends TercetoAbstracto {
             const valorMatriz1: number = this.getMatrixCellValue(matrix1[i][j]);
             const valorMatriz2: number = this.getMatrixCellValue(matrix2[i][j]);
             const suma: number = valorMatriz1 + valorMatriz2;
-            filaResultado.push({ value: decimalToFraction(suma) });
+            filaResultado.push({ value: suma.toString() });
           }
           resultado.push(filaResultado);
         }
@@ -170,7 +166,7 @@ export class Terceto extends TercetoAbstracto {
             const valorMatriz1: number = this.getMatrixCellValue(matrix1[i][j]);
             const valorMatriz2: number = this.getMatrixCellValue(matrix2[i][j]);
             const resta: number = valorMatriz1 - valorMatriz2;
-            filaResultado.push({ value: decimalToFraction(resta) });
+            filaResultado.push({ value: resta.toString() });
           }
           resultado.push(filaResultado);
         }
@@ -230,11 +226,9 @@ export class Terceto extends TercetoAbstracto {
 
               suma += valorMatriz1 * valorMatriz2;
             }
-            resultado[i][j].value = decimalToFraction(
-              this.getMatrixCellValue({
-                value: suma.toString(),
-              })
-            );
+            resultado[i][j].value = this.getMatrixCellValue({
+              value: suma.toString(),
+            }).toString();
           }
         }
 
