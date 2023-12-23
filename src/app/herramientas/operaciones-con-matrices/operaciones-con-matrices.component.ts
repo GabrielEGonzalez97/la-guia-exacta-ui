@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ListItem } from 'carbon-components-angular';
 import Fraction from 'fraction.js';
-import { Lexer, Parser, TercetoAbstracto } from './Parser';
+import {
+  Lexer,
+  MATRIX_TYPE,
+  NUMBER_TYPE,
+  Parser,
+  TercetoAbstracto,
+} from './Parser';
 import { IMatrixElement, IMatrixWithName } from './matrix/interfaces';
 
 @Component({
@@ -140,9 +146,24 @@ export class OperacionesConMatricesComponent implements OnInit {
   }
 
   public calculate(): void {
-    this.latexExpressionResult = `$${this.decimalToFraction(
-      this.expressionResult.getResultado()
-    )}$`;
+    const expressionResultType: string = this.expressionResult.getTercetoType();
+    if (expressionResultType === NUMBER_TYPE) {
+      this.latexExpressionResult = `$${this.decimalToFraction(
+        Number(this.expressionResult.getResultado())
+      )}$`;
+    } else if (expressionResultType === MATRIX_TYPE) {
+      this.latexExpressionResult = `$${this.getMatrixLatexForm(
+        this.expressionResult.getResultado() as IMatrixElement[][]
+      )}$`;
+    }
+  }
+
+  private getMatrixLatexForm(matrix: IMatrixElement[][]): string {
+    const rows: string[] = matrix.map((row: IMatrixElement[]) =>
+      row.map((cell: IMatrixElement) => cell.value).join(' & ')
+    );
+    const matrixBody: string = rows.join('\\\\ ');
+    return `\\begin{pmatrix}${matrixBody}\\end{pmatrix}`;
   }
 
   private decimalToFraction(decimal: number): string {
@@ -157,7 +178,8 @@ export class OperacionesConMatricesComponent implements OnInit {
       return fractionString;
     }
 
-    return numerator.toString();
+    const minusSign: string = decimal < 0 ? '-' : '';
+    return `${minusSign}${numerator}`;
   }
 
   public onSelectedMatrix(selectedMatrix: any) {
