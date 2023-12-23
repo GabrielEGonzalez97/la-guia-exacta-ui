@@ -65,3 +65,9 @@
 .delete-icon {
   fill: white;
 }
+
+.decimal-icon:hover,
+.fraction-icon:hover {
+  cursor: pointer;
+  fill: $principal-color-hover;
+}

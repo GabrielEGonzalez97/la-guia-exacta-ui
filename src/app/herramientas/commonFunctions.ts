@@ -38,3 +38,16 @@ export function getMatrixLatexForm(matrix: IMatrixElement[][]): string {
   const matrixBody: string = rows.join('\\\\ ');
   return `\\begin{pmatrix}${matrixBody}\\end{pmatrix}`;
 }
+
+export function getMatrixLatexWithDecimalsForm(
+  matrix: IMatrixElement[][]
+): string {
+  // $\\begin{pmatrix}a & b\\\\ c & d \\\\ c & d\\end{pmatrix}$
+  const rows: string[] = matrix.map((row: IMatrixElement[]) =>
+    row
+      .map((cell: IMatrixElement) => getMatrixCellValue(cell).toString())
+      .join(' & ')
+  );
+  const matrixBody: string = rows.join('\\\\ ');
+  return `\\begin{pmatrix}${matrixBody}\\end{pmatrix}`;
+}

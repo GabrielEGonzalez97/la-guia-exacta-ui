@@ -4,7 +4,11 @@ import { Lexer } from '../Parser/Lexer';
 import { Parser } from '../Parser/Parser';
 import { TercetoAbstracto } from '../Parser/Terceto/TercetoAbstracto';
 import { MATRIX_TYPE, NUMBER_TYPE } from '../Parser/constants';
-import { decimalToFraction, getMatrixLatexForm } from '../commonFunctions';
+import {
+  decimalToFraction,
+  getMatrixLatexForm,
+  getMatrixLatexWithDecimalsForm,
+} from '../commonFunctions';
 import { IMatrixElement, IMatrixWithName } from './matrix/interfaces';
 
 @Component({
@@ -29,6 +33,9 @@ export class OperacionesConMatricesComponent implements OnInit {
   public isExpressionToCalculateEmpty: boolean = true;
   public isLastSymbolAnOperator: boolean = false;
   public isLastTokenAFloat: boolean = false;
+
+  public isDecimalsIconVisible: boolean = false;
+  public isFractionIconVisible: boolean = false;
 
   constructor() {}
 
@@ -121,6 +128,8 @@ export class OperacionesConMatricesComponent implements OnInit {
 
   private convertToLatexExpression(): void {
     this.latexExpressionResult = '';
+    this.isDecimalsIconVisible = false;
+    this.isFractionIconVisible = false;
     if (this.expressionToCalculate) {
       try {
         const lexer: Lexer = new Lexer(this.expressionToCalculate);
@@ -146,6 +155,10 @@ export class OperacionesConMatricesComponent implements OnInit {
   }
 
   public calculate(): void {
+    this.calculateResultInFraction();
+  }
+
+  public calculateResultInFraction(): void {
     try {
       const expressionResultType: string =
         this.expressionResult.getTercetoType();
@@ -158,6 +171,28 @@ export class OperacionesConMatricesComponent implements OnInit {
           this.expressionResult.getResultado() as IMatrixElement[][]
         )}$`;
       }
+      this.isDecimalsIconVisible = true;
+      this.isFractionIconVisible = false;
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  public calculateResultInDecimals(): void {
+    try {
+      const expressionResultType: string =
+        this.expressionResult.getTercetoType();
+      if (expressionResultType === NUMBER_TYPE) {
+        this.latexExpressionResult = `$${Number(
+          this.expressionResult.getResultado()
+        )}$`;
+      } else if (expressionResultType === MATRIX_TYPE) {
+        this.latexExpressionResult = `$${getMatrixLatexWithDecimalsForm(
+          this.expressionResult.getResultado() as IMatrixElement[][]
+        )}$`;
+      }
+      this.isDecimalsIconVisible = false;
+      this.isFractionIconVisible = true;
     } catch (e) {
       console.log(e);
     }

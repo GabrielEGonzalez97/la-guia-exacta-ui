@@ -5,15 +5,26 @@ import {
   ButtonModule,
   DropdownModule,
   GridModule,
+  IconModule,
+  IconService,
   NumberModule,
 } from 'carbon-components-angular';
 import { ActionBarElementModule } from 'src/app/actions-bar/action-bar-element/action-bar-element.module';
 import { MatrixModule } from './matrix/matrix.module';
 import { OperacionesConMatricesComponent } from './operaciones-con-matrices.component';
 
+import CharacterDecimal20 from '@carbon/icons/es/character--decimal/20';
+import CharacterFraction20 from '@carbon/icons/es/character--fraction/20';
+
 import { MathjaxModule } from 'mathjax-angular';
 
-const CARBON_IMPORTS = [ButtonModule, DropdownModule, GridModule, NumberModule];
+const CARBON_IMPORTS = [
+  ButtonModule,
+  DropdownModule,
+  GridModule,
+  IconModule,
+  NumberModule,
+];
 
 @NgModule({
   declarations: [OperacionesConMatricesComponent],
@@ -29,5 +40,7 @@ const CARBON_IMPORTS = [ButtonModule, DropdownModule, GridModule, NumberModule];
   exports: [OperacionesConMatricesComponent],
 })
 export class OperacionesConMatricesModule {
-  constructor() {}
+  constructor(protected iconService: IconService) {
+    iconService.registerAll([CharacterDecimal20, CharacterFraction20]);
+  }
 }
