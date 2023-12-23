@@ -24,14 +24,13 @@
                 <p class="math-content-result" [mathjax]="latexExpressionResult"></p>
                 <ng-container *ngIf="isDecimalsIconVisible">
                     <svg (click)="calculateResultInDecimals()" class="decimal-icon" ibmIcon="character--decimal"
-                        size="20"></svg>
+                        size="20" [ibmTooltip]="decimalsTooltipTemplate" trigger="hover" placement="top"></svg>
                 </ng-container>
                 <ng-container *ngIf="isFractionIconVisible">
                     <svg (click)="calculateResultInFraction()" class="fraction-icon" ibmIcon="character--fraction"
-                        size="20"></svg>
+                        size="20" [ibmTooltip]="fractionTooltipTemplate" trigger="hover" placement="top"></svg>
                 </ng-container>
             </div>
-
         </div>
     </div>
 </div>
@@ -162,4 +161,12 @@
         <rect id="_Transparent_Rectangle_" data-name="&amp;lt;Transparent Rectangle&amp;gt;" class="cls-1" width="32"
             height="32" />
     </svg>
+</ng-template>
+
+<ng-template #decimalsTooltipTemplate>
+    <p>Ver el resultado en decimales</p>
+</ng-template>
+
+<ng-template #fractionTooltipTemplate>
+    <p>Ver el resultado como fracción</p>
 </ng-template>

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
   ButtonModule,
+  DialogModule,
   DropdownModule,
   GridModule,
   IconModule,
@@ -20,6 +21,7 @@ import { MathjaxModule } from 'mathjax-angular';
 
 const CARBON_IMPORTS = [
   ButtonModule,
+  DialogModule,
   DropdownModule,
   GridModule,
   IconModule,
