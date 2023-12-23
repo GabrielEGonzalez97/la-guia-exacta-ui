@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ListItem } from 'carbon-components-angular';
-import Fraction from 'fraction.js';
 import { Lexer } from '../Parser/Lexer';
 import { Parser } from '../Parser/Parser';
 import { TercetoAbstracto } from '../Parser/Terceto/TercetoAbstracto';
 import { MATRIX_TYPE, NUMBER_TYPE } from '../Parser/constants';
+import { decimalToFraction } from '../commonFunctions';
 import { IMatrixElement, IMatrixWithName } from './matrix/interfaces';
 
 @Component({
@@ -143,15 +143,20 @@ export class OperacionesConMatricesComponent implements OnInit {
   }
 
   public calculate(): void {
-    const expressionResultType: string = this.expressionResult.getTercetoType();
-    if (expressionResultType === NUMBER_TYPE) {
-      this.latexExpressionResult = `$${this.decimalToFraction(
-        Number(this.expressionResult.getResultado())
-      )}$`;
-    } else if (expressionResultType === MATRIX_TYPE) {
-      this.latexExpressionResult = `$${this.getMatrixLatexForm(
-        this.expressionResult.getResultado() as IMatrixElement[][]
-      )}$`;
+    try {
+      const expressionResultType: string =
+        this.expressionResult.getTercetoType();
+      if (expressionResultType === NUMBER_TYPE) {
+        this.latexExpressionResult = `$${decimalToFraction(
+          Number(this.expressionResult.getResultado())
+        )}$`;
+      } else if (expressionResultType === MATRIX_TYPE) {
+        this.latexExpressionResult = `$${this.getMatrixLatexForm(
+          this.expressionResult.getResultado() as IMatrixElement[][]
+        )}$`;
+      }
+    } catch (e) {
+      console.log(e);
     }
   }
 
@@ -161,22 +166,6 @@ export class OperacionesConMatricesComponent implements OnInit {
     );
     const matrixBody: string = rows.join('\\\\ ');
     return `\\begin{pmatrix}${matrixBody}\\end{pmatrix}`;
-  }
-
-  private decimalToFraction(decimal: number): string {
-    const fraction: Fraction = new Fraction(decimal);
-
-    const numerator: number = fraction.n;
-    const denominator: number = fraction.d;
-
-    const fractionString: string = `${numerator}\\over${denominator}`;
-
-    if (denominator > 1) {
-      return fractionString;
-    }
-
-    const minusSign: string = decimal < 0 ? '-' : '';
-    return `${minusSign}${numerator}`;
   }
 
   public onSelectedMatrix(selectedMatrix: any) {

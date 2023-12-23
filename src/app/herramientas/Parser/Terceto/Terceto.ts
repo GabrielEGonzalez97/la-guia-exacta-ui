@@ -1,4 +1,4 @@
-import Fraction from 'fraction.js';
+import { decimalToFraction } from '../../commonFunctions';
 import { IMatrixElement } from '../../operaciones-con-matrices/matrix/interfaces';
 import { MATRIX_TYPE, NUMBER_TYPE } from '../constants';
 import { TercetoAbstracto } from './TercetoAbstracto';
@@ -37,22 +37,6 @@ export class Terceto extends TercetoAbstracto {
     );
   }
 
-  private decimalToFraction(decimal: number): string {
-    const fraction: Fraction = new Fraction(decimal);
-
-    const numerator: number = fraction.n;
-    const denominator: number = fraction.d;
-
-    const minusSign: string = decimal < 0 ? '-' : '';
-    const fractionString: string = `${minusSign}${numerator}\\over${denominator}`;
-
-    if (denominator > 1) {
-      return fractionString;
-    }
-
-    return `${minusSign}${numerator}`;
-  }
-
   private getMatrixCellValue(cellValue: IMatrixElement): number {
     if (cellValue.value.includes('/')) {
       const divisionParts: string[] = cellValue.value.split('/');
@@ -60,6 +44,46 @@ export class Terceto extends TercetoAbstracto {
     } else {
       return Number(cellValue.value);
     }
+  }
+
+  private multiplyNumberByMatrix(
+    number: number,
+    matrix: IMatrixElement[][]
+  ): IMatrixElement[][] {
+    const result: IMatrixElement[][] = [];
+
+    for (let i = 0; i < matrix.length; i++) {
+      result[i] = [];
+      for (let j = 0; j < matrix[0].length; j++) {
+        result[i][j] = {
+          value: decimalToFraction(
+            this.getMatrixCellValue(matrix[i][j]) * number
+          ),
+        };
+      }
+    }
+
+    return result;
+  }
+
+  private divideNumberByMatrix(
+    number: number,
+    matrix: IMatrixElement[][]
+  ): IMatrixElement[][] {
+    const result: IMatrixElement[][] = [];
+
+    for (let i = 0; i < matrix.length; i++) {
+      result[i] = [];
+      for (let j = 0; j < matrix[0].length; j++) {
+        result[i][j] = {
+          value: decimalToFraction(
+            this.getMatrixCellValue(matrix[i][j]) / number
+          ),
+        };
+      }
+    }
+
+    return result;
   }
 
   public override getResultado(): number | IMatrixElement[][] {
@@ -102,7 +126,7 @@ export class Terceto extends TercetoAbstracto {
             const valorMatriz1: number = this.getMatrixCellValue(matrix1[i][j]);
             const valorMatriz2: number = this.getMatrixCellValue(matrix2[i][j]);
             const suma: number = valorMatriz1 + valorMatriz2;
-            filaResultado.push({ value: this.decimalToFraction(suma) });
+            filaResultado.push({ value: decimalToFraction(suma) });
           }
           resultado.push(filaResultado);
         }
@@ -146,7 +170,7 @@ export class Terceto extends TercetoAbstracto {
             const valorMatriz1: number = this.getMatrixCellValue(matrix1[i][j]);
             const valorMatriz2: number = this.getMatrixCellValue(matrix2[i][j]);
             const resta: number = valorMatriz1 - valorMatriz2;
-            filaResultado.push({ value: this.decimalToFraction(resta) });
+            filaResultado.push({ value: decimalToFraction(resta) });
           }
           resultado.push(filaResultado);
         }
@@ -158,6 +182,16 @@ export class Terceto extends TercetoAbstracto {
         return (
           Number(this.operand1.getResultado()) *
           Number(this.operand2.getResultado())
+        );
+      } else if (this.evaluateOperandsTypes(NUMBER_TYPE, MATRIX_TYPE)) {
+        return this.multiplyNumberByMatrix(
+          Number(this.operand1.getResultado()),
+          this.operand2.getResultado() as IMatrixElement[][]
+        );
+      } else if (this.evaluateOperandsTypes(MATRIX_TYPE, NUMBER_TYPE)) {
+        return this.multiplyNumberByMatrix(
+          Number(this.operand2.getResultado()),
+          this.operand1.getResultado() as IMatrixElement[][]
         );
       } else if (this.evaluateOperandsTypes(MATRIX_TYPE, MATRIX_TYPE)) {
         const matrix1: IMatrixElement[][] =
@@ -196,7 +230,7 @@ export class Terceto extends TercetoAbstracto {
 
               suma += valorMatriz1 * valorMatriz2;
             }
-            resultado[i][j].value = this.decimalToFraction(
+            resultado[i][j].value = decimalToFraction(
               this.getMatrixCellValue({
                 value: suma.toString(),
               })
@@ -211,6 +245,17 @@ export class Terceto extends TercetoAbstracto {
         return (
           Number(this.operand1.getResultado()) /
           Number(this.operand2.getResultado())
+        );
+      } else if (this.evaluateOperandsTypes(NUMBER_TYPE, MATRIX_TYPE)) {
+        throw new Error('No se puede dividir un número por una matriz');
+      } else if (this.evaluateOperandsTypes(MATRIX_TYPE, NUMBER_TYPE)) {
+        return this.divideNumberByMatrix(
+          Number(this.operand2.getResultado()),
+          this.operand1.getResultado() as IMatrixElement[][]
+        );
+      } else if (this.evaluateOperandsTypes(MATRIX_TYPE, MATRIX_TYPE)) {
+        throw new Error(
+          'No se puede dividir dos matrices con esta calculadora'
         );
       }
     }
@@ -236,24 +281,47 @@ export class Terceto extends TercetoAbstracto {
     if (this.operator === '+') {
       if (this.evaluateOperandsTypes(NUMBER_TYPE, NUMBER_TYPE)) {
         return NUMBER_TYPE;
+      } else if (
+        this.evaluateOperandsTypes(NUMBER_TYPE, MATRIX_TYPE) ||
+        this.evaluateOperandsTypes(MATRIX_TYPE, NUMBER_TYPE)
+      ) {
+        throw new Error('No se puede sumar un número y una matriz');
       } else if (this.evaluateOperandsTypes(MATRIX_TYPE, MATRIX_TYPE)) {
         return MATRIX_TYPE;
       }
     } else if (this.operator === '-') {
       if (this.evaluateOperandsTypes(NUMBER_TYPE, NUMBER_TYPE)) {
         return NUMBER_TYPE;
+      } else if (
+        this.evaluateOperandsTypes(NUMBER_TYPE, MATRIX_TYPE) ||
+        this.evaluateOperandsTypes(MATRIX_TYPE, NUMBER_TYPE)
+      ) {
+        throw new Error('No se puede restar un número y una matriz');
       } else if (this.evaluateOperandsTypes(MATRIX_TYPE, MATRIX_TYPE)) {
         return MATRIX_TYPE;
       }
     } else if (this.operator === '*') {
       if (this.evaluateOperandsTypes(NUMBER_TYPE, NUMBER_TYPE)) {
         return NUMBER_TYPE;
+      } else if (
+        this.evaluateOperandsTypes(NUMBER_TYPE, MATRIX_TYPE) ||
+        this.evaluateOperandsTypes(MATRIX_TYPE, NUMBER_TYPE)
+      ) {
+        return MATRIX_TYPE;
       } else if (this.evaluateOperandsTypes(MATRIX_TYPE, MATRIX_TYPE)) {
         return MATRIX_TYPE;
       }
     } else if (this.operator === '/') {
       if (this.evaluateOperandsTypes(NUMBER_TYPE, NUMBER_TYPE)) {
         return NUMBER_TYPE;
+      } else if (this.evaluateOperandsTypes(NUMBER_TYPE, MATRIX_TYPE)) {
+        throw new Error('No se puede dividir un número por una matriz');
+      } else if (this.evaluateOperandsTypes(MATRIX_TYPE, NUMBER_TYPE)) {
+        return MATRIX_TYPE;
+      } else if (this.evaluateOperandsTypes(MATRIX_TYPE, MATRIX_TYPE)) {
+        throw new Error(
+          'No se puede dividir dos matrices con esta calculadora'
+        );
       }
     }
 
