@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ListItem } from 'carbon-components-angular';
 import Fraction from 'fraction.js';
-import {
-  Lexer,
-  MATRIX_TYPE,
-  NUMBER_TYPE,
-  Parser,
-  TercetoAbstracto,
-} from './Parser';
+import { Lexer } from '../Parser/Lexer';
+import { Parser } from '../Parser/Parser';
+import { TercetoAbstracto } from '../Parser/Terceto/TercetoAbstracto';
+import { MATRIX_TYPE, NUMBER_TYPE } from '../Parser/constants';
 import { IMatrixElement, IMatrixWithName } from './matrix/interfaces';
 
 @Component({
