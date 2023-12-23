@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ListItem } from 'carbon-components-angular';
 import { Lexer } from '../Parser/Lexer';
 import { Parser } from '../Parser/Parser';
+import { Terceto } from '../Parser/Terceto/Terceto';
 import { TercetoAbstracto } from '../Parser/Terceto/TercetoAbstracto';
 import { MATRIX_TYPE, NUMBER_TYPE } from '../Parser/constants';
 import {
@@ -39,6 +40,9 @@ export class OperacionesConMatricesComponent implements OnInit {
   public isWarningIconVisible: boolean = false;
 
   public errorMessage: string = '';
+
+  private parser: Parser = null;
+  public steps: string[] = [];
 
   constructor() {}
 
@@ -137,11 +141,11 @@ export class OperacionesConMatricesComponent implements OnInit {
     if (this.expressionToCalculate) {
       try {
         const lexer: Lexer = new Lexer(this.expressionToCalculate);
-        const parser: Parser = new Parser(lexer, this.matrices);
+        this.parser = new Parser(lexer, this.matrices);
 
-        parser.parse();
+        this.parser.parse();
 
-        this.expressionResult = parser.getResultado();
+        this.expressionResult = this.parser.getResultado();
 
         this.latexExpression = `$${this.expressionResult.getLatexForm()}$`;
         const lastChar: string = this.expressionToCalculate.trim().slice(-1);
@@ -149,7 +153,7 @@ export class OperacionesConMatricesComponent implements OnInit {
           this.latexExpression = `$${this.expressionResult.getLatexForm()}${lastChar}$`;
         }
 
-        this.isLastTokenAFloat = parser.isLastTokenAFloat;
+        this.isLastTokenAFloat = this.parser.isLastTokenAFloat;
       } catch (error) {
         this.latexExpression = `$${this.expressionToCalculate}$`;
       }
@@ -160,6 +164,7 @@ export class OperacionesConMatricesComponent implements OnInit {
 
   public calculate(): void {
     this.calculateResultInFraction();
+    this.calculateSteps();
   }
 
   public calculateResultInFraction(): void {
@@ -209,5 +214,50 @@ export class OperacionesConMatricesComponent implements OnInit {
   public onSelectedMatrix(selectedMatrix: any) {
     this.addNewSymbolToTheExpressionToBeCalculated(selectedMatrix.item.content);
     selectedMatrix.item.selected = false;
+  }
+
+  public getCorrectFormToDisplay(terceto: Terceto): string {
+    const type: string = terceto.getTercetoType();
+    let result: string = '';
+    if (type === NUMBER_TYPE) {
+      result = decimalToFraction(Number(terceto.getResultado()));
+    } else if (type === MATRIX_TYPE) {
+      result = getMatrixLatexForm(terceto.getResultado() as IMatrixElement[][]);
+    }
+    return result;
+  }
+
+  public calculateSteps(): void {
+    console.log(this.parser.getTercetos());
+    const tercetos: Terceto[] = this.parser.getTercetos() as Terceto[];
+    tercetos.forEach((terceto: Terceto) => {
+      const operand1Result: string = this.getCorrectFormToDisplay(
+        terceto.operand1 as Terceto
+      );
+      const operand2Result: string = this.getCorrectFormToDisplay(
+        terceto.operand2 as Terceto
+      );
+      try {
+        const result: string = this.getCorrectFormToDisplay(terceto as Terceto);
+        const commonText: string = `$${operand1Result}$ y $${operand2Result}$ dando como resultado $${result}$`;
+        if (terceto.operator === '+') {
+          this.steps.push(`Se realiza la suma entre ${commonText}`);
+        } else if (terceto.operator === '-') {
+          this.steps.push(`Se realiza la resta entre ${commonText}`);
+        } else if (terceto.operator === '*') {
+          this.steps.push(`Se realiza la multiplicación entre ${commonText}`);
+        } else if (terceto.operator === '/') {
+          this.steps.push(`Se realiza la división entre ${commonText}`);
+        }
+      } catch (error) {
+        this.steps.push(
+          `Se produce el error: ${error} al hacer la cuenta $${operand1Result}$ ${terceto.operator} $${operand2Result}$`
+        );
+        throw Error(
+          'No es posible seguir calculando los pasos debido a un error previo'
+        );
+      }
+    });
+    console.log(this.steps);
   }
 }

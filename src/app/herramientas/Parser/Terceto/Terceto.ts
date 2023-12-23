@@ -78,8 +78,8 @@ export class Terceto extends TercetoAbstracto {
   }
 
   public override getResultado(): number | IMatrixElement[][] {
-    console.log(this.operand1.getTercetoType());
-    console.log(this.operand2.getTercetoType());
+    // console.log(this.operand1.getTercetoType());
+    // console.log(this.operand2.getTercetoType());
     if (this.operator === '+') {
       if (this.evaluateOperandsTypes(NUMBER_TYPE, NUMBER_TYPE)) {
         return (
