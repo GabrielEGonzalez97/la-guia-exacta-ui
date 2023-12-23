@@ -4,7 +4,7 @@ import { Lexer } from '../Parser/Lexer';
 import { Parser } from '../Parser/Parser';
 import { TercetoAbstracto } from '../Parser/Terceto/TercetoAbstracto';
 import { MATRIX_TYPE, NUMBER_TYPE } from '../Parser/constants';
-import { decimalToFraction } from '../commonFunctions';
+import { decimalToFraction, getMatrixLatexForm } from '../commonFunctions';
 import { IMatrixElement, IMatrixWithName } from './matrix/interfaces';
 
 @Component({
@@ -154,23 +154,13 @@ export class OperacionesConMatricesComponent implements OnInit {
           Number(this.expressionResult.getResultado())
         )}$`;
       } else if (expressionResultType === MATRIX_TYPE) {
-        this.latexExpressionResult = `$${this.getMatrixLatexForm(
+        this.latexExpressionResult = `$${getMatrixLatexForm(
           this.expressionResult.getResultado() as IMatrixElement[][]
         )}$`;
       }
     } catch (e) {
       console.log(e);
     }
-  }
-
-  private getMatrixLatexForm(matrix: IMatrixElement[][]): string {
-    const rows: string[] = matrix.map((row: IMatrixElement[]) =>
-      row
-        .map((cell: IMatrixElement) => decimalToFraction(Number(cell.value)))
-        .join(' & ')
-    );
-    const matrixBody: string = rows.join('\\\\ ');
-    return `\\begin{pmatrix}${matrixBody}\\end{pmatrix}`;
   }
 
   public onSelectedMatrix(selectedMatrix: any) {

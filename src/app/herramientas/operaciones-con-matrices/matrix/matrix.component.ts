@@ -83,4 +83,13 @@ export class MatrixComponent implements OnInit {
     this.matrix[rowIndex][colIndex].value = newValue.target.value;
     this.emitUpdateMatrixEvent();
   }
+
+  public validateInput(event: KeyboardEvent): void {
+    const allowedCharacters: RegExp = /[0-9\/-]/;
+    const inputChar: string = String.fromCharCode(event.charCode);
+
+    if (!allowedCharacters.test(inputChar)) {
+      event.preventDefault();
+    }
+  }
 }

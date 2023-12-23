@@ -1,3 +1,4 @@
+import { getMatrixCellValue } from '../../commonFunctions';
 import { IMatrixElement } from '../../operaciones-con-matrices/matrix/interfaces';
 import { MATRIX_TYPE, NUMBER_TYPE } from '../constants';
 import { TercetoAbstracto } from './TercetoAbstracto';
@@ -36,15 +37,6 @@ export class Terceto extends TercetoAbstracto {
     );
   }
 
-  private getMatrixCellValue(cellValue: IMatrixElement): number {
-    if (cellValue.value.includes('/')) {
-      const divisionParts: string[] = cellValue.value.split('/');
-      return Number(divisionParts[0]) / Number(divisionParts[1]);
-    } else {
-      return Number(cellValue.value);
-    }
-  }
-
   private multiplyNumberByMatrix(
     number: number,
     matrix: IMatrixElement[][]
@@ -55,7 +47,7 @@ export class Terceto extends TercetoAbstracto {
       result[i] = [];
       for (let j = 0; j < matrix[0].length; j++) {
         result[i][j] = {
-          value: (this.getMatrixCellValue(matrix[i][j]) * number).toString(),
+          value: (getMatrixCellValue(matrix[i][j]) * number).toString(),
         };
       }
     }
@@ -73,7 +65,7 @@ export class Terceto extends TercetoAbstracto {
       result[i] = [];
       for (let j = 0; j < matrix[0].length; j++) {
         result[i][j] = {
-          value: (this.getMatrixCellValue(matrix[i][j]) / number).toString(),
+          value: (getMatrixCellValue(matrix[i][j]) / number).toString(),
         };
       }
     }
@@ -119,8 +111,8 @@ export class Terceto extends TercetoAbstracto {
         for (let i: number = 0; i < numberOfRowsOfMatrix1; i++) {
           const filaResultado: IMatrixElement[] = [];
           for (let j: number = 0; j < numberOfColumnsOfMatrix1; j++) {
-            const valorMatriz1: number = this.getMatrixCellValue(matrix1[i][j]);
-            const valorMatriz2: number = this.getMatrixCellValue(matrix2[i][j]);
+            const valorMatriz1: number = getMatrixCellValue(matrix1[i][j]);
+            const valorMatriz2: number = getMatrixCellValue(matrix2[i][j]);
             const suma: number = valorMatriz1 + valorMatriz2;
             filaResultado.push({ value: suma.toString() });
           }
@@ -163,8 +155,8 @@ export class Terceto extends TercetoAbstracto {
         for (let i: number = 0; i < numberOfRowsOfMatrix1; i++) {
           const filaResultado: IMatrixElement[] = [];
           for (let j: number = 0; j < numberOfColumnsOfMatrix1; j++) {
-            const valorMatriz1: number = this.getMatrixCellValue(matrix1[i][j]);
-            const valorMatriz2: number = this.getMatrixCellValue(matrix2[i][j]);
+            const valorMatriz1: number = getMatrixCellValue(matrix1[i][j]);
+            const valorMatriz2: number = getMatrixCellValue(matrix2[i][j]);
             const resta: number = valorMatriz1 - valorMatriz2;
             filaResultado.push({ value: resta.toString() });
           }
@@ -217,16 +209,12 @@ export class Terceto extends TercetoAbstracto {
           for (let j = 0; j < numberOfColumnsOfMatrix2; j++) {
             let suma: number = 0;
             for (let k = 0; k < numberOfColumnsOfMatrix1; k++) {
-              const valorMatriz1: number = this.getMatrixCellValue(
-                matrix1[i][k]
-              );
-              const valorMatriz2: number = this.getMatrixCellValue(
-                matrix2[k][j]
-              );
+              const valorMatriz1: number = getMatrixCellValue(matrix1[i][k]);
+              const valorMatriz2: number = getMatrixCellValue(matrix2[k][j]);
 
               suma += valorMatriz1 * valorMatriz2;
             }
-            resultado[i][j].value = this.getMatrixCellValue({
+            resultado[i][j].value = getMatrixCellValue({
               value: suma.toString(),
             }).toString();
           }

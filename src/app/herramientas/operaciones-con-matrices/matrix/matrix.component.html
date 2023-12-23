@@ -20,8 +20,9 @@
                 <tr *ngFor="let row of matrix; let rowIndex = index" class="row">
                     <td *ngFor="let cell of row; let colIndex = index" class="column">
                         <div class="cell">
-                            <input type="text" [value]="cell.value"
-                                (input)="onCellValueChange(rowIndex, colIndex, $event)">
+                            <input type="text" [value]="cell.value" placeholder="0"
+                                (input)="onCellValueChange(rowIndex, colIndex, $event)"
+                                (keypress)="validateInput($event)">
                         </div>
                     </td>
                 </tr>
