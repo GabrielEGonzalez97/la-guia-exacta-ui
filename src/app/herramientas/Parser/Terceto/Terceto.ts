@@ -59,6 +59,10 @@ export class Terceto extends TercetoAbstracto {
     number: number,
     matrix: IMatrixElement[][]
   ): IMatrixElement[][] {
+    if (number === 0) {
+      throw new Error('No se puede dividir por cero');
+    }
+
     const result: IMatrixElement[][] = [];
 
     for (let i = 0; i < matrix.length; i++) {
@@ -224,6 +228,9 @@ export class Terceto extends TercetoAbstracto {
       }
     } else if (this.operator === '/') {
       if (this.evaluateOperandsTypes(NUMBER_TYPE, NUMBER_TYPE)) {
+        if (Number(this.operand2.getResultado()) === 0) {
+          throw new Error('No se puede dividir por cero');
+        }
         return (
           Number(this.operand1.getResultado()) /
           Number(this.operand2.getResultado())
