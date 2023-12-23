@@ -80,6 +80,9 @@ export class OperacionesConMatricesComponent implements OnInit {
 
     if (indexMatrixToDelete !== -1) {
       const deletedMatrix = this.matrices.splice(indexMatrixToDelete, 1)[0];
+      this.matricesItems = this.matricesItems.filter(
+        (item: ListItem) => item.content !== matrixName
+      );
       this.deletedMatrices.push(deletedMatrix.name);
       this.deletedMatrices.sort();
     } else {
