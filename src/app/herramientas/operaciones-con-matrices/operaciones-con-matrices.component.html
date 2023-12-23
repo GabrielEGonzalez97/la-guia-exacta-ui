@@ -22,6 +22,10 @@
             </div>
             <div ibmRow class="result-container">
                 <p class="math-content-result" [mathjax]="latexExpressionResult"></p>
+                <ng-container *ngIf="isWarningIconVisible">
+                    <svg class="warning-icon" ibmIcon="warning--alt" size="32" [ibmTooltip]="warningTooltipTemplate"
+                        trigger="click" placement="left"></svg>
+                </ng-container>
                 <ng-container *ngIf="isDecimalsIconVisible">
                     <svg (click)="calculateResultInDecimals()" class="decimal-icon" ibmIcon="character--decimal"
                         size="20" [ibmTooltip]="decimalsTooltipTemplate" trigger="hover" placement="top"></svg>
@@ -161,6 +165,10 @@
         <rect id="_Transparent_Rectangle_" data-name="&amp;lt;Transparent Rectangle&amp;gt;" class="cls-1" width="32"
             height="32" />
     </svg>
+</ng-template>
+
+<ng-template #warningTooltipTemplate>
+    <p>{{errorMessage}}</p>
 </ng-template>
 
 <ng-template #decimalsTooltipTemplate>

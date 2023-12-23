@@ -71,3 +71,13 @@
   cursor: pointer;
   fill: $principal-color-hover;
 }
+
+.warning-icon {
+  margin-right: 1rem;
+  margin-top: 0.5rem;
+}
+
+.warning-icon:focus {
+  fill: black;
+  outline: none;
+}

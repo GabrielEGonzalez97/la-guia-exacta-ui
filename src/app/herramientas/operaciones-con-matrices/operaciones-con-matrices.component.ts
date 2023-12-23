@@ -36,6 +36,9 @@ export class OperacionesConMatricesComponent implements OnInit {
 
   public isDecimalsIconVisible: boolean = false;
   public isFractionIconVisible: boolean = false;
+  public isWarningIconVisible: boolean = false;
+
+  public errorMessage: string = '';
 
   constructor() {}
 
@@ -130,6 +133,7 @@ export class OperacionesConMatricesComponent implements OnInit {
     this.latexExpressionResult = '';
     this.isDecimalsIconVisible = false;
     this.isFractionIconVisible = false;
+    this.isWarningIconVisible = false;
     if (this.expressionToCalculate) {
       try {
         const lexer: Lexer = new Lexer(this.expressionToCalculate);
@@ -146,7 +150,7 @@ export class OperacionesConMatricesComponent implements OnInit {
         }
 
         this.isLastTokenAFloat = parser.isLastTokenAFloat;
-      } catch (e) {
+      } catch (error) {
         this.latexExpression = `$${this.expressionToCalculate}$`;
       }
     } else {
@@ -173,8 +177,10 @@ export class OperacionesConMatricesComponent implements OnInit {
       }
       this.isDecimalsIconVisible = true;
       this.isFractionIconVisible = false;
-    } catch (e) {
-      console.log(e);
+      this.isWarningIconVisible = false;
+    } catch (error) {
+      this.isWarningIconVisible = true;
+      this.errorMessage = error.message;
     }
   }
 
@@ -193,8 +199,10 @@ export class OperacionesConMatricesComponent implements OnInit {
       }
       this.isDecimalsIconVisible = false;
       this.isFractionIconVisible = true;
-    } catch (e) {
-      console.log(e);
+      this.isWarningIconVisible = false;
+    } catch (error) {
+      this.isWarningIconVisible = true;
+      this.errorMessage = error.message;
     }
   }
 

@@ -16,6 +16,7 @@ import { OperacionesConMatricesComponent } from './operaciones-con-matrices.comp
 
 import CharacterDecimal20 from '@carbon/icons/es/character--decimal/20';
 import CharacterFraction20 from '@carbon/icons/es/character--fraction/20';
+import WarningAlt32 from '@carbon/icons/es/warning--alt/32';
 
 import { MathjaxModule } from 'mathjax-angular';
 
@@ -43,6 +44,10 @@ const CARBON_IMPORTS = [
 })
 export class OperacionesConMatricesModule {
   constructor(protected iconService: IconService) {
-    iconService.registerAll([CharacterDecimal20, CharacterFraction20]);
+    iconService.registerAll([
+      CharacterDecimal20,
+      CharacterFraction20,
+      WarningAlt32,
+    ]);
   }
 }
