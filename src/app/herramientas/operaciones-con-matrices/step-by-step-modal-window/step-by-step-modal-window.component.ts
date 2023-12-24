@@ -11,7 +11,10 @@ export class StepByStepModalWindowComponent
   extends BaseModal
   implements OnInit
 {
-  constructor(@Inject('steps') public steps: ICalculationStep[]) {
+  constructor(
+    @Inject('steps') public steps: ICalculationStep[],
+    @Inject('latexExpression') public latexExpression: string
+  ) {
     super();
   }
 

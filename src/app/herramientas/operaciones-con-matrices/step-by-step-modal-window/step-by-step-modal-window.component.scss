@@ -6,16 +6,20 @@
   padding: 1.5rem;
 
   .bx--row {
-    overflow-x: auto;
     margin-bottom: 1rem;
 
-    p {
-      font-size: 1.5rem;
-    }
+    .bx--col {
+      overflow-x: auto;
 
-    .latex-expression {
-      display: flex;
-      justify-content: center;
+      p {
+        width: max-content;
+        font-size: 1.5rem;
+      }
+
+      .latex-expression {
+        display: contents;
+        text-align: center;
+      }
     }
   }
 }

@@ -4,6 +4,11 @@
     </ibm-modal-header>
 
     <div class="steps-container" *ngIf="steps.length > 0">
+        <div ibmRow>
+            <div ibmCol>
+                <p class="latex-expression" [mathjax]="latexExpression"></p>
+            </div>
+        </div>
         <ng-container *ngFor="let step of steps">
             <div ibmRow>
                 <div ibmCol>

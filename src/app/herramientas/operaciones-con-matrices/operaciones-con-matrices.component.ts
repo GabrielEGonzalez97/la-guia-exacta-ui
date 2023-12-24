@@ -244,6 +244,7 @@ export class OperacionesConMatricesComponent implements OnInit {
 
   public calculateSteps(): void {
     console.log(this.parser.getTercetos());
+    this.steps = [];
     const tercetos: Terceto[] = this.parser.getTercetos() as Terceto[];
     tercetos.forEach((terceto: Terceto, index: number) => {
       const operand1Result: string = getCorrectFormToDisplay(
@@ -311,6 +312,7 @@ export class OperacionesConMatricesComponent implements OnInit {
       component: StepByStepModalWindowComponent,
       inputs: {
         steps: this.steps,
+        latexExpression: this.latexExpression,
       },
     });
   }
