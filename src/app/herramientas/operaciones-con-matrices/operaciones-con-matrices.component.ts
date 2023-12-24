@@ -138,6 +138,7 @@ export class OperacionesConMatricesComponent implements OnInit {
 
   private convertToLatexExpression(): void {
     this.latexExpressionResult = '';
+    this.steps = [];
     this.isDecimalsIconVisible = false;
     this.isFractionIconVisible = false;
     this.isWarningIconVisible = false;
