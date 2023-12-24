@@ -1,0 +1,15 @@
+<ibm-modal [open]="true" (overlaySelected)="closeModal()">
+    <ibm-modal-header (closeSelect)="closeModal()">
+        <h2>Paso a paso</h2>
+    </ibm-modal-header>
+
+    <div class="steps-container" *ngIf="steps.length > 0">
+        <ng-container *ngFor="let step of steps">
+            <div ibmRow>
+                <div ibmCol>
+                    <p [mathjax]="step"></p>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</ibm-modal>

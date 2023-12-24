@@ -8,6 +8,7 @@ import {
   GridModule,
   IconModule,
   IconService,
+  ModalModule,
   NumberModule,
 } from 'carbon-components-angular';
 import { ActionBarElementModule } from 'src/app/actions-bar/action-bar-element/action-bar-element.module';
@@ -19,6 +20,7 @@ import CharacterFraction20 from '@carbon/icons/es/character--fraction/20';
 import WarningAlt32 from '@carbon/icons/es/warning--alt/32';
 
 import { MathjaxModule } from 'mathjax-angular';
+import { StepByStepModalWindowComponent } from './step-by-step-modal-window/step-by-step-modal-window.component';
 
 const CARBON_IMPORTS = [
   ButtonModule,
@@ -26,11 +28,15 @@ const CARBON_IMPORTS = [
   DropdownModule,
   GridModule,
   IconModule,
+  ModalModule,
   NumberModule,
 ];
 
 @NgModule({
-  declarations: [OperacionesConMatricesComponent],
+  declarations: [
+    OperacionesConMatricesComponent,
+    StepByStepModalWindowComponent,
+  ],
   imports: [
     CARBON_IMPORTS,
     ActionBarElementModule,
@@ -40,7 +46,7 @@ const CARBON_IMPORTS = [
     MathjaxModule.forChild(),
   ],
   providers: [],
-  exports: [OperacionesConMatricesComponent],
+  exports: [OperacionesConMatricesComponent, StepByStepModalWindowComponent],
 })
 export class OperacionesConMatricesModule {
   constructor(protected iconService: IconService) {

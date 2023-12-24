@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ListItem } from 'carbon-components-angular';
+import { ListItem, ModalService } from 'carbon-components-angular';
 import { Lexer } from '../Parser/Lexer';
 import { Parser } from '../Parser/Parser';
 import { Terceto } from '../Parser/Terceto/Terceto';
@@ -11,6 +11,7 @@ import {
   getMatrixLatexWithDecimalsForm,
 } from '../commonFunctions';
 import { IMatrixElement, IMatrixWithName } from './matrix/interfaces';
+import { StepByStepModalWindowComponent } from './step-by-step-modal-window/step-by-step-modal-window.component';
 
 @Component({
   selector: 'app-operaciones-con-matrices',
@@ -44,7 +45,7 @@ export class OperacionesConMatricesComponent implements OnInit {
   private parser: Parser = null;
   public steps: string[] = [];
 
-  constructor() {}
+  constructor(private modalService: ModalService) {}
 
   public ngOnInit(): void {
     this.addNewMatrix();
@@ -230,34 +231,51 @@ export class OperacionesConMatricesComponent implements OnInit {
   public calculateSteps(): void {
     console.log(this.parser.getTercetos());
     const tercetos: Terceto[] = this.parser.getTercetos() as Terceto[];
-    tercetos.forEach((terceto: Terceto) => {
+    tercetos.forEach((terceto: Terceto, index: number) => {
       const operand1Result: string = this.getCorrectFormToDisplay(
         terceto.operand1 as Terceto
       );
       const operand2Result: string = this.getCorrectFormToDisplay(
         terceto.operand2 as Terceto
       );
+      const stepNumber: number = index + 1;
       try {
         const result: string = this.getCorrectFormToDisplay(terceto as Terceto);
         const commonText: string = `$${operand1Result}$ y $${operand2Result}$ dando como resultado $${result}$`;
         if (terceto.operator === '+') {
-          this.steps.push(`Se realiza la suma entre ${commonText}`);
+          this.steps.push(
+            `${stepNumber}. Se realiza la suma entre ${commonText}`
+          );
         } else if (terceto.operator === '-') {
-          this.steps.push(`Se realiza la resta entre ${commonText}`);
+          this.steps.push(
+            `${stepNumber}. Se realiza la resta entre ${commonText}`
+          );
         } else if (terceto.operator === '*') {
-          this.steps.push(`Se realiza la multiplicación entre ${commonText}`);
+          this.steps.push(
+            `${stepNumber}. Se realiza la multiplicación entre ${commonText}`
+          );
         } else if (terceto.operator === '/') {
-          this.steps.push(`Se realiza la división entre ${commonText}`);
+          this.steps.push(
+            `${stepNumber}. Se realiza la división entre ${commonText}`
+          );
         }
       } catch (error) {
         this.steps.push(
-          `Se produce el error: ${error} al hacer la cuenta $${operand1Result}$ ${terceto.operator} $${operand2Result}$`
+          `${stepNumber}. Se produce el error: ${error} al hacer la cuenta $${operand1Result}$ ${terceto.operator} $${operand2Result}$`
         );
         throw Error(
           'No es posible seguir calculando los pasos debido a un error previo'
         );
       }
     });
-    console.log(this.steps);
+  }
+
+  public showStepByStepModalWindow(): void {
+    this.modalService.create({
+      component: StepByStepModalWindowComponent,
+      inputs: {
+        steps: this.steps,
+      },
+    });
   }
 }

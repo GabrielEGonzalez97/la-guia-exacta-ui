@@ -38,6 +38,21 @@
         </div>
     </div>
 </div>
+
+<ng-container *ngIf="isDecimalsIconVisible || isFractionIconVisible">
+    <div ibmRow>
+        <div ibmCol [columnNumbers]="{ max: 6, xlg: 12, lg: 12, md: 8, sm: 6 }">
+            <div ibmRow>
+                <div ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 8, sm: 6 }">
+                </div>
+                <div ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 8, sm: 6 }">
+                    <button ibmButton="primary" (click)="showStepByStepModalWindow()">Mostrar pasos</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
 <div ibmRow>
     <div ibmCol [columnNumbers]="{ max: 3, xlg: 6, lg: 6, md: 8, sm: 6 }">
         <div ibmRow>
