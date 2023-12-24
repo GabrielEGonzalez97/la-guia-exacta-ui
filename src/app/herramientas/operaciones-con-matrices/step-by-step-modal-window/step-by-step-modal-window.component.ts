@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { BaseModal } from 'carbon-components-angular';
+import { ICalculationStep } from '../interfaces';
 
 @Component({
   selector: 'app-step-by-step-modal-window',
@@ -10,7 +11,7 @@ export class StepByStepModalWindowComponent
   extends BaseModal
   implements OnInit
 {
-  constructor(@Inject('steps') public steps: string[]) {
+  constructor(@Inject('steps') public steps: ICalculationStep[]) {
     super();
   }
 

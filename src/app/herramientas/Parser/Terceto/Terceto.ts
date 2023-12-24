@@ -1,4 +1,7 @@
-import { getMatrixCellValue } from '../../commonFunctions';
+import {
+  getCorrectFormToDisplay,
+  getMatrixCellValue,
+} from '../../commonFunctions';
 import { IMatrixElement } from '../../operaciones-con-matrices/matrix/interfaces';
 import { MATRIX_TYPE, NUMBER_TYPE } from '../constants';
 import { TercetoAbstracto } from './TercetoAbstracto';
@@ -315,5 +318,23 @@ export class Terceto extends TercetoAbstracto {
     }
 
     return null;
+  }
+
+  public getLatexFormResult(): string {
+    const leftParenthesis: string = this.parentheses.left ? '(' : '';
+    const rightParenthesis: string = this.parentheses.right ? ')' : '';
+    let latexForm: string = '';
+    if (this.operator === '/') {
+      latexForm = `${leftParenthesis}{${getCorrectFormToDisplay(
+        this.operand1
+      )} \\over ${getCorrectFormToDisplay(this.operand2)}}${rightParenthesis}`;
+    } else {
+      latexForm = `${leftParenthesis}${getCorrectFormToDisplay(
+        this.operand1
+      )} ${this.operator} ${getCorrectFormToDisplay(
+        this.operand2
+      )}${rightParenthesis}`;
+    }
+    return latexForm;
   }
 }

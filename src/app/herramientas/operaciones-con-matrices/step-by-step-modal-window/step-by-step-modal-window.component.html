@@ -7,7 +7,12 @@
         <ng-container *ngFor="let step of steps">
             <div ibmRow>
                 <div ibmCol>
-                    <p [mathjax]="step"></p>
+                    <p [mathjax]="step.description"></p>
+                </div>
+            </div>
+            <div ibmRow>
+                <div ibmCol>
+                    <p class="latex-expression" [mathjax]="step.latexExpression"></p>
                 </div>
             </div>
         </ng-container>

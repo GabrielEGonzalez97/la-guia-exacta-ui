@@ -7,9 +7,11 @@ import { TercetoAbstracto } from '../Parser/Terceto/TercetoAbstracto';
 import { MATRIX_TYPE, NUMBER_TYPE } from '../Parser/constants';
 import {
   decimalToFraction,
+  getCorrectFormToDisplay,
   getMatrixLatexForm,
   getMatrixLatexWithDecimalsForm,
 } from '../commonFunctions';
+import { ICalculationStep } from './interfaces';
 import { IMatrixElement, IMatrixWithName } from './matrix/interfaces';
 import { StepByStepModalWindowComponent } from './step-by-step-modal-window/step-by-step-modal-window.component';
 
@@ -43,7 +45,7 @@ export class OperacionesConMatricesComponent implements OnInit {
   public errorMessage: string = '';
 
   private parser: Parser = null;
-  public steps: string[] = [];
+  public steps: ICalculationStep[] = [];
 
   constructor(private modalService: ModalService) {}
 
@@ -217,52 +219,86 @@ export class OperacionesConMatricesComponent implements OnInit {
     selectedMatrix.item.selected = false;
   }
 
-  public getCorrectFormToDisplay(terceto: Terceto): string {
-    const type: string = terceto.getTercetoType();
-    let result: string = '';
-    if (type === NUMBER_TYPE) {
-      result = decimalToFraction(Number(terceto.getResultado()));
-    } else if (type === MATRIX_TYPE) {
-      result = getMatrixLatexForm(terceto.getResultado() as IMatrixElement[][]);
+  private replaceFirstOccurrence(
+    original: string,
+    search: string,
+    replace: string
+  ): string {
+    // Find the position of the first occurrence of the substring
+    const index: number = original.indexOf(search);
+
+    // Check if the substring was found
+    if (index !== -1) {
+      // Build the new string with the replaced substring
+      const newString: string =
+        original.substring(0, index) +
+        replace +
+        original.substring(index + search.length);
+
+      return newString;
     }
-    return result;
+
+    // If the substring was not found, return the original string
+    return original;
   }
 
   public calculateSteps(): void {
     console.log(this.parser.getTercetos());
     const tercetos: Terceto[] = this.parser.getTercetos() as Terceto[];
     tercetos.forEach((terceto: Terceto, index: number) => {
-      const operand1Result: string = this.getCorrectFormToDisplay(
+      const operand1Result: string = getCorrectFormToDisplay(
         terceto.operand1 as Terceto
       );
-      const operand2Result: string = this.getCorrectFormToDisplay(
+      const operand2Result: string = getCorrectFormToDisplay(
         terceto.operand2 as Terceto
       );
       const stepNumber: number = index + 1;
       try {
-        const result: string = this.getCorrectFormToDisplay(terceto as Terceto);
+        const result: string = getCorrectFormToDisplay(terceto as Terceto);
         const commonText: string = `$${operand1Result}$ y $${operand2Result}$ dando como resultado $${result}$`;
+        const lastPartialExpression: string = this.steps.slice(-1)[0]
+          ? this.steps.slice(-1)[0].latexExpression
+          : this.latexExpression;
+        let newPartialExpression: string = this.replaceFirstOccurrence(
+          lastPartialExpression,
+          terceto.getLatexFormResult(),
+          result
+        );
+
+        // console.log({ lastPartialExpression });
+        // console.log(terceto.getLatexFormResult());
+        // console.log({ result });
+        // console.log({ newPartialExpression });
+        // console.log('');
+        if (stepNumber === tercetos.length) {
+          newPartialExpression = `$${result}$`;
+        }
         if (terceto.operator === '+') {
-          this.steps.push(
-            `${stepNumber}. Se realiza la suma entre ${commonText}`
-          );
+          this.steps.push({
+            description: `${stepNumber}. Se realiza la suma entre ${commonText}`,
+            latexExpression: newPartialExpression,
+          });
         } else if (terceto.operator === '-') {
-          this.steps.push(
-            `${stepNumber}. Se realiza la resta entre ${commonText}`
-          );
+          this.steps.push({
+            description: `${stepNumber}. Se realiza la resta entre ${commonText}`,
+            latexExpression: newPartialExpression,
+          });
         } else if (terceto.operator === '*') {
-          this.steps.push(
-            `${stepNumber}. Se realiza la multiplicación entre ${commonText}`
-          );
+          this.steps.push({
+            description: `${stepNumber}. Se realiza la multiplicación entre ${commonText}`,
+            latexExpression: newPartialExpression,
+          });
         } else if (terceto.operator === '/') {
-          this.steps.push(
-            `${stepNumber}. Se realiza la división entre ${commonText}`
-          );
+          this.steps.push({
+            description: `${stepNumber}. Se realiza la división entre ${commonText}`,
+            latexExpression: newPartialExpression,
+          });
         }
       } catch (error) {
-        this.steps.push(
-          `${stepNumber}. Se produce el error: ${error} al hacer la cuenta $${operand1Result}$ ${terceto.operator} $${operand2Result}$`
-        );
+        this.steps.push({
+          description: `${stepNumber}. Se produce el error: ${error} al hacer la cuenta $${operand1Result}$ ${terceto.operator} $${operand2Result}$`,
+          latexExpression: '',
+        });
         throw Error(
           'No es posible seguir calculando los pasos debido a un error previo'
         );
