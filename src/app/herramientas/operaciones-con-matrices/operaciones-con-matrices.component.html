@@ -92,6 +92,9 @@
             <ng-container [ngTemplateOutlet]="calculatorButtonTemplate"
                 [ngTemplateOutletContext]="{symbol:'cos(', disabled: false}">
             </ng-container>
+            <ng-container [ngTemplateOutlet]="calculatorButtonTemplate"
+                [ngTemplateOutletContext]="{symbol:'sin(', disabled: false}">
+            </ng-container>
         </div>
     </div>
     <div ibmCol [columnNumbers]="{ max: 3, xlg: 6, lg: 6, md: 8, sm: 6 }">

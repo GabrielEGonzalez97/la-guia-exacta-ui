@@ -6,7 +6,7 @@ import { TercetoMatrix } from './Terceto/TercetoMatrix';
 import { TercetoNumerico } from './Terceto/TercetoNumerico';
 import { TercetoUnary } from './Terceto/TercetoUnary';
 import { Token } from './Token';
-import { COS_TYPE, MATRIX_TYPE, NUMBER_TYPE } from './constants';
+import { MATRIX_TYPE, NUMBER_TYPE, UNARY_FUNCTIONS } from './constants';
 
 export class Parser {
   private lexer: Lexer;
@@ -100,9 +100,12 @@ export class Parser {
       );
       this.eat(MATRIX_TYPE);
       return matrix;
-    } else if (this.currentToken && this.currentToken.type === COS_TYPE) {
+    } else if (
+      this.currentToken &&
+      UNARY_FUNCTIONS.includes(this.currentToken.type)
+    ) {
       const functionName: string = this.currentToken.value;
-      this.eat(COS_TYPE);
+      this.eat(this.currentToken.type);
       this.eat('(');
       const expression: TercetoAbstracto = this.parseExpression();
       this.eat(')');

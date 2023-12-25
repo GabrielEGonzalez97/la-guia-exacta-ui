@@ -4,7 +4,12 @@ import { Lexer } from '../Parser/Lexer';
 import { Parser } from '../Parser/Parser';
 import { TercetoAbstracto } from '../Parser/Terceto/TercetoAbstracto';
 import { TercetoOperator } from '../Parser/Terceto/TercetoOperator';
-import { COS_TYPE, MATRIX_TYPE, NUMBER_TYPE } from '../Parser/constants';
+import {
+  COS_TYPE,
+  MATRIX_TYPE,
+  NUMBER_TYPE,
+  SIN_TYPE,
+} from '../Parser/constants';
 import {
   decimalToFraction,
   getCorrectFormToDisplay,
@@ -302,6 +307,11 @@ export class OperacionesConMatricesComponent implements OnInit {
         } else if (terceto.operator === COS_TYPE) {
           this.steps.push({
             description: `${stepNumber}. Se realiza el coseno de ${commonText}`,
+            latexExpression: newPartialExpression,
+          });
+        } else if (terceto.operator === SIN_TYPE) {
+          this.steps.push({
+            description: `${stepNumber}. Se realiza el seno de ${commonText}`,
             latexExpression: newPartialExpression,
           });
         }

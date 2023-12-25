@@ -1,5 +1,5 @@
 import { Token } from './Token';
-import { COS_TYPE, MATRIX_TYPE, NUMBER_TYPE } from './constants';
+import { MATRIX_TYPE, NUMBER_TYPE, UNARY_FUNCTIONS } from './constants';
 
 export class Lexer {
   private input: string;
@@ -40,7 +40,7 @@ export class Lexer {
 
       // Check if it's a unary function
       if (this.isFunction(identifier)) {
-        return new Token(COS_TYPE, identifier);
+        return new Token(identifier, identifier);
       }
     }
 
@@ -54,7 +54,6 @@ export class Lexer {
   }
 
   private isFunction(name: string): boolean {
-    const unaryFunctions: string[] = [COS_TYPE];
-    return unaryFunctions.includes(name);
+    return UNARY_FUNCTIONS.includes(name);
   }
 }

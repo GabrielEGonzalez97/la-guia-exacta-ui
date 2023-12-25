@@ -1,6 +1,6 @@
 import { getCorrectFormToDisplay } from '../../commonFunctions';
 import { IMatrixElement } from '../../operaciones-con-matrices/matrix/interfaces';
-import { COS_TYPE, MATRIX_TYPE, NUMBER_TYPE } from '../constants';
+import { COS_TYPE, MATRIX_TYPE, NUMBER_TYPE, SIN_TYPE } from '../constants';
 import { TercetoAbstracto } from './TercetoAbstracto';
 import { TercetoOperator } from './TercetoOperator';
 import { IParentheses } from './interfaces';
@@ -29,6 +29,10 @@ export class TercetoUnary extends TercetoOperator {
       latexForm = `${leftParenthesis}\\cos(${getCorrectFormToDisplay(
         this.operand
       )})${rightParenthesis}`;
+    } else if (this.operator === SIN_TYPE) {
+      latexForm = `${leftParenthesis}\\sin(${getCorrectFormToDisplay(
+        this.operand
+      )})${rightParenthesis}`;
     }
     return latexForm;
   }
@@ -44,6 +48,12 @@ export class TercetoUnary extends TercetoOperator {
       } else if (this.evaluateOperandsTypes(MATRIX_TYPE)) {
         throw new Error('No se puede calcular el coseno de una matriz');
       }
+    } else if (this.operator === SIN_TYPE) {
+      if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
+        return NUMBER_TYPE;
+      } else if (this.evaluateOperandsTypes(MATRIX_TYPE)) {
+        throw new Error('No se puede calcular el seno de una matriz');
+      }
     }
     return null;
   }
@@ -54,6 +64,12 @@ export class TercetoUnary extends TercetoOperator {
         return Math.cos(Number(this.operand.getResultado()));
       } else if (this.evaluateOperandsTypes(MATRIX_TYPE)) {
         throw new Error('No se puede calcular el coseno de una matriz');
+      }
+    } else if (this.operator === SIN_TYPE) {
+      if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
+        return Math.sin(Number(this.operand.getResultado()));
+      } else if (this.evaluateOperandsTypes(MATRIX_TYPE)) {
+        throw new Error('No se puede calcular el seno de una matriz');
       }
     }
 
@@ -67,6 +83,10 @@ export class TercetoUnary extends TercetoOperator {
 
     if (this.operator === COS_TYPE) {
       latexForm = `${leftParenthesis}\\cos(${getCorrectFormToDisplay(
+        this.operand
+      )})${rightParenthesis}`;
+    } else if (this.operator === SIN_TYPE) {
+      latexForm = `${leftParenthesis}\\sin(${getCorrectFormToDisplay(
         this.operand
       )})${rightParenthesis}`;
     }
