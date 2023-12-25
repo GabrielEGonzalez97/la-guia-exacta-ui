@@ -9,6 +9,7 @@ import {
   MATRIX_TYPE,
   NUMBER_TYPE,
   SIN_TYPE,
+  TAN_TYPE,
 } from '../Parser/constants';
 import {
   decimalToFraction,
@@ -312,6 +313,11 @@ export class OperacionesConMatricesComponent implements OnInit {
         } else if (terceto.operator === SIN_TYPE) {
           this.steps.push({
             description: `${stepNumber}. Se realiza el seno de ${commonText}`,
+            latexExpression: newPartialExpression,
+          });
+        } else if (terceto.operator === TAN_TYPE) {
+          this.steps.push({
+            description: `${stepNumber}. Se realiza la tangente de ${commonText}`,
             latexExpression: newPartialExpression,
           });
         }
