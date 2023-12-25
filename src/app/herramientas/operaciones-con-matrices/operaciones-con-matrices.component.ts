@@ -7,6 +7,7 @@ import { TercetoOperator } from '../Parser/Terceto/TercetoOperator';
 import {
   COS_TYPE,
   MATRIX_TYPE,
+  MAT_INV_TYPE,
   NUMBER_TYPE,
   SIN_TYPE,
   TAN_TYPE,
@@ -287,37 +288,42 @@ export class OperacionesConMatricesComponent implements OnInit {
         }
         if (terceto.operator === '+') {
           this.steps.push({
-            description: `${stepNumber}. Se realiza la suma entre ${commonText}`,
+            description: `${stepNumber}. Se calcula la suma entre ${commonText}`,
             latexExpression: newPartialExpression,
           });
         } else if (terceto.operator === '-') {
           this.steps.push({
-            description: `${stepNumber}. Se realiza la resta entre ${commonText}`,
+            description: `${stepNumber}. Se calcula la resta entre ${commonText}`,
             latexExpression: newPartialExpression,
           });
         } else if (terceto.operator === '*') {
           this.steps.push({
-            description: `${stepNumber}. Se realiza la multiplicación entre ${commonText}`,
+            description: `${stepNumber}. Se calcula la multiplicación entre ${commonText}`,
             latexExpression: newPartialExpression,
           });
         } else if (terceto.operator === '/') {
           this.steps.push({
-            description: `${stepNumber}. Se realiza la división entre ${commonText}`,
+            description: `${stepNumber}. Se calcula la división entre ${commonText}`,
             latexExpression: newPartialExpression,
           });
         } else if (terceto.operator === COS_TYPE) {
           this.steps.push({
-            description: `${stepNumber}. Se realiza el coseno de ${commonText}`,
+            description: `${stepNumber}. Se calcula el coseno de ${commonText}`,
             latexExpression: newPartialExpression,
           });
         } else if (terceto.operator === SIN_TYPE) {
           this.steps.push({
-            description: `${stepNumber}. Se realiza el seno de ${commonText}`,
+            description: `${stepNumber}. Se calcula el seno de ${commonText}`,
             latexExpression: newPartialExpression,
           });
         } else if (terceto.operator === TAN_TYPE) {
           this.steps.push({
-            description: `${stepNumber}. Se realiza la tangente de ${commonText}`,
+            description: `${stepNumber}. Se calcula la tangente de ${commonText}`,
+            latexExpression: newPartialExpression,
+          });
+        } else if (terceto.operator === MAT_INV_TYPE) {
+          this.steps.push({
+            description: `${stepNumber}. Se calcula la matriz inversa de ${commonText}`,
             latexExpression: newPartialExpression,
           });
         }
