@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ListItem, ModalService } from 'carbon-components-angular';
 import { Lexer } from '../Parser/Lexer';
 import { Parser } from '../Parser/Parser';
-import { Terceto } from '../Parser/Terceto/Terceto';
 import { TercetoAbstracto } from '../Parser/Terceto/TercetoAbstracto';
-import { MATRIX_TYPE, NUMBER_TYPE } from '../Parser/constants';
+import { TercetoOperator } from '../Parser/Terceto/TercetoOperator';
+import { COS_TYPE, MATRIX_TYPE, NUMBER_TYPE } from '../Parser/constants';
 import {
   decimalToFraction,
   getCorrectFormToDisplay,
@@ -159,6 +159,7 @@ export class OperacionesConMatricesComponent implements OnInit {
 
         this.isLastTokenAFloat = this.parser.isLastTokenAFloat;
       } catch (error) {
+        this.errorMessage = error.message;
         this.latexExpression = `$${this.expressionToCalculate}$`;
       }
     } else {
@@ -173,20 +174,24 @@ export class OperacionesConMatricesComponent implements OnInit {
 
   public calculateResultInFraction(): void {
     try {
-      const expressionResultType: string =
-        this.expressionResult.getTercetoType();
-      if (expressionResultType === NUMBER_TYPE) {
-        this.latexExpressionResult = `$${decimalToFraction(
-          Number(this.expressionResult.getResultado())
-        )}$`;
-      } else if (expressionResultType === MATRIX_TYPE) {
-        this.latexExpressionResult = `$${getMatrixLatexForm(
-          this.expressionResult.getResultado() as IMatrixElement[][]
-        )}$`;
+      if (this.expressionResult) {
+        const expressionResultType: string =
+          this.expressionResult.getTercetoType();
+        if (expressionResultType === NUMBER_TYPE) {
+          this.latexExpressionResult = `$${decimalToFraction(
+            Number(this.expressionResult.getResultado())
+          )}$`;
+        } else if (expressionResultType === MATRIX_TYPE) {
+          this.latexExpressionResult = `$${getMatrixLatexForm(
+            this.expressionResult.getResultado() as IMatrixElement[][]
+          )}$`;
+        }
+        this.isDecimalsIconVisible = true;
+        this.isFractionIconVisible = false;
+        this.isWarningIconVisible = false;
+      } else {
+        this.isWarningIconVisible = true;
       }
-      this.isDecimalsIconVisible = true;
-      this.isFractionIconVisible = false;
-      this.isWarningIconVisible = false;
     } catch (error) {
       this.isWarningIconVisible = true;
       this.errorMessage = error.message;
@@ -195,20 +200,24 @@ export class OperacionesConMatricesComponent implements OnInit {
 
   public calculateResultInDecimals(): void {
     try {
-      const expressionResultType: string =
-        this.expressionResult.getTercetoType();
-      if (expressionResultType === NUMBER_TYPE) {
-        this.latexExpressionResult = `$${Number(
-          this.expressionResult.getResultado()
-        )}$`;
-      } else if (expressionResultType === MATRIX_TYPE) {
-        this.latexExpressionResult = `$${getMatrixLatexWithDecimalsForm(
-          this.expressionResult.getResultado() as IMatrixElement[][]
-        )}$`;
+      if (this.expressionResult) {
+        const expressionResultType: string =
+          this.expressionResult.getTercetoType();
+        if (expressionResultType === NUMBER_TYPE) {
+          this.latexExpressionResult = `$${Number(
+            this.expressionResult.getResultado()
+          )}$`;
+        } else if (expressionResultType === MATRIX_TYPE) {
+          this.latexExpressionResult = `$${getMatrixLatexWithDecimalsForm(
+            this.expressionResult.getResultado() as IMatrixElement[][]
+          )}$`;
+        }
+        this.isDecimalsIconVisible = false;
+        this.isFractionIconVisible = true;
+        this.isWarningIconVisible = false;
+      } else {
+        this.isWarningIconVisible = true;
       }
-      this.isDecimalsIconVisible = false;
-      this.isFractionIconVisible = true;
-      this.isWarningIconVisible = false;
     } catch (error) {
       this.isWarningIconVisible = true;
       this.errorMessage = error.message;
@@ -246,18 +255,13 @@ export class OperacionesConMatricesComponent implements OnInit {
   public calculateSteps(): void {
     console.log(this.parser.getTercetos());
     this.steps = [];
-    const tercetos: Terceto[] = this.parser.getTercetos() as Terceto[];
-    tercetos.forEach((terceto: Terceto, index: number) => {
-      const operand1Result: string = getCorrectFormToDisplay(
-        terceto.operand1 as Terceto
-      );
-      const operand2Result: string = getCorrectFormToDisplay(
-        terceto.operand2 as Terceto
-      );
+    const tercetos: TercetoOperator[] =
+      this.parser.getTercetos() as TercetoOperator[];
+    tercetos.forEach((terceto: TercetoOperator, index: number) => {
       const stepNumber: number = index + 1;
       try {
-        const result: string = getCorrectFormToDisplay(terceto as Terceto);
-        const commonText: string = `$${operand1Result}$ y $${operand2Result}$ dando como resultado $${result}$`;
+        const result: string = getCorrectFormToDisplay(terceto);
+        const commonText: string = `${terceto.getLatexFormOperators()} dando como resultado $${result}$`;
         const lastPartialExpression: string = this.steps.slice(-1)[0]
           ? this.steps.slice(-1)[0].latexExpression
           : this.latexExpression;
@@ -295,13 +299,18 @@ export class OperacionesConMatricesComponent implements OnInit {
             description: `${stepNumber}. Se realiza la división entre ${commonText}`,
             latexExpression: newPartialExpression,
           });
+        } else if (terceto.operator === COS_TYPE) {
+          this.steps.push({
+            description: `${stepNumber}. Se realiza el coseno de ${commonText}`,
+            latexExpression: newPartialExpression,
+          });
         }
       } catch (error) {
         this.steps.push({
-          description: `${stepNumber}. Se produce el error: ${error} al hacer la cuenta $${operand1Result}$ ${terceto.operator} $${operand2Result}$`,
+          description: `${stepNumber}. Se produce el error: ${error} al hacer la cuenta $${terceto.getLatexFormResult()}$`,
           latexExpression: '',
         });
-        throw Error(
+        throw new Error(
           'No es posible seguir calculando los pasos debido a un error previo'
         );
       }

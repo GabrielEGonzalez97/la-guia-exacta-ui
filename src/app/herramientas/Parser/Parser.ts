@@ -4,8 +4,9 @@ import { Terceto } from './Terceto/Terceto';
 import { TercetoAbstracto } from './Terceto/TercetoAbstracto';
 import { TercetoMatrix } from './Terceto/TercetoMatrix';
 import { TercetoNumerico } from './Terceto/TercetoNumerico';
+import { TercetoUnary } from './Terceto/TercetoUnary';
 import { Token } from './Token';
-import { MATRIX_TYPE, NUMBER_TYPE } from './constants';
+import { COS_TYPE, MATRIX_TYPE, NUMBER_TYPE } from './constants';
 
 export class Parser {
   private lexer: Lexer;
@@ -99,8 +100,24 @@ export class Parser {
       );
       this.eat(MATRIX_TYPE);
       return matrix;
+    } else if (this.currentToken && this.currentToken.type === COS_TYPE) {
+      const functionName: string = this.currentToken.value;
+      this.eat(COS_TYPE);
+      this.eat('(');
+      const expression: TercetoAbstracto = this.parseExpression();
+      this.eat(')');
+      const tercetoUnary: TercetoUnary = new TercetoUnary(
+        functionName,
+        expression,
+        {
+          left: false,
+          right: false,
+        }
+      );
+      this.tercetos.push(tercetoUnary);
+      return tercetoUnary;
     } else {
-      throw new Error('Unexpected token');
+      throw new Error('Token inesperado');
     }
   }
 
@@ -110,7 +127,7 @@ export class Parser {
       this.currentToken = this.lexer.getNextToken();
     } else {
       throw new Error(
-        `Unexpected token: ${this.currentToken?.type}, expected: ${tokenType}`
+        `Se esperaba un ${tokenType} y se recibió: ${this.currentToken?.type}`
       );
     }
   }

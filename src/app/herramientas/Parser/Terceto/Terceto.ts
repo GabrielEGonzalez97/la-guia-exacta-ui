@@ -5,10 +5,10 @@ import {
 import { IMatrixElement } from '../../operaciones-con-matrices/matrix/interfaces';
 import { MATRIX_TYPE, NUMBER_TYPE } from '../constants';
 import { TercetoAbstracto } from './TercetoAbstracto';
+import { TercetoOperator } from './TercetoOperator';
 import { IParentheses } from './interfaces';
 
-export class Terceto extends TercetoAbstracto {
-  public operator: string;
+export class Terceto extends TercetoOperator {
   public operand1: TercetoAbstracto;
   public operand2: TercetoAbstracto;
 
@@ -18,8 +18,7 @@ export class Terceto extends TercetoAbstracto {
     operand2: TercetoAbstracto,
     parentheses: IParentheses
   ) {
-    super(parentheses);
-    this.operator = operator;
+    super(operator, parentheses);
     this.operand1 = operand1;
     this.operand2 = operand2;
   }
@@ -320,7 +319,7 @@ export class Terceto extends TercetoAbstracto {
     return null;
   }
 
-  public getLatexFormResult(): string {
+  public override getLatexFormResult(): string {
     const leftParenthesis: string = this.parentheses.left ? '(' : '';
     const rightParenthesis: string = this.parentheses.right ? ')' : '';
     let latexForm: string = '';
@@ -336,5 +335,15 @@ export class Terceto extends TercetoAbstracto {
       )}${rightParenthesis}`;
     }
     return latexForm;
+  }
+
+  public override getLatexFormOperators(): string {
+    const operand1Result: string = getCorrectFormToDisplay(
+      this.operand1 as Terceto
+    );
+    const operand2Result: string = getCorrectFormToDisplay(
+      this.operand2 as Terceto
+    );
+    return `$${operand1Result}$ y $${operand2Result}$`;
   }
 }
