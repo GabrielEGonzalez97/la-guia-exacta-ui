@@ -11,6 +11,7 @@ import {
   NUMBER_TYPE,
   SIN_TYPE,
   TAN_TYPE,
+  TRANSPUESTA_TYPE,
 } from '../Parser/constants';
 import {
   decimalToFraction,
@@ -328,6 +329,12 @@ export class OperacionesConMatricesComponent implements OnInit {
           this.steps.push({
             description: `${stepNumber}. Se calcula la matriz inversa de ${commonText}`,
             latexExpression: newPartialExpression,
+          });
+        } else if (terceto.operator === TRANSPUESTA_TYPE) {
+          this.steps.push({
+            description: `${stepNumber}. Se calcula la matriz transpuesta de ${commonText}`,
+            latexExpression: newPartialExpression,
+            intermediateSteps: terceto.getIntermediateSteps(),
           });
         }
       } catch (error) {

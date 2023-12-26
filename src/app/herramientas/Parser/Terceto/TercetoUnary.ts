@@ -1,7 +1,10 @@
 import { all, create } from 'mathjs';
 const math = create(all);
 
-import { getCorrectFormToDisplay } from '../../commonFunctions';
+import {
+  getCorrectFormToDisplay,
+  getMatrixLatexForm,
+} from '../../commonFunctions';
 import { IMatrixElement } from '../../operaciones-con-matrices/matrix/interfaces';
 import {
   COS_TYPE,
@@ -10,6 +13,7 @@ import {
   NUMBER_TYPE,
   SIN_TYPE,
   TAN_TYPE,
+  TRANSPUESTA_TYPE,
 } from '../constants';
 import { TercetoAbstracto } from './TercetoAbstracto';
 import { TercetoOperator } from './TercetoOperator';
@@ -43,6 +47,8 @@ export class TercetoUnary extends TercetoOperator {
       latexForm = `${leftParenthesis}\\tan(${this.operand.getLatexForm()})${rightParenthesis}`;
     } else if (this.operator === MAT_INV_TYPE) {
       latexForm = `${leftParenthesis}${this.operand.getLatexForm()}^{-1}${rightParenthesis}`;
+    } else if (this.operator === TRANSPUESTA_TYPE) {
+      latexForm = `${leftParenthesis}${this.operand.getLatexForm()}^{T}${rightParenthesis}`;
     }
     return latexForm;
   }
@@ -76,11 +82,20 @@ export class TercetoUnary extends TercetoOperator {
       } else if (this.evaluateOperandsTypes(MATRIX_TYPE)) {
         return MATRIX_TYPE;
       }
+    } else if (this.operator === TRANSPUESTA_TYPE) {
+      if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
+        throw new Error(
+          'No se puede calcular la matriz transpuesta de un número'
+        );
+      } else if (this.evaluateOperandsTypes(MATRIX_TYPE)) {
+        return MATRIX_TYPE;
+      }
     }
     return null;
   }
 
   public override getResultado(): number | IMatrixElement[][] {
+    this.intermediateSteps = [];
     if (this.operator === COS_TYPE) {
       if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
         return Math.cos(Number(this.operand.getResultado()));
@@ -169,6 +184,37 @@ export class TercetoUnary extends TercetoOperator {
 
         return matrizInversa;
       }
+    } else if (this.operator === TRANSPUESTA_TYPE) {
+      if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
+        throw new Error(
+          'No se puede calcular la matriz transpuesta de un número'
+        );
+      } else if (this.evaluateOperandsTypes(MATRIX_TYPE)) {
+        const matriz: IMatrixElement[][] =
+          this.operand.getResultado() as IMatrixElement[][];
+        const filas: number = matriz.length;
+        const columnas: number = matriz[0].length;
+
+        // Crear una nueva matriz con las filas y columnas intercambiadas
+        const matrizTranspuesta: IMatrixElement[][] = Array.from(
+          { length: columnas },
+          () => Array.from({ length: filas }, () => ({ value: '' }))
+        );
+
+        for (let i: number = 0; i < filas; i++) {
+          for (let j: number = 0; j < columnas; j++) {
+            matrizTranspuesta[j][i] = matriz[i][j];
+          }
+          this.intermediateSteps.push({
+            description: `Se coloca la fila ${
+              i + 1
+            } de la matriz en la columna ${i + 1} de la matriz resultante.`,
+            latexExpression: getMatrixLatexForm(matrizTranspuesta),
+          });
+        }
+
+        return matrizTranspuesta;
+      }
     }
 
     return null;
@@ -195,6 +241,10 @@ export class TercetoUnary extends TercetoOperator {
       latexForm = `${leftParenthesis}${getCorrectFormToDisplay(
         this.operand
       )}^{-1}${rightParenthesis}`;
+    } else if (this.operator === TRANSPUESTA_TYPE) {
+      latexForm = `${leftParenthesis}${getCorrectFormToDisplay(
+        this.operand
+      )}^{T}${rightParenthesis}`;
     }
     return latexForm;
   }
