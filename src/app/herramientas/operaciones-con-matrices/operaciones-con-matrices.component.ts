@@ -302,6 +302,7 @@ export class OperacionesConMatricesComponent implements OnInit {
           this.steps.push({
             description: `${stepNumber}. Se calcula la multiplicación entre ${commonText}`,
             latexExpression: newPartialExpression,
+            intermediateSteps: terceto.getIntermediateSteps(),
           });
         } else if (terceto.operator === '/') {
           this.steps.push({

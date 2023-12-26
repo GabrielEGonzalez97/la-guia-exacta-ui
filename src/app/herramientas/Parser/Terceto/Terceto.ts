@@ -239,18 +239,37 @@ export class Terceto extends TercetoOperator {
               .map(() => ({ value: '0' }))
         );
 
+        let intermediateCalculations: string[] = [];
         for (let i = 0; i < numberOfRowsOfMatrix1; i++) {
           for (let j = 0; j < numberOfColumnsOfMatrix2; j++) {
             let suma: number = 0;
+            intermediateCalculations = [];
             for (let k = 0; k < numberOfColumnsOfMatrix1; k++) {
               const valorMatriz1: number = getMatrixCellValue(matrix1[i][k]);
               const valorMatriz2: number = getMatrixCellValue(matrix2[k][j]);
+              intermediateCalculations.push(
+                `${valorMatriz1} * ${valorMatriz2}`
+              );
 
               suma += valorMatriz1 * valorMatriz2;
             }
             resultado[i][j].value = getMatrixCellValue({
               value: suma.toString(),
             }).toString();
+            this.intermediateSteps.push({
+              description: `Se multiplica la fila ${
+                i + 1
+              } de la primera matriz por la columna ${
+                j + 1
+              } de la segunda matriz (${intermediateCalculations.join(
+                ' + '
+              )}), siendo el resultado ${
+                resultado[i][j].value
+              }. Se coloca el resultado en la celda [${i + 1}, ${
+                j + 1
+              }] de la matriz resultante.`,
+              latexExpression: getMatrixLatexForm(resultado),
+            });
           }
         }
 
