@@ -132,7 +132,9 @@ export class Terceto extends TercetoOperator {
             this.intermediateSteps.push({
               description: `Se calcula la suma entre las celdas [${i + 1}, ${
                 j + 1
-              }] de cada matriz (${valorMatriz1} y ${valorMatriz2}), siendo el resultado ${suma}`,
+              }] de cada matriz (${valorMatriz1} y ${valorMatriz2}), siendo el resultado ${suma}. Se coloca el resultado en la celda [${
+                i + 1
+              }, ${j + 1}] de la matriz resultante.`,
               latexExpression: getMatrixLatexForm(resultado),
             });
           }
@@ -169,17 +171,30 @@ export class Terceto extends TercetoOperator {
           );
         }
 
-        const resultado: IMatrixElement[][] = [];
+        const resultado: IMatrixElement[][] = Array.from(
+          { length: numberOfRowsOfMatrix1 },
+          () =>
+            Array(numberOfColumnsOfMatrix1)
+              .fill(undefined)
+              .map(() => ({ value: '' }))
+        );
 
         for (let i: number = 0; i < numberOfRowsOfMatrix1; i++) {
-          const filaResultado: IMatrixElement[] = [];
           for (let j: number = 0; j < numberOfColumnsOfMatrix1; j++) {
             const valorMatriz1: number = getMatrixCellValue(matrix1[i][j]);
             const valorMatriz2: number = getMatrixCellValue(matrix2[i][j]);
+
             const resta: number = valorMatriz1 - valorMatriz2;
-            filaResultado.push({ value: resta.toString() });
+            resultado[i][j].value = resta.toString();
+            this.intermediateSteps.push({
+              description: `Se calcula la resta entre las celdas [${i + 1}, ${
+                j + 1
+              }] de cada matriz (${valorMatriz1} y ${valorMatriz2}), siendo el resultado ${resta}. Se coloca el resultado en la celda [${
+                i + 1
+              }, ${j + 1}] de la matriz resultante.`,
+              latexExpression: getMatrixLatexForm(resultado),
+            });
           }
-          resultado.push(filaResultado);
         }
 
         return resultado;

@@ -296,6 +296,7 @@ export class OperacionesConMatricesComponent implements OnInit {
           this.steps.push({
             description: `${stepNumber}. Se calcula la resta entre ${commonText}`,
             latexExpression: newPartialExpression,
+            intermediateSteps: terceto.getIntermediateSteps(),
           });
         } else if (terceto.operator === '*') {
           this.steps.push({
