@@ -1,6 +1,7 @@
 import {
   getCorrectFormToDisplay,
   getMatrixCellValue,
+  getMatrixLatexForm,
 } from '../../commonFunctions';
 import { IMatrixElement } from '../../operaciones-con-matrices/matrix/interfaces';
 import { MATRIX_TYPE, NUMBER_TYPE } from '../constants';
@@ -82,6 +83,7 @@ export class Terceto extends TercetoOperator {
   public override getResultado(): number | IMatrixElement[][] {
     // console.log(this.operand1.getTercetoType());
     // console.log(this.operand2.getTercetoType());
+    this.intermediateSteps = [];
     if (this.operator === '+') {
       if (this.evaluateOperandsTypes(NUMBER_TYPE, NUMBER_TYPE)) {
         return (
@@ -112,17 +114,28 @@ export class Terceto extends TercetoOperator {
           );
         }
 
-        const resultado: IMatrixElement[][] = [];
+        const resultado: IMatrixElement[][] = Array.from(
+          { length: numberOfRowsOfMatrix1 },
+          () =>
+            Array(numberOfColumnsOfMatrix1)
+              .fill(undefined)
+              .map(() => ({ value: '' }))
+        );
 
         for (let i: number = 0; i < numberOfRowsOfMatrix1; i++) {
-          const filaResultado: IMatrixElement[] = [];
           for (let j: number = 0; j < numberOfColumnsOfMatrix1; j++) {
             const valorMatriz1: number = getMatrixCellValue(matrix1[i][j]);
             const valorMatriz2: number = getMatrixCellValue(matrix2[i][j]);
+
             const suma: number = valorMatriz1 + valorMatriz2;
-            filaResultado.push({ value: suma.toString() });
+            resultado[i][j].value = suma.toString();
+            this.intermediateSteps.push({
+              description: `Se calcula la suma entre las celdas [${i + 1}, ${
+                j + 1
+              }] de cada matriz (${valorMatriz1} y ${valorMatriz2}), siendo el resultado ${suma}`,
+              latexExpression: getMatrixLatexForm(resultado),
+            });
           }
-          resultado.push(filaResultado);
         }
 
         return resultado;

@@ -11,6 +11,8 @@ export class StepByStepModalWindowComponent
   extends BaseModal
   implements OnInit
 {
+  public intermediateStepsVisibles: boolean[] = [];
+
   constructor(
     @Inject('steps') public steps: ICalculationStep[],
     @Inject('latexExpression') public latexExpression: string
@@ -18,5 +20,14 @@ export class StepByStepModalWindowComponent
     super();
   }
 
-  public ngOnInit(): void {}
+  public ngOnInit(): void {
+    this.steps.forEach((_) => {
+      this.intermediateStepsVisibles.push(false);
+    });
+  }
+
+  public setIntermediateStepVisibleValue(index: number): void {
+    this.intermediateStepsVisibles[index] =
+      !this.intermediateStepsVisibles[index];
+  }
 }

@@ -9,7 +9,7 @@
                 <p class="latex-expression" [mathjax]="latexExpression"></p>
             </div>
         </div>
-        <ng-container *ngFor="let step of steps">
+        <ng-container *ngFor="let step of steps; let i = index">
             <div ibmRow>
                 <div ibmCol>
                     <p [mathjax]="step.description"></p>
@@ -19,6 +19,40 @@
                 <div ibmCol>
                     <p class="latex-expression" [mathjax]="step.latexExpression"></p>
                 </div>
+            </div>
+            <div class="steps-container">
+                <ng-container *ngIf="step.intermediateSteps">
+                    <ng-container *ngIf="!intermediateStepsVisibles[i]">
+                        <div ibmRow>
+                            <div ibmCol>
+                                <button ibmButton="primary" (click)="setIntermediateStepVisibleValue(i)">
+                                    Ver pasos intermedios
+                                </button>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="intermediateStepsVisibles[i]">
+                        <ng-container *ngFor="let intermediateStep of step.intermediateSteps">
+                            <div ibmRow>
+                                <div ibmCol>
+                                    <p class="intermediate-step-p" [mathjax]="intermediateStep.description"></p>
+                                </div>
+                            </div>
+                            <div ibmRow>
+                                <div ibmCol>
+                                    <p class="latex-expression intermediate-step-p" [mathjax]="intermediateStep.latexExpression"></p>
+                                </div>
+                            </div>
+                        </ng-container>
+                        <div ibmRow>
+                            <div ibmCol>
+                                <button ibmButton="primary" (click)="setIntermediateStepVisibleValue(i)">
+                                    Ocultar pasos intermedios
+                                </button>
+                            </div>
+                        </div>
+                    </ng-container>
+                </ng-container>
             </div>
         </ng-container>
     </div>

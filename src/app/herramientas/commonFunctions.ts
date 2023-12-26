@@ -4,25 +4,31 @@ import { MATRIX_TYPE, NUMBER_TYPE } from './Parser/constants';
 import { IMatrixElement } from './operaciones-con-matrices/matrix/interfaces';
 
 export function decimalToFraction(decimal: number): string {
-  const fraction: Fraction = new Fraction(decimal);
+  if (decimal !== null) {
+    const fraction: Fraction = new Fraction(decimal);
 
-  const numerator: number = fraction.n;
-  const denominator: number = fraction.d;
+    const numerator: number = fraction.n;
+    const denominator: number = fraction.d;
 
-  const minusSign: string = decimal < 0 ? '-' : '';
-  const fractionString: string = `${minusSign}{${numerator} \\over ${denominator}}`;
+    const minusSign: string = decimal < 0 ? '-' : '';
+    const fractionString: string = `${minusSign}{${numerator} \\over ${denominator}}`;
 
-  if (denominator > 1) {
-    return fractionString;
+    if (denominator > 1) {
+      return fractionString;
+    }
+
+    return `${minusSign}${numerator}`;
+  } else {
+    return null;
   }
-
-  return `${minusSign}${numerator}`;
 }
 
 export function getMatrixCellValue(cellValue: IMatrixElement): number {
   if (cellValue.value.includes('/')) {
     const divisionParts: string[] = cellValue.value.split('/');
     return Number(divisionParts[0]) / Number(divisionParts[1]);
+  } else if (cellValue.value === '') {
+    return null;
   } else {
     return Number(cellValue.value);
   }
