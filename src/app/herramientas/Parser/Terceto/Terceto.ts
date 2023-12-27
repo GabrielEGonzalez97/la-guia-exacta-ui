@@ -80,6 +80,64 @@ export class Terceto extends TercetoOperator {
     return result;
   }
 
+  private multiplyMatrices(
+    matrix1: IMatrixElement[][],
+    matrix2: IMatrixElement[][]
+  ): IMatrixElement[][] {
+    const numberOfRowsOfMatrix1: number = matrix1.length;
+    const numberOfColumnsOfMatrix1: number = matrix1[0].length;
+    const numberOfRowsOfMatrix2: number = matrix2.length;
+    const numberOfColumnsOfMatrix2: number = matrix2[0].length;
+
+    if (numberOfColumnsOfMatrix1 !== numberOfRowsOfMatrix2) {
+      throw new Error(
+        'El número de columnas de la primera matriz debe ser igual al número de filas de la segunda matriz para poder multiplicarlas.'
+      );
+    }
+
+    const resultado: IMatrixElement[][] = Array.from(
+      { length: numberOfRowsOfMatrix1 },
+      () =>
+        Array(numberOfColumnsOfMatrix2)
+          .fill(undefined)
+          .map(() => ({ value: '' }))
+    );
+
+    let intermediateCalculations: string[] = [];
+    for (let i = 0; i < numberOfRowsOfMatrix1; i++) {
+      for (let j = 0; j < numberOfColumnsOfMatrix2; j++) {
+        let suma: number = 0;
+        intermediateCalculations = [];
+        for (let k = 0; k < numberOfColumnsOfMatrix1; k++) {
+          const valorMatriz1: number = getMatrixCellValue(matrix1[i][k]);
+          const valorMatriz2: number = getMatrixCellValue(matrix2[k][j]);
+          intermediateCalculations.push(`${valorMatriz1} * ${valorMatriz2}`);
+
+          suma += valorMatriz1 * valorMatriz2;
+        }
+        resultado[i][j].value = getMatrixCellValue({
+          value: suma.toString(),
+        }).toString();
+        this.intermediateSteps.push({
+          description: `Se multiplica la fila ${
+            i + 1
+          } de la primera matriz por la columna ${
+            j + 1
+          } de la segunda matriz (${intermediateCalculations.join(
+            ' + '
+          )}), siendo el resultado ${
+            resultado[i][j].value
+          }. Se coloca el resultado en la celda [${i + 1}, ${
+            j + 1
+          }] de la matriz resultante.`,
+          latexExpression: getMatrixLatexForm(resultado),
+        });
+      }
+    }
+
+    return resultado;
+  }
+
   public override getResultado(): number | IMatrixElement[][] {
     // console.log(this.operand1.getTercetoType());
     // console.log(this.operand2.getTercetoType());
@@ -220,60 +278,7 @@ export class Terceto extends TercetoOperator {
           this.operand1.getResultado() as IMatrixElement[][];
         const matrix2: IMatrixElement[][] =
           this.operand2.getResultado() as IMatrixElement[][];
-        const numberOfRowsOfMatrix1: number = matrix1.length;
-        const numberOfColumnsOfMatrix1: number = matrix1[0].length;
-        const numberOfRowsOfMatrix2: number = matrix2.length;
-        const numberOfColumnsOfMatrix2: number = matrix2[0].length;
-
-        if (numberOfColumnsOfMatrix1 !== numberOfRowsOfMatrix2) {
-          throw new Error(
-            'El número de columnas de la primera matriz debe ser igual al número de filas de la segunda matriz para poder multiplicarlas.'
-          );
-        }
-
-        const resultado: IMatrixElement[][] = Array.from(
-          { length: numberOfRowsOfMatrix1 },
-          () =>
-            Array(numberOfColumnsOfMatrix2)
-              .fill(undefined)
-              .map(() => ({ value: '0' }))
-        );
-
-        let intermediateCalculations: string[] = [];
-        for (let i = 0; i < numberOfRowsOfMatrix1; i++) {
-          for (let j = 0; j < numberOfColumnsOfMatrix2; j++) {
-            let suma: number = 0;
-            intermediateCalculations = [];
-            for (let k = 0; k < numberOfColumnsOfMatrix1; k++) {
-              const valorMatriz1: number = getMatrixCellValue(matrix1[i][k]);
-              const valorMatriz2: number = getMatrixCellValue(matrix2[k][j]);
-              intermediateCalculations.push(
-                `${valorMatriz1} * ${valorMatriz2}`
-              );
-
-              suma += valorMatriz1 * valorMatriz2;
-            }
-            resultado[i][j].value = getMatrixCellValue({
-              value: suma.toString(),
-            }).toString();
-            this.intermediateSteps.push({
-              description: `Se multiplica la fila ${
-                i + 1
-              } de la primera matriz por la columna ${
-                j + 1
-              } de la segunda matriz (${intermediateCalculations.join(
-                ' + '
-              )}), siendo el resultado ${
-                resultado[i][j].value
-              }. Se coloca el resultado en la celda [${i + 1}, ${
-                j + 1
-              }] de la matriz resultante.`,
-              latexExpression: getMatrixLatexForm(resultado),
-            });
-          }
-        }
-
-        return resultado;
+        return this.multiplyMatrices(matrix1, matrix2);
       }
     } else if (this.operator === '/') {
       if (this.evaluateOperandsTypes(NUMBER_TYPE, NUMBER_TYPE)) {
@@ -296,6 +301,37 @@ export class Terceto extends TercetoOperator {
           'No se puede dividir dos matrices con esta calculadora'
         );
       }
+    } else if (this.operator === '^') {
+      if (this.evaluateOperandsTypes(NUMBER_TYPE, NUMBER_TYPE)) {
+        return Math.pow(
+          Number(this.operand1.getResultado()),
+          Number(this.operand2.getResultado())
+        );
+      } else if (this.evaluateOperandsTypes(NUMBER_TYPE, MATRIX_TYPE)) {
+        throw new Error('Una matriz no puede ser parte del exponente');
+      } else if (this.evaluateOperandsTypes(MATRIX_TYPE, NUMBER_TYPE)) {
+        const powNumber: number = Number(this.operand2.getResultado());
+        const matrix: IMatrixElement[][] =
+          this.operand1.getResultado() as IMatrixElement[][];
+        const numberOfRowsOfMatrix: number = matrix.length;
+        const numberOfColumnsOfMatrix: number = matrix[0].length;
+
+        if (numberOfRowsOfMatrix !== numberOfColumnsOfMatrix) {
+          throw new Error(
+            'Sólo se puede calcular la potencia de matrices cuadradas ya que para multiplicar matrices tiene que coincidir el número de filas de una matriz con el número de columnas de la otra matriz.'
+          );
+        }
+
+        let resultado: IMatrixElement[][] = matrix;
+
+        for (let i: number = 1; i < powNumber; i++) {
+          resultado = this.multiplyMatrices(resultado, matrix);
+        }
+
+        return resultado;
+      } else if (this.evaluateOperandsTypes(MATRIX_TYPE, MATRIX_TYPE)) {
+        throw new Error('Una matriz no puede ser parte del exponente');
+      }
     }
 
     return null;
@@ -307,6 +343,8 @@ export class Terceto extends TercetoOperator {
     let latexForm: string = '';
     if (this.operator === '/') {
       latexForm = `${leftParenthesis}{${this.operand1.getLatexForm()} \\over ${this.operand2.getLatexForm()}}${rightParenthesis}`;
+    } else if (this.operator === '^') {
+      latexForm = `${leftParenthesis}${this.operand1.getLatexForm()}^{${this.operand2.getLatexForm()}}${rightParenthesis}`;
     } else {
       latexForm = `${leftParenthesis}${this.operand1.getLatexForm()} ${
         this.operator
@@ -360,6 +398,16 @@ export class Terceto extends TercetoOperator {
         throw new Error(
           'No se puede dividir dos matrices con esta calculadora'
         );
+      }
+    } else if (this.operator === '^') {
+      if (this.evaluateOperandsTypes(NUMBER_TYPE, NUMBER_TYPE)) {
+        return NUMBER_TYPE;
+      } else if (this.evaluateOperandsTypes(NUMBER_TYPE, MATRIX_TYPE)) {
+        throw new Error('Una matriz no puede ser parte del exponente');
+      } else if (this.evaluateOperandsTypes(MATRIX_TYPE, NUMBER_TYPE)) {
+        return MATRIX_TYPE;
+      } else if (this.evaluateOperandsTypes(MATRIX_TYPE, MATRIX_TYPE)) {
+        throw new Error('Una matriz no puede ser parte del exponente');
       }
     }
 

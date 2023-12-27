@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ListItem, ModalService } from 'carbon-components-angular';
 import { Lexer } from '../Parser/Lexer';
 import { Parser } from '../Parser/Parser';
+import { Terceto } from '../Parser/Terceto/Terceto';
 import { TercetoAbstracto } from '../Parser/Terceto/TercetoAbstracto';
 import { TercetoOperator } from '../Parser/Terceto/TercetoOperator';
 import {
@@ -134,7 +135,7 @@ export class OperacionesConMatricesComponent implements OnInit {
   }
 
   private checkLastSymbol(): void {
-    const operators: string[] = ['+', '-', '*', '/'];
+    const operators: string[] = ['+', '-', '*', '/', '^'];
 
     const lastChar: string = this.expressionToCalculate.trim().slice(-1);
 
@@ -309,6 +310,14 @@ export class OperacionesConMatricesComponent implements OnInit {
           this.steps.push({
             description: `${stepNumber}. Se calcula la división entre ${commonText}`,
             latexExpression: newPartialExpression,
+          });
+        } else if (terceto.operator === '^') {
+          this.steps.push({
+            description: `${stepNumber}. Se calcula la potencia ${getCorrectFormToDisplay(
+              (terceto as Terceto).operand2
+            )} de ${getCorrectFormToDisplay((terceto as Terceto).operand1)}`,
+            latexExpression: newPartialExpression,
+            intermediateSteps: terceto.getIntermediateSteps(),
           });
         } else if (terceto.operator === COS_TYPE) {
           this.steps.push({

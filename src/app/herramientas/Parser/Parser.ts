@@ -54,11 +54,26 @@ export class Parser {
   }
 
   private parseTerm(): TercetoAbstracto {
-    let factor: TercetoAbstracto = this.parseFactor();
+    let powTerm: TercetoAbstracto = this.parsePowTerm();
     while (
       this.currentToken &&
       (this.currentToken.type === '*' || this.currentToken.type === '/')
     ) {
+      const operator: Token = this.currentToken;
+      this.eat(this.currentToken.type);
+      const nuevoFactor: TercetoAbstracto = this.parseFactor();
+      powTerm = new Terceto(operator.value, powTerm, nuevoFactor, {
+        left: false,
+        right: false,
+      });
+      this.tercetos.push(powTerm);
+    }
+    return powTerm;
+  }
+
+  private parsePowTerm(): TercetoAbstracto {
+    let factor: TercetoAbstracto = this.parseFactor();
+    while (this.currentToken && this.currentToken.type === '^') {
       const operator: Token = this.currentToken;
       this.eat(this.currentToken.type);
       const nuevoFactor: TercetoAbstracto = this.parseFactor();
