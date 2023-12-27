@@ -6,13 +6,28 @@
     <div class="steps-container" *ngIf="steps.length > 0">
         <div ibmRow>
             <div ibmCol>
+                <p>Expresión inicial:</p>
+            </div>
+        </div>
+        <div ibmRow>
+            <div ibmCol>
                 <p class="latex-expression" [mathjax]="latexExpression"></p>
             </div>
         </div>
+        <hr>
         <ng-container *ngFor="let step of steps; let i = index">
             <div ibmRow>
                 <div ibmCol>
-                    <p [mathjax]="step.description"></p>
+                    <p class="step-with-number">
+                        <strong>{{i + 1}}.</strong>
+                        &nbsp;
+                        <span [mathjax]="step.description"></span>
+                    </p>
+                </div>
+            </div>
+            <div ibmRow>
+                <div ibmCol>
+                    <p>Expresión resultante:</p>
                 </div>
             </div>
             <div ibmRow>
@@ -20,8 +35,9 @@
                     <p class="latex-expression" [mathjax]="step.latexExpression"></p>
                 </div>
             </div>
-            <div class="steps-container">
-                <ng-container *ngIf="step.intermediateSteps">
+            <ng-container *ngIf="step.intermediateSteps.length > 0">
+                <div class="steps-container">
+
                     <ng-container *ngIf="!intermediateStepsVisibles[i]">
                         <div ibmRow>
                             <div ibmCol>
@@ -32,15 +48,21 @@
                         </div>
                     </ng-container>
                     <ng-container *ngIf="intermediateStepsVisibles[i]">
-                        <ng-container *ngFor="let intermediateStep of step.intermediateSteps">
+                        <ng-container *ngFor="let intermediateStep of step.intermediateSteps; let j = index">
                             <div ibmRow>
                                 <div ibmCol>
-                                    <p class="intermediate-step-p" [mathjax]="intermediateStep.description"></p>
+                                    <p class="step-with-number">
+                                        <strong class="intermediate-step-p">{{i + 1}}.{{j + 1}}.</strong>
+                                        &nbsp;
+                                        <span class="intermediate-step-p"
+                                            [mathjax]="intermediateStep.description"></span>
+                                    </p>
                                 </div>
                             </div>
                             <div ibmRow>
                                 <div ibmCol>
-                                    <p class="latex-expression intermediate-step-p" [mathjax]="intermediateStep.latexExpression"></p>
+                                    <p class="latex-expression intermediate-step-p"
+                                        [mathjax]="intermediateStep.latexExpression"></p>
                                 </div>
                             </div>
                         </ng-container>
@@ -52,8 +74,9 @@
                             </div>
                         </div>
                     </ng-container>
-                </ng-container>
-            </div>
+                </div>
+            </ng-container>
+            <hr>
         </ng-container>
     </div>
 </ibm-modal>

@@ -290,30 +290,30 @@ export class OperacionesConMatricesComponent implements OnInit {
         }
         if (terceto.operator === '+') {
           this.steps.push({
-            description: `${stepNumber}. Se calcula la suma entre ${commonText}`,
+            description: `Se calcula la suma entre ${commonText}`,
             latexExpression: newPartialExpression,
             intermediateSteps: terceto.getIntermediateSteps(),
           });
         } else if (terceto.operator === '-') {
           this.steps.push({
-            description: `${stepNumber}. Se calcula la resta entre ${commonText}`,
+            description: `Se calcula la resta entre ${commonText}`,
             latexExpression: newPartialExpression,
             intermediateSteps: terceto.getIntermediateSteps(),
           });
         } else if (terceto.operator === '*') {
           this.steps.push({
-            description: `${stepNumber}. Se calcula la multiplicación entre ${commonText}`,
+            description: `Se calcula la multiplicación entre ${commonText}`,
             latexExpression: newPartialExpression,
             intermediateSteps: terceto.getIntermediateSteps(),
           });
         } else if (terceto.operator === '/') {
           this.steps.push({
-            description: `${stepNumber}. Se calcula la división entre ${commonText}`,
+            description: `Se calcula la división entre ${commonText}`,
             latexExpression: newPartialExpression,
           });
         } else if (terceto.operator === '^') {
           this.steps.push({
-            description: `${stepNumber}. Se calcula la potencia ${getCorrectFormToDisplay(
+            description: `Se calcula la potencia ${getCorrectFormToDisplay(
               (terceto as Terceto).operand2
             )} de ${getCorrectFormToDisplay((terceto as Terceto).operand1)}`,
             latexExpression: newPartialExpression,
@@ -321,34 +321,34 @@ export class OperacionesConMatricesComponent implements OnInit {
           });
         } else if (terceto.operator === COS_TYPE) {
           this.steps.push({
-            description: `${stepNumber}. Se calcula el coseno de ${commonText}`,
+            description: `Se calcula el coseno de ${commonText}`,
             latexExpression: newPartialExpression,
           });
         } else if (terceto.operator === SIN_TYPE) {
           this.steps.push({
-            description: `${stepNumber}. Se calcula el seno de ${commonText}`,
+            description: `Se calcula el seno de ${commonText}`,
             latexExpression: newPartialExpression,
           });
         } else if (terceto.operator === TAN_TYPE) {
           this.steps.push({
-            description: `${stepNumber}. Se calcula la tangente de ${commonText}`,
+            description: `Se calcula la tangente de ${commonText}`,
             latexExpression: newPartialExpression,
           });
         } else if (terceto.operator === MAT_INV_TYPE) {
           this.steps.push({
-            description: `${stepNumber}. Se calcula la matriz inversa de ${commonText}`,
+            description: `Se calcula la matriz inversa de ${commonText}`,
             latexExpression: newPartialExpression,
           });
         } else if (terceto.operator === TRANSPUESTA_TYPE) {
           this.steps.push({
-            description: `${stepNumber}. Se calcula la matriz transpuesta de ${commonText}`,
+            description: `Se calcula la matriz transpuesta de ${commonText}`,
             latexExpression: newPartialExpression,
             intermediateSteps: terceto.getIntermediateSteps(),
           });
         }
       } catch (error) {
         this.steps.push({
-          description: `${stepNumber}. Se produce el error: ${error} al hacer la cuenta $${terceto.getLatexFormResult()}$`,
+          description: `Se produce el error: ${error} al hacer la cuenta $${terceto.getLatexFormResult()}$`,
           latexExpression: '',
         });
         throw new Error(

@@ -16,6 +16,11 @@
         font-size: 1.5rem;
       }
 
+      .step-with-number {
+        display: flex;
+        align-items: baseline;
+      }
+
       .latex-expression {
         display: contents;
         text-align: center;
