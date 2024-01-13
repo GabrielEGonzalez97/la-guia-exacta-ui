@@ -269,6 +269,6 @@ export class TercetoUnary extends TercetoOperator {
   }
 
   public override getLatexFormOperators(): string {
-    return `$${this.operand.getLatexForm()}$`;
+    return `$${getCorrectFormToDisplay(this.operand)}$`;
   }
 }
