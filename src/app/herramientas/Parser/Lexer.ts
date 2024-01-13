@@ -10,7 +10,7 @@ export class Lexer {
     this.currentPos = 0;
   }
 
-  getNextToken(): Token | null {
+  public getNextToken(): Token | null {
     if (this.currentPos >= this.input.length) {
       return null;
     }

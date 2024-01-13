@@ -4,7 +4,7 @@ export const COS_TYPE: string = 'cos';
 export const SIN_TYPE: string = 'sin';
 export const TAN_TYPE: string = 'tan';
 export const MAT_INV_TYPE: string = 'inv';
-export const TRANSPUESTA_TYPE: string = 'transpuesta';
+export const TRANSPUESTA_TYPE: string = 'tsp';
 export const UNARY_FUNCTIONS: string[] = [
   COS_TYPE,
   SIN_TYPE,

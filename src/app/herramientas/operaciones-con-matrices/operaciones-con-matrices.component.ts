@@ -13,6 +13,7 @@ import {
   SIN_TYPE,
   TAN_TYPE,
   TRANSPUESTA_TYPE,
+  UNARY_FUNCTIONS,
 } from '../Parser/constants';
 import {
   decimalToFraction,
@@ -136,17 +137,36 @@ export class OperacionesConMatricesComponent implements OnInit {
   }
 
   public removeSymbolToTheExpressionToBeCalculated(): void {
-    const lastChar: string = this.expressionToCalculate.trim().slice(-1);
-    this.expressionToCalculate = this.expressionToCalculate.slice(0, -1);
-    const lexer: Lexer = new Lexer(this.expressionToCalculate);
-    this.parser = new Parser(lexer, this.matrices);
+    let lastToken: string = '';
+    if (this.expressionToCalculate.length >= 4) {
+      const lastFourCharacters: string = this.expressionToCalculate.substring(
+        this.expressionToCalculate.length - 4
+      );
+      const functionName: string = lastFourCharacters.substring(0, 3);
+      if (UNARY_FUNCTIONS.includes(functionName)) {
+        lastToken = lastFourCharacters;
+        this.openParenthesesCounter--;
+      } else {
+        lastToken = this.expressionToCalculate.trim().slice(-1);
+      }
+    } else {
+      lastToken = this.expressionToCalculate.trim().slice(-1);
+    }
+
+    const lastIndex: number = this.expressionToCalculate.lastIndexOf(lastToken);
+    if (lastIndex !== -1) {
+      this.expressionToCalculate =
+        this.expressionToCalculate.substring(0, lastIndex) +
+        this.expressionToCalculate.substring(lastIndex + lastToken.length);
+    }
+
     this.checkLastSymbol();
     this.convertToLatexExpression();
-    if (lastChar === '(') {
+    if (lastToken === '(') {
       if (this.openParenthesesCounter > 0) {
         this.openParenthesesCounter--;
       }
-    } else if (lastChar === ')') {
+    } else if (lastToken === ')') {
       if (this.closedParenthesesCounter > 0) {
         this.closedParenthesesCounter--;
       }
