@@ -96,6 +96,12 @@
                     <p>x <sup>y</sup></p>
                 </button>
             </div>
+            <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 2, sm: 1 }">
+                <button ibmButton="primary" (click)="addNewSymbolToTheExpressionToBeCalculated('√(')"
+                    [disabled]="isLastTokenAMatrix || isLastSymbolAClosedParentheses">
+                    <p class="math-content" [mathjax]="'$\\sqrt{x}$'"></p>
+                </button>
+            </div>
         </div>
         <div ibmRow>
             <ng-container [ngTemplateOutlet]="functionButtonTemplate" [ngTemplateOutletContext]="{functionName:'cos('}">

@@ -12,6 +12,7 @@ import {
   MAT_INV_TYPE,
   NUMBER_TYPE,
   SIN_TYPE,
+  SQRT_TYPE,
   TAN_TYPE,
   TRANSPUESTA_TYPE,
 } from '../constants';
@@ -45,6 +46,8 @@ export class TercetoUnary extends TercetoOperator {
       latexForm = `${leftParenthesis}\\sin(${this.operand.getLatexForm()})${rightParenthesis}`;
     } else if (this.operator === TAN_TYPE) {
       latexForm = `${leftParenthesis}\\tan(${this.operand.getLatexForm()})${rightParenthesis}`;
+    } else if (this.operator === SQRT_TYPE) {
+      latexForm = `${leftParenthesis}\\sqrt{${this.operand.getLatexForm()}}${rightParenthesis}`;
     } else if (this.operator === MAT_INV_TYPE) {
       latexForm = `${leftParenthesis}${this.operand.getLatexForm()}^{-1}${rightParenthesis}`;
     } else if (this.operator === TRANSPUESTA_TYPE) {
@@ -75,6 +78,12 @@ export class TercetoUnary extends TercetoOperator {
         return NUMBER_TYPE;
       } else if (this.evaluateOperandsTypes(MATRIX_TYPE)) {
         throw new Error('No se puede calcular la tangente de una matriz');
+      }
+    } else if (this.operator === SQRT_TYPE) {
+      if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
+        return NUMBER_TYPE;
+      } else if (this.evaluateOperandsTypes(MATRIX_TYPE)) {
+        throw new Error('No se puede calcular la raíz de una matriz');
       }
     } else if (this.operator === MAT_INV_TYPE) {
       if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
@@ -113,6 +122,12 @@ export class TercetoUnary extends TercetoOperator {
         return Math.tan(Number(this.operand.getResultado()));
       } else if (this.evaluateOperandsTypes(MATRIX_TYPE)) {
         throw new Error('No se puede calcular la tangente de una matriz');
+      }
+    } else if (this.operator === SQRT_TYPE) {
+      if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
+        return Math.sqrt(Number(this.operand.getResultado()));
+      } else if (this.evaluateOperandsTypes(MATRIX_TYPE)) {
+        throw new Error('No se puede calcular la raíz de una matriz');
       }
     } else if (this.operator === MAT_INV_TYPE) {
       if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
@@ -237,6 +252,10 @@ export class TercetoUnary extends TercetoOperator {
       latexForm = `${leftParenthesis}\\tan(${getCorrectFormToDisplay(
         this.operand
       )})${rightParenthesis}`;
+    } else if (this.operator === SQRT_TYPE) {
+      latexForm = `${leftParenthesis}\\sqrt{${getCorrectFormToDisplay(
+        this.operand
+      )}}${rightParenthesis}`;
     } else if (this.operator === MAT_INV_TYPE) {
       latexForm = `${leftParenthesis}${getCorrectFormToDisplay(
         this.operand

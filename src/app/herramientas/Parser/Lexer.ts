@@ -31,11 +31,16 @@ export class Lexer {
       return new Token(MATRIX_TYPE, currentChar);
     }
 
-    if ('abcdefghijklmnopqrstuvwxyz'.includes(currentChar)) {
+    if ('abcdefghijklmnopqrstuvwxyz√'.includes(currentChar)) {
       let identifier: string = '';
-      while (/[a-z0-9]/.test(this.input[this.currentPos])) {
-        identifier += this.input[this.currentPos];
+      if (currentChar === '√') {
+        identifier = '√';
         this.currentPos++;
+      } else {
+        while (/[a-z0-9]/.test(this.input[this.currentPos])) {
+          identifier += this.input[this.currentPos];
+          this.currentPos++;
+        }
       }
 
       // Check if it's a unary function

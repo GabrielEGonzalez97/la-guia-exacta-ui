@@ -11,6 +11,7 @@ import {
   MAT_INV_TYPE,
   NUMBER_TYPE,
   SIN_TYPE,
+  SQRT_TYPE,
   TAN_TYPE,
   TRANSPUESTA_TYPE,
   UNARY_FUNCTIONS,
@@ -127,13 +128,13 @@ export class OperacionesConMatricesComponent implements OnInit {
 
   public addNewSymbolToTheExpressionToBeCalculated(newSymbol: string): void {
     this.expressionToCalculate += newSymbol;
-    this.checkLastSymbol();
-    this.convertToLatexExpression();
     if (newSymbol.includes('(')) {
       this.openParenthesesCounter++;
     } else if (newSymbol === ')') {
       this.closedParenthesesCounter++;
     }
+    this.checkLastSymbol();
+    this.convertToLatexExpression();
   }
 
   public removeSymbolToTheExpressionToBeCalculated(): void {
@@ -160,8 +161,6 @@ export class OperacionesConMatricesComponent implements OnInit {
         this.expressionToCalculate.substring(lastIndex + lastToken.length);
     }
 
-    this.checkLastSymbol();
-    this.convertToLatexExpression();
     if (lastToken === '(') {
       if (this.openParenthesesCounter > 0) {
         this.openParenthesesCounter--;
@@ -171,6 +170,8 @@ export class OperacionesConMatricesComponent implements OnInit {
         this.closedParenthesesCounter--;
       }
     }
+    this.checkLastSymbol();
+    this.convertToLatexExpression();
   }
 
   public resetExpressionToBeCalculated(): void {
@@ -402,6 +403,11 @@ export class OperacionesConMatricesComponent implements OnInit {
         } else if (terceto.operator === TAN_TYPE) {
           this.steps.push({
             description: `Se calcula la tangente de ${commonText}`,
+            latexExpression: newPartialExpression,
+          });
+        } else if (terceto.operator === SQRT_TYPE) {
+          this.steps.push({
+            description: `Se calcula la raíz de ${commonText}`,
             latexExpression: newPartialExpression,
           });
         } else if (terceto.operator === MAT_INV_TYPE) {
