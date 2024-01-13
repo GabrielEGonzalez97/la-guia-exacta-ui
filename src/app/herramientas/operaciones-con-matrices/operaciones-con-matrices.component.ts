@@ -385,7 +385,7 @@ export class OperacionesConMatricesComponent implements OnInit {
           this.steps.push({
             description: `Se calcula la potencia ${getCorrectFormToDisplay(
               (terceto as Terceto).operand2
-            )} de ${getCorrectFormToDisplay((terceto as Terceto).operand1)}`,
+            )} de $${getCorrectFormToDisplay((terceto as Terceto).operand1)}$`,
             latexExpression: newPartialExpression,
             intermediateSteps: terceto.getIntermediateSteps(),
           });

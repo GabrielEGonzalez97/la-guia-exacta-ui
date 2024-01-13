@@ -79,12 +79,14 @@
         </div>
         <div ibmRow>
             <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 2, sm: 1 }">
-                <button ibmButton="primary" (click)="addNewSymbolToTheExpressionToBeCalculated('inv(')">
+                <button ibmButton="primary" (click)="addNewSymbolToTheExpressionToBeCalculated('inv(')"
+                    [disabled]="isLastTokenANumber || isLastTokenAMatrix || isLastSymbolAClosedParentheses">
                     <p>A <sup>-1</sup></p>
                 </button>
             </div>
             <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 2, sm: 1 }">
-                <button ibmButton="primary" (click)="addNewSymbolToTheExpressionToBeCalculated('tsp(')">
+                <button ibmButton="primary" (click)="addNewSymbolToTheExpressionToBeCalculated('tsp(')"
+                    [disabled]="isLastTokenANumber || isLastTokenAMatrix || isLastSymbolAClosedParentheses">
                     <p>A <sup>T</sup></p>
                 </button>
             </div>
@@ -96,14 +98,11 @@
             </div>
         </div>
         <div ibmRow>
-            <ng-container [ngTemplateOutlet]="calculatorButtonTemplate"
-                [ngTemplateOutletContext]="{symbol:'cos(', disabled: false}">
+            <ng-container [ngTemplateOutlet]="functionButtonTemplate" [ngTemplateOutletContext]="{functionName:'cos('}">
             </ng-container>
-            <ng-container [ngTemplateOutlet]="calculatorButtonTemplate"
-                [ngTemplateOutletContext]="{symbol:'sin(', disabled: false}">
+            <ng-container [ngTemplateOutlet]="functionButtonTemplate" [ngTemplateOutletContext]="{functionName:'sin('}">
             </ng-container>
-            <ng-container [ngTemplateOutlet]="calculatorButtonTemplate"
-                [ngTemplateOutletContext]="{symbol:'tan(', disabled: false}">
+            <ng-container [ngTemplateOutlet]="functionButtonTemplate" [ngTemplateOutletContext]="{functionName:'tan('}">
             </ng-container>
         </div>
     </div>
@@ -176,6 +175,12 @@
         </div>
     </div>
 </div>
+
+<ng-template #functionButtonTemplate let-functionName='functionName'>
+    <ng-container [ngTemplateOutlet]="calculatorButtonTemplate"
+        [ngTemplateOutletContext]="{symbol:functionName, disabled: isLastTokenANumber || isLastTokenAMatrix || isLastSymbolAClosedParentheses}">
+    </ng-container>
+</ng-template>
 
 <ng-template #numberButtonTemplate let-number='number'>
     <ng-container [ngTemplateOutlet]="calculatorButtonTemplate"
