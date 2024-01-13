@@ -54,6 +54,7 @@ export class OperacionesConMatricesComponent implements OnInit {
   public isLastSymbolAnOperator: boolean = false;
   public isLastTokenANumber: boolean = false;
   public isLastTokenAFloat: boolean = false;
+  public isLastTokenAMatrix: boolean = false;
 
   public isDecimalsIconVisible: boolean = false;
   public isFractionIconVisible: boolean = false;
@@ -137,12 +138,18 @@ export class OperacionesConMatricesComponent implements OnInit {
   public removeSymbolToTheExpressionToBeCalculated(): void {
     const lastChar: string = this.expressionToCalculate.trim().slice(-1);
     this.expressionToCalculate = this.expressionToCalculate.slice(0, -1);
+    const lexer: Lexer = new Lexer(this.expressionToCalculate);
+    this.parser = new Parser(lexer, this.matrices);
     this.checkLastSymbol();
     this.convertToLatexExpression();
     if (lastChar === '(') {
-      this.openParenthesesCounter--;
+      if (this.openParenthesesCounter > 0) {
+        this.openParenthesesCounter--;
+      }
     } else if (lastChar === ')') {
-      this.closedParenthesesCounter--;
+      if (this.closedParenthesesCounter > 0) {
+        this.closedParenthesesCounter--;
+      }
     }
   }
 
@@ -152,6 +159,7 @@ export class OperacionesConMatricesComponent implements OnInit {
     this.closedParenthesesCounter = 0;
     this.isLastTokenANumber = false;
     this.isLastTokenAFloat = false;
+    this.isLastTokenAMatrix = false;
     this.checkLastSymbol();
     this.convertToLatexExpression();
   }
@@ -206,8 +214,16 @@ export class OperacionesConMatricesComponent implements OnInit {
       this.isLastTokenAFloat = this.parser
         ? this.parser.isLastTokenAFloat
         : false;
+      this.isLastTokenAMatrix = this.parser
+        ? this.parser.isLastTokenAMatrix
+        : false;
     } else {
       this.latexExpression = '';
+      this.openParenthesesCounter = 0;
+      this.closedParenthesesCounter = 0;
+      this.isLastTokenANumber = false;
+      this.isLastTokenAFloat = false;
+      this.isLastTokenAMatrix = false;
     }
   }
 

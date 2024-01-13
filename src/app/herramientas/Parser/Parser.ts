@@ -17,6 +17,7 @@ export class Parser {
 
   public isLastTokenANumber: boolean = false;
   public isLastTokenAFloat: boolean = false;
+  public isLastTokenAMatrix: boolean = false;
 
   constructor(lexer: Lexer, matrices: IMatrixWithName[]) {
     this.lexer = lexer;
@@ -142,13 +143,21 @@ export class Parser {
 
   private eat(tokenType: string): void {
     if (this.currentToken && this.currentToken.type === tokenType) {
-      this.checkIfLastTokenIsAFloat();
       this.checkIfLastTokenIsANumber();
+      this.checkIfLastTokenIsAFloat();
+      this.checkIfLastTokenIsAMatrix();
       this.currentToken = this.lexer.getNextToken();
     } else {
       throw new Error(
         `Se esperaba un ${tokenType} y se recibió: ${this.currentToken?.type}`
       );
+    }
+  }
+
+  private checkIfLastTokenIsANumber(): void {
+    this.isLastTokenANumber = false;
+    if (this.currentToken && this.currentToken.type === NUMBER_TYPE) {
+      this.isLastTokenANumber = true;
     }
   }
 
@@ -161,10 +170,10 @@ export class Parser {
     }
   }
 
-  private checkIfLastTokenIsANumber(): void {
-    this.isLastTokenANumber = false;
-    if (this.currentToken && this.currentToken.type === NUMBER_TYPE) {
-      this.isLastTokenANumber = true;
+  private checkIfLastTokenIsAMatrix(): void {
+    this.isLastTokenAMatrix = false;
+    if (this.currentToken && this.currentToken.type === MATRIX_TYPE) {
+      this.isLastTokenAMatrix = true;
     }
   }
 }
