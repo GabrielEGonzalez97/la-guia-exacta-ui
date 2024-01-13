@@ -228,14 +228,14 @@ export class OperacionesConMatricesComponent implements OnInit {
         this.latexExpression = `$${this.expressionToCalculate}$`;
       }
 
-      this.isLastTokenANumber = this.parser
-        ? this.parser.isLastTokenANumber
+      this.isLastTokenANumber = this.parser.getResultado()
+        ? this.parser.getResultado().getTercetoType() === NUMBER_TYPE
         : false;
       this.isLastTokenAFloat = this.parser
         ? this.parser.isLastTokenAFloat
         : false;
-      this.isLastTokenAMatrix = this.parser
-        ? this.parser.isLastTokenAMatrix
+      this.isLastTokenAMatrix = this.parser.getResultado()
+        ? this.parser.getResultado().getTercetoType() === MATRIX_TYPE
         : false;
     } else {
       this.latexExpression = '';
