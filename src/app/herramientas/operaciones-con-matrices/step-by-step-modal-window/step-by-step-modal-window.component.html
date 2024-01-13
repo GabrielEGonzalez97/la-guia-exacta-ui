@@ -35,7 +35,7 @@
                     <p class="latex-expression" [mathjax]="step.latexExpression"></p>
                 </div>
             </div>
-            <ng-container *ngIf="step.intermediateSteps.length > 0">
+            <ng-container *ngIf="step.intermediateSteps && step.intermediateSteps.length > 0">
                 <div class="steps-container">
 
                     <ng-container *ngIf="!intermediateStepsVisibles[i]">

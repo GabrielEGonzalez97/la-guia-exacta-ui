@@ -65,7 +65,7 @@
         </div>
         <div ibmRow>
             <div ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 4, sm: 2 }">
-                <ibm-dropdown placeholder="Elegir matriz" (selected)="onSelectedMatrix($event)">
+                <ibm-dropdown placeholder="Elegir matriz" (selected)="onSelectedMatrix($event)" [disabled]="isLastTokenANumber">
                     <ibm-dropdown-list [items]="matricesItems"></ibm-dropdown-list>
                 </ibm-dropdown>
             </div>
@@ -108,10 +108,10 @@
     <div ibmCol [columnNumbers]="{ max: 3, xlg: 6, lg: 6, md: 8, sm: 6 }">
         <div ibmRow>
             <ng-container [ngTemplateOutlet]="calculatorButtonTemplate"
-                [ngTemplateOutletContext]="{symbol:'(', disabled: false}">
+                [ngTemplateOutletContext]="{symbol:'(', disabled: isLastTokenANumber || isLastSymbolAClosedParentheses}">
             </ng-container>
             <ng-container [ngTemplateOutlet]="calculatorButtonTemplate"
-                [ngTemplateOutletContext]="{symbol:')', disabled: false}">
+                [ngTemplateOutletContext]="{symbol:')', disabled: openParenthesesCounter === closedParenthesesCounter || isLastSymbolAOpenParentheses || isLastSymbolAnOperator}">
             </ng-container>
             <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 2, sm: 1 }">
                 <button ibmButton="primary" [disabled]="isExpressionToCalculateEmpty"
@@ -135,7 +135,7 @@
                 [ngTemplateOutletContext]="{symbol:'9', disabled: false}">
             </ng-container>
             <ng-container [ngTemplateOutlet]="calculatorButtonTemplate"
-                [ngTemplateOutletContext]="{symbol:'/', disabled: isExpressionToCalculateEmpty || isLastSymbolAnOperator}">
+                [ngTemplateOutletContext]="{symbol:'/', disabled: isExpressionToCalculateEmpty || isLastSymbolAnOperator || isLastSymbolAOpenParentheses}">
             </ng-container>
         </div>
         <div ibmRow>
@@ -149,7 +149,7 @@
                 [ngTemplateOutletContext]="{symbol:'6', disabled: false}">
             </ng-container>
             <ng-container [ngTemplateOutlet]="calculatorButtonTemplate"
-                [ngTemplateOutletContext]="{symbol:'*', disabled: isExpressionToCalculateEmpty || isLastSymbolAnOperator}">
+                [ngTemplateOutletContext]="{symbol:'*', disabled: isExpressionToCalculateEmpty || isLastSymbolAnOperator || isLastSymbolAOpenParentheses}">
             </ng-container>
         </div>
         <div ibmRow>
@@ -163,7 +163,7 @@
                 [ngTemplateOutletContext]="{symbol:'3', disabled: false}">
             </ng-container>
             <ng-container [ngTemplateOutlet]="calculatorButtonTemplate"
-                [ngTemplateOutletContext]="{symbol:'-', disabled: isExpressionToCalculateEmpty || isLastSymbolAnOperator}">
+                [ngTemplateOutletContext]="{symbol:'-', disabled: isExpressionToCalculateEmpty || isLastSymbolAnOperator || isLastSymbolAOpenParentheses}">
             </ng-container>
         </div>
         <div ibmRow>
@@ -171,14 +171,15 @@
                 [ngTemplateOutletContext]="{symbol:'0', disabled: false}">
             </ng-container>
             <ng-container [ngTemplateOutlet]="calculatorButtonTemplate"
-                [ngTemplateOutletContext]="{symbol:'.', disabled: isExpressionToCalculateEmpty || isLastSymbolAnOperator || isLastTokenAFloat}">
+                [ngTemplateOutletContext]="{symbol:'.', disabled: isExpressionToCalculateEmpty || isLastSymbolAnOperator || isLastTokenAFloat || isLastSymbolAOpenParentheses}">
             </ng-container>
             <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 2, sm: 1 }">
-                <button ibmButton="primary" [disabled]="isExpressionToCalculateEmpty || isLastSymbolAnOperator"
+                <button ibmButton="primary"
+                    [disabled]="isExpressionToCalculateEmpty || isLastSymbolAnOperator || openParenthesesCounter !== closedParenthesesCounter"
                     (click)="calculate()">=</button>
             </div>
             <ng-container [ngTemplateOutlet]="calculatorButtonTemplate"
-                [ngTemplateOutletContext]="{symbol:'+', disabled: isExpressionToCalculateEmpty || isLastSymbolAnOperator}">
+                [ngTemplateOutletContext]="{symbol:'+', disabled: isExpressionToCalculateEmpty || isLastSymbolAnOperator || isLastSymbolAOpenParentheses}">
             </ng-container>
         </div>
     </div>

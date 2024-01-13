@@ -15,6 +15,7 @@ export class Parser {
   private tercetos: TercetoAbstracto[] = [];
   private resultado: TercetoAbstracto | null;
 
+  public isLastTokenANumber: boolean = false;
   public isLastTokenAFloat: boolean = false;
 
   constructor(lexer: Lexer, matrices: IMatrixWithName[]) {
@@ -142,6 +143,7 @@ export class Parser {
   private eat(tokenType: string): void {
     if (this.currentToken && this.currentToken.type === tokenType) {
       this.checkIfLastTokenIsAFloat();
+      this.checkIfLastTokenIsANumber();
       this.currentToken = this.lexer.getNextToken();
     } else {
       throw new Error(
@@ -156,6 +158,13 @@ export class Parser {
       if (this.currentToken.value.includes('.')) {
         this.isLastTokenAFloat = true;
       }
+    }
+  }
+
+  private checkIfLastTokenIsANumber(): void {
+    this.isLastTokenANumber = false;
+    if (this.currentToken && this.currentToken.type === NUMBER_TYPE) {
+      this.isLastTokenANumber = true;
     }
   }
 }

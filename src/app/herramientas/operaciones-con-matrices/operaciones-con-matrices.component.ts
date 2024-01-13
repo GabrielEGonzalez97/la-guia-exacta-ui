@@ -43,8 +43,16 @@ export class OperacionesConMatricesComponent implements OnInit {
 
   public matricesItems: ListItem[] = [];
 
+  public steps: ICalculationStep[] = [];
+
+  public openParenthesesCounter: number = 0;
+  public closedParenthesesCounter: number = 0;
+
   public isExpressionToCalculateEmpty: boolean = true;
+  public isLastSymbolAOpenParentheses: boolean = false;
+  public isLastSymbolAClosedParentheses: boolean = false;
   public isLastSymbolAnOperator: boolean = false;
+  public isLastTokenANumber: boolean = false;
   public isLastTokenAFloat: boolean = false;
 
   public isDecimalsIconVisible: boolean = false;
@@ -54,7 +62,6 @@ export class OperacionesConMatricesComponent implements OnInit {
   public errorMessage: string = '';
 
   private parser: Parser = null;
-  public steps: ICalculationStep[] = [];
 
   constructor(private modalService: ModalService) {}
 
@@ -120,16 +127,31 @@ export class OperacionesConMatricesComponent implements OnInit {
     this.expressionToCalculate += newSymbol;
     this.checkLastSymbol();
     this.convertToLatexExpression();
+    if (newSymbol.includes('(')) {
+      this.openParenthesesCounter++;
+    } else if (newSymbol === ')') {
+      this.closedParenthesesCounter++;
+    }
   }
 
   public removeSymbolToTheExpressionToBeCalculated(): void {
+    const lastChar: string = this.expressionToCalculate.trim().slice(-1);
     this.expressionToCalculate = this.expressionToCalculate.slice(0, -1);
     this.checkLastSymbol();
     this.convertToLatexExpression();
+    if (lastChar === '(') {
+      this.openParenthesesCounter--;
+    } else if (lastChar === ')') {
+      this.closedParenthesesCounter--;
+    }
   }
 
   public resetExpressionToBeCalculated(): void {
     this.expressionToCalculate = '';
+    this.openParenthesesCounter = 0;
+    this.closedParenthesesCounter = 0;
+    this.isLastTokenANumber = false;
+    this.isLastTokenAFloat = false;
     this.checkLastSymbol();
     this.convertToLatexExpression();
   }
@@ -143,6 +165,14 @@ export class OperacionesConMatricesComponent implements OnInit {
       ? true
       : false;
     this.isLastSymbolAnOperator = operators.includes(lastChar);
+
+    this.isLastSymbolAOpenParentheses = false;
+    this.isLastSymbolAClosedParentheses = false;
+    if (lastChar === '(') {
+      this.isLastSymbolAOpenParentheses = true;
+    } else if (lastChar === ')') {
+      this.isLastSymbolAClosedParentheses = true;
+    }
   }
 
   private convertToLatexExpression(): void {
@@ -165,12 +195,17 @@ export class OperacionesConMatricesComponent implements OnInit {
         if (lastChar == '.') {
           this.latexExpression = `$${this.expressionResult.getLatexForm()}${lastChar}$`;
         }
-
-        this.isLastTokenAFloat = this.parser.isLastTokenAFloat;
       } catch (error) {
         this.errorMessage = error.message;
         this.latexExpression = `$${this.expressionToCalculate}$`;
       }
+
+      this.isLastTokenANumber = this.parser
+        ? this.parser.isLastTokenANumber
+        : false;
+      this.isLastTokenAFloat = this.parser
+        ? this.parser.isLastTokenAFloat
+        : false;
     } else {
       this.latexExpression = '';
     }
@@ -262,7 +297,6 @@ export class OperacionesConMatricesComponent implements OnInit {
   }
 
   public calculateSteps(): void {
-    console.log(this.parser.getTercetos());
     this.steps = [];
     const tercetos: TercetoOperator[] =
       this.parser.getTercetos() as TercetoOperator[];
