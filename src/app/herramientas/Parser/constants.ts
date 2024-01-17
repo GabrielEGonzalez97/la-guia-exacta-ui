@@ -6,6 +6,7 @@ export const TAN_TYPE: string = 'tan';
 export const SQRT_TYPE: string = '√';
 export const MAT_INV_TYPE: string = 'inv';
 export const TRANSPUESTA_TYPE: string = 'tsp';
+export const SARRUS_TYPE: string = 'dsr';
 export const UNARY_FUNCTIONS: string[] = [
   COS_TYPE,
   SIN_TYPE,
@@ -13,4 +14,5 @@ export const UNARY_FUNCTIONS: string[] = [
   SQRT_TYPE,
   MAT_INV_TYPE,
   TRANSPUESTA_TYPE,
+  SARRUS_TYPE,
 ];

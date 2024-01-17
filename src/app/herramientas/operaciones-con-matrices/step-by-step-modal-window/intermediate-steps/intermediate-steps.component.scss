@@ -1,0 +1,66 @@
+@import "src/styles/utils.scss";
+
+@include adjustPaddingInIBMGridAndCol();
+
+.steps-container {
+  padding: 1.5rem;
+
+  .bx--row {
+    margin-bottom: 1rem;
+
+    .bx--col {
+      overflow-x: auto;
+
+      p {
+        width: max-content;
+        font-size: 1.5rem;
+      }
+
+      .step-with-number {
+        display: flex;
+        align-items: baseline;
+      }
+
+      .latex-expression {
+        display: contents;
+        text-align: center;
+      }
+
+      .intermediate-step-p {
+        font-size: 1rem !important;
+      }
+    }
+  }
+}
+
+.bx--btn--primary {
+  width: fit-content;
+  background-color: $principal-color;
+  padding: 8px !important;
+  line-break: anywhere;
+  font-size: 20px;
+  justify-content: center;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+
+  p {
+    font-size: 20px;
+
+    sup {
+      font-size: 0.75rem;
+    }
+  }
+}
+
+.bx--btn--primary:hover {
+  background-color: #cbcbcb !important;
+}
+
+:host ::ng-deep {
+  .bx--modal-container {
+    overflow-y: scroll;
+  }
+}

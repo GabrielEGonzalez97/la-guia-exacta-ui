@@ -20,6 +20,7 @@ import CharacterFraction20 from '@carbon/icons/es/character--fraction/20';
 import WarningAlt32 from '@carbon/icons/es/warning--alt/32';
 
 import { MathjaxModule } from 'mathjax-angular';
+import { IntermediateStepsComponent } from './step-by-step-modal-window/intermediate-steps/intermediate-steps.component';
 import { StepByStepModalWindowComponent } from './step-by-step-modal-window/step-by-step-modal-window.component';
 
 const CARBON_IMPORTS = [
@@ -35,6 +36,7 @@ const CARBON_IMPORTS = [
 @NgModule({
   declarations: [
     OperacionesConMatricesComponent,
+    IntermediateStepsComponent,
     StepByStepModalWindowComponent,
   ],
   imports: [

@@ -11,7 +11,7 @@
         </div>
         <div ibmRow>
             <div ibmCol>
-                <p class="latex-expression" [mathjax]="latexExpression"></p>
+                <p class="latex-expression" [mathjax]="'$' + latexExpression + '$'"></p>
             </div>
         </div>
         <hr>
@@ -32,51 +32,11 @@
             </div>
             <div ibmRow>
                 <div ibmCol>
-                    <p class="latex-expression" [mathjax]="step.latexExpression"></p>
+                    <p class="latex-expression" [mathjax]="'$' + step.latexExpression + '$'"></p>
                 </div>
             </div>
-            <ng-container *ngIf="step.intermediateSteps && step.intermediateSteps.length > 0">
-                <div class="steps-container">
 
-                    <ng-container *ngIf="!intermediateStepsVisibles[i]">
-                        <div ibmRow>
-                            <div ibmCol>
-                                <button ibmButton="primary" (click)="setIntermediateStepVisibleValue(i)">
-                                    Ver pasos intermedios
-                                </button>
-                            </div>
-                        </div>
-                    </ng-container>
-                    <ng-container *ngIf="intermediateStepsVisibles[i]">
-                        <ng-container *ngFor="let intermediateStep of step.intermediateSteps; let j = index">
-                            <div ibmRow>
-                                <div ibmCol>
-                                    <p class="step-with-number">
-                                        <strong class="intermediate-step-p">{{i + 1}}.{{j + 1}}.</strong>
-                                        &nbsp;
-                                        <span class="intermediate-step-p"
-                                            [mathjax]="intermediateStep.description"></span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div ibmRow>
-                                <div ibmCol>
-                                    <p class="latex-expression intermediate-step-p"
-                                        [mathjax]="intermediateStep.latexExpression"></p>
-                                </div>
-                            </div>
-                        </ng-container>
-                        <div ibmRow>
-                            <div ibmCol>
-                                <button ibmButton="primary" (click)="setIntermediateStepVisibleValue(i)">
-                                    Ocultar pasos intermedios
-                                </button>
-                            </div>
-                        </div>
-                    </ng-container>
-                </div>
-            </ng-container>
-            <hr>
+            <intermediate-steps [step]="step" [numberStep]="(i + 1).toString()"></intermediate-steps>
         </ng-container>
     </div>
 </ibm-modal>

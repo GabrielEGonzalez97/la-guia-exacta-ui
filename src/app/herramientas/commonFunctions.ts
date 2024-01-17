@@ -47,6 +47,102 @@ export function getMatrixLatexForm(matrix: IMatrixElement[][]): string {
   return `\\begin{pmatrix}${matrixBody}\\end{pmatrix}`;
 }
 
+export function getDeterminanteMatrixLatexForm(
+  matrix: IMatrixElement[][]
+): string {
+  // $\\begin{pmatrix}a & b\\\\ c & d \\\\ c & d\\end{pmatrix}$
+  const rows: string[] = matrix.map((row: IMatrixElement[]) =>
+    row
+      .map((cell: IMatrixElement) =>
+        decimalToFraction(getMatrixCellValue(cell))
+      )
+      .join(' & ')
+  );
+  const matrixBody: string = rows.join('\\\\ ');
+  return `\\begin{vmatrix}${matrixBody}\\end{vmatrix}`;
+}
+
+export function getDeterminanteMatrixLatexFormWithColors(
+  matrix: IMatrixElement[][],
+  highlightedCells: { row: number; col: number }[] = []
+): string {
+  const rows: string[] = matrix.map((row: IMatrixElement[], rowIndex: number) =>
+    row
+      .map((cell: IMatrixElement, colIndex: number) => {
+        const cellValue = decimalToFraction(getMatrixCellValue(cell));
+        const isHighlighted: boolean = highlightedCells.some(
+          (coords) => coords.row === rowIndex && coords.col === colIndex
+        );
+        return isHighlighted ? `\\textcolor{blue}{${cellValue}}` : cellValue;
+      })
+      .join(' & ')
+  );
+
+  const matrixBody: string = rows.join('\\\\ ');
+
+  return `\\begin{vmatrix}${matrixBody}\\end{vmatrix}`;
+}
+
+export function getDeterminanteMatrixLatexFormWithMultiplicationsAndColors(
+  matrix: IMatrixElement[][],
+  highlightedCells: { row: number; col: number; color: string }[] = [],
+  typeOfArrow: string
+): string {
+  const augmentedMatrix: IMatrixElement[][] = augmentMatrix(matrix);
+
+  const rows: string[] = augmentedMatrix.map(
+    (row: IMatrixElement[], rowIndex: number) =>
+      row
+        .map((cell: IMatrixElement, colIndex: number) => {
+          const highlightedCell = highlightedCells.find(
+            (coords) => coords.row === rowIndex && coords.col === colIndex
+          );
+          let cellValue: string = '';
+          if (highlightedCell && cell.value === '*') {
+            cellValue = `\\${typeOfArrow}`;
+          } else if (cell.value === '*') {
+            cellValue = '';
+          } else {
+            cellValue = decimalToFraction(getMatrixCellValue(cell));
+          }
+          return highlightedCell
+            ? `\\textcolor{${highlightedCell.color}}{{${cellValue}}}`
+            : cellValue;
+        })
+        .join(' & ')
+  );
+
+  const matrixBody: string = rows.join('\\\\ ');
+
+  return `\\begin{vmatrix}${matrixBody}\\end{vmatrix}`;
+}
+
+function augmentMatrix(matrix: IMatrixElement[][]): IMatrixElement[][] {
+  const augmentedMatrix: IMatrixElement[][] = [];
+  const numRows = matrix.length;
+
+  for (let i = 0; i < numRows; i++) {
+    augmentedMatrix.push([
+      { value: matrix[i][0].value },
+      { value: '' },
+      { value: matrix[i][1].value },
+      { value: '' },
+      { value: matrix[i][2].value },
+    ]);
+    if (i < numRows - 1) {
+      augmentedMatrix.push([
+        { value: '' },
+        { value: '*' },
+        { value: '' },
+        { value: '*' },
+        { value: '' },
+      ]);
+    }
+  }
+
+  return augmentedMatrix;
+}
+
 export function getMatrixLatexWithDecimalsForm(
   matrix: IMatrixElement[][]
 ): string {

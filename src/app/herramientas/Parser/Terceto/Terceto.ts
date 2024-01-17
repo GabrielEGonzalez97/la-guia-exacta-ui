@@ -139,8 +139,6 @@ export class Terceto extends TercetoOperator {
   }
 
   public override getResultado(): number | IMatrixElement[][] {
-    // console.log(this.operand1.getTercetoType());
-    // console.log(this.operand2.getTercetoType());
     this.intermediateSteps = [];
     if (this.operator === '+') {
       if (this.evaluateOperandsTypes(NUMBER_TYPE, NUMBER_TYPE)) {

@@ -10,6 +10,7 @@ import {
   MATRIX_TYPE,
   MAT_INV_TYPE,
   NUMBER_TYPE,
+  SARRUS_TYPE,
   SIN_TYPE,
   SQRT_TYPE,
   TAN_TYPE,
@@ -44,6 +45,12 @@ export class OperacionesConMatricesComponent implements OnInit {
   public latexExpressionResult: string = '';
 
   public matricesItems: ListItem[] = [];
+  public determinantesItems: ListItem[] = [
+    {
+      content: 'Sarrus',
+      selected: false,
+    },
+  ];
 
   public steps: ICalculationStep[] = [];
 
@@ -305,9 +312,16 @@ export class OperacionesConMatricesComponent implements OnInit {
     }
   }
 
-  public onSelectedMatrix(selectedMatrix: any) {
+  public onSelectedMatrix(selectedMatrix: any): void {
     this.addNewSymbolToTheExpressionToBeCalculated(selectedMatrix.item.content);
     selectedMatrix.item.selected = false;
+  }
+
+  public onSelectedDeterminante(selectedDeterminante: any): void {
+    if (selectedDeterminante.item.content === 'Sarrus') {
+      this.addNewSymbolToTheExpressionToBeCalculated('dsr(');
+    }
+    selectedDeterminante.item.selected = false;
   }
 
   private replaceFirstOccurrence(
@@ -418,6 +432,12 @@ export class OperacionesConMatricesComponent implements OnInit {
         } else if (terceto.operator === TRANSPUESTA_TYPE) {
           this.steps.push({
             description: `Se calcula la matriz transpuesta de ${commonText}`,
+            latexExpression: newPartialExpression,
+            intermediateSteps: terceto.getIntermediateSteps(),
+          });
+        } else if (terceto.operator === SARRUS_TYPE) {
+          this.steps.push({
+            description: `Se calcula el determinante a través del método de Sarrus de ${commonText}`,
             latexExpression: newPartialExpression,
             intermediateSteps: terceto.getIntermediateSteps(),
           });
