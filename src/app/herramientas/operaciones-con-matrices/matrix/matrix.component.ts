@@ -46,9 +46,11 @@ export class MatrixComponent implements OnInit {
     if (rows > this.matrix.length) {
       const rowsToAdd: number = rows - this.matrix.length;
       for (let i = 0; i < rowsToAdd; i++) {
-        const newRow: IMatrixElement[] = new Array(this.matrix[0].length).fill({
-          value: '',
-        });
+        const newRow: IMatrixElement[] = new Array(this.matrix[0].length)
+          .fill({
+            value: '',
+          })
+          .map((cell) => ({ ...cell }));
         this.matrix.push(newRow);
       }
     } else if (rows < this.matrix.length) {
