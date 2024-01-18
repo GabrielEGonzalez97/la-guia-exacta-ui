@@ -12,6 +12,7 @@ import {
 import { IMatrixElement } from '../../operaciones-con-matrices/matrix/interfaces';
 import {
   COS_TYPE,
+  DETERMINANTE_2_x_2_TYPE,
   MATRIX_TYPE,
   MAT_INV_TYPE,
   NUMBER_TYPE,
@@ -57,6 +58,10 @@ export class TercetoUnary extends TercetoOperator {
       latexForm = `${leftParenthesis}${this.operand.getLatexForm()}^{-1}${rightParenthesis}`;
     } else if (this.operator === TRANSPUESTA_TYPE) {
       latexForm = `${leftParenthesis}${this.operand.getLatexForm()}^{T}${rightParenthesis}`;
+    } else if (this.operator === DETERMINANTE_2_x_2_TYPE) {
+      latexForm = `${leftParenthesis}${getDeterminanteMatrixLatexForm(
+        this.operand.getResultado() as IMatrixElement[][]
+      )}${rightParenthesis}`;
     } else if (this.operator === SARRUS_TYPE) {
       latexForm = `${leftParenthesis}${getDeterminanteMatrixLatexForm(
         this.operand.getResultado() as IMatrixElement[][]
@@ -107,6 +112,12 @@ export class TercetoUnary extends TercetoOperator {
         );
       } else if (this.evaluateOperandsTypes(MATRIX_TYPE)) {
         return MATRIX_TYPE;
+      }
+    } else if (this.operator === DETERMINANTE_2_x_2_TYPE) {
+      if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
+        throw new Error('No se puede calcular el determinante de un número');
+      } else if (this.evaluateOperandsTypes(MATRIX_TYPE)) {
+        return NUMBER_TYPE;
       }
     } else if (this.operator === SARRUS_TYPE) {
       if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
@@ -245,7 +256,7 @@ export class TercetoUnary extends TercetoOperator {
 
         return matrizTranspuesta;
       }
-    } else if (this.operator === SARRUS_TYPE) {
+    } else if (this.operator === DETERMINANTE_2_x_2_TYPE) {
       if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
         throw new Error('No se puede calcular el determinante de un número');
       } else if (this.evaluateOperandsTypes(MATRIX_TYPE)) {
@@ -263,18 +274,67 @@ export class TercetoUnary extends TercetoOperator {
         const size: number = matrix.length;
 
         if (size === 2) {
-          // Caso especial para matrices 2x2
-          const det =
-            getMatrixCellValue(matrix[0][0]) *
-              getMatrixCellValue(matrix[1][1]) -
+          const firstResult: number =
+            getMatrixCellValue(matrix[0][0]) * getMatrixCellValue(matrix[1][1]);
+          const secondResult: number =
             getMatrixCellValue(matrix[0][1]) * getMatrixCellValue(matrix[1][0]);
+          const determinante: number = firstResult - secondResult;
+
+          const highlightedCellsStep1 = [
+            { row: 0, col: 0, color: 'NavyBlue' },
+            { row: 1, col: 1, color: 'NavyBlue' },
+            { row: 2, col: 2, color: 'NavyBlue' },
+          ];
           this.intermediateSteps.push({
-            description:
-              'Se calcula el determinante de la matriz 2x2 usando la regla de Sarrus.',
-            latexExpression: `\\text{det} = ${matrix[0][0].value} \\times ${matrix[1][1].value} - ${matrix[0][1].value} \\times ${matrix[1][0].value} = ${det}`,
+            description: `Se multiplican los números de igual color: ${matrix[0][0].value} * ${matrix[1][1].value} = ${firstResult}`,
+            latexExpression: `${getDeterminanteMatrixLatexFormWithMultiplicationsAndColors(
+              matrix,
+              highlightedCellsStep1,
+              'searrow'
+            )}`,
           });
-          return det;
-        } else if (size === 3) {
+
+          const highlightedCellsStep2 = [
+            { row: 0, col: 2, color: 'BrickRed' },
+            { row: 1, col: 1, color: 'BrickRed' },
+            { row: 2, col: 0, color: 'BrickRed' },
+          ];
+          this.intermediateSteps.push({
+            description: `Se multiplican los números de igual color: ${matrix[0][1].value} * ${matrix[1][0].value} = ${secondResult}`,
+            latexExpression: `${getDeterminanteMatrixLatexFormWithMultiplicationsAndColors(
+              matrix,
+              highlightedCellsStep2,
+              'swarrow'
+            )}`,
+          });
+
+          this.intermediateSteps.push({
+            description: `Se realiza la resta entre lo obtenido en los dos pasos anteriores, dando como resultado ${determinante}`,
+            latexExpression: `\\text{det} = ${firstResult} - ${secondResult} = ${determinante}`,
+          });
+          return determinante;
+        } else {
+          throw new Error('Este método solo se aplica a matrices 2x2');
+        }
+      }
+    } else if (this.operator === SARRUS_TYPE) {
+      if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
+        throw new Error('No se puede calcular el determinante de un número');
+      } else if (this.evaluateOperandsTypes(MATRIX_TYPE)) {
+        if (!this.isSquareMatrix()) {
+          throw new Error(
+            'El determinante solo se puede calcular para matrices cuadradas'
+          );
+        }
+
+        const matrix: IMatrixElement[][] = [
+          ...(this.operand.getResultado() as IMatrixElement[][]).map(
+            (row: IMatrixElement[]) => [...row]
+          ),
+        ];
+        const size: number = matrix.length;
+
+        if (size === 3) {
           matrix.push([matrix[0][0], matrix[0][1], matrix[0][2]]);
           matrix.push([matrix[1][0], matrix[1][1], matrix[1][2]]);
 
@@ -481,7 +541,7 @@ export class TercetoUnary extends TercetoOperator {
               sixthMultiplicationValue);
           this.intermediateSteps.push({
             description: `Se realiza la resta entre lo obtenido en los dos pasos anteriores, dando como resultado ${determinante}`,
-            latexExpression: `${firstMultiplicationValue} + ${secondMultiplicationValue} + ${thirdMultiplicationValue} - (${fourthMultiplicationValue} + ${fifthMultiplicationValue} + ${sixthMultiplicationValue}) = ${determinante}`,
+            latexExpression: `\\text{det} = ${firstMultiplicationValue} + ${secondMultiplicationValue} + ${thirdMultiplicationValue} - (${fourthMultiplicationValue} + ${fifthMultiplicationValue} + ${sixthMultiplicationValue}) = ${determinante}`,
           });
 
           return determinante;
@@ -523,6 +583,10 @@ export class TercetoUnary extends TercetoOperator {
       latexForm = `${leftParenthesis}${getCorrectFormToDisplay(
         this.operand
       )}^{T}${rightParenthesis}`;
+    } else if (this.operator === DETERMINANTE_2_x_2_TYPE) {
+      latexForm = `${leftParenthesis}${getDeterminanteMatrixLatexForm(
+        this.operand.getResultado() as IMatrixElement[][]
+      )}${rightParenthesis}`;
     } else if (this.operator === SARRUS_TYPE) {
       latexForm = `${leftParenthesis}${getDeterminanteMatrixLatexForm(
         this.operand.getResultado() as IMatrixElement[][]

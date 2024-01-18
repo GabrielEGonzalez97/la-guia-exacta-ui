@@ -88,7 +88,8 @@ export function getDeterminanteMatrixLatexFormWithMultiplicationsAndColors(
   highlightedCells: { row: number; col: number; color: string }[] = [],
   typeOfArrow: string
 ): string {
-  const augmentedMatrix: IMatrixElement[][] = augmentMatrix(matrix);
+  const augmentedMatrix: IMatrixElement[][] =
+    matrix.length === 2 ? augment2x2Matrix(matrix) : augment3x3Matrix(matrix);
 
   const rows: string[] = augmentedMatrix.map(
     (row: IMatrixElement[], rowIndex: number) =>
@@ -117,11 +118,29 @@ export function getDeterminanteMatrixLatexFormWithMultiplicationsAndColors(
   return `\\begin{vmatrix}${matrixBody}\\end{vmatrix}`;
 }
 
-function augmentMatrix(matrix: IMatrixElement[][]): IMatrixElement[][] {
+function augment2x2Matrix(matrix: IMatrixElement[][]): IMatrixElement[][] {
   const augmentedMatrix: IMatrixElement[][] = [];
   const numRows = matrix.length;
 
-  for (let i = 0; i < numRows; i++) {
+  for (let i: number = 0; i < numRows; i++) {
+    augmentedMatrix.push([
+      { value: matrix[i][0].value },
+      { value: '' },
+      { value: matrix[i][1].value },
+    ]);
+    if (i < numRows - 1) {
+      augmentedMatrix.push([{ value: '' }, { value: '*' }, { value: '' }]);
+    }
+  }
+
+  return augmentedMatrix;
+}
+
+function augment3x3Matrix(matrix: IMatrixElement[][]): IMatrixElement[][] {
+  const augmentedMatrix: IMatrixElement[][] = [];
+  const numRows = matrix.length;
+
+  for (let i: number = 0; i < numRows; i++) {
     augmentedMatrix.push([
       { value: matrix[i][0].value },
       { value: '' },

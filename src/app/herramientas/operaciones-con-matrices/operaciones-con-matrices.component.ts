@@ -7,6 +7,7 @@ import { TercetoAbstracto } from '../Parser/Terceto/TercetoAbstracto';
 import { TercetoOperator } from '../Parser/Terceto/TercetoOperator';
 import {
   COS_TYPE,
+  DETERMINANTE_2_x_2_TYPE,
   MATRIX_TYPE,
   MAT_INV_TYPE,
   NUMBER_TYPE,
@@ -46,6 +47,10 @@ export class OperacionesConMatricesComponent implements OnInit {
 
   public matricesItems: ListItem[] = [];
   public determinantesItems: ListItem[] = [
+    {
+      content: '2x2',
+      selected: false,
+    },
     {
       content: 'Sarrus',
       selected: false,
@@ -318,7 +323,9 @@ export class OperacionesConMatricesComponent implements OnInit {
   }
 
   public onSelectedDeterminante(selectedDeterminante: any): void {
-    if (selectedDeterminante.item.content === 'Sarrus') {
+    if (selectedDeterminante.item.content === '2x2') {
+      this.addNewSymbolToTheExpressionToBeCalculated('det(');
+    } else if (selectedDeterminante.item.content === 'Sarrus') {
       this.addNewSymbolToTheExpressionToBeCalculated('dsr(');
     }
     selectedDeterminante.item.selected = false;
@@ -432,6 +439,12 @@ export class OperacionesConMatricesComponent implements OnInit {
         } else if (terceto.operator === TRANSPUESTA_TYPE) {
           this.steps.push({
             description: `Se calcula la matriz transpuesta de ${commonText}`,
+            latexExpression: newPartialExpression,
+            intermediateSteps: terceto.getIntermediateSteps(),
+          });
+        } else if (terceto.operator === DETERMINANTE_2_x_2_TYPE) {
+          this.steps.push({
+            description: `Se calcula el determinante de ${commonText}`,
             latexExpression: newPartialExpression,
             intermediateSteps: terceto.getIntermediateSteps(),
           });
