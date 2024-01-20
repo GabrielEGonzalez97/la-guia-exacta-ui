@@ -29,7 +29,7 @@ import { TercetoAbstracto } from './TercetoAbstracto';
 import { TercetoOperator } from './TercetoOperator';
 import { IParentheses } from './interfaces';
 
-export class TercetoUnary extends TercetoOperator {
+export class TercetoUnaryOperator extends TercetoOperator {
   public operand: TercetoAbstracto;
 
   constructor(

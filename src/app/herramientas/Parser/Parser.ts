@@ -4,7 +4,7 @@ import { Terceto } from './Terceto/Terceto';
 import { TercetoAbstracto } from './Terceto/TercetoAbstracto';
 import { TercetoMatrix } from './Terceto/TercetoMatrix';
 import { TercetoNumerico } from './Terceto/TercetoNumerico';
-import { TercetoUnary } from './Terceto/TercetoUnary';
+import { TercetoUnaryOperator } from './Terceto/TercetoUnaryOperator';
 import { Token } from './Token';
 import { MATRIX_TYPE, NUMBER_TYPE, UNARY_FUNCTIONS } from './constants';
 
@@ -124,16 +124,13 @@ export class Parser {
       this.eat('(');
       const expression: TercetoAbstracto = this.parseExpression();
       this.eat(')');
-      const tercetoUnary: TercetoUnary = new TercetoUnary(
-        functionName,
-        expression,
-        {
+      const tercetoUnaryOperator: TercetoUnaryOperator =
+        new TercetoUnaryOperator(functionName, expression, {
           left: false,
           right: false,
-        }
-      );
-      this.tercetos.push(tercetoUnary);
-      return tercetoUnary;
+        });
+      this.tercetos.push(tercetoUnaryOperator);
+      return tercetoUnaryOperator;
     } else {
       throw new Error('Token inesperado');
     }
