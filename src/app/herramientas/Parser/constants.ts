@@ -8,6 +8,7 @@ export const MAT_INV_TYPE: string = 'inv';
 export const TRANSPUESTA_TYPE: string = 'tsp';
 export const DETERMINANTE_2_x_2_TYPE: string = 'det';
 export const SARRUS_TYPE: string = 'dsr';
+export const MATRIZ_TRIANGULAR_SUPERIOR: string = 'mts';
 export const UNARY_FUNCTIONS: string[] = [
   COS_TYPE,
   SIN_TYPE,
@@ -17,4 +18,5 @@ export const UNARY_FUNCTIONS: string[] = [
   TRANSPUESTA_TYPE,
   DETERMINANTE_2_x_2_TYPE,
   SARRUS_TYPE,
+  MATRIZ_TRIANGULAR_SUPERIOR,
 ];

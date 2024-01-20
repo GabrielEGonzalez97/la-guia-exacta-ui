@@ -9,6 +9,7 @@ import {
   COS_TYPE,
   DETERMINANTE_2_x_2_TYPE,
   MATRIX_TYPE,
+  MATRIZ_TRIANGULAR_SUPERIOR,
   MAT_INV_TYPE,
   NUMBER_TYPE,
   SARRUS_TYPE,
@@ -451,6 +452,12 @@ export class OperacionesConMatricesComponent implements OnInit {
         } else if (terceto.operator === SARRUS_TYPE) {
           this.steps.push({
             description: `Se calcula el determinante a través del método de Sarrus de ${commonText}`,
+            latexExpression: newPartialExpression,
+            intermediateSteps: terceto.getIntermediateSteps(),
+          });
+        } else if (terceto.operator === MATRIZ_TRIANGULAR_SUPERIOR) {
+          this.steps.push({
+            description: `Se calcula la matriz triangular superior de ${commonText}`,
             latexExpression: newPartialExpression,
             intermediateSteps: terceto.getIntermediateSteps(),
           });
