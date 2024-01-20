@@ -9,7 +9,7 @@ import { TercetoAbstracto } from './TercetoAbstracto';
 import { TercetoOperator } from './TercetoOperator';
 import { IParentheses } from './interfaces';
 
-export class Terceto extends TercetoOperator {
+export class TercetoBinaryOperator extends TercetoOperator {
   public operand1: TercetoAbstracto;
   public operand2: TercetoAbstracto;
 
@@ -432,10 +432,10 @@ export class Terceto extends TercetoOperator {
 
   public override getLatexFormOperators(): string {
     const operand1Result: string = getCorrectFormToDisplay(
-      this.operand1 as Terceto
+      this.operand1 as TercetoBinaryOperator
     );
     const operand2Result: string = getCorrectFormToDisplay(
-      this.operand2 as Terceto
+      this.operand2 as TercetoBinaryOperator
     );
     return `$${operand1Result}$ y $${operand2Result}$`;
   }

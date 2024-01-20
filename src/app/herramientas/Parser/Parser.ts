@@ -1,7 +1,7 @@
 import { IMatrixWithName } from '../operaciones-con-matrices/matrix/interfaces';
 import { Lexer } from './Lexer';
-import { Terceto } from './Terceto/Terceto';
 import { TercetoAbstracto } from './Terceto/TercetoAbstracto';
+import { TercetoBinaryOperator } from './Terceto/TercetoBinaryOperator';
 import { TercetoMatrix } from './Terceto/TercetoMatrix';
 import { TercetoNumerico } from './Terceto/TercetoNumerico';
 import { TercetoUnaryOperator } from './Terceto/TercetoUnaryOperator';
@@ -44,10 +44,15 @@ export class Parser {
       const operator: Token = this.currentToken;
       this.eat(this.currentToken.type);
       const nuevoTermino: TercetoAbstracto = this.parseTerm();
-      termino = new Terceto(operator.value, termino, nuevoTermino, {
-        left: false,
-        right: false,
-      });
+      termino = new TercetoBinaryOperator(
+        operator.value,
+        termino,
+        nuevoTermino,
+        {
+          left: false,
+          right: false,
+        }
+      );
       this.tercetos.push(termino);
     }
     return termino;
@@ -62,10 +67,15 @@ export class Parser {
       const operator: Token = this.currentToken;
       this.eat(this.currentToken.type);
       const nuevoFactor: TercetoAbstracto = this.parseFactor();
-      powTerm = new Terceto(operator.value, powTerm, nuevoFactor, {
-        left: false,
-        right: false,
-      });
+      powTerm = new TercetoBinaryOperator(
+        operator.value,
+        powTerm,
+        nuevoFactor,
+        {
+          left: false,
+          right: false,
+        }
+      );
       this.tercetos.push(powTerm);
     }
     return powTerm;
@@ -77,7 +87,7 @@ export class Parser {
       const operator: Token = this.currentToken;
       this.eat(this.currentToken.type);
       const nuevoFactor: TercetoAbstracto = this.parseFactor();
-      factor = new Terceto(operator.value, factor, nuevoFactor, {
+      factor = new TercetoBinaryOperator(operator.value, factor, nuevoFactor, {
         left: false,
         right: false,
       });

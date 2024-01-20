@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ListItem, ModalService } from 'carbon-components-angular';
 import { Lexer } from '../Parser/Lexer';
 import { Parser } from '../Parser/Parser';
-import { Terceto } from '../Parser/Terceto/Terceto';
 import { TercetoAbstracto } from '../Parser/Terceto/TercetoAbstracto';
+import { TercetoBinaryOperator } from '../Parser/Terceto/TercetoBinaryOperator';
 import { TercetoOperator } from '../Parser/Terceto/TercetoOperator';
 import {
   COS_TYPE,
@@ -408,8 +408,10 @@ export class OperacionesConMatricesComponent implements OnInit {
         } else if (terceto.operator === '^') {
           this.steps.push({
             description: `Se calcula la potencia ${getCorrectFormToDisplay(
-              (terceto as Terceto).operand2
-            )} de $${getCorrectFormToDisplay((terceto as Terceto).operand1)}$`,
+              (terceto as TercetoBinaryOperator).operand2
+            )} de $${getCorrectFormToDisplay(
+              (terceto as TercetoBinaryOperator).operand1
+            )}$`,
             latexExpression: newPartialExpression,
             intermediateSteps: terceto.getIntermediateSteps(),
           });
