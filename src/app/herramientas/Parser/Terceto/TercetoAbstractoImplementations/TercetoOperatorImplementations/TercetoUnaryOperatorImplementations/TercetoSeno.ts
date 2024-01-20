@@ -17,6 +17,17 @@ export class TercetoSeno extends TercetoUnaryOperator {
     super(operator, operand, parentheses);
   }
 
+  public override getResultado(): number | IMatrixElement[][] {
+    this.intermediateSteps = [];
+    if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
+      return Math.sin(Number(this.operand.getResultado()));
+    } else if (this.evaluateOperandsTypes(MATRIX_TYPE)) {
+      throw new Error('No se puede calcular el seno de una matriz');
+    }
+
+    return null;
+  }
+
   public override getLatexForm(): string {
     const latexForm: string = this.getExpressionWithParentheses(
       `\\sin(${this.operand.getLatexForm()})`
@@ -28,17 +39,6 @@ export class TercetoSeno extends TercetoUnaryOperator {
   public override getTercetoType(): string {
     if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
       return NUMBER_TYPE;
-    } else if (this.evaluateOperandsTypes(MATRIX_TYPE)) {
-      throw new Error('No se puede calcular el seno de una matriz');
-    }
-
-    return null;
-  }
-
-  public override getResultado(): number | IMatrixElement[][] {
-    this.intermediateSteps = [];
-    if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
-      return Math.sin(Number(this.operand.getResultado()));
     } else if (this.evaluateOperandsTypes(MATRIX_TYPE)) {
       throw new Error('No se puede calcular el seno de una matriz');
     }

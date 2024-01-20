@@ -12,13 +12,13 @@ export class TercetoMatrix extends TercetoAbstracto {
     this.matrix = matrix;
   }
 
+  public override getResultado(): IMatrixElement[][] {
+    return this.matrix;
+  }
+
   public override getLatexForm(): string {
     const matrixBody: string = getMatrixLatexForm(this.matrix);
     return this.getExpressionWithParentheses(matrixBody);
-  }
-
-  public override getResultado(): IMatrixElement[][] {
-    return this.matrix;
   }
 
   public override getTercetoForm(): string {

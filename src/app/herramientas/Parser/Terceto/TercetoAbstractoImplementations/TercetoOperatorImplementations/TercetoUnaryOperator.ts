@@ -23,17 +23,14 @@ export abstract class TercetoUnaryOperator extends TercetoOperator {
     return `${this.operator}, ${this.operand.getTercetoForm()}`;
   }
 
-  public abstract override getLatexForm(): string;
-
-  public abstract override getTercetoType(): string;
-
-  public abstract override getResultado(): number | IMatrixElement[][];
-
-  public abstract override getLatexFormResult(): string;
-
   public override getLatexFormOperators(): string {
     return `$${getCorrectFormToDisplay(this.operand)}$`;
   }
+
+  public abstract override getResultado(): number | IMatrixElement[][];
+  public abstract override getLatexForm(): string;
+  public abstract override getTercetoType(): string;
+  public abstract override getLatexFormResult(): string;
 
   protected evaluateOperandsTypes(expectedType: string): boolean {
     return this.operand.getTercetoType() === expectedType;

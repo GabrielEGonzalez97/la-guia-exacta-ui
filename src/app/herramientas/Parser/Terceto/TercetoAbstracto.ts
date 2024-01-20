@@ -8,8 +8,8 @@ export abstract class TercetoAbstracto {
     this.parentheses = parentheses;
   }
 
-  abstract getTercetoForm(): string;
   abstract getResultado(): number | IMatrixElement[][];
+  abstract getTercetoForm(): string;
   abstract getLatexForm(): string;
   abstract getTercetoType(): string;
 

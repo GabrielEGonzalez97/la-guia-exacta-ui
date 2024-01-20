@@ -10,12 +10,12 @@ export class TercetoNumerico extends TercetoAbstracto {
     this.number = number;
   }
 
-  public override getTercetoForm(): string {
-    return this.number.toString();
-  }
-
   public override getResultado(): number {
     return this.number;
+  }
+
+  public override getTercetoForm(): string {
+    return this.number.toString();
   }
 
   public override getLatexForm(): string {

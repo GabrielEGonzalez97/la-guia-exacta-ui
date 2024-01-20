@@ -22,26 +22,6 @@ export class TercetoMatrizTriangularSuperior extends TercetoUnaryOperator {
     super(operator, operand, parentheses);
   }
 
-  public override getLatexForm(): string {
-    const latexForm: string = this.getExpressionWithParentheses(
-      `${this.operand.getLatexForm()}`
-    );
-
-    return latexForm;
-  }
-
-  public override getTercetoType(): string {
-    if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
-      throw new Error(
-        'No se puede calcular la matriz triangular superior de un número'
-      );
-    } else if (this.evaluateOperandsTypes(MATRIX_TYPE)) {
-      return MATRIX_TYPE;
-    }
-
-    return null;
-  }
-
   public override getResultado(): number | IMatrixElement[][] {
     this.intermediateSteps = [];
     if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
@@ -96,6 +76,26 @@ export class TercetoMatrizTriangularSuperior extends TercetoUnaryOperator {
       }
 
       return matrix;
+    }
+
+    return null;
+  }
+
+  public override getLatexForm(): string {
+    const latexForm: string = this.getExpressionWithParentheses(
+      `${this.operand.getLatexForm()}`
+    );
+
+    return latexForm;
+  }
+
+  public override getTercetoType(): string {
+    if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
+      throw new Error(
+        'No se puede calcular la matriz triangular superior de un número'
+      );
+    } else if (this.evaluateOperandsTypes(MATRIX_TYPE)) {
+      return MATRIX_TYPE;
     }
 
     return null;

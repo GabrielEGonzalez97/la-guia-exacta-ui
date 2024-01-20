@@ -22,26 +22,6 @@ export class TercetoDeterminanteSarrus extends TercetoUnaryOperator {
     super(operator, operand, parentheses);
   }
 
-  public override getLatexForm(): string {
-    const latexForm: string = this.getExpressionWithParentheses(
-      `${getDeterminanteMatrixLatexForm(
-        this.operand.getResultado() as IMatrixElement[][]
-      )}`
-    );
-
-    return latexForm;
-  }
-
-  public override getTercetoType(): string {
-    if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
-      throw new Error('No se puede calcular el determinante de un número');
-    } else if (this.evaluateOperandsTypes(MATRIX_TYPE)) {
-      return NUMBER_TYPE;
-    }
-
-    return null;
-  }
-
   public override getResultado(): number | IMatrixElement[][] {
     this.intermediateSteps = [];
     if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
@@ -274,6 +254,26 @@ export class TercetoDeterminanteSarrus extends TercetoUnaryOperator {
       } else {
         throw new Error('La regla de Sarrus solo se aplica a matrices 3x3');
       }
+    }
+
+    return null;
+  }
+
+  public override getLatexForm(): string {
+    const latexForm: string = this.getExpressionWithParentheses(
+      `${getDeterminanteMatrixLatexForm(
+        this.operand.getResultado() as IMatrixElement[][]
+      )}`
+    );
+
+    return latexForm;
+  }
+
+  public override getTercetoType(): string {
+    if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
+      throw new Error('No se puede calcular el determinante de un número');
+    } else if (this.evaluateOperandsTypes(MATRIX_TYPE)) {
+      return NUMBER_TYPE;
     }
 
     return null;
