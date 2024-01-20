@@ -9,6 +9,7 @@ import {
   COS_TYPE,
   DETERMINANTE_2_x_2_TYPE,
   MATRIX_TYPE,
+  MATRIZ_TRIANGULAR_INFERIOR,
   MATRIZ_TRIANGULAR_SUPERIOR,
   MAT_INV_TYPE,
   NUMBER_TYPE,
@@ -458,6 +459,12 @@ export class OperacionesConMatricesComponent implements OnInit {
         } else if (terceto.operator === MATRIZ_TRIANGULAR_SUPERIOR) {
           this.steps.push({
             description: `Se calcula la matriz triangular superior de ${commonText}`,
+            latexExpression: newPartialExpression,
+            intermediateSteps: terceto.getIntermediateSteps(),
+          });
+        } else if (terceto.operator === MATRIZ_TRIANGULAR_INFERIOR) {
+          this.steps.push({
+            description: `Se calcula la matriz triangular inferior de ${commonText}`,
             latexExpression: newPartialExpression,
             intermediateSteps: terceto.getIntermediateSteps(),
           });

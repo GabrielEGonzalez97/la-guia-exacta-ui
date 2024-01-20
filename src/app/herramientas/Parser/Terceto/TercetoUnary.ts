@@ -15,6 +15,7 @@ import {
   COS_TYPE,
   DETERMINANTE_2_x_2_TYPE,
   MATRIX_TYPE,
+  MATRIZ_TRIANGULAR_INFERIOR,
   MATRIZ_TRIANGULAR_SUPERIOR,
   MAT_INV_TYPE,
   NUMBER_TYPE,
@@ -69,6 +70,8 @@ export class TercetoUnary extends TercetoOperator {
         this.operand.getResultado() as IMatrixElement[][]
       )}${rightParenthesis}`;
     } else if (this.operator === MATRIZ_TRIANGULAR_SUPERIOR) {
+      latexForm = `${leftParenthesis}${this.operand.getLatexForm()}${rightParenthesis}`;
+    } else if (this.operator === MATRIZ_TRIANGULAR_INFERIOR) {
       latexForm = `${leftParenthesis}${this.operand.getLatexForm()}${rightParenthesis}`;
     }
     return latexForm;
@@ -133,6 +136,14 @@ export class TercetoUnary extends TercetoOperator {
       if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
         throw new Error(
           'No se puede calcular la matriz triangular superior de un número'
+        );
+      } else if (this.evaluateOperandsTypes(MATRIX_TYPE)) {
+        return MATRIX_TYPE;
+      }
+    } else if (this.operator === MATRIZ_TRIANGULAR_INFERIOR) {
+      if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
+        throw new Error(
+          'No se puede calcular la matriz triangular inferior de un número'
         );
       } else if (this.evaluateOperandsTypes(MATRIX_TYPE)) {
         return MATRIX_TYPE;
@@ -615,6 +626,60 @@ export class TercetoUnary extends TercetoOperator {
 
         return matrix;
       }
+    } else if (this.operator === MATRIZ_TRIANGULAR_INFERIOR) {
+      if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
+        throw new Error(
+          'No se puede calcular la matriz triangular inferior de un número'
+        );
+      } else if (this.evaluateOperandsTypes(MATRIX_TYPE)) {
+        const matrix: IMatrixElement[][] = JSON.parse(
+          JSON.stringify(
+            (this.operand.getResultado() as IMatrixElement[][]).map(
+              (row: IMatrixElement[]) => row.map((element) => ({ ...element }))
+            )
+          )
+        );
+
+        const numRows: number = matrix.length;
+        const numCols: number = matrix[0].length;
+
+        for (let col: number = numCols - 1; col > 0; col--) {
+          for (let row: number = col - 1; row >= 0; row--) {
+            const factor: number =
+              getMatrixCellValue(matrix[row][col]) /
+              getMatrixCellValue(matrix[col][col]);
+            for (let i = col; i >= 0; i--) {
+              matrix[row][i].value = (
+                getMatrixCellValue(matrix[row][i]) -
+                factor * getMatrixCellValue(matrix[col][i])
+              ).toString();
+            }
+
+            const fraction: Fraction = new Fraction(factor);
+
+            const numerator: number = fraction.n;
+            const denominator: number = fraction.d;
+
+            const minusSign: string = factor < 0 ? '-' : '';
+            let fractionString: string = `${numerator} \\over ${denominator}`;
+
+            if (denominator === 1) {
+              fractionString = numerator.toString();
+            }
+            const operationToShow: string = minusSign
+              ? `+ $${fractionString}$`
+              : `- $${fractionString}$`;
+            this.intermediateSteps.push({
+              description: `Se realiza la operación F${row + 1} = F${
+                row + 1
+              } ${operationToShow} $*$ F${col + 1}`,
+              latexExpression: getMatrixLatexForm(matrix),
+            });
+          }
+        }
+
+        return matrix;
+      }
     }
 
     return null;
@@ -658,6 +723,10 @@ export class TercetoUnary extends TercetoOperator {
         this.operand.getResultado() as IMatrixElement[][]
       )}${rightParenthesis}`;
     } else if (this.operator === MATRIZ_TRIANGULAR_SUPERIOR) {
+      latexForm = `${leftParenthesis}${getCorrectFormToDisplay(
+        this.operand
+      )}${rightParenthesis}`;
+    } else if (this.operator === MATRIZ_TRIANGULAR_INFERIOR) {
       latexForm = `${leftParenthesis}${getCorrectFormToDisplay(
         this.operand
       )}${rightParenthesis}`;
