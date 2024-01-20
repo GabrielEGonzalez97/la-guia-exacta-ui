@@ -375,11 +375,6 @@ export class OperacionesConMatricesComponent implements OnInit {
           result
         );
 
-        // console.log({ lastPartialExpression });
-        // console.log(terceto.getLatexFormResult());
-        // console.log({ result });
-        // console.log({ newPartialExpression });
-        // console.log('');
         if (stepNumber === tercetos.length) {
           newPartialExpression = `$${result}$`;
         }
