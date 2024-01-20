@@ -66,9 +66,9 @@ export class TercetoMatrizTriangularInferior extends TercetoUnaryOperator {
             ? `+ $${fractionString}$`
             : `- $${fractionString}$`;
           this.intermediateSteps.push({
-            description: `Se realiza la operación F${row + 1} = F${
+            description: `Se realiza la operación F$_{${row + 1}}$ = F$_{${
               row + 1
-            } ${operationToShow} $*$ F${col + 1}`,
+            }}$ ${operationToShow} $*$ F$_{${col + 1}}$`,
             latexExpression: getMatrixLatexForm(matrix),
           });
         }
