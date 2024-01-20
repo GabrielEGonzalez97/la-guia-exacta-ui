@@ -99,3 +99,26 @@
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
 }
+
+.math-content-within-button ::ng-deep {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .jax-process {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .MathJax {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        width: 80%;
+        height: 80%;
+      }
+    }
+  }
+}
