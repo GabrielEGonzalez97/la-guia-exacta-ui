@@ -85,9 +85,10 @@ export class TercetoMatrizTriangularInferior extends TercetoUnaryOperator {
   }
 
   public override getLatexForm(): string {
-    const latexForm: string = this.getExpressionWithParentheses(
-      `${this.operand.getLatexForm()}`
-    );
+    const latexForm: string =
+      '\\text{matriz_triangular_inferior}(' +
+      this.getExpressionWithParentheses(`${this.operand.getLatexForm()}`) +
+      ')';
 
     return latexForm;
   }
@@ -105,9 +106,12 @@ export class TercetoMatrizTriangularInferior extends TercetoUnaryOperator {
   }
 
   public override getLatexFormResult(): string {
-    const latexForm: string = this.getExpressionWithParentheses(
-      `${getCorrectFormToDisplay(this.operand)}`
-    );
+    const latexForm: string =
+      '\\text{matriz_triangular_inferior}(' +
+      this.getExpressionWithParentheses(
+        `${getCorrectFormToDisplay(this.operand)}`
+      ) +
+      ')';
 
     return latexForm;
   }

@@ -155,9 +155,10 @@ export class TercetoMatrizDiagonal extends TercetoUnaryOperator {
   }
 
   public override getLatexForm(): string {
-    const latexForm: string = this.getExpressionWithParentheses(
-      `${this.operand.getLatexForm()}`
-    );
+    const latexForm: string =
+      '\\text{matriz_diagonal}(' +
+      this.getExpressionWithParentheses(`${this.operand.getLatexForm()}`) +
+      ')';
 
     return latexForm;
   }
@@ -173,9 +174,12 @@ export class TercetoMatrizDiagonal extends TercetoUnaryOperator {
   }
 
   public override getLatexFormResult(): string {
-    const latexForm: string = this.getExpressionWithParentheses(
-      `${getCorrectFormToDisplay(this.operand)}`
-    );
+    const latexForm: string =
+      '\\text{matriz_diagonal}(' +
+      this.getExpressionWithParentheses(
+        `${getCorrectFormToDisplay(this.operand)}`
+      ) +
+      ')';
 
     return latexForm;
   }
