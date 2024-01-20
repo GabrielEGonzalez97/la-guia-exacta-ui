@@ -8,6 +8,7 @@ import { TercetoUnaryOperator } from './Terceto/TercetoAbstractoImplementations/
 import { TercetoCoseno } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoCoseno';
 import { TercetoDeterminante2x2 } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoDeterminante2x2';
 import { TercetoDeterminanteSarrus } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoDeterminanteSarrus';
+import { TercetoMatrizDiagonal } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoMatrizDiagonal';
 import { TercetoMatrizInversa } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoMatrizInversa';
 import { TercetoMatrizTranspuesta } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoMatrizTranspuesta';
 import { TercetoMatrizTriangularInferior } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoMatrizTriangularInferior';
@@ -19,16 +20,17 @@ import { Token } from './Token';
 import {
   COS_TYPE,
   DETERMINANTE_2_x_2_TYPE,
+  DETERMINANTE_SARRUS_TYPE,
   MATRIX_TYPE,
+  MATRIZ_DIAGONAL,
+  MATRIZ_INVERTIDA_TYPE,
+  MATRIZ_TRANSPUESTA_TYPE,
   MATRIZ_TRIANGULAR_INFERIOR,
   MATRIZ_TRIANGULAR_SUPERIOR,
-  MAT_INV_TYPE,
   NUMBER_TYPE,
-  SARRUS_TYPE,
   SIN_TYPE,
   SQRT_TYPE,
   TAN_TYPE,
-  TRANSPUESTA_TYPE,
   UNARY_FUNCTIONS,
 } from './constants';
 
@@ -211,23 +213,28 @@ export class Parser {
         left: false,
         right: false,
       });
-    } else if (functionName === MAT_INV_TYPE) {
-      return new TercetoMatrizInversa(functionName, expression, {
-        left: false,
-        right: false,
-      });
-    } else if (functionName === TRANSPUESTA_TYPE) {
-      return new TercetoMatrizTranspuesta(functionName, expression, {
-        left: false,
-        right: false,
-      });
     } else if (functionName === DETERMINANTE_2_x_2_TYPE) {
       return new TercetoDeterminante2x2(functionName, expression, {
         left: false,
         right: false,
       });
-    } else if (functionName === SARRUS_TYPE) {
+    } else if (functionName === DETERMINANTE_SARRUS_TYPE) {
       return new TercetoDeterminanteSarrus(functionName, expression, {
+        left: false,
+        right: false,
+      });
+    } else if (functionName === MATRIZ_INVERTIDA_TYPE) {
+      return new TercetoMatrizInversa(functionName, expression, {
+        left: false,
+        right: false,
+      });
+    } else if (functionName === MATRIZ_TRANSPUESTA_TYPE) {
+      return new TercetoMatrizTranspuesta(functionName, expression, {
+        left: false,
+        right: false,
+      });
+    } else if (functionName === MATRIZ_DIAGONAL) {
+      return new TercetoMatrizDiagonal(functionName, expression, {
         left: false,
         right: false,
       });

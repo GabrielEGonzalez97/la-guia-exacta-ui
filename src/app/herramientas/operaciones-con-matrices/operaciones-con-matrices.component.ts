@@ -8,16 +8,17 @@ import { TercetoBinaryOperator } from '../Parser/Terceto/TercetoAbstractoImpleme
 import {
   COS_TYPE,
   DETERMINANTE_2_x_2_TYPE,
+  DETERMINANTE_SARRUS_TYPE,
   MATRIX_TYPE,
+  MATRIZ_DIAGONAL,
+  MATRIZ_INVERTIDA_TYPE,
+  MATRIZ_TRANSPUESTA_TYPE,
   MATRIZ_TRIANGULAR_INFERIOR,
   MATRIZ_TRIANGULAR_SUPERIOR,
-  MAT_INV_TYPE,
   NUMBER_TYPE,
-  SARRUS_TYPE,
   SIN_TYPE,
   SQRT_TYPE,
   TAN_TYPE,
-  TRANSPUESTA_TYPE,
   UNARY_FUNCTIONS,
 } from '../Parser/constants';
 import {
@@ -435,26 +436,32 @@ export class OperacionesConMatricesComponent implements OnInit {
             description: `Se calcula la raíz de ${commonText}`,
             latexExpression: newPartialExpression,
           });
-        } else if (terceto.operator === MAT_INV_TYPE) {
-          this.steps.push({
-            description: `Se calcula la matriz inversa de ${commonText}`,
-            latexExpression: newPartialExpression,
-          });
-        } else if (terceto.operator === TRANSPUESTA_TYPE) {
-          this.steps.push({
-            description: `Se calcula la matriz transpuesta de ${commonText}`,
-            latexExpression: newPartialExpression,
-            intermediateSteps: terceto.getIntermediateSteps(),
-          });
         } else if (terceto.operator === DETERMINANTE_2_x_2_TYPE) {
           this.steps.push({
             description: `Se calcula el determinante de ${commonText}`,
             latexExpression: newPartialExpression,
             intermediateSteps: terceto.getIntermediateSteps(),
           });
-        } else if (terceto.operator === SARRUS_TYPE) {
+        } else if (terceto.operator === DETERMINANTE_SARRUS_TYPE) {
           this.steps.push({
             description: `Se calcula el determinante a través del método de Sarrus de ${commonText}`,
+            latexExpression: newPartialExpression,
+            intermediateSteps: terceto.getIntermediateSteps(),
+          });
+        } else if (terceto.operator === MATRIZ_INVERTIDA_TYPE) {
+          this.steps.push({
+            description: `Se calcula la matriz inversa de ${commonText}`,
+            latexExpression: newPartialExpression,
+          });
+        } else if (terceto.operator === MATRIZ_TRANSPUESTA_TYPE) {
+          this.steps.push({
+            description: `Se calcula la matriz transpuesta de ${commonText}`,
+            latexExpression: newPartialExpression,
+            intermediateSteps: terceto.getIntermediateSteps(),
+          });
+        } else if (terceto.operator === MATRIZ_DIAGONAL) {
+          this.steps.push({
+            description: `Se calcula la matriz diagonal de ${commonText}`,
             latexExpression: newPartialExpression,
             intermediateSteps: terceto.getIntermediateSteps(),
           });
