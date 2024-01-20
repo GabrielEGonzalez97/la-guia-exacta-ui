@@ -40,102 +40,112 @@ export class TercetoMatrizDiagonal extends TercetoUnaryOperator {
 
       for (let col: number = 0; col < numCols - 1; col++) {
         for (let row: number = col + 1; row < numRows; row++) {
-          const factor: number =
-            getMatrixCellValue(matrix[row][col]) /
-            getMatrixCellValue(matrix[col][col]);
-          for (let i = col; i < numCols; i++) {
-            matrix[row][i].value = (
-              getMatrixCellValue(matrix[row][i]) -
-              factor * getMatrixCellValue(matrix[col][i])
-            ).toString();
+          if (getMatrixCellValue(matrix[col][col]) !== 0) {
+            const factor: number =
+              getMatrixCellValue(matrix[row][col]) /
+              getMatrixCellValue(matrix[col][col]);
+            if (factor !== 0) {
+              for (let i = col; i < numCols; i++) {
+                matrix[row][i].value = (
+                  getMatrixCellValue(matrix[row][i]) -
+                  factor * getMatrixCellValue(matrix[col][i])
+                ).toString();
+              }
+
+              const fraction: Fraction = new Fraction(factor);
+
+              const numerator: number = fraction.n;
+              const denominator: number = fraction.d;
+
+              const minusSign: string = factor < 0 ? '-' : '';
+              let fractionString: string = `${numerator} \\over ${denominator}`;
+
+              if (denominator === 1) {
+                fractionString = numerator.toString();
+              }
+              const operationToShow: string = minusSign
+                ? `+ $${fractionString}$`
+                : `- $${fractionString}$`;
+              this.intermediateSteps.push({
+                description: `Se realiza la operación F$_{${row + 1}}$ = F$_{${
+                  row + 1
+                }}$ ${operationToShow} $*$ F$_{${col + 1}}$`,
+                latexExpression: getMatrixLatexForm(matrix),
+              });
+            }
           }
-
-          const fraction: Fraction = new Fraction(factor);
-
-          const numerator: number = fraction.n;
-          const denominator: number = fraction.d;
-
-          const minusSign: string = factor < 0 ? '-' : '';
-          let fractionString: string = `${numerator} \\over ${denominator}`;
-
-          if (denominator === 1) {
-            fractionString = numerator.toString();
-          }
-          const operationToShow: string = minusSign
-            ? `+ $${fractionString}$`
-            : `- $${fractionString}$`;
-          this.intermediateSteps.push({
-            description: `Se realiza la operación F$_{${row + 1}}$ = F$_{${
-              row + 1
-            }}$ ${operationToShow} $*$ F$_{${col + 1}}$`,
-            latexExpression: getMatrixLatexForm(matrix),
-          });
         }
       }
 
       for (let col: number = numCols - 1; col > 0; col--) {
         for (let row: number = col - 1; row >= 0; row--) {
-          const factor: number =
-            getMatrixCellValue(matrix[row][col]) /
-            getMatrixCellValue(matrix[col][col]);
-          for (let i = col; i >= 0; i--) {
-            matrix[row][i].value = (
-              getMatrixCellValue(matrix[row][i]) -
-              factor * getMatrixCellValue(matrix[col][i])
-            ).toString();
+          if (getMatrixCellValue(matrix[col][col]) !== 0) {
+            const factor: number =
+              getMatrixCellValue(matrix[row][col]) /
+              getMatrixCellValue(matrix[col][col]);
+            if (factor !== 0) {
+              for (let i = col; i >= 0; i--) {
+                matrix[row][i].value = (
+                  getMatrixCellValue(matrix[row][i]) -
+                  factor * getMatrixCellValue(matrix[col][i])
+                ).toString();
+              }
+
+              const fraction: Fraction = new Fraction(factor);
+
+              const numerator: number = fraction.n;
+              const denominator: number = fraction.d;
+
+              const minusSign: string = factor < 0 ? '-' : '';
+              let fractionString: string = `${numerator} \\over ${denominator}`;
+
+              if (denominator === 1) {
+                fractionString = numerator.toString();
+              }
+              const operationToShow: string = minusSign
+                ? `+ $${fractionString}$`
+                : `- $${fractionString}$`;
+              this.intermediateSteps.push({
+                description: `Se realiza la operación F$_{${row + 1}}$ = F$_{${
+                  row + 1
+                }}$ ${operationToShow} $*$ F$_{${col + 1}}$`,
+                latexExpression: getMatrixLatexForm(matrix),
+              });
+            }
           }
-
-          const fraction: Fraction = new Fraction(factor);
-
-          const numerator: number = fraction.n;
-          const denominator: number = fraction.d;
-
-          const minusSign: string = factor < 0 ? '-' : '';
-          let fractionString: string = `${numerator} \\over ${denominator}`;
-
-          if (denominator === 1) {
-            fractionString = numerator.toString();
-          }
-          const operationToShow: string = minusSign
-            ? `+ $${fractionString}$`
-            : `- $${fractionString}$`;
-          this.intermediateSteps.push({
-            description: `Se realiza la operación F$_{${row + 1}}$ = F$_{${
-              row + 1
-            }}$ ${operationToShow} $*$ F$_{${col + 1}}$`,
-            latexExpression: getMatrixLatexForm(matrix),
-          });
         }
       }
 
       for (let row: number = 0; row < numRows; row++) {
         const divisor: number = getMatrixCellValue(matrix[row][row]);
-        for (let col: number = 0; col < numCols; col++) {
-          matrix[row][col].value = (
-            getMatrixCellValue(matrix[row][col]) / divisor
-          ).toString();
+        if (divisor !== 0) {
+          for (let col: number = 0; col < numCols; col++) {
+            matrix[row][col].value = (
+              getMatrixCellValue(matrix[row][col]) / divisor
+            ).toString();
+          }
+
+          const fraction: Fraction = new Fraction(divisor);
+
+          const numerator: number = fraction.n;
+          const denominator: number = fraction.d;
+
+          const minusSign: string = divisor < 0 ? '-' : '';
+          let fractionString: string = `{${numerator} \\over ${denominator}}`;
+
+          if (denominator === 1) {
+            fractionString = numerator.toString();
+          }
+          const operationToShow: string = minusSign
+            ? `$(-\{1 \\over ${fractionString}\})$`
+            : `$\{1 \\over ${fractionString}\}$`;
+          this.intermediateSteps.push({
+            description: `Se realiza la operación F$_{${row + 1}}$ = F$_{${
+              row + 1
+            }}$ $*$ ${operationToShow}`,
+            latexExpression: getMatrixLatexForm(matrix),
+          });
         }
-
-        const fraction: Fraction = new Fraction(divisor);
-
-        const numerator: number = fraction.n;
-        const denominator: number = fraction.d;
-
-        const minusSign: string = divisor < 0 ? '-' : '';
-        let fractionString: string = `{${numerator} \\over ${denominator}}`;
-
-        if (denominator === 1) {
-          fractionString = numerator.toString();
-        }
-        const operationToShow: string = minusSign
-          ? `$(-\{1 \\over ${fractionString}\})$`
-          : `$\{1 \\over ${fractionString}\}$`;
-        this.intermediateSteps.push({
-          description: `Se realiza la operación F$_{${row + 1}}$ = F$_{${
-            row + 1
-          }}$ $*$ ${operationToShow}`,
-          latexExpression: getMatrixLatexForm(matrix),
-        });
       }
 
       return matrix;
