@@ -22,11 +22,11 @@ export class TercetoDeterminante2x2 extends TercetoUnaryOperator {
   }
 
   public override getLatexForm(): string {
-    const leftParenthesis: string = this.parentheses.left ? '(' : '';
-    const rightParenthesis: string = this.parentheses.right ? ')' : '';
-    const latexForm: string = `${leftParenthesis}${getDeterminanteMatrixLatexForm(
-      this.operand.getResultado() as IMatrixElement[][]
-    )}${rightParenthesis}`;
+    const latexForm: string = this.getExpressionWithParentheses(
+      `${getDeterminanteMatrixLatexForm(
+        this.operand.getResultado() as IMatrixElement[][]
+      )}`
+    );
 
     return latexForm;
   }
@@ -108,11 +108,11 @@ export class TercetoDeterminante2x2 extends TercetoUnaryOperator {
   }
 
   public override getLatexFormResult(): string {
-    const leftParenthesis: string = this.parentheses.left ? '(' : '';
-    const rightParenthesis: string = this.parentheses.right ? ')' : '';
-    const latexForm: string = `${leftParenthesis}${getDeterminanteMatrixLatexForm(
-      this.operand.getResultado() as IMatrixElement[][]
-    )}${rightParenthesis}`;
+    const latexForm: string = this.getExpressionWithParentheses(
+      `${getDeterminanteMatrixLatexForm(
+        this.operand.getResultado() as IMatrixElement[][]
+      )}`
+    );
 
     return latexForm;
   }

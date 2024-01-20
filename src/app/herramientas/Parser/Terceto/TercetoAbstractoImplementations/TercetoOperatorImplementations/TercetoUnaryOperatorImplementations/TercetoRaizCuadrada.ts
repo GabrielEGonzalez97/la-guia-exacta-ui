@@ -18,9 +18,9 @@ export class TercetoRaizCuadrada extends TercetoUnaryOperator {
   }
 
   public override getLatexForm(): string {
-    const leftParenthesis: string = this.parentheses.left ? '(' : '';
-    const rightParenthesis: string = this.parentheses.right ? ')' : '';
-    const latexForm: string = `${leftParenthesis}\\sqrt{${this.operand.getLatexForm()}}${rightParenthesis}`;
+    const latexForm: string = this.getExpressionWithParentheses(
+      `\\sqrt{${this.operand.getLatexForm()}}`
+    );
 
     return latexForm;
   }
@@ -47,11 +47,9 @@ export class TercetoRaizCuadrada extends TercetoUnaryOperator {
   }
 
   public override getLatexFormResult(): string {
-    const leftParenthesis: string = this.parentheses.left ? '(' : '';
-    const rightParenthesis: string = this.parentheses.right ? ')' : '';
-    const latexForm: string = `${leftParenthesis}\\sqrt{${getCorrectFormToDisplay(
-      this.operand
-    )}}${rightParenthesis}`;
+    const latexForm: string = this.getExpressionWithParentheses(
+      `\\sqrt{${getCorrectFormToDisplay(this.operand)}}`
+    );
 
     return latexForm;
   }

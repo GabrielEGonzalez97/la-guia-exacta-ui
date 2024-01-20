@@ -336,17 +336,21 @@ export class TercetoBinaryOperator extends TercetoOperator {
   }
 
   public override getLatexForm(): string {
-    const leftParenthesis: string = this.parentheses.left ? '(' : '';
-    const rightParenthesis: string = this.parentheses.right ? ')' : '';
     let latexForm: string = '';
     if (this.operator === '/') {
-      latexForm = `${leftParenthesis}{${this.operand1.getLatexForm()} \\over ${this.operand2.getLatexForm()}}${rightParenthesis}`;
+      latexForm = this.getExpressionWithParentheses(
+        `{${this.operand1.getLatexForm()} \\over ${this.operand2.getLatexForm()}}`
+      );
     } else if (this.operator === '^') {
-      latexForm = `${leftParenthesis}${this.operand1.getLatexForm()}^{${this.operand2.getLatexForm()}}${rightParenthesis}`;
+      latexForm = this.getExpressionWithParentheses(
+        `${this.operand1.getLatexForm()}^{${this.operand2.getLatexForm()}}`
+      );
     } else {
-      latexForm = `${leftParenthesis}${this.operand1.getLatexForm()} ${
-        this.operator
-      } ${this.operand2.getLatexForm()}${rightParenthesis}`;
+      latexForm = this.getExpressionWithParentheses(
+        `${this.operand1.getLatexForm()} ${
+          this.operator
+        } ${this.operand2.getLatexForm()}`
+      );
     }
     return latexForm;
   }
@@ -413,19 +417,19 @@ export class TercetoBinaryOperator extends TercetoOperator {
   }
 
   public override getLatexFormResult(): string {
-    const leftParenthesis: string = this.parentheses.left ? '(' : '';
-    const rightParenthesis: string = this.parentheses.right ? ')' : '';
     let latexForm: string = '';
     if (this.operator === '/') {
-      latexForm = `${leftParenthesis}{${getCorrectFormToDisplay(
-        this.operand1
-      )} \\over ${getCorrectFormToDisplay(this.operand2)}}${rightParenthesis}`;
+      latexForm = this.getExpressionWithParentheses(
+        `{${getCorrectFormToDisplay(
+          this.operand1
+        )} \\over ${getCorrectFormToDisplay(this.operand2)}}`
+      );
     } else {
-      latexForm = `${leftParenthesis}${getCorrectFormToDisplay(
-        this.operand1
-      )} ${this.operator} ${getCorrectFormToDisplay(
-        this.operand2
-      )}${rightParenthesis}`;
+      latexForm = this.getExpressionWithParentheses(
+        `${getCorrectFormToDisplay(this.operand1)} ${
+          this.operator
+        } ${getCorrectFormToDisplay(this.operand2)}`
+      );
     }
     return latexForm;
   }

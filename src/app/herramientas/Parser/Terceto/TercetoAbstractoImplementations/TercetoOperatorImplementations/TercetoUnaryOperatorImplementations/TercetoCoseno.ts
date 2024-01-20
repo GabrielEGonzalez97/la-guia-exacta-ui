@@ -18,9 +18,9 @@ export class TercetoCoseno extends TercetoUnaryOperator {
   }
 
   public override getLatexForm(): string {
-    const leftParenthesis: string = this.parentheses.left ? '(' : '';
-    const rightParenthesis: string = this.parentheses.right ? ')' : '';
-    const latexForm: string = `${leftParenthesis}\\cos(${this.operand.getLatexForm()})${rightParenthesis}`;
+    const latexForm: string = this.getExpressionWithParentheses(
+      `\\cos(${this.operand.getLatexForm()})`
+    );
 
     return latexForm;
   }
@@ -47,11 +47,9 @@ export class TercetoCoseno extends TercetoUnaryOperator {
   }
 
   public override getLatexFormResult(): string {
-    const leftParenthesis: string = this.parentheses.left ? '(' : '';
-    const rightParenthesis: string = this.parentheses.right ? ')' : '';
-    const latexForm: string = `${leftParenthesis}\\cos(${getCorrectFormToDisplay(
-      this.operand
-    )})${rightParenthesis}`;
+    const latexForm: string = this.getExpressionWithParentheses(
+      `\\cos(${getCorrectFormToDisplay(this.operand)})`
+    );
 
     return latexForm;
   }

@@ -19,9 +19,7 @@ export class TercetoNumerico extends TercetoAbstracto {
   }
 
   public override getLatexForm(): string {
-    const leftParenthesis: string = this.parentheses.left ? '(' : '';
-    const rightParenthesis: string = this.parentheses.right ? ')' : '';
-    return `${leftParenthesis}${this.number.toString()}${rightParenthesis}`;
+    return this.getExpressionWithParentheses(this.number.toString());
   }
 
   public override getTercetoType(): string {

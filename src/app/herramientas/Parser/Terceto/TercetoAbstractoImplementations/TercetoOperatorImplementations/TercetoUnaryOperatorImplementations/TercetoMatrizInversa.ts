@@ -18,9 +18,9 @@ export class TercetoMatrizInversa extends TercetoUnaryOperator {
   }
 
   public override getLatexForm(): string {
-    const leftParenthesis: string = this.parentheses.left ? '(' : '';
-    const rightParenthesis: string = this.parentheses.right ? ')' : '';
-    const latexForm: string = `${leftParenthesis}${this.operand.getLatexForm()}^{-1}${rightParenthesis}`;
+    const latexForm: string = this.getExpressionWithParentheses(
+      `${this.operand.getLatexForm()}^{-1}`
+    );
 
     return latexForm;
   }
@@ -111,11 +111,9 @@ export class TercetoMatrizInversa extends TercetoUnaryOperator {
   }
 
   public override getLatexFormResult(): string {
-    const leftParenthesis: string = this.parentheses.left ? '(' : '';
-    const rightParenthesis: string = this.parentheses.right ? ')' : '';
-    const latexForm: string = `${leftParenthesis}${getCorrectFormToDisplay(
-      this.operand
-    )}^{-1}${rightParenthesis}`;
+    const latexForm: string = this.getExpressionWithParentheses(
+      `${getCorrectFormToDisplay(this.operand)}^{-1}`
+    );
 
     return latexForm;
   }

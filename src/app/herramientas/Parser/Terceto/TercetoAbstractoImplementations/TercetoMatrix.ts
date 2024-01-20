@@ -13,10 +13,8 @@ export class TercetoMatrix extends TercetoAbstracto {
   }
 
   public override getLatexForm(): string {
-    const leftParenthesis: string = this.parentheses.left ? '(' : '';
-    const rightParenthesis: string = this.parentheses.right ? ')' : '';
     const matrixBody: string = getMatrixLatexForm(this.matrix);
-    return `${leftParenthesis}${matrixBody}${rightParenthesis}`;
+    return this.getExpressionWithParentheses(matrixBody);
   }
 
   public override getResultado(): IMatrixElement[][] {

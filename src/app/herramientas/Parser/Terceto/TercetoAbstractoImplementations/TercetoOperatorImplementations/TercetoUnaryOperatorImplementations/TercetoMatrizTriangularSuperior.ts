@@ -23,9 +23,9 @@ export class TercetoMatrizTriangularSuperior extends TercetoUnaryOperator {
   }
 
   public override getLatexForm(): string {
-    const leftParenthesis: string = this.parentheses.left ? '(' : '';
-    const rightParenthesis: string = this.parentheses.right ? ')' : '';
-    const latexForm: string = `${leftParenthesis}${this.operand.getLatexForm()}${rightParenthesis}`;
+    const latexForm: string = this.getExpressionWithParentheses(
+      `${this.operand.getLatexForm()}`
+    );
 
     return latexForm;
   }
@@ -102,11 +102,9 @@ export class TercetoMatrizTriangularSuperior extends TercetoUnaryOperator {
   }
 
   public override getLatexFormResult(): string {
-    const leftParenthesis: string = this.parentheses.left ? '(' : '';
-    const rightParenthesis: string = this.parentheses.right ? ')' : '';
-    const latexForm: string = `${leftParenthesis}${getCorrectFormToDisplay(
-      this.operand
-    )}${rightParenthesis}`;
+    const latexForm: string = this.getExpressionWithParentheses(
+      `${getCorrectFormToDisplay(this.operand)}`
+    );
 
     return latexForm;
   }
