@@ -1,6 +1,6 @@
-import { NUMBER_TYPE } from '../constants';
-import { TercetoAbstracto } from './TercetoAbstracto';
-import { IParentheses } from './interfaces';
+import { NUMBER_TYPE } from '../../constants';
+import { TercetoAbstracto } from '../TercetoAbstracto';
+import { IParentheses } from '../interfaces';
 
 export class TercetoNumerico extends TercetoAbstracto {
   public number: number;

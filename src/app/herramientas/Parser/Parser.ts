@@ -1,10 +1,10 @@
 import { IMatrixWithName } from '../operaciones-con-matrices/matrix/interfaces';
 import { Lexer } from './Lexer';
 import { TercetoAbstracto } from './Terceto/TercetoAbstracto';
-import { TercetoBinaryOperator } from './Terceto/TercetoBinaryOperator';
-import { TercetoMatrix } from './Terceto/TercetoMatrix';
-import { TercetoNumerico } from './Terceto/TercetoNumerico';
-import { TercetoUnaryOperator } from './Terceto/TercetoUnaryOperator';
+import { TercetoMatrix } from './Terceto/TercetoAbstractoImplementations/TercetoMatrix';
+import { TercetoNumerico } from './Terceto/TercetoAbstractoImplementations/TercetoNumerico';
+import { TercetoBinaryOperator } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoBinaryOperator';
+import { TercetoUnaryOperator } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperator';
 import { Token } from './Token';
 import { MATRIX_TYPE, NUMBER_TYPE, UNARY_FUNCTIONS } from './constants';
 

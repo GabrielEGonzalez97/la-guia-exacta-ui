@@ -9,8 +9,8 @@ import {
   getDeterminanteMatrixLatexFormWithMultiplicationsAndColors,
   getMatrixCellValue,
   getMatrixLatexForm,
-} from '../../commonFunctions';
-import { IMatrixElement } from '../../operaciones-con-matrices/matrix/interfaces';
+} from '../../../../commonFunctions';
+import { IMatrixElement } from '../../../../operaciones-con-matrices/matrix/interfaces';
 import {
   COS_TYPE,
   DETERMINANTE_2_x_2_TYPE,
@@ -24,10 +24,10 @@ import {
   SQRT_TYPE,
   TAN_TYPE,
   TRANSPUESTA_TYPE,
-} from '../constants';
-import { TercetoAbstracto } from './TercetoAbstracto';
-import { TercetoOperator } from './TercetoOperator';
-import { IParentheses } from './interfaces';
+} from '../../../constants';
+import { TercetoAbstracto } from '../../TercetoAbstracto';
+import { IParentheses } from '../../interfaces';
+import { TercetoOperator } from '../TercetoOperator';
 
 export class TercetoUnaryOperator extends TercetoOperator {
   public operand: TercetoAbstracto;

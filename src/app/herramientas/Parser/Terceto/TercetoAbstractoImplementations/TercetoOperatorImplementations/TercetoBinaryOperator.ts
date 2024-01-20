@@ -2,12 +2,12 @@ import {
   getCorrectFormToDisplay,
   getMatrixCellValue,
   getMatrixLatexForm,
-} from '../../commonFunctions';
-import { IMatrixElement } from '../../operaciones-con-matrices/matrix/interfaces';
-import { MATRIX_TYPE, NUMBER_TYPE } from '../constants';
-import { TercetoAbstracto } from './TercetoAbstracto';
-import { TercetoOperator } from './TercetoOperator';
-import { IParentheses } from './interfaces';
+} from '../../../../commonFunctions';
+import { IMatrixElement } from '../../../../operaciones-con-matrices/matrix/interfaces';
+import { MATRIX_TYPE, NUMBER_TYPE } from '../../../constants';
+import { TercetoAbstracto } from '../../TercetoAbstracto';
+import { IParentheses } from '../../interfaces';
+import { TercetoOperator } from '../TercetoOperator';
 
 export class TercetoBinaryOperator extends TercetoOperator {
   public operand1: TercetoAbstracto;

@@ -1,7 +1,7 @@
-import { ICalculationStep } from '../../operaciones-con-matrices/interfaces';
-import { IMatrixElement } from '../../operaciones-con-matrices/matrix/interfaces';
-import { TercetoAbstracto } from './TercetoAbstracto';
-import { IParentheses } from './interfaces';
+import { ICalculationStep } from '../../../operaciones-con-matrices/interfaces';
+import { IMatrixElement } from '../../../operaciones-con-matrices/matrix/interfaces';
+import { TercetoAbstracto } from '../TercetoAbstracto';
+import { IParentheses } from '../interfaces';
 
 export abstract class TercetoOperator extends TercetoAbstracto {
   public operator: string;

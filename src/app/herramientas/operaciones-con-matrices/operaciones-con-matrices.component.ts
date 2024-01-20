@@ -3,8 +3,8 @@ import { ListItem, ModalService } from 'carbon-components-angular';
 import { Lexer } from '../Parser/Lexer';
 import { Parser } from '../Parser/Parser';
 import { TercetoAbstracto } from '../Parser/Terceto/TercetoAbstracto';
-import { TercetoBinaryOperator } from '../Parser/Terceto/TercetoBinaryOperator';
-import { TercetoOperator } from '../Parser/Terceto/TercetoOperator';
+import { TercetoOperator } from '../Parser/Terceto/TercetoAbstractoImplementations/TercetoOperator';
+import { TercetoBinaryOperator } from '../Parser/Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoBinaryOperator';
 import {
   COS_TYPE,
   DETERMINANTE_2_x_2_TYPE,

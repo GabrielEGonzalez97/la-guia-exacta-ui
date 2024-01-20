@@ -1,8 +1,8 @@
-import { getMatrixLatexForm } from '../../commonFunctions';
-import { IMatrixElement } from '../../operaciones-con-matrices/matrix/interfaces';
-import { MATRIX_TYPE } from '../constants';
-import { TercetoAbstracto } from './TercetoAbstracto';
-import { IParentheses } from './interfaces';
+import { getMatrixLatexForm } from '../../../commonFunctions';
+import { IMatrixElement } from '../../../operaciones-con-matrices/matrix/interfaces';
+import { MATRIX_TYPE } from '../../constants';
+import { TercetoAbstracto } from '../TercetoAbstracto';
+import { IParentheses } from '../interfaces';
 
 export class TercetoMatrix extends TercetoAbstracto {
   public matrix: IMatrixElement[][];
