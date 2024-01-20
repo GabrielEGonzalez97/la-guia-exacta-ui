@@ -343,7 +343,7 @@ export class TercetoBinaryOperator extends TercetoOperator {
       );
     } else if (this.operator === '^') {
       latexForm = this.getExpressionWithParentheses(
-        `${this.operand1.getLatexForm()}^{${this.operand2.getLatexForm()}}`
+        `(${this.operand1.getLatexForm()})^{${this.operand2.getLatexForm()}}`
       );
     } else {
       latexForm = this.getExpressionWithParentheses(
@@ -423,6 +423,12 @@ export class TercetoBinaryOperator extends TercetoOperator {
         `{${getCorrectFormToDisplay(
           this.operand1
         )} \\over ${getCorrectFormToDisplay(this.operand2)}}`
+      );
+    } else if (this.operator === '^') {
+      latexForm = this.getExpressionWithParentheses(
+        `(${getCorrectFormToDisplay(this.operand1)})^{${getCorrectFormToDisplay(
+          this.operand2
+        )}}`
       );
     } else {
       latexForm = this.getExpressionWithParentheses(
