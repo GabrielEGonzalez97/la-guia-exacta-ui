@@ -5,8 +5,32 @@ import { TercetoMatrix } from './Terceto/TercetoAbstractoImplementations/Terceto
 import { TercetoNumerico } from './Terceto/TercetoAbstractoImplementations/TercetoNumerico';
 import { TercetoBinaryOperator } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoBinaryOperator';
 import { TercetoUnaryOperator } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperator';
+import { TercetoCoseno } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoCoseno';
+import { TercetoDeterminante2x2 } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoDeterminante2x2';
+import { TercetoDeterminanteSarrus } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoDeterminanteSarrus';
+import { TercetoMatrizInversa } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoMatrizInversa';
+import { TercetoMatrizTranspuesta } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoMatrizTranspuesta';
+import { TercetoMatrizTriangularInferior } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoMatrizTriangularInferior';
+import { TercetoMatrizTriangularSuperior } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoMatrizTriangularSuperior';
+import { TercetoRaizCuadrada } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoRaizCuadrada';
+import { TercetoSeno } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoSeno';
+import { TercetoTangente } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoTangente';
 import { Token } from './Token';
-import { MATRIX_TYPE, NUMBER_TYPE, UNARY_FUNCTIONS } from './constants';
+import {
+  COS_TYPE,
+  DETERMINANTE_2_x_2_TYPE,
+  MATRIX_TYPE,
+  MATRIZ_TRIANGULAR_INFERIOR,
+  MATRIZ_TRIANGULAR_SUPERIOR,
+  MAT_INV_TYPE,
+  NUMBER_TYPE,
+  SARRUS_TYPE,
+  SIN_TYPE,
+  SQRT_TYPE,
+  TAN_TYPE,
+  TRANSPUESTA_TYPE,
+  UNARY_FUNCTIONS,
+} from './constants';
 
 export class Parser {
   private lexer: Lexer;
@@ -135,10 +159,7 @@ export class Parser {
       const expression: TercetoAbstracto = this.parseExpression();
       this.eat(')');
       const tercetoUnaryOperator: TercetoUnaryOperator =
-        new TercetoUnaryOperator(functionName, expression, {
-          left: false,
-          right: false,
-        });
+        this.createCorrespondingUnaryTerceto(functionName, expression);
       this.tercetos.push(tercetoUnaryOperator);
       return tercetoUnaryOperator;
     } else {
@@ -163,6 +184,65 @@ export class Parser {
       if (this.currentToken.value.includes('.')) {
         this.isLastTokenAFloat = true;
       }
+    }
+  }
+
+  private createCorrespondingUnaryTerceto(
+    functionName: string,
+    expression: TercetoAbstracto
+  ): TercetoUnaryOperator {
+    if (functionName === COS_TYPE) {
+      return new TercetoCoseno(functionName, expression, {
+        left: false,
+        right: false,
+      });
+    } else if (functionName === SIN_TYPE) {
+      return new TercetoSeno(functionName, expression, {
+        left: false,
+        right: false,
+      });
+    } else if (functionName === TAN_TYPE) {
+      return new TercetoTangente(functionName, expression, {
+        left: false,
+        right: false,
+      });
+    } else if (functionName === SQRT_TYPE) {
+      return new TercetoRaizCuadrada(functionName, expression, {
+        left: false,
+        right: false,
+      });
+    } else if (functionName === MAT_INV_TYPE) {
+      return new TercetoMatrizInversa(functionName, expression, {
+        left: false,
+        right: false,
+      });
+    } else if (functionName === TRANSPUESTA_TYPE) {
+      return new TercetoMatrizTranspuesta(functionName, expression, {
+        left: false,
+        right: false,
+      });
+    } else if (functionName === DETERMINANTE_2_x_2_TYPE) {
+      return new TercetoDeterminante2x2(functionName, expression, {
+        left: false,
+        right: false,
+      });
+    } else if (functionName === SARRUS_TYPE) {
+      return new TercetoDeterminanteSarrus(functionName, expression, {
+        left: false,
+        right: false,
+      });
+    } else if (functionName === MATRIZ_TRIANGULAR_SUPERIOR) {
+      return new TercetoMatrizTriangularSuperior(functionName, expression, {
+        left: false,
+        right: false,
+      });
+    } else if (functionName === MATRIZ_TRIANGULAR_INFERIOR) {
+      return new TercetoMatrizTriangularInferior(functionName, expression, {
+        left: false,
+        right: false,
+      });
+    } else {
+      throw new Error(`No se reconoce a ${functionName} como una función`);
     }
   }
 }
