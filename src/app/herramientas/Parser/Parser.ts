@@ -4,6 +4,11 @@ import { TercetoAbstracto } from './Terceto/TercetoAbstracto';
 import { TercetoMatrix } from './Terceto/TercetoAbstractoImplementations/TercetoMatrix';
 import { TercetoNumerico } from './Terceto/TercetoAbstractoImplementations/TercetoNumerico';
 import { TercetoBinaryOperator } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoBinaryOperator';
+import { TercetoDivision } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoBinaryOperatorImplementations/TercetoDivision';
+import { TercetoMultiplicacion } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoBinaryOperatorImplementations/TercetoMultiplicacion';
+import { TercetoPotencia } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoBinaryOperatorImplementations/TercetoPotencia';
+import { TercetoResta } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoBinaryOperatorImplementations/TercetoResta';
+import { TercetoSuma } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoBinaryOperatorImplementations/TercetoSuma';
 import { TercetoUnaryOperator } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperator';
 import { TercetoCoseno } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoCoseno';
 import { TercetoDeterminante2x2 } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoDeterminante2x2';
@@ -70,14 +75,10 @@ export class Parser {
       const operator: Token = this.currentToken;
       this.eat(this.currentToken.type);
       const nuevoTermino: TercetoAbstracto = this.parseTerm();
-      termino = new TercetoBinaryOperator(
+      termino = this.createCorrespondingBinaryTerceto(
         operator.value,
         termino,
-        nuevoTermino,
-        {
-          left: false,
-          right: false,
-        }
+        nuevoTermino
       );
       this.tercetos.push(termino);
     }
@@ -92,15 +93,11 @@ export class Parser {
     ) {
       const operator: Token = this.currentToken;
       this.eat(this.currentToken.type);
-      const nuevoFactor: TercetoAbstracto = this.parseFactor();
-      powTerm = new TercetoBinaryOperator(
+      const nuevoPowTerm: TercetoAbstracto = this.parsePowTerm();
+      powTerm = this.createCorrespondingBinaryTerceto(
         operator.value,
         powTerm,
-        nuevoFactor,
-        {
-          left: false,
-          right: false,
-        }
+        nuevoPowTerm
       );
       this.tercetos.push(powTerm);
     }
@@ -113,10 +110,11 @@ export class Parser {
       const operator: Token = this.currentToken;
       this.eat(this.currentToken.type);
       const nuevoFactor: TercetoAbstracto = this.parseFactor();
-      factor = new TercetoBinaryOperator(operator.value, factor, nuevoFactor, {
-        left: false,
-        right: false,
-      });
+      factor = this.createCorrespondingBinaryTerceto(
+        operator.value,
+        factor,
+        nuevoFactor
+      );
       this.tercetos.push(factor);
     }
     return factor;
@@ -186,6 +184,41 @@ export class Parser {
       if (this.currentToken.value.includes('.')) {
         this.isLastTokenAFloat = true;
       }
+    }
+  }
+
+  private createCorrespondingBinaryTerceto(
+    operator: string,
+    operand1: TercetoAbstracto,
+    operand2: TercetoAbstracto
+  ): TercetoBinaryOperator {
+    if (operator === '+') {
+      return new TercetoSuma(operator, operand1, operand2, {
+        left: false,
+        right: false,
+      });
+    } else if (operator === '-') {
+      return new TercetoResta(operator, operand1, operand2, {
+        left: false,
+        right: false,
+      });
+    } else if (operator === '*') {
+      return new TercetoMultiplicacion(operator, operand1, operand2, {
+        left: false,
+        right: false,
+      });
+    } else if (operator === '/') {
+      return new TercetoDivision(operator, operand1, operand2, {
+        left: false,
+        right: false,
+      });
+    } else if (operator === '^') {
+      return new TercetoPotencia(operator, operand1, operand2, {
+        left: false,
+        right: false,
+      });
+    } else {
+      throw new Error(`No se reconoce a ${operator} como un operador`);
     }
   }
 
