@@ -26,7 +26,7 @@ export class Lexer {
       return new Token(NUMBER_TYPE, number);
     }
 
-    if ('ABCDEFGHIJKLMNOPQRSTUVWXYZ'.includes(currentChar)) {
+    if ('ABCDEFGHIJKLMNOPQRSTUVWXYZÑ'.includes(currentChar)) {
       this.currentPos++;
       return new Token(MATRIX_TYPE, currentChar);
     }

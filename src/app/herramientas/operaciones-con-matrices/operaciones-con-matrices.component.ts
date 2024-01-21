@@ -77,7 +77,11 @@ export class OperacionesConMatricesComponent implements OnInit {
   public isFractionIconVisible: boolean = false;
   public isWarningIconVisible: boolean = false;
 
+  public isThereAResult: boolean = false;
+
   public errorMessage: string = '';
+
+  public letterUsedToRepresentAnswerMatrix: string = 'Ñ';
 
   private parser: Parser = null;
 
@@ -138,6 +142,44 @@ export class OperacionesConMatricesComponent implements OnInit {
       this.deletedMatrices.sort();
     } else {
       console.log(`La matriz ${matrixName} no existe.`);
+    }
+  }
+
+  public onSelectedAns(): void {
+    if (this.expressionResult) {
+      const expressionResultType: string =
+        this.expressionResult.getTercetoType();
+      if (expressionResultType === NUMBER_TYPE) {
+        this.addNewSymbolToTheExpressionToBeCalculated(
+          this.expressionResult.getResultado().toString()
+        );
+      } else if (expressionResultType === MATRIX_TYPE) {
+        const ansIndex: number = this.matrices.findIndex(
+          (mat: IMatrixWithName) =>
+            mat.name === this.letterUsedToRepresentAnswerMatrix
+        );
+        const deepCopy: IMatrixElement[][] = JSON.parse(
+          JSON.stringify(
+            (this.expressionResult.getResultado() as IMatrixElement[][]).map(
+              (row: IMatrixElement[]) => row.map((element) => ({ ...element }))
+            )
+          )
+        );
+
+        if (ansIndex !== -1) {
+          // Si ya existe una matriz con el nombre letterUsedToRepresentAnswerMatrix, reemplaza su valor
+          this.matrices[ansIndex].matrix = deepCopy;
+        } else {
+          // Si no existe una matriz con el nombre letterUsedToRepresentAnswerMatrix, agrégala a la lista de matrices
+          this.matrices.push({
+            name: this.letterUsedToRepresentAnswerMatrix,
+            matrix: deepCopy,
+          });
+        }
+        this.addNewSymbolToTheExpressionToBeCalculated(
+          this.letterUsedToRepresentAnswerMatrix
+        );
+      }
     }
   }
 
@@ -285,10 +327,13 @@ export class OperacionesConMatricesComponent implements OnInit {
         this.isDecimalsIconVisible = true;
         this.isFractionIconVisible = false;
         this.isWarningIconVisible = false;
+        this.isThereAResult = true;
       } else {
         this.isWarningIconVisible = true;
+        this.isThereAResult = false;
       }
     } catch (error) {
+      this.isThereAResult = false;
       this.isWarningIconVisible = true;
       this.errorMessage = error.message;
     }
