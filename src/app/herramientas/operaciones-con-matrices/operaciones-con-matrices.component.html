@@ -94,13 +94,15 @@
             <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 2, sm: 1 }">
                 <button ibmButton="primary" (click)="addNewSymbolToTheExpressionToBeCalculated('dia(')"
                     [disabled]="isLastTokenANumber || isLastTokenAMatrix || isLastSymbolAClosedParentheses">
-                    <p class="math-content-within-button" [mathjax]="'$\\begin{pmatrix}1 & 0\\\\ 0 & 1 \\end{pmatrix}$'"></p>
+                    <p class="math-content-within-button"
+                        [mathjax]="'$\\begin{pmatrix}1 & 0\\\\ 0 & 1 \\end{pmatrix}$'"></p>
                 </button>
             </div>
             <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 2, sm: 1 }">
                 <button ibmButton="primary" (click)="addNewSymbolToTheExpressionToBeCalculated('mts(')"
                     [disabled]="isLastTokenANumber || isLastTokenAMatrix || isLastSymbolAClosedParentheses">
-                    <p class="math-content-within-button" [mathjax]="'$\\begin{pmatrix}1 & 1\\\\ 0 & 1 \\end{pmatrix}$'"></p>
+                    <p class="math-content-within-button"
+                        [mathjax]="'$\\begin{pmatrix}1 & 1\\\\ 0 & 1 \\end{pmatrix}$'"></p>
                 </button>
             </div>
         </div>
@@ -108,7 +110,8 @@
             <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 2, sm: 1 }">
                 <button ibmButton="primary" (click)="addNewSymbolToTheExpressionToBeCalculated('mti(')"
                     [disabled]="isLastTokenANumber || isLastTokenAMatrix || isLastSymbolAClosedParentheses">
-                    <p class="math-content-within-button" [mathjax]="'$\\begin{pmatrix}1 & 0\\\\ 1 & 1 \\end{pmatrix}$'"></p>
+                    <p class="math-content-within-button"
+                        [mathjax]="'$\\begin{pmatrix}1 & 0\\\\ 1 & 1 \\end{pmatrix}$'"></p>
                 </button>
             </div>
             <ng-container [ngTemplateOutlet]="functionButtonTemplate" [ngTemplateOutletContext]="{functionName:'cos('}">
@@ -119,6 +122,12 @@
             </ng-container>
         </div>
         <div ibmRow>
+            <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 2, sm: 1 }">
+                <button ibmButton="primary" (click)="addNewSymbolToTheExpressionToBeCalculated('=')"
+                    [disabled]="isExpressionToCalculateEmpty || isLastSymbolAOpenParentheses || isLastSymbolAnOperator">
+                    <p>x = y</p>
+                </button>
+            </div>
             <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 2, sm: 1 }">
                 <button ibmButton="primary" (click)="addNewSymbolToTheExpressionToBeCalculated('^')"
                     [disabled]="!isLastTokenANumber && !isLastTokenAMatrix">

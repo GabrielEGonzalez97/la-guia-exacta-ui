@@ -201,7 +201,7 @@ export class OperacionesConMatricesComponent implements OnInit {
   }
 
   private checkLastSymbol(): void {
-    const operators: string[] = ['+', '-', '*', '/', '^'];
+    const operators: string[] = ['=', '+', '-', '*', '/', '^'];
 
     const lastChar: string = this.expressionToCalculate.trim().slice(-1);
 
@@ -378,7 +378,13 @@ export class OperacionesConMatricesComponent implements OnInit {
         if (stepNumber === tercetos.length) {
           newPartialExpression = `$${result}$`;
         }
-        if (terceto.operator === '+') {
+        if (terceto.operator === '=') {
+          this.steps.push({
+            description: `Se verifica la igualdad entre ${commonText}`,
+            latexExpression: newPartialExpression,
+            intermediateSteps: terceto.getIntermediateSteps(),
+          });
+        } else if (terceto.operator === '+') {
           this.steps.push({
             description: `Se calcula la suma entre ${commonText}`,
             latexExpression: newPartialExpression,
@@ -476,7 +482,11 @@ export class OperacionesConMatricesComponent implements OnInit {
       } catch (error) {
         this.steps.push({
           description: `Se produce el error: ${error} al hacer la cuenta $${terceto.getLatexFormResult()}$`,
-          latexExpression: '',
+          latexExpression:
+            terceto.getIntermediateSteps()[
+              terceto.getIntermediateSteps().length - 1
+            ].latexExpression,
+          intermediateSteps: terceto.getIntermediateSteps(),
         });
         throw new Error(
           'No es posible seguir calculando los pasos debido a un error previo'

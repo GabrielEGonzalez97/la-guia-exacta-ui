@@ -4,6 +4,7 @@ import { TercetoAbstracto } from './Terceto/TercetoAbstracto';
 import { TercetoMatrix } from './Terceto/TercetoAbstractoImplementations/TercetoMatrix';
 import { TercetoNumerico } from './Terceto/TercetoAbstractoImplementations/TercetoNumerico';
 import { TercetoBinaryOperator } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoBinaryOperator';
+import { TercetoChequearIgualdad } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoBinaryOperatorImplementations/TercetoChequearIgualdad';
 import { TercetoDivision } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoBinaryOperatorImplementations/TercetoDivision';
 import { TercetoMultiplicacion } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoBinaryOperatorImplementations/TercetoMultiplicacion';
 import { TercetoPotencia } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoBinaryOperatorImplementations/TercetoPotencia';
@@ -55,7 +56,7 @@ export class Parser {
   }
 
   public parse(): void {
-    this.resultado = this.parseExpression();
+    this.resultado = this.parseEqualityExpression();
   }
 
   public getResultado(): TercetoAbstracto | null {
@@ -66,23 +67,39 @@ export class Parser {
     return this.tercetos;
   }
 
+  private parseEqualityExpression(): TercetoAbstracto {
+    let expresion: TercetoAbstracto = this.parseExpression();
+    while (this.currentToken && this.currentToken.type === '=') {
+      const operator: Token = this.currentToken;
+      this.eat(this.currentToken.type);
+      const newExpression: TercetoAbstracto = this.parseExpression();
+      expresion = this.createCorrespondingBinaryTerceto(
+        operator.value,
+        expresion,
+        newExpression
+      );
+      this.tercetos.push(expresion);
+    }
+    return expresion;
+  }
+
   private parseExpression(): TercetoAbstracto {
-    let termino: TercetoAbstracto = this.parseTerm();
+    let term: TercetoAbstracto = this.parseTerm();
     while (
       this.currentToken &&
       (this.currentToken.type === '+' || this.currentToken.type === '-')
     ) {
       const operator: Token = this.currentToken;
       this.eat(this.currentToken.type);
-      const nuevoTermino: TercetoAbstracto = this.parseTerm();
-      termino = this.createCorrespondingBinaryTerceto(
+      const newTerm: TercetoAbstracto = this.parseTerm();
+      term = this.createCorrespondingBinaryTerceto(
         operator.value,
-        termino,
-        nuevoTermino
+        term,
+        newTerm
       );
-      this.tercetos.push(termino);
+      this.tercetos.push(term);
     }
-    return termino;
+    return term;
   }
 
   private parseTerm(): TercetoAbstracto {
@@ -93,11 +110,11 @@ export class Parser {
     ) {
       const operator: Token = this.currentToken;
       this.eat(this.currentToken.type);
-      const nuevoPowTerm: TercetoAbstracto = this.parsePowTerm();
+      const newPowTerm: TercetoAbstracto = this.parsePowTerm();
       powTerm = this.createCorrespondingBinaryTerceto(
         operator.value,
         powTerm,
-        nuevoPowTerm
+        newPowTerm
       );
       this.tercetos.push(powTerm);
     }
@@ -109,11 +126,11 @@ export class Parser {
     while (this.currentToken && this.currentToken.type === '^') {
       const operator: Token = this.currentToken;
       this.eat(this.currentToken.type);
-      const nuevoFactor: TercetoAbstracto = this.parseFactor();
+      const newFactor: TercetoAbstracto = this.parseFactor();
       factor = this.createCorrespondingBinaryTerceto(
         operator.value,
         factor,
-        nuevoFactor
+        newFactor
       );
       this.tercetos.push(factor);
     }
@@ -192,7 +209,12 @@ export class Parser {
     operand1: TercetoAbstracto,
     operand2: TercetoAbstracto
   ): TercetoBinaryOperator {
-    if (operator === '+') {
+    if (operator === '=') {
+      return new TercetoChequearIgualdad(operator, operand1, operand2, {
+        left: false,
+        right: false,
+      });
+    } else if (operator === '+') {
       return new TercetoSuma(operator, operand1, operand2, {
         left: false,
         right: false,

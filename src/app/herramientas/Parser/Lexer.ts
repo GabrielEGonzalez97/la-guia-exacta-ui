@@ -49,7 +49,7 @@ export class Lexer {
       }
     }
 
-    if ('+-*/()^'.includes(currentChar)) {
+    if ('=+-*/()^'.includes(currentChar)) {
       this.currentPos++;
       return new Token(currentChar, currentChar);
     }
