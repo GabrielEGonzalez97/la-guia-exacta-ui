@@ -7,6 +7,7 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
+import { ListItem } from 'carbon-components-angular';
 import { IMatrixElement, IMatrixWithName } from './interfaces';
 
 @Component({
@@ -29,6 +30,19 @@ export class MatrixComponent implements OnInit {
   public numberOfRows: number = 3;
   public numberOfColumns: number = 3;
 
+  public completeMatrixWithItems: ListItem[] = [
+    {
+      content: 'Matriz identidad',
+      selected: false,
+    },
+    {
+      content: 'Un número',
+      selected: false,
+    },
+  ];
+
+  public isCompleteMatrixWithInputVisible: boolean = false;
+
   constructor() {}
 
   public ngOnInit(): void {
@@ -42,35 +56,74 @@ export class MatrixComponent implements OnInit {
     });
   }
 
-  public changeMatrixDimensions(rows: number, columns: number): void {
-    if (rows > this.matrix.length) {
-      const rowsToAdd: number = rows - this.matrix.length;
-      for (let i = 0; i < rowsToAdd; i++) {
-        const newRow: IMatrixElement[] = new Array(this.matrix[0].length)
-          .fill({
-            value: '',
-          })
-          .map((cell) => ({ ...cell }));
-        this.matrix.push(newRow);
+  public onSelectedValueToCompleteMatrix(
+    selectedValueToCompleteMatrix: any
+  ): void {
+    if (selectedValueToCompleteMatrix.item.content === 'Matriz identidad') {
+      this.isCompleteMatrixWithInputVisible = false;
+      for (let rowIndex: number = 0; rowIndex < this.numberOfRows; rowIndex++) {
+        for (
+          let colIndex: number = 0;
+          colIndex < this.numberOfColumns;
+          colIndex++
+        ) {
+          if (rowIndex === colIndex) {
+            this.matrix[rowIndex][colIndex].value = '1';
+          } else {
+            this.matrix[rowIndex][colIndex].value = '0';
+          }
+        }
       }
-    } else if (rows < this.matrix.length) {
-      const rowsToRemove: number = this.matrix.length - rows;
-      this.matrix.splice(-rowsToRemove, rowsToRemove);
+      this.emitUpdateMatrixEvent();
+    } else if (selectedValueToCompleteMatrix.item.content === 'Un número') {
+      this.isCompleteMatrixWithInputVisible = true;
     }
+  }
 
-    if (columns > this.matrix[0].length) {
-      const columnsToAdd: number = columns - this.matrix[0].length;
-      for (let i = 0; i < columnsToAdd; i++) {
-        this.matrix.forEach((row) => row.push({ value: '' }));
+  public onCompleteMatrixWithValueChange(newValue: any): void {
+    for (let rowIndex: number = 0; rowIndex < this.numberOfRows; rowIndex++) {
+      for (
+        let colIndex: number = 0;
+        colIndex < this.numberOfColumns;
+        colIndex++
+      ) {
+        this.matrix[rowIndex][colIndex].value = newValue.target.value;
       }
-    } else if (columns < this.matrix[0].length) {
-      const columnsToRemove: number = this.matrix[0].length - columns;
-      this.matrix.forEach((row) =>
-        row.splice(-columnsToRemove, columnsToRemove)
-      );
     }
-
     this.emitUpdateMatrixEvent();
+  }
+
+  public changeMatrixDimensions(rows: number, columns: number): void {
+    if (rows >= 1 && rows <= 5 && columns >= 1 && columns <= 5) {
+      if (rows > this.matrix.length) {
+        const rowsToAdd: number = rows - this.matrix.length;
+        for (let i = 0; i < rowsToAdd; i++) {
+          const newRow: IMatrixElement[] = new Array(this.matrix[0].length)
+            .fill({
+              value: '',
+            })
+            .map((cell) => ({ ...cell }));
+          this.matrix.push(newRow);
+        }
+      } else if (rows < this.matrix.length) {
+        const rowsToRemove: number = this.matrix.length - rows;
+        this.matrix.splice(-rowsToRemove, rowsToRemove);
+      }
+
+      if (columns > this.matrix[0].length) {
+        const columnsToAdd: number = columns - this.matrix[0].length;
+        for (let i = 0; i < columnsToAdd; i++) {
+          this.matrix.forEach((row) => row.push({ value: '' }));
+        }
+      } else if (columns < this.matrix[0].length) {
+        const columnsToRemove: number = this.matrix[0].length - columns;
+        this.matrix.forEach((row) =>
+          row.splice(-columnsToRemove, columnsToRemove)
+        );
+      }
+
+      this.emitUpdateMatrixEvent();
+    }
   }
 
   public deleteMatrix(): void {

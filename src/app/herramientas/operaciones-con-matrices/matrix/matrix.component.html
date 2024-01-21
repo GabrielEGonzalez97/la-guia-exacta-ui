@@ -5,14 +5,37 @@
         </div>
     </div>
     <div ibmRow>
-        <div ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 4, sm: 2 }">
-            <ibm-number [label]="'Filas'" [min]="1" [max]="5" [(ngModel)]="numberOfRows"
+        <div class="number-selector-container" ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 4, sm: 2 }">
+            <ibm-number [label]="'Filas'" [min]="1" [max]="5" [invalid]="numberOfRows < 1 || numberOfRows > 5"
+                [invalidText]="'Ingrese números del 1 al 5'" [(ngModel)]="numberOfRows"
                 (change)="changeMatrixDimensions($event.value, numberOfColumns)"></ibm-number>
         </div>
-        <div ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 4, sm: 2 }">
-            <ibm-number [label]="'Columnas'" [min]="1" [max]="5" [(ngModel)]="numberOfColumns"
+        <div class="number-selector-container" ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 4, sm: 2 }">
+            <ibm-number [label]="'Columnas'" [min]="1" [max]="5" [invalid]="numberOfColumns < 1 || numberOfColumns > 5"
+                [invalidText]="'Ingrese números del 1 al 5'" [(ngModel)]="numberOfColumns"
                 (change)="changeMatrixDimensions(numberOfRows, $event.value)"></ibm-number>
         </div>
+    </div>
+    <div ibmRow>
+        <ng-container *ngIf="!isCompleteMatrixWithInputVisible">
+            <div class="complete-matrix-with-container" ibmCol>
+                <ibm-dropdown placeholder="Completar matriz con" (selected)="onSelectedValueToCompleteMatrix($event)">
+                    <ibm-dropdown-list [items]="completeMatrixWithItems"></ibm-dropdown-list>
+                </ibm-dropdown>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="isCompleteMatrixWithInputVisible">
+            <div class="complete-matrix-with-container" ibmCol
+                [columnNumbers]="{ max: 8, xlg: 8, lg: 8, md: 6, sm: 3 }">
+                <ibm-dropdown placeholder="Completar matriz con" (selected)="onSelectedValueToCompleteMatrix($event)">
+                    <ibm-dropdown-list [items]="completeMatrixWithItems"></ibm-dropdown-list>
+                </ibm-dropdown>
+            </div>
+            <div class="complete-matrix-with-container" ibmCol
+                [columnNumbers]="{ max: 4, xlg: 4, lg: 4, md: 2, sm: 1 }">
+                <input type="text" (input)="onCompleteMatrixWithValueChange($event)" (keypress)="validateInput($event)">
+            </div>
+        </ng-container>
     </div>
     <div ibmRow>
         <div ibmCol>
@@ -20,7 +43,7 @@
                 <tr *ngFor="let row of matrix; let rowIndex = index" class="row">
                     <td *ngFor="let cell of row; let colIndex = index" class="column">
                         <div class="cell">
-                            <input type="text" [value]="cell.value" placeholder="0"
+                            <input type="text" [value]="cell.value"
                                 (input)="onCellValueChange(rowIndex, colIndex, $event)"
                                 (keypress)="validateInput($event)">
                         </div>

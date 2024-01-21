@@ -20,6 +20,17 @@
   margin: 0.5rem;
 }
 
+.complete-matrix-with-container ::ng-deep {
+  input {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 1px solid;
+    text-align: center;
+    font-size: 1rem;
+  }
+}
+
 .cell ::ng-deep {
   input {
     width: 100%;
@@ -49,4 +60,10 @@
     padding-right: 1rem;
     min-width: 100%;
   }
+}
+
+.number-selector-container,
+.complete-matrix-with-container {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
