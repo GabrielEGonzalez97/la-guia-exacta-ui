@@ -6,6 +6,7 @@ export const TAN_TYPE: string = 'tan';
 export const SQRT_TYPE: string = '√';
 export const DETERMINANTE_2_x_2_TYPE: string = 'det';
 export const DETERMINANTE_SARRUS_TYPE: string = 'dsr';
+export const DETERMINANTE_PRIMERA_COLUMNA_TYPE: string = 'dpc';
 export const MATRIZ_INVERTIDA_TYPE: string = 'inv';
 export const MATRIZ_TRANSPUESTA_TYPE: string = 'tsp';
 export const MATRIZ_DIAGONAL: string = 'dia';
@@ -18,6 +19,7 @@ export const UNARY_FUNCTIONS: string[] = [
   SQRT_TYPE,
   DETERMINANTE_2_x_2_TYPE,
   DETERMINANTE_SARRUS_TYPE,
+  DETERMINANTE_PRIMERA_COLUMNA_TYPE,
   MATRIZ_INVERTIDA_TYPE,
   MATRIZ_TRANSPUESTA_TYPE,
   MATRIZ_DIAGONAL,

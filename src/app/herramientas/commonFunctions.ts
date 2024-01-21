@@ -62,6 +62,25 @@ export function getDeterminanteMatrixLatexForm(
   return `\\begin{vmatrix}${matrixBody}\\end{vmatrix}`;
 }
 
+export function getDeterminanteMatrixLatexFormWithSpecificColor(
+  matrix: IMatrixElement[][],
+  color: string
+): string {
+  // $\\begin{pmatrix}a & b\\\\ c & d \\\\ c & d\\end{pmatrix}$
+  const rows: string[] = matrix.map((row: IMatrixElement[]) =>
+    row
+      .map(
+        (cell: IMatrixElement) =>
+          `\\textcolor{${color}}{${decimalToFraction(
+            getMatrixCellValue(cell)
+          )}}`
+      )
+      .join(' & ')
+  );
+  const matrixBody: string = rows.join('\\\\ ');
+  return `\\begin{vmatrix}${matrixBody}\\end{vmatrix}`;
+}
+
 export function getDeterminanteMatrixLatexFormWithColors(
   matrix: IMatrixElement[][],
   highlightedCells: { row: number; col: number }[] = []
@@ -160,6 +179,72 @@ function augment3x3Matrix(matrix: IMatrixElement[][]): IMatrixElement[][] {
   }
 
   return augmentedMatrix;
+}
+
+export function getDeterminanteColumnDevelopment(
+  matrix: IMatrixElement[][],
+  rowToMark: number,
+  columnToMark: number
+): string {
+  const rows: string[] = matrix.map((row: IMatrixElement[], rowIndex: number) =>
+    row
+      .map((cell: IMatrixElement, colIndex: number) => {
+        const markCell: boolean =
+          rowToMark === rowIndex || columnToMark === colIndex;
+        const colorCell: boolean =
+          rowToMark === rowIndex && columnToMark === colIndex;
+        let cellValue: string = decimalToFraction(getMatrixCellValue(cell));
+
+        if (colorCell) {
+          cellValue = `\\textcolor{blue}{${cellValue}}`;
+        } else if (markCell) {
+          cellValue = `\\cancel{${cellValue}}`;
+        } else {
+          cellValue = `\\textcolor{BrickRed}{${cellValue}}`;
+        }
+
+        return cellValue;
+      })
+      .join(' & ')
+  );
+
+  const matrixBody: string = rows.join('\\\\ ');
+
+  return `\\begin{vmatrix}${matrixBody}\\end{vmatrix}`;
+}
+
+export function getSignsMatrix(
+  size: number,
+  rowToMark: number,
+  columnToMark: number
+): string {
+  const matrix: string[][] = [];
+
+  for (let i = 0; i < size; i++) {
+    const row: string[] = [];
+    for (let j = 0; j < size; j++) {
+      if ((i + j) % 2 === 0) {
+        row.push('+1');
+      } else {
+        row.push('-1');
+      }
+    }
+    matrix.push(row);
+  }
+
+  const rows: string[] = matrix.map((row: string[], rowIndex: number) =>
+    row
+      .map((cell: string, colIndex: number) => {
+        if (rowIndex === rowToMark && colIndex === columnToMark) {
+          return `\\textcolor{blue}{${cell}}`;
+        } else {
+          return cell;
+        }
+      })
+      .join(' & ')
+  );
+  const matrixBody: string = rows.join('\\\\ ');
+  return `\\begin{pmatrix}${matrixBody}\\end{pmatrix}`;
 }
 
 export function getMatrixLatexWithDecimalsForm(

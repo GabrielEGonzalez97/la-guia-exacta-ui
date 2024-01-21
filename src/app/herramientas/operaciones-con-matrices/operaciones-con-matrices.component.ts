@@ -8,6 +8,7 @@ import { TercetoBinaryOperator } from '../Parser/Terceto/TercetoAbstractoImpleme
 import {
   COS_TYPE,
   DETERMINANTE_2_x_2_TYPE,
+  DETERMINANTE_PRIMERA_COLUMNA_TYPE,
   DETERMINANTE_SARRUS_TYPE,
   MATRIX_TYPE,
   MATRIZ_DIAGONAL,
@@ -56,6 +57,10 @@ export class OperacionesConMatricesComponent implements OnInit {
     },
     {
       content: 'Sarrus',
+      selected: false,
+    },
+    {
+      content: 'Primera columna',
       selected: false,
     },
   ];
@@ -375,6 +380,8 @@ export class OperacionesConMatricesComponent implements OnInit {
       this.addNewSymbolToTheExpressionToBeCalculated('det(');
     } else if (selectedDeterminante.item.content === 'Sarrus') {
       this.addNewSymbolToTheExpressionToBeCalculated('dsr(');
+    } else if (selectedDeterminante.item.content === 'Primera columna') {
+      this.addNewSymbolToTheExpressionToBeCalculated('dpc(');
     }
     selectedDeterminante.item.selected = false;
   }
@@ -491,6 +498,12 @@ export class OperacionesConMatricesComponent implements OnInit {
         } else if (terceto.operator === DETERMINANTE_SARRUS_TYPE) {
           this.steps.push({
             description: `Se calcula el determinante a través del método de Sarrus de ${commonText}`,
+            latexExpression: newPartialExpression,
+            intermediateSteps: terceto.getIntermediateSteps(),
+          });
+        } else if (terceto.operator === DETERMINANTE_PRIMERA_COLUMNA_TYPE) {
+          this.steps.push({
+            description: `Se calcula el determinante mediante su desarrollo por la primera columna de ${commonText}`,
             latexExpression: newPartialExpression,
             intermediateSteps: terceto.getIntermediateSteps(),
           });

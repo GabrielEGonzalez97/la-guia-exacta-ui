@@ -13,6 +13,7 @@ import { TercetoSuma } from './Terceto/TercetoAbstractoImplementations/TercetoOp
 import { TercetoUnaryOperator } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperator';
 import { TercetoCoseno } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoCoseno';
 import { TercetoDeterminante2x2 } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoDeterminante2x2';
+import { TercetoDeterminantePrimeraColumna } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoDeterminantePrimeraColumna';
 import { TercetoDeterminanteSarrus } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoDeterminanteSarrus';
 import { TercetoMatrizDiagonal } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoMatrizDiagonal';
 import { TercetoMatrizInversa } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoMatrizInversa';
@@ -26,6 +27,7 @@ import { Token } from './Token';
 import {
   COS_TYPE,
   DETERMINANTE_2_x_2_TYPE,
+  DETERMINANTE_PRIMERA_COLUMNA_TYPE,
   DETERMINANTE_SARRUS_TYPE,
   MATRIX_TYPE,
   MATRIZ_DIAGONAL,
@@ -275,6 +277,11 @@ export class Parser {
       });
     } else if (functionName === DETERMINANTE_SARRUS_TYPE) {
       return new TercetoDeterminanteSarrus(functionName, expression, {
+        left: false,
+        right: false,
+      });
+    } else if (functionName === DETERMINANTE_PRIMERA_COLUMNA_TYPE) {
+      return new TercetoDeterminantePrimeraColumna(functionName, expression, {
         left: false,
         right: false,
       });

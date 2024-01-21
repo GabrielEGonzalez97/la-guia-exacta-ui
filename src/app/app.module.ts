@@ -54,11 +54,17 @@ const CARBON_COMPONENTS_IMPORTS = [PlaceholderModule];
     MathjaxModule.forRoot({
       config: {
         loader: {
-          load: ['output/svg', '[tex]/require', '[tex]/ams', '[tex]/color'],
+          load: [
+            'output/svg',
+            '[tex]/require',
+            '[tex]/ams',
+            '[tex]/color',
+            '[tex]/cancel',
+          ],
         },
         tex: {
           inlineMath: [['$', '$']],
-          packages: ['base', 'require', 'ams', 'color'],
+          packages: ['base', 'require', 'ams', 'color', 'cancel'],
         },
         svg: { fontCache: 'global' },
       },
