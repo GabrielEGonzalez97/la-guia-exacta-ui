@@ -8,6 +8,7 @@ import {
   getDeterminanteMatrixLatexFormWithMultiplicationsAndColors,
   getDeterminanteMatrixLatexFormWithSpecificColor,
   getMatrixCellValue,
+  getMatrixLatexForm,
   getSignsMatrix,
 } from 'src/app/herramientas/commonFunctions';
 import { ICalculationStep } from 'src/app/herramientas/operaciones-con-matrices/interfaces';
@@ -102,10 +103,11 @@ export class TercetoDeterminantePrimeraColumna extends TercetoUnaryOperator {
           description: `Se determina si hay que multiplicar por -1 o 1 mirando la matriz de signos:`,
           latexExpression: `${getSignsMatrix(n, i, 0)}`,
         });
-        const determinanteParcial: number =
-          getMatrixCellValue(matrix[i][0]) *
-          sign *
+        const cellValue: number = getMatrixCellValue(matrix[i][0]);
+        const determinanteCofactor: number =
           this.getDeterminante(matrixCofactor);
+        const determinanteParcial: number =
+          cellValue * sign * determinanteCofactor;
         determinantesParciales.push(
           `\\textcolor{BurntOrange}{${determinanteParcial}}`
         );
@@ -117,7 +119,30 @@ export class TercetoDeterminantePrimeraColumna extends TercetoUnaryOperator {
             matrixCofactor,
             'BrickRed'
           )} = \\textcolor{BurntOrange}{${determinanteParcial}}`,
-          intermediateSteps: this.getDeterminanteSteps(matrixCofactor),
+          intermediateSteps: [
+            {
+              description: `Se realiza la multiplicación $\\textcolor{blue}{${getMatrixCellValue(
+                matrix[i][0]
+              )}} * \\textcolor{blue}{${sign}}$ dando como resultado ${
+                cellValue * sign
+              }:`,
+              latexExpression: `${
+                cellValue * sign
+              } * ${getDeterminanteMatrixLatexFormWithSpecificColor(
+                matrixCofactor,
+                'BrickRed'
+              )}`,
+            },
+            {
+              description: `$\\text{Se calcula el determinante de la matriz } ${getMatrixLatexForm(
+                matrixCofactor
+              )} \\text{ dando como resultado } ${determinanteCofactor}$:`,
+              latexExpression: `${
+                cellValue * sign
+              } * ${determinanteCofactor} = ${determinanteCofactor}`,
+              intermediateSteps: this.getDeterminanteSteps(matrixCofactor),
+            },
+          ],
         });
         determinante += determinanteParcial;
       }
