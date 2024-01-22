@@ -147,4 +147,8 @@ export class TercetoChequearIgualdad extends TercetoBinaryOperator {
 
     return null;
   }
+
+  public override getDescription(): string {
+    return `Se verifica la igualdad entre ${this.getDescriptionCommonText()}`;
+  }
 }

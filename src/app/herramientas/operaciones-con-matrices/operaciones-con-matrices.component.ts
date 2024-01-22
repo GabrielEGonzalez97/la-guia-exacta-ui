@@ -4,28 +4,7 @@ import { Lexer } from '../Parser/Lexer';
 import { Parser } from '../Parser/Parser';
 import { TercetoAbstracto } from '../Parser/Terceto/TercetoAbstracto';
 import { TercetoOperator } from '../Parser/Terceto/TercetoAbstractoImplementations/TercetoOperator';
-import { TercetoBinaryOperator } from '../Parser/Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoBinaryOperator';
-import {
-  COS_TYPE,
-  DETERMINANTE_2_x_2_TYPE,
-  DETERMINANTE_CUARTA_COLUMNA_TYPE,
-  DETERMINANTE_PRIMERA_COLUMNA_TYPE,
-  DETERMINANTE_QUINTA_COLUMNA_TYPE,
-  DETERMINANTE_SARRUS_TYPE,
-  DETERMINANTE_SEGUNDA_COLUMNA_TYPE,
-  DETERMINANTE_TERCERA_COLUMNA_TYPE,
-  MATRIX_TYPE,
-  MATRIZ_DIAGONAL,
-  MATRIZ_INVERTIDA_TYPE,
-  MATRIZ_TRANSPUESTA_TYPE,
-  MATRIZ_TRIANGULAR_INFERIOR,
-  MATRIZ_TRIANGULAR_SUPERIOR,
-  NUMBER_TYPE,
-  SIN_TYPE,
-  SQRT_TYPE,
-  TAN_TYPE,
-  UNARY_FUNCTIONS,
-} from '../Parser/constants';
+import { MATRIX_TYPE, NUMBER_TYPE, UNARY_FUNCTIONS } from '../Parser/constants';
 import {
   decimalToFraction,
   getCorrectFormToDisplay,
@@ -445,7 +424,6 @@ export class OperacionesConMatricesComponent implements OnInit {
       const stepNumber: number = index + 1;
       try {
         const result: string = getCorrectFormToDisplay(terceto);
-        const commonText: string = `${terceto.getLatexFormOperators()} dando como resultado $${result}$`;
         const lastPartialExpression: string = this.steps.slice(-1)[0]
           ? this.steps.slice(-1)[0].latexExpression
           : this.latexExpression;
@@ -458,137 +436,11 @@ export class OperacionesConMatricesComponent implements OnInit {
         if (stepNumber === tercetos.length) {
           newPartialExpression = `$${result}$`;
         }
-        if (terceto.operator === '=') {
-          this.steps.push({
-            description: `Se verifica la igualdad entre ${commonText}`,
-            latexExpression: newPartialExpression,
-            intermediateSteps: terceto.getIntermediateSteps(),
-          });
-        } else if (terceto.operator === '+') {
-          this.steps.push({
-            description: `Se calcula la suma entre ${commonText}`,
-            latexExpression: newPartialExpression,
-            intermediateSteps: terceto.getIntermediateSteps(),
-          });
-        } else if (terceto.operator === '-') {
-          this.steps.push({
-            description: `Se calcula la resta entre ${commonText}`,
-            latexExpression: newPartialExpression,
-            intermediateSteps: terceto.getIntermediateSteps(),
-          });
-        } else if (terceto.operator === '*') {
-          this.steps.push({
-            description: `Se calcula la multiplicación entre ${commonText}`,
-            latexExpression: newPartialExpression,
-            intermediateSteps: terceto.getIntermediateSteps(),
-          });
-        } else if (terceto.operator === '/') {
-          this.steps.push({
-            description: `Se calcula la división entre ${commonText}`,
-            latexExpression: newPartialExpression,
-          });
-        } else if (terceto.operator === '^') {
-          this.steps.push({
-            description: `Se calcula la potencia ${getCorrectFormToDisplay(
-              (terceto as TercetoBinaryOperator).operand2
-            )} de $${getCorrectFormToDisplay(
-              (terceto as TercetoBinaryOperator).operand1
-            )}$`,
-            latexExpression: newPartialExpression,
-            intermediateSteps: terceto.getIntermediateSteps(),
-          });
-        } else if (terceto.operator === COS_TYPE) {
-          this.steps.push({
-            description: `Se calcula el coseno de ${commonText}`,
-            latexExpression: newPartialExpression,
-          });
-        } else if (terceto.operator === SIN_TYPE) {
-          this.steps.push({
-            description: `Se calcula el seno de ${commonText}`,
-            latexExpression: newPartialExpression,
-          });
-        } else if (terceto.operator === TAN_TYPE) {
-          this.steps.push({
-            description: `Se calcula la tangente de ${commonText}`,
-            latexExpression: newPartialExpression,
-          });
-        } else if (terceto.operator === SQRT_TYPE) {
-          this.steps.push({
-            description: `Se calcula la raíz de ${commonText}`,
-            latexExpression: newPartialExpression,
-          });
-        } else if (terceto.operator === DETERMINANTE_2_x_2_TYPE) {
-          this.steps.push({
-            description: `Se calcula el determinante de ${commonText}`,
-            latexExpression: newPartialExpression,
-            intermediateSteps: terceto.getIntermediateSteps(),
-          });
-        } else if (terceto.operator === DETERMINANTE_SARRUS_TYPE) {
-          this.steps.push({
-            description: `Se calcula el determinante a través del método de Sarrus de ${commonText}`,
-            latexExpression: newPartialExpression,
-            intermediateSteps: terceto.getIntermediateSteps(),
-          });
-        } else if (terceto.operator === DETERMINANTE_PRIMERA_COLUMNA_TYPE) {
-          this.steps.push({
-            description: `Se calcula el determinante mediante su desarrollo por la primera columna de ${commonText}`,
-            latexExpression: newPartialExpression,
-            intermediateSteps: terceto.getIntermediateSteps(),
-          });
-        } else if (terceto.operator === DETERMINANTE_SEGUNDA_COLUMNA_TYPE) {
-          this.steps.push({
-            description: `Se calcula el determinante mediante su desarrollo por la segunda columna de ${commonText}`,
-            latexExpression: newPartialExpression,
-            intermediateSteps: terceto.getIntermediateSteps(),
-          });
-        } else if (terceto.operator === DETERMINANTE_TERCERA_COLUMNA_TYPE) {
-          this.steps.push({
-            description: `Se calcula el determinante mediante su desarrollo por la tercera columna de ${commonText}`,
-            latexExpression: newPartialExpression,
-            intermediateSteps: terceto.getIntermediateSteps(),
-          });
-        } else if (terceto.operator === DETERMINANTE_CUARTA_COLUMNA_TYPE) {
-          this.steps.push({
-            description: `Se calcula el determinante mediante su desarrollo por la cuarta columna de ${commonText}`,
-            latexExpression: newPartialExpression,
-            intermediateSteps: terceto.getIntermediateSteps(),
-          });
-        } else if (terceto.operator === DETERMINANTE_QUINTA_COLUMNA_TYPE) {
-          this.steps.push({
-            description: `Se calcula el determinante mediante su desarrollo por la quinta columna de ${commonText}`,
-            latexExpression: newPartialExpression,
-            intermediateSteps: terceto.getIntermediateSteps(),
-          });
-        } else if (terceto.operator === MATRIZ_INVERTIDA_TYPE) {
-          this.steps.push({
-            description: `Se calcula la matriz inversa de ${commonText}`,
-            latexExpression: newPartialExpression,
-          });
-        } else if (terceto.operator === MATRIZ_TRANSPUESTA_TYPE) {
-          this.steps.push({
-            description: `Se calcula la matriz transpuesta de ${commonText}`,
-            latexExpression: newPartialExpression,
-            intermediateSteps: terceto.getIntermediateSteps(),
-          });
-        } else if (terceto.operator === MATRIZ_DIAGONAL) {
-          this.steps.push({
-            description: `Se calcula la matriz diagonal de ${commonText}`,
-            latexExpression: newPartialExpression,
-            intermediateSteps: terceto.getIntermediateSteps(),
-          });
-        } else if (terceto.operator === MATRIZ_TRIANGULAR_SUPERIOR) {
-          this.steps.push({
-            description: `Se calcula la matriz triangular superior de ${commonText}`,
-            latexExpression: newPartialExpression,
-            intermediateSteps: terceto.getIntermediateSteps(),
-          });
-        } else if (terceto.operator === MATRIZ_TRIANGULAR_INFERIOR) {
-          this.steps.push({
-            description: `Se calcula la matriz triangular inferior de ${commonText}`,
-            latexExpression: newPartialExpression,
-            intermediateSteps: terceto.getIntermediateSteps(),
-          });
-        }
+        this.steps.push({
+          description: terceto.getDescription(),
+          latexExpression: newPartialExpression,
+          intermediateSteps: terceto.getIntermediateSteps(),
+        });
       } catch (error) {
         this.steps.push({
           description: `Se produce el error: ${error} al hacer la cuenta $${terceto.getLatexFormResult()}$`,

@@ -279,6 +279,10 @@ export class TercetoDeterminanteSarrus extends TercetoUnaryOperator {
     return null;
   }
 
+  public override getDescription(): string {
+    return `Se calcula el determinante a través del método de Sarrus de ${this.getDescriptionCommonText()}`;
+  }
+
   public override getLatexFormResult(): string {
     const latexForm: string = this.getExpressionWithParentheses(
       `${getDeterminanteMatrixLatexForm(

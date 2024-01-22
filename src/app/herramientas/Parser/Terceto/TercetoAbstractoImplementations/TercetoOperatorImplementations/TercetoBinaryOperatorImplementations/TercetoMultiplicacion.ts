@@ -78,4 +78,8 @@ export class TercetoMultiplicacion extends TercetoBinaryOperator {
 
     return null;
   }
+
+  public override getDescription(): string {
+    return `Se calcula la multiplicación entre ${this.getDescriptionCommonText()}`;
+  }
 }

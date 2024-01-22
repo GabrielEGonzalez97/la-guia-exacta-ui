@@ -110,6 +110,10 @@ export class TercetoMatrizInversa extends TercetoUnaryOperator {
     return null;
   }
 
+  public override getDescription(): string {
+    return `Se calcula la matriz inversa de ${this.getDescriptionCommonText()}`;
+  }
+
   public override getLatexFormResult(): string {
     const latexForm: string = this.getExpressionWithParentheses(
       `${getCorrectFormToDisplay(this.operand)}^{-1}`

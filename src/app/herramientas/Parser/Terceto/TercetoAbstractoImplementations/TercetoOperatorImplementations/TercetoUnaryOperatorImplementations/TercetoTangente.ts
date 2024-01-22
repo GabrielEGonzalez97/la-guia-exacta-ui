@@ -46,6 +46,10 @@ export class TercetoTangente extends TercetoUnaryOperator {
     return null;
   }
 
+  public override getDescription(): string {
+    return `Se calcula la tangente de ${this.getDescriptionCommonText()}`;
+  }
+
   public override getLatexFormResult(): string {
     const latexForm: string = this.getExpressionWithParentheses(
       `\\tan(${getCorrectFormToDisplay(this.operand)})`

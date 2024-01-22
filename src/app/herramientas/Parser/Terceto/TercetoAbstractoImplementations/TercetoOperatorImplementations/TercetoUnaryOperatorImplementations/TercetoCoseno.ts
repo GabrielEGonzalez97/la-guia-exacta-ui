@@ -46,6 +46,10 @@ export class TercetoCoseno extends TercetoUnaryOperator {
     return null;
   }
 
+  public override getDescription(): string {
+    return `Se calcula el coseno de ${this.getDescriptionCommonText()}`;
+  }
+
   public override getLatexFormResult(): string {
     const latexForm: string = this.getExpressionWithParentheses(
       `\\cos(${getCorrectFormToDisplay(this.operand)})`

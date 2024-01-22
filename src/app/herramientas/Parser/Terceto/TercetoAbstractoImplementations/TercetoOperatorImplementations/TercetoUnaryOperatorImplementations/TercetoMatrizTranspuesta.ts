@@ -76,6 +76,10 @@ export class TercetoMatrizTranspuesta extends TercetoUnaryOperator {
     return null;
   }
 
+  public override getDescription(): string {
+    return `Se calcula la matriz transpuesta de ${this.getDescriptionCommonText()}`;
+  }
+
   public override getLatexFormResult(): string {
     const latexForm: string = this.getExpressionWithParentheses(
       `${getCorrectFormToDisplay(this.operand)}^{T}`

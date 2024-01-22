@@ -104,6 +104,10 @@ export class TercetoMatrizTriangularSuperior extends TercetoUnaryOperator {
     return null;
   }
 
+  public override getDescription(): string {
+    return `Se calcula la matriz triangular superior de ${this.getDescriptionCommonText()}`;
+  }
+
   public override getLatexFormResult(): string {
     const latexForm: string =
       '\\text{matriz_triangular_superior}(' +

@@ -105,6 +105,10 @@ export class TercetoMatrizTriangularInferior extends TercetoUnaryOperator {
     return null;
   }
 
+  public override getDescription(): string {
+    return `Se calcula la matriz triangular inferior de ${this.getDescriptionCommonText()}`;
+  }
+
   public override getLatexFormResult(): string {
     const latexForm: string =
       '\\text{matriz_triangular_inferior}(' +

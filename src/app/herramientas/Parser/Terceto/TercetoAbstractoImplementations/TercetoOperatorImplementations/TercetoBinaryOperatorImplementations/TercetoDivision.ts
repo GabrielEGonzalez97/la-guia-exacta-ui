@@ -89,6 +89,10 @@ export class TercetoDivision extends TercetoBinaryOperator {
     return null;
   }
 
+  public override getDescription(): string {
+    return `Se calcula la división entre ${this.getDescriptionCommonText()}`;
+  }
+
   public override getLatexFormResult(): string {
     const latexForm: string = this.getExpressionWithParentheses(
       `{${getCorrectFormToDisplay(

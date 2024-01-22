@@ -107,6 +107,10 @@ export class TercetoDeterminante2x2 extends TercetoUnaryOperator {
     return null;
   }
 
+  public override getDescription(): string {
+    return `Se calcula el determinante de ${this.getDescriptionCommonText()}`;
+  }
+
   public override getLatexFormResult(): string {
     const latexForm: string = this.getExpressionWithParentheses(
       `${getDeterminanteMatrixLatexForm(

@@ -267,6 +267,12 @@ export class TercetoDeterminanteDesarrolloColumna extends TercetoUnaryOperator {
     return null;
   }
 
+  public override getDescription(): string {
+    return `Se calcula el determinante mediante su desarrollo por la columna ${
+      this.columnToUse + 1
+    } de ${this.getDescriptionCommonText()}`;
+  }
+
   public override getLatexFormResult(): string {
     const latexForm: string = this.getExpressionWithParentheses(
       `${getDeterminanteMatrixLatexForm(

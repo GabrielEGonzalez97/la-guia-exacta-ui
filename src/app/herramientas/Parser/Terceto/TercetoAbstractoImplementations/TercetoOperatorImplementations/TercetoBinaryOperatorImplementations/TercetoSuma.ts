@@ -98,4 +98,8 @@ export class TercetoSuma extends TercetoBinaryOperator {
 
     return null;
   }
+
+  public override getDescription(): string {
+    return `Se calcula la suma entre ${this.getDescriptionCommonText()}`;
+  }
 }

@@ -76,6 +76,12 @@ export class TercetoPotencia extends TercetoBinaryOperator {
     return null;
   }
 
+  public override getDescription(): string {
+    return `Se calcula la potencia ${getCorrectFormToDisplay(
+      this.operand2
+    )} de $${getCorrectFormToDisplay(this.operand1)}$`;
+  }
+
   public override getLatexFormResult(): string {
     const latexForm: string = this.getExpressionWithParentheses(
       `(${getCorrectFormToDisplay(this.operand1)})^{${getCorrectFormToDisplay(

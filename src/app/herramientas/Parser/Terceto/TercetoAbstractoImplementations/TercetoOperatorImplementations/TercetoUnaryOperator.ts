@@ -30,6 +30,7 @@ export abstract class TercetoUnaryOperator extends TercetoOperator {
   public abstract override getResultado(): number | IMatrixElement[][];
   public abstract override getLatexForm(): string;
   public abstract override getTercetoType(): string;
+  public abstract override getDescription(): string;
   public abstract override getLatexFormResult(): string;
 
   protected evaluateOperandsTypes(expectedType: string): boolean {

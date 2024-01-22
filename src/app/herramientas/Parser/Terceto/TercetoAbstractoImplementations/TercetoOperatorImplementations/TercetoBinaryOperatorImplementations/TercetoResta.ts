@@ -97,4 +97,8 @@ export class TercetoResta extends TercetoBinaryOperator {
 
     return null;
   }
+
+  public override getDescription(): string {
+    return `Se calcula la resta entre ${this.getDescriptionCommonText()}`;
+  }
 }

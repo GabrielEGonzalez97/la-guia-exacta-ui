@@ -25,6 +25,7 @@ export abstract class TercetoBinaryOperator extends TercetoOperator {
 
   public abstract override getResultado(): number | IMatrixElement[][];
   public abstract override getTercetoType(): string;
+  public abstract override getDescription(): string;
 
   public override getTercetoForm(): string {
     return `${this.operator},

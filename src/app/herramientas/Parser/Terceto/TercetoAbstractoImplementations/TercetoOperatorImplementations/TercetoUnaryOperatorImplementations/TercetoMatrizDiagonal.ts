@@ -173,6 +173,10 @@ export class TercetoMatrizDiagonal extends TercetoUnaryOperator {
     return null;
   }
 
+  public override getDescription(): string {
+    return `Se calcula la matriz diagonal de ${this.getDescriptionCommonText()}`;
+  }
+
   public override getLatexFormResult(): string {
     const latexForm: string =
       '\\text{matriz_diagonal}(' +

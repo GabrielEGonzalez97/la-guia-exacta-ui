@@ -46,6 +46,10 @@ export class TercetoRaizCuadrada extends TercetoUnaryOperator {
     return null;
   }
 
+  public override getDescription(): string {
+    return `Se calcula la raíz cuadrada de ${this.getDescriptionCommonText()}`;
+  }
+
   public override getLatexFormResult(): string {
     const latexForm: string = this.getExpressionWithParentheses(
       `\\sqrt{${getCorrectFormToDisplay(this.operand)}}`
