@@ -8,8 +8,12 @@ import { TercetoBinaryOperator } from '../Parser/Terceto/TercetoAbstractoImpleme
 import {
   COS_TYPE,
   DETERMINANTE_2_x_2_TYPE,
+  DETERMINANTE_CUARTA_COLUMNA_TYPE,
   DETERMINANTE_PRIMERA_COLUMNA_TYPE,
+  DETERMINANTE_QUINTA_COLUMNA_TYPE,
   DETERMINANTE_SARRUS_TYPE,
+  DETERMINANTE_SEGUNDA_COLUMNA_TYPE,
+  DETERMINANTE_TERCERA_COLUMNA_TYPE,
   MATRIX_TYPE,
   MATRIZ_DIAGONAL,
   MATRIZ_INVERTIDA_TYPE,
@@ -60,7 +64,23 @@ export class OperacionesConMatricesComponent implements OnInit {
       selected: false,
     },
     {
-      content: 'Primera columna',
+      content: '1ra columna',
+      selected: false,
+    },
+    {
+      content: '2da columna',
+      selected: false,
+    },
+    {
+      content: '3ra columna',
+      selected: false,
+    },
+    {
+      content: '4ta columna',
+      selected: false,
+    },
+    {
+      content: '5ta columna',
       selected: false,
     },
   ];
@@ -380,8 +400,16 @@ export class OperacionesConMatricesComponent implements OnInit {
       this.addNewSymbolToTheExpressionToBeCalculated('det(');
     } else if (selectedDeterminante.item.content === 'Sarrus') {
       this.addNewSymbolToTheExpressionToBeCalculated('dsr(');
-    } else if (selectedDeterminante.item.content === 'Primera columna') {
+    } else if (selectedDeterminante.item.content === '1ra columna') {
       this.addNewSymbolToTheExpressionToBeCalculated('dpc(');
+    } else if (selectedDeterminante.item.content === '2da columna') {
+      this.addNewSymbolToTheExpressionToBeCalculated('dsc(');
+    } else if (selectedDeterminante.item.content === '3ra columna') {
+      this.addNewSymbolToTheExpressionToBeCalculated('dtc(');
+    } else if (selectedDeterminante.item.content === '4ta columna') {
+      this.addNewSymbolToTheExpressionToBeCalculated('dcc(');
+    } else if (selectedDeterminante.item.content === '5ta columna') {
+      this.addNewSymbolToTheExpressionToBeCalculated('dqc(');
     }
     selectedDeterminante.item.selected = false;
   }
@@ -504,6 +532,30 @@ export class OperacionesConMatricesComponent implements OnInit {
         } else if (terceto.operator === DETERMINANTE_PRIMERA_COLUMNA_TYPE) {
           this.steps.push({
             description: `Se calcula el determinante mediante su desarrollo por la primera columna de ${commonText}`,
+            latexExpression: newPartialExpression,
+            intermediateSteps: terceto.getIntermediateSteps(),
+          });
+        } else if (terceto.operator === DETERMINANTE_SEGUNDA_COLUMNA_TYPE) {
+          this.steps.push({
+            description: `Se calcula el determinante mediante su desarrollo por la segunda columna de ${commonText}`,
+            latexExpression: newPartialExpression,
+            intermediateSteps: terceto.getIntermediateSteps(),
+          });
+        } else if (terceto.operator === DETERMINANTE_TERCERA_COLUMNA_TYPE) {
+          this.steps.push({
+            description: `Se calcula el determinante mediante su desarrollo por la tercera columna de ${commonText}`,
+            latexExpression: newPartialExpression,
+            intermediateSteps: terceto.getIntermediateSteps(),
+          });
+        } else if (terceto.operator === DETERMINANTE_CUARTA_COLUMNA_TYPE) {
+          this.steps.push({
+            description: `Se calcula el determinante mediante su desarrollo por la cuarta columna de ${commonText}`,
+            latexExpression: newPartialExpression,
+            intermediateSteps: terceto.getIntermediateSteps(),
+          });
+        } else if (terceto.operator === DETERMINANTE_QUINTA_COLUMNA_TYPE) {
+          this.steps.push({
+            description: `Se calcula el determinante mediante su desarrollo por la quinta columna de ${commonText}`,
             latexExpression: newPartialExpression,
             intermediateSteps: terceto.getIntermediateSteps(),
           });

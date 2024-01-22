@@ -17,13 +17,17 @@ import { TercetoAbstracto } from '../../../TercetoAbstracto';
 import { IParentheses } from '../../../interfaces';
 import { TercetoUnaryOperator } from '../TercetoUnaryOperator';
 
-export class TercetoDeterminantePrimeraColumna extends TercetoUnaryOperator {
+export class TercetoDeterminanteDesarrolloColumna extends TercetoUnaryOperator {
+  private columnToUse: number = 0;
+
   constructor(
     operator: string,
     operand: TercetoAbstracto,
-    parentheses: IParentheses
+    parentheses: IParentheses,
+    columnToUse: number
   ) {
     super(operator, operand, parentheses);
+    this.columnToUse = columnToUse;
   }
 
   public override getResultado(): number | IMatrixElement[][] {
@@ -59,14 +63,14 @@ export class TercetoDeterminantePrimeraColumna extends TercetoUnaryOperator {
       return this.getDeterminante2x2(matrix);
     } else {
       for (let i: number = 0; i < n; i++) {
-        const sign: number = (i + 0) % 2 === 0 ? 1 : -1;
+        const sign: number = (i + this.columnToUse) % 2 === 0 ? 1 : -1;
         const matrixCofactor: IMatrixElement[][] = this.getCofactor(
           matrix,
           i,
-          0
+          this.columnToUse
         );
         const determinanteParcial: number =
-          getMatrixCellValue(matrix[i][0]) *
+          getMatrixCellValue(matrix[i][this.columnToUse]) *
           sign *
           this.getDeterminante(matrixCofactor);
         determinante += determinanteParcial;
@@ -87,23 +91,29 @@ export class TercetoDeterminantePrimeraColumna extends TercetoUnaryOperator {
       return this.getDeterminante2x2Steps(matrix);
     } else {
       for (let i: number = 0; i < n; i++) {
-        const sign: number = (i + 0) % 2 === 0 ? 1 : -1;
+        const sign: number = (i + this.columnToUse) % 2 === 0 ? 1 : -1;
         const matrixCofactor: IMatrixElement[][] = this.getCofactor(
           matrix,
           i,
-          0
+          this.columnToUse
         );
         localIntermediateSteps.push({
-          description: `Se marca la fila (${
-            i + 1
-          }) y columna (${1}) que no se va a considerar:`,
-          latexExpression: `${getDeterminanteColumnDevelopment(matrix, i, 0)}`,
+          description: `Se marca la fila (${i + 1}) y columna (${
+            this.columnToUse + 1
+          }) que no se va a considerar:`,
+          latexExpression: `${getDeterminanteColumnDevelopment(
+            matrix,
+            i,
+            this.columnToUse
+          )}`,
         });
         localIntermediateSteps.push({
           description: `Se determina si hay que multiplicar por -1 o 1 mirando la matriz de signos:`,
-          latexExpression: `${getSignsMatrix(n, i, 0)}`,
+          latexExpression: `${getSignsMatrix(n, i, this.columnToUse)}`,
         });
-        const cellValue: number = getMatrixCellValue(matrix[i][0]);
+        const cellValue: number = getMatrixCellValue(
+          matrix[i][this.columnToUse]
+        );
         const determinanteCofactor: number =
           this.getDeterminante(matrixCofactor);
         const determinanteParcial: number =
@@ -114,7 +124,7 @@ export class TercetoDeterminantePrimeraColumna extends TercetoUnaryOperator {
         localIntermediateSteps.push({
           description: `Se multiplican los números de color $\\textcolor{blue}{azul}$ por el determinante de la matriz formada por las celdas de color $\\textcolor{BrickRed}{bordo}$:`,
           latexExpression: `\\textcolor{blue}{${getMatrixCellValue(
-            matrix[i][0]
+            matrix[i][this.columnToUse]
           )}} * \\textcolor{blue}{${sign}} * ${getDeterminanteMatrixLatexFormWithSpecificColor(
             matrixCofactor,
             'BrickRed'
@@ -122,7 +132,7 @@ export class TercetoDeterminantePrimeraColumna extends TercetoUnaryOperator {
           intermediateSteps: [
             {
               description: `Se realiza la multiplicación $\\textcolor{blue}{${getMatrixCellValue(
-                matrix[i][0]
+                matrix[i][this.columnToUse]
               )}} * \\textcolor{blue}{${sign}}$ dando como resultado ${
                 cellValue * sign
               }:`,

@@ -13,7 +13,7 @@ import { TercetoSuma } from './Terceto/TercetoAbstractoImplementations/TercetoOp
 import { TercetoUnaryOperator } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperator';
 import { TercetoCoseno } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoCoseno';
 import { TercetoDeterminante2x2 } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoDeterminante2x2';
-import { TercetoDeterminantePrimeraColumna } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoDeterminantePrimeraColumna';
+import { TercetoDeterminanteDesarrolloColumna } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoDeterminanteDesarrolloColumna';
 import { TercetoDeterminanteSarrus } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoDeterminanteSarrus';
 import { TercetoMatrizDiagonal } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoMatrizDiagonal';
 import { TercetoMatrizInversa } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoMatrizInversa';
@@ -27,8 +27,12 @@ import { Token } from './Token';
 import {
   COS_TYPE,
   DETERMINANTE_2_x_2_TYPE,
+  DETERMINANTE_CUARTA_COLUMNA_TYPE,
   DETERMINANTE_PRIMERA_COLUMNA_TYPE,
+  DETERMINANTE_QUINTA_COLUMNA_TYPE,
   DETERMINANTE_SARRUS_TYPE,
+  DETERMINANTE_SEGUNDA_COLUMNA_TYPE,
+  DETERMINANTE_TERCERA_COLUMNA_TYPE,
   MATRIX_TYPE,
   MATRIZ_DIAGONAL,
   MATRIZ_INVERTIDA_TYPE,
@@ -281,10 +285,55 @@ export class Parser {
         right: false,
       });
     } else if (functionName === DETERMINANTE_PRIMERA_COLUMNA_TYPE) {
-      return new TercetoDeterminantePrimeraColumna(functionName, expression, {
-        left: false,
-        right: false,
-      });
+      return new TercetoDeterminanteDesarrolloColumna(
+        functionName,
+        expression,
+        {
+          left: false,
+          right: false,
+        },
+        0
+      );
+    } else if (functionName === DETERMINANTE_SEGUNDA_COLUMNA_TYPE) {
+      return new TercetoDeterminanteDesarrolloColumna(
+        functionName,
+        expression,
+        {
+          left: false,
+          right: false,
+        },
+        1
+      );
+    } else if (functionName === DETERMINANTE_TERCERA_COLUMNA_TYPE) {
+      return new TercetoDeterminanteDesarrolloColumna(
+        functionName,
+        expression,
+        {
+          left: false,
+          right: false,
+        },
+        2
+      );
+    } else if (functionName === DETERMINANTE_CUARTA_COLUMNA_TYPE) {
+      return new TercetoDeterminanteDesarrolloColumna(
+        functionName,
+        expression,
+        {
+          left: false,
+          right: false,
+        },
+        3
+      );
+    } else if (functionName === DETERMINANTE_QUINTA_COLUMNA_TYPE) {
+      return new TercetoDeterminanteDesarrolloColumna(
+        functionName,
+        expression,
+        {
+          left: false,
+          right: false,
+        },
+        4
+      );
     } else if (functionName === MATRIZ_INVERTIDA_TYPE) {
       return new TercetoMatrizInversa(functionName, expression, {
         left: false,
