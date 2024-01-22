@@ -4,7 +4,18 @@ import { Lexer } from '../Parser/Lexer';
 import { Parser } from '../Parser/Parser';
 import { TercetoAbstracto } from '../Parser/Terceto/TercetoAbstracto';
 import { TercetoOperator } from '../Parser/Terceto/TercetoAbstractoImplementations/TercetoOperator';
-import { MATRIX_TYPE, NUMBER_TYPE, UNARY_FUNCTIONS } from '../Parser/constants';
+import {
+  DETERMINANTE_2_x_2_TYPE,
+  DETERMINANTE_CUARTA_COLUMNA_TYPE,
+  DETERMINANTE_PRIMERA_COLUMNA_TYPE,
+  DETERMINANTE_QUINTA_COLUMNA_TYPE,
+  DETERMINANTE_SARRUS_TYPE,
+  DETERMINANTE_SEGUNDA_COLUMNA_TYPE,
+  DETERMINANTE_TERCERA_COLUMNA_TYPE,
+  MATRIX_TYPE,
+  NUMBER_TYPE,
+  UNARY_FUNCTIONS,
+} from '../Parser/constants';
 import {
   decimalToFraction,
   getCorrectFormToDisplay,
@@ -376,19 +387,33 @@ export class OperacionesConMatricesComponent implements OnInit {
 
   public onSelectedDeterminante(selectedDeterminante: any): void {
     if (selectedDeterminante.item.content === '2x2') {
-      this.addNewSymbolToTheExpressionToBeCalculated('det(');
+      this.addNewSymbolToTheExpressionToBeCalculated(
+        `${DETERMINANTE_2_x_2_TYPE}(`
+      );
     } else if (selectedDeterminante.item.content === 'Sarrus') {
-      this.addNewSymbolToTheExpressionToBeCalculated('dsr(');
+      this.addNewSymbolToTheExpressionToBeCalculated(
+        `${DETERMINANTE_SARRUS_TYPE}(`
+      );
     } else if (selectedDeterminante.item.content === '1ra columna') {
-      this.addNewSymbolToTheExpressionToBeCalculated('dpc(');
+      this.addNewSymbolToTheExpressionToBeCalculated(
+        `${DETERMINANTE_PRIMERA_COLUMNA_TYPE}(`
+      );
     } else if (selectedDeterminante.item.content === '2da columna') {
-      this.addNewSymbolToTheExpressionToBeCalculated('dsc(');
+      this.addNewSymbolToTheExpressionToBeCalculated(
+        `${DETERMINANTE_SEGUNDA_COLUMNA_TYPE}(`
+      );
     } else if (selectedDeterminante.item.content === '3ra columna') {
-      this.addNewSymbolToTheExpressionToBeCalculated('dtc(');
+      this.addNewSymbolToTheExpressionToBeCalculated(
+        `${DETERMINANTE_TERCERA_COLUMNA_TYPE}(`
+      );
     } else if (selectedDeterminante.item.content === '4ta columna') {
-      this.addNewSymbolToTheExpressionToBeCalculated('dcc(');
+      this.addNewSymbolToTheExpressionToBeCalculated(
+        `${DETERMINANTE_CUARTA_COLUMNA_TYPE}(`
+      );
     } else if (selectedDeterminante.item.content === '5ta columna') {
-      this.addNewSymbolToTheExpressionToBeCalculated('dqc(');
+      this.addNewSymbolToTheExpressionToBeCalculated(
+        `${DETERMINANTE_QUINTA_COLUMNA_TYPE}(`
+      );
     }
     selectedDeterminante.item.selected = false;
   }
