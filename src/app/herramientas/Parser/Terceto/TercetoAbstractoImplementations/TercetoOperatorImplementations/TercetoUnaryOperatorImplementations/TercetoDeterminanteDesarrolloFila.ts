@@ -17,17 +17,17 @@ import { TercetoAbstracto } from '../../../TercetoAbstracto';
 import { IParentheses } from '../../../interfaces';
 import { TercetoUnaryOperator } from '../TercetoUnaryOperator';
 
-export class TercetoDeterminanteDesarrolloColumna extends TercetoUnaryOperator {
-  private columnToUse: number = 0;
+export class TercetoDeterminanteDesarrolloFila extends TercetoUnaryOperator {
+  private rowToUse: number = 0;
 
   constructor(
     operator: string,
     operand: TercetoAbstracto,
     parentheses: IParentheses,
-    columnToUse: number
+    rowToUse: number
   ) {
     super(operator, operand, parentheses);
-    this.columnToUse = columnToUse;
+    this.rowToUse = rowToUse;
   }
 
   public override getResultado(): number | IMatrixElement[][] {
@@ -47,11 +47,8 @@ export class TercetoDeterminanteDesarrolloColumna extends TercetoUnaryOperator {
         ),
       ];
 
-      this.intermediateSteps = this.getDeterminanteSteps(
-        matrix,
-        this.columnToUse
-      );
-      return this.getDeterminante(matrix, this.columnToUse);
+      this.intermediateSteps = this.getDeterminanteSteps(matrix, this.rowToUse);
+      return this.getDeterminante(matrix, this.rowToUse);
     }
 
     return null;
@@ -59,12 +56,12 @@ export class TercetoDeterminanteDesarrolloColumna extends TercetoUnaryOperator {
 
   private getDeterminante(
     matrix: IMatrixElement[][],
-    columnToUse: number
+    rowToUse: number
   ): number {
     const n: number = matrix.length;
 
-    while (columnToUse >= n) {
-      columnToUse = columnToUse - 1;
+    while (rowToUse >= n) {
+      rowToUse = rowToUse - 1;
     }
 
     let determinante: number = 0;
@@ -72,17 +69,17 @@ export class TercetoDeterminanteDesarrolloColumna extends TercetoUnaryOperator {
     if (n === 2) {
       return this.getDeterminante2x2(matrix);
     } else {
-      for (let rowIndex: number = 0; rowIndex < n; rowIndex++) {
-        const sign: number = (rowIndex + columnToUse) % 2 === 0 ? 1 : -1;
+      for (let columnIndex: number = 0; columnIndex < n; columnIndex++) {
+        const sign: number = (rowToUse + columnIndex) % 2 === 0 ? 1 : -1;
         const matrixCofactor: IMatrixElement[][] = this.getCofactor(
           matrix,
-          rowIndex,
-          columnToUse
+          rowToUse,
+          columnIndex
         );
         const determinanteParcial: number =
-          getMatrixCellValue(matrix[rowIndex][columnToUse]) *
+          getMatrixCellValue(matrix[rowToUse][columnIndex]) *
           sign *
-          this.getDeterminante(matrixCofactor, columnToUse);
+          this.getDeterminante(matrixCofactor, rowToUse);
         determinante += determinanteParcial;
       }
 
@@ -92,18 +89,18 @@ export class TercetoDeterminanteDesarrolloColumna extends TercetoUnaryOperator {
 
   private getDeterminanteSteps(
     matrix: IMatrixElement[][],
-    columnToUse: number
+    rowToUse: number
   ): ICalculationStep[] {
     const n: number = matrix.length;
     let localIntermediateSteps: ICalculationStep[] = [];
 
-    while (columnToUse >= n) {
-      columnToUse = columnToUse - 1;
+    while (rowToUse >= n) {
+      rowToUse = rowToUse - 1;
       localIntermediateSteps.push({
-        description: `Cómo la columna a utilizar (${
-          columnToUse + 2
-        }) para el desarrollo no está dentro del tamaño de la matriz (${n}), entonces se usará el desarrollo por la columna ${
-          columnToUse + 1
+        description: `Cómo la fila a utilizar (${
+          rowToUse + 2
+        }) para el desarrollo no está dentro del tamaño de la matriz (${n}), entonces se usará el desarrollo por la fila ${
+          rowToUse + 1
         }`,
         latexExpression: `${getDeterminanteMatrixLatexForm(matrix)}`,
       });
@@ -115,33 +112,33 @@ export class TercetoDeterminanteDesarrolloColumna extends TercetoUnaryOperator {
     if (n === 2) {
       return this.getDeterminante2x2Steps(matrix);
     } else {
-      for (let rowIndex: number = 0; rowIndex < n; rowIndex++) {
-        const sign: number = (rowIndex + columnToUse) % 2 === 0 ? 1 : -1;
+      for (let columnIndex: number = 0; columnIndex < n; columnIndex++) {
+        const sign: number = (rowToUse + columnIndex) % 2 === 0 ? 1 : -1;
         const matrixCofactor: IMatrixElement[][] = this.getCofactor(
           matrix,
-          rowIndex,
-          columnToUse
+          rowToUse,
+          columnIndex
         );
         localIntermediateSteps.push({
-          description: `Se marca la fila (${rowIndex + 1}) y columna (${
-            columnToUse + 1
+          description: `Se marca la fila (${rowToUse + 1}) y columna (${
+            columnIndex + 1
           }) que no se va a considerar:`,
           latexExpression: `${getDeterminanteColumnDevelopment(
             matrix,
-            rowIndex,
-            columnToUse
+            rowToUse,
+            columnIndex
           )}`,
         });
         localIntermediateSteps.push({
           description: `Se determina si hay que multiplicar por -1 o 1 mirando la matriz de signos:`,
-          latexExpression: `${getSignsMatrix(n, rowIndex, columnToUse)}`,
+          latexExpression: `${getSignsMatrix(n, rowToUse, columnIndex)}`,
         });
         const cellValue: number = getMatrixCellValue(
-          matrix[rowIndex][columnToUse]
+          matrix[rowToUse][columnIndex]
         );
         const determinanteCofactor: number = this.getDeterminante(
           matrixCofactor,
-          columnToUse
+          rowToUse
         );
         const determinanteParcial: number =
           cellValue * sign * determinanteCofactor;
@@ -151,7 +148,7 @@ export class TercetoDeterminanteDesarrolloColumna extends TercetoUnaryOperator {
         localIntermediateSteps.push({
           description: `Se multiplican los números de color $\\textcolor{blue}{azul}$ por el determinante de la matriz formada por las celdas de color $\\textcolor{BrickRed}{bordo}$:`,
           latexExpression: `\\textcolor{blue}{${getMatrixCellValue(
-            matrix[rowIndex][columnToUse]
+            matrix[rowToUse][columnIndex]
           )}} * \\textcolor{blue}{${sign}} * ${getDeterminanteMatrixLatexFormWithSpecificColor(
             matrixCofactor,
             'BrickRed'
@@ -159,7 +156,7 @@ export class TercetoDeterminanteDesarrolloColumna extends TercetoUnaryOperator {
           intermediateSteps: [
             {
               description: `Se realiza la multiplicación $\\textcolor{blue}{${getMatrixCellValue(
-                matrix[rowIndex][columnToUse]
+                matrix[rowToUse][columnIndex]
               )}} * \\textcolor{blue}{${sign}}$ dando como resultado ${
                 cellValue * sign
               }:`,
@@ -179,7 +176,7 @@ export class TercetoDeterminanteDesarrolloColumna extends TercetoUnaryOperator {
               } * ${determinanteCofactor} = ${determinanteCofactor}`,
               intermediateSteps: this.getDeterminanteSteps(
                 matrixCofactor,
-                columnToUse
+                rowToUse
               ),
             },
           ],
@@ -298,8 +295,8 @@ export class TercetoDeterminanteDesarrolloColumna extends TercetoUnaryOperator {
   }
 
   public override getDescription(): string {
-    return `Se calcula el determinante mediante su desarrollo por la columna ${
-      this.columnToUse + 1
+    return `Se calcula el determinante mediante su desarrollo por la fila ${
+      this.rowToUse + 1
     } de ${this.getDescriptionCommonText()}`;
   }
 

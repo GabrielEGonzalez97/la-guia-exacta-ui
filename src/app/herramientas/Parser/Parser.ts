@@ -14,6 +14,7 @@ import { TercetoUnaryOperator } from './Terceto/TercetoAbstractoImplementations/
 import { TercetoCoseno } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoCoseno';
 import { TercetoDeterminante2x2 } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoDeterminante2x2';
 import { TercetoDeterminanteDesarrolloColumna } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoDeterminanteDesarrolloColumna';
+import { TercetoDeterminanteDesarrolloFila } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoDeterminanteDesarrolloFila';
 import { TercetoDeterminanteSarrus } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoDeterminanteSarrus';
 import { TercetoMatrizDiagonal } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoMatrizDiagonal';
 import { TercetoMatrizInversa } from './Terceto/TercetoAbstractoImplementations/TercetoOperatorImplementations/TercetoUnaryOperatorImplementations/TercetoMatrizInversa';
@@ -28,11 +29,16 @@ import {
   COS_TYPE,
   DETERMINANTE_2_x_2_TYPE,
   DETERMINANTE_CUARTA_COLUMNA_TYPE,
+  DETERMINANTE_CUARTA_FILA_TYPE,
   DETERMINANTE_PRIMERA_COLUMNA_TYPE,
+  DETERMINANTE_PRIMERA_FILA_TYPE,
   DETERMINANTE_QUINTA_COLUMNA_TYPE,
+  DETERMINANTE_QUINTA_FILA_TYPE,
   DETERMINANTE_SARRUS_TYPE,
   DETERMINANTE_SEGUNDA_COLUMNA_TYPE,
+  DETERMINANTE_SEGUNDA_FILA_TYPE,
   DETERMINANTE_TERCERA_COLUMNA_TYPE,
+  DETERMINANTE_TERCERA_FILA_TYPE,
   MATRIX_TYPE,
   MATRIZ_DIAGONAL,
   MATRIZ_INVERTIDA_TYPE,
@@ -326,6 +332,56 @@ export class Parser {
       );
     } else if (functionName === DETERMINANTE_QUINTA_COLUMNA_TYPE) {
       return new TercetoDeterminanteDesarrolloColumna(
+        functionName,
+        expression,
+        {
+          left: false,
+          right: false,
+        },
+        4
+      );
+    } else if (functionName === DETERMINANTE_PRIMERA_FILA_TYPE) {
+      return new TercetoDeterminanteDesarrolloFila(
+        functionName,
+        expression,
+        {
+          left: false,
+          right: false,
+        },
+        0
+      );
+    } else if (functionName === DETERMINANTE_SEGUNDA_FILA_TYPE) {
+      return new TercetoDeterminanteDesarrolloFila(
+        functionName,
+        expression,
+        {
+          left: false,
+          right: false,
+        },
+        1
+      );
+    } else if (functionName === DETERMINANTE_TERCERA_FILA_TYPE) {
+      return new TercetoDeterminanteDesarrolloFila(
+        functionName,
+        expression,
+        {
+          left: false,
+          right: false,
+        },
+        2
+      );
+    } else if (functionName === DETERMINANTE_CUARTA_FILA_TYPE) {
+      return new TercetoDeterminanteDesarrolloFila(
+        functionName,
+        expression,
+        {
+          left: false,
+          right: false,
+        },
+        3
+      );
+    } else if (functionName === DETERMINANTE_QUINTA_FILA_TYPE) {
+      return new TercetoDeterminanteDesarrolloFila(
         functionName,
         expression,
         {

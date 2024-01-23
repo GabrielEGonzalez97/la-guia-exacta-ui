@@ -7,11 +7,16 @@ import { TercetoOperator } from '../Parser/Terceto/TercetoAbstractoImplementatio
 import {
   DETERMINANTE_2_x_2_TYPE,
   DETERMINANTE_CUARTA_COLUMNA_TYPE,
+  DETERMINANTE_CUARTA_FILA_TYPE,
   DETERMINANTE_PRIMERA_COLUMNA_TYPE,
+  DETERMINANTE_PRIMERA_FILA_TYPE,
   DETERMINANTE_QUINTA_COLUMNA_TYPE,
+  DETERMINANTE_QUINTA_FILA_TYPE,
   DETERMINANTE_SARRUS_TYPE,
   DETERMINANTE_SEGUNDA_COLUMNA_TYPE,
+  DETERMINANTE_SEGUNDA_FILA_TYPE,
   DETERMINANTE_TERCERA_COLUMNA_TYPE,
+  DETERMINANTE_TERCERA_FILA_TYPE,
   MATRIX_TYPE,
   NUMBER_TYPE,
   UNARY_FUNCTIONS,
@@ -72,6 +77,26 @@ export class OperacionesConMatricesComponent implements OnInit {
     },
     {
       content: '5ta columna',
+      selected: false,
+    },
+    {
+      content: '1ra fila',
+      selected: false,
+    },
+    {
+      content: '2da fila',
+      selected: false,
+    },
+    {
+      content: '3ra fila',
+      selected: false,
+    },
+    {
+      content: '4ta fila',
+      selected: false,
+    },
+    {
+      content: '5ta fila',
       selected: false,
     },
   ];
@@ -414,6 +439,26 @@ export class OperacionesConMatricesComponent implements OnInit {
     } else if (selectedDeterminante.item.content === '5ta columna') {
       this.addNewSymbolToTheExpressionToBeCalculated(
         `${DETERMINANTE_QUINTA_COLUMNA_TYPE}(`
+      );
+    } else if (selectedDeterminante.item.content === '1ra fila') {
+      this.addNewSymbolToTheExpressionToBeCalculated(
+        `${DETERMINANTE_PRIMERA_FILA_TYPE}(`
+      );
+    } else if (selectedDeterminante.item.content === '2da fila') {
+      this.addNewSymbolToTheExpressionToBeCalculated(
+        `${DETERMINANTE_SEGUNDA_FILA_TYPE}(`
+      );
+    } else if (selectedDeterminante.item.content === '3ra fila') {
+      this.addNewSymbolToTheExpressionToBeCalculated(
+        `${DETERMINANTE_TERCERA_FILA_TYPE}(`
+      );
+    } else if (selectedDeterminante.item.content === '4ta fila') {
+      this.addNewSymbolToTheExpressionToBeCalculated(
+        `${DETERMINANTE_CUARTA_FILA_TYPE}(`
+      );
+    } else if (selectedDeterminante.item.content === '5ta fila') {
+      this.addNewSymbolToTheExpressionToBeCalculated(
+        `${DETERMINANTE_QUINTA_FILA_TYPE}(`
       );
     }
     selectedDeterminante.item.selected = false;
