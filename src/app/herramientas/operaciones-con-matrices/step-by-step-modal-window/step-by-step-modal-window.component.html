@@ -27,12 +27,22 @@
             </div>
             <div ibmRow>
                 <div ibmCol>
+                    <p>Expresión inicial:</p>
+                </div>
+            </div>
+            <div ibmRow>
+                <div ibmCol>
+                    <p class="latex-expression" [mathjax]="'$' + step.initialLatexExpression + '$'"></p>
+                </div>
+            </div>
+            <div ibmRow>
+                <div ibmCol>
                     <p>Expresión resultante:</p>
                 </div>
             </div>
             <div ibmRow>
                 <div ibmCol>
-                    <p class="latex-expression" [mathjax]="'$' + step.latexExpression + '$'"></p>
+                    <p class="latex-expression" [mathjax]="'$' + step.resultingExpression + '$'"></p>
                 </div>
             </div>
 

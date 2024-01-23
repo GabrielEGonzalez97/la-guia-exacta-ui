@@ -22,6 +22,7 @@ import {
   getMatrixLatexForm,
   getMatrixLatexWithDecimalsForm,
 } from '../commonFunctions';
+import { COLOR_TO_HIGHLIGHT_RESULTS } from '../constants';
 import { ICalculationStep } from './interfaces';
 import { IMatrixElement, IMatrixWithName } from './matrix/interfaces';
 import { StepByStepModalWindowComponent } from './step-by-step-modal-window/step-by-step-modal-window.component';
@@ -418,13 +419,17 @@ export class OperacionesConMatricesComponent implements OnInit {
     selectedDeterminante.item.selected = false;
   }
 
-  private replaceFirstOccurrence(
+  private getNewPartialExpression(
     original: string,
     search: string,
-    replace: string
+    replace: string,
+    useColor: boolean
   ): string {
     // Find the position of the first occurrence of the substring
     const index: number = original.indexOf(search);
+    replace = useColor
+      ? `\\textcolor{${COLOR_TO_HIGHLIGHT_RESULTS}}{${replace}}`
+      : replace;
 
     // Check if the substring was found
     if (index !== -1) {
@@ -432,6 +437,27 @@ export class OperacionesConMatricesComponent implements OnInit {
       const newString: string =
         original.substring(0, index) +
         replace +
+        original.substring(index + search.length);
+
+      return newString;
+    }
+
+    // If the substring was not found, return the original string
+    return original;
+  }
+
+  private getInitialPartialExpression(
+    original: string,
+    search: string
+  ): string {
+    // Find the position of the first occurrence of the substring
+    const index: number = original.indexOf(search);
+
+    // Check if the substring was found
+    if (index !== -1) {
+      const newString: string =
+        original.substring(0, index) +
+        `\\textcolor{${COLOR_TO_HIGHLIGHT_RESULTS}}{${search}}` +
         original.substring(index + search.length);
 
       return newString;
@@ -452,10 +478,24 @@ export class OperacionesConMatricesComponent implements OnInit {
         const lastPartialExpression: string = this.steps.slice(-1)[0]
           ? this.steps.slice(-1)[0].latexExpression
           : this.latexExpression;
-        let newPartialExpression: string = this.replaceFirstOccurrence(
+
+        let initialLatexExpression: string = this.getInitialPartialExpression(
+          lastPartialExpression,
+          terceto.getLatexFormResult()
+        );
+
+        let newPartialExpression: string = this.getNewPartialExpression(
           lastPartialExpression,
           terceto.getLatexFormResult(),
-          result
+          result,
+          false
+        );
+
+        let resultingExpression: string = this.getNewPartialExpression(
+          lastPartialExpression,
+          terceto.getLatexFormResult(),
+          result,
+          true
         );
 
         if (stepNumber === tercetos.length) {
@@ -463,6 +503,8 @@ export class OperacionesConMatricesComponent implements OnInit {
         }
         this.steps.push({
           description: terceto.getDescription(),
+          initialLatexExpression: initialLatexExpression,
+          resultingExpression: resultingExpression,
           latexExpression: newPartialExpression,
           intermediateSteps: terceto.getIntermediateSteps(),
         });
