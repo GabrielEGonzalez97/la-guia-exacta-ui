@@ -15,8 +15,6 @@ export let ingles_1: ISubject = {
   career: TUDAI_NAME,
   year: FIRST_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0198',
   programaLink:
@@ -37,8 +35,6 @@ export let programacion_1: ISubject = {
   career: TUDAI_NAME,
   year: FIRST_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0216',
   programaLink:
@@ -59,8 +55,6 @@ export let taller_de_matematica_computacional: ISubject = {
   career: TUDAI_NAME,
   year: FIRST_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0218',
   programaLink:
@@ -81,8 +75,6 @@ export let web_1: ISubject = {
   career: TUDAI_NAME,
   year: FIRST_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0217',
   programaLink:
@@ -103,8 +95,6 @@ export let ingles_2: ISubject = {
   career: TUDAI_NAME,
   year: FIRST_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0199',
   programaLink:
@@ -130,8 +120,6 @@ export let programacion_2: ISubject = {
   career: TUDAI_NAME,
   year: FIRST_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0221',
   programaLink:
@@ -159,8 +147,6 @@ export let tecnologia_de_la_informacion_en_las_organizaciones: ISubject = {
   career: TUDAI_NAME,
   year: FIRST_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0219',
   programaLink:
@@ -181,8 +167,6 @@ export let web_2: ISubject = {
   career: TUDAI_NAME,
   year: FIRST_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0220',
   programaLink:
@@ -208,8 +192,6 @@ export let bases_de_datos_tudai: ISubject = {
   career: TUDAI_NAME,
   year: SECOND_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0519',
   programaLink:
@@ -237,8 +219,6 @@ export let configuracion_y_desarrollo_de_aplicaciones_en_redes: ISubject = {
   career: TUDAI_NAME,
   year: SECOND_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0223',
   programaLink:
@@ -257,39 +237,36 @@ export let configuracion_y_desarrollo_de_aplicaciones_en_redes: ISubject = {
   ],
 };
 
-export let introduccion_a_las_metodologias_de_desarrollo_de_software: ISubject =
-  {
-    id: 'introduccion_a_las_metodologias_de_desarrollo_de_software',
-    name: 'Introducción a las Metodologías de desarrollo de software',
-    status: localStorage.getItem(
-      'introduccion_a_las_metodologias_de_desarrollo_de_software'
-    ),
-    career: TUDAI_NAME,
-    year: SECOND_YEAR_NAME,
-    quarter: FIRST_QUARTER_NAME,
-    teacher: '',
-    contactEmail: '',
-    modalidadLink:
-      'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0225',
-    programaLink:
-      'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0225',
-    webLink: 'http://tudai2-1.alumnos.exa.unicen.edu.ar/',
-    moodleLink: 'https://moodle.exa.unicen.edu.ar/user/index.php?id=600',
-    clasesLink: '',
-    resumenesLink: 'introduccion-a-las-metodologias-de-desarrollo-de-software',
-    parcialesLink: 'introduccion-a-las-metodologias-de-desarrollo-de-software',
-    finalesLink: 'introduccion-a-las-metodologias-de-desarrollo-de-software',
-    correlatives: [
-      {
-        typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
-        subject: programacion_2,
-      },
-      {
-        typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
-        subject: tecnologia_de_la_informacion_en_las_organizaciones,
-      },
-    ],
-  };
+export let introduccion_a_las_metodologias_de_desarrollo_de_software: ISubject = {
+  id: 'introduccion_a_las_metodologias_de_desarrollo_de_software',
+  name: 'Introducción a las Metodologías de desarrollo de software',
+  status: localStorage.getItem(
+    'introduccion_a_las_metodologias_de_desarrollo_de_software'
+  ),
+  career: TUDAI_NAME,
+  year: SECOND_YEAR_NAME,
+  quarter: FIRST_QUARTER_NAME,
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0225',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0225',
+  webLink: 'http://tudai2-1.alumnos.exa.unicen.edu.ar/',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/user/index.php?id=600',
+  clasesLink: '',
+  resumenesLink: 'introduccion-a-las-metodologias-de-desarrollo-de-software',
+  parcialesLink: 'introduccion-a-las-metodologias-de-desarrollo-de-software',
+  finalesLink: 'introduccion-a-las-metodologias-de-desarrollo-de-software',
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: programacion_2,
+    },
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: tecnologia_de_la_informacion_en_las_organizaciones,
+    },
+  ],
+};
 
 export let programacion_3: ISubject = {
   id: 'programacion_3',
@@ -298,8 +275,6 @@ export let programacion_3: ISubject = {
   career: TUDAI_NAME,
   year: SECOND_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0224',
   programaLink:
@@ -325,8 +300,6 @@ export let arquitecturas_web: ISubject = {
   career: TUDAI_NAME,
   year: SECOND_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0230',
   programaLink:
@@ -356,8 +329,6 @@ export let interfaces_de_usuario_e_interaccion: ISubject = {
   career: TUDAI_NAME,
   year: SECOND_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0229',
   programaLink:
@@ -387,8 +358,6 @@ export let tecnicas_de_documentacion_y_validacion: ISubject = {
   career: TUDAI_NAME,
   year: SECOND_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0228',
   programaLink:

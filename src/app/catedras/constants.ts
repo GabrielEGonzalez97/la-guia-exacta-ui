@@ -1,7 +1,8 @@
 import { ListItem } from 'carbon-components-angular';
 import {
   FIRST_QUARTER_NAME,
-  INGENIERIA_DE_SISTEMAS_NAME,
+  INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
+  INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
   LTA_NAME,
   SECOND_QUARTER_NAME,
   TUDAI_NAME,
@@ -14,8 +15,13 @@ export const CAREERS_DROPDOWN_ITEMS: ListItem[] = [
     selected: true,
   },
   {
-    content: INGENIERIA_DE_SISTEMAS_NAME,
-    value: INGENIERIA_DE_SISTEMAS_NAME,
+    content: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
+    value: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
+    selected: false,
+  },
+  {
+    content: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
+    value: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
     selected: false,
   },
   { content: TUDAI_NAME, value: TUDAI_NAME, selected: false },

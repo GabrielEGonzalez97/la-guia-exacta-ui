@@ -5,7 +5,7 @@ import {
   FIRST_QUARTER_NAME,
   FIRST_YEAR_NAME,
   FOURTH_YEAR_NAME,
-  INGENIERIA_DE_SISTEMAS_NAME,
+  INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   ISubject,
   SECOND_QUARTER_NAME,
   SECOND_YEAR_NAME,
@@ -16,11 +16,9 @@ export let algebra_1: ISubject = {
   id: 'algebra_1',
   name: 'Álgebra I',
   status: localStorage.getItem('algebra_1'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: FIRST_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0003',
   programaLink:
@@ -38,11 +36,9 @@ export let algebra_1_recursada: ISubject = {
   id: 'algebra_1_recursada',
   name: 'Álgebra I (Recursada)',
   status: localStorage.getItem('algebra_1_recursada'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: FIRST_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0003',
   programaLink:
@@ -60,11 +56,9 @@ export let analisis_matematico_1: ISubject = {
   id: 'analisis_matematico_1',
   name: 'Análisis Matemático I',
   status: localStorage.getItem('analisis_matematico_1'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: FIRST_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0500',
   programaLink:
@@ -82,11 +76,9 @@ export let analisis_matematico_1_recursada: ISubject = {
   id: 'analisis_matematico_1_recursada',
   name: 'Análisis Matemático I (Recursada)',
   status: localStorage.getItem('analisis_matematico_1_recursada'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: FIRST_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0500',
   programaLink:
@@ -104,11 +96,9 @@ export let introduccion_a_la_programacion_1: ISubject = {
   id: 'introduccion_a_la_programacion_1',
   name: 'Introducción a la Programación I',
   status: localStorage.getItem('introduccion_a_la_programacion_1'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: FIRST_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0001',
   programaLink:
@@ -126,11 +116,9 @@ export let introduccion_a_la_programacion_1_recursada: ISubject = {
   id: 'introduccion_a_la_programacion_1_recursada',
   name: 'Introducción a la Programación I (Recursada)',
   status: localStorage.getItem('introduccion_a_la_programacion_1_recursada'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: FIRST_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0001',
   programaLink:
@@ -148,11 +136,9 @@ export let quimica: ISubject = {
   id: 'quimica',
   name: 'Química',
   status: localStorage.getItem('quimica'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: FIRST_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink: '',
   programaLink: '',
   webLink: '',
@@ -168,11 +154,9 @@ export let algebra_lineal: ISubject = {
   id: 'algebra_lineal',
   name: 'Álgebra Lineal',
   status: localStorage.getItem('algebra_lineal'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: FIRST_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0125',
   programaLink:
@@ -192,11 +176,9 @@ export let algebra_lineal_recursada: ISubject = {
   id: 'algebra_lineal_recursada',
   name: 'Álgebra Lineal (Recursada)',
   status: localStorage.getItem('algebra_lineal_recursada'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: FIRST_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0125',
   programaLink:
@@ -216,11 +198,9 @@ export let ciencias_de_la_computacion_1: ISubject = {
   id: 'ciencias_de_la_computacion_1',
   name: 'Ciencias de la Computación I',
   status: localStorage.getItem('ciencias_de_la_computacion_1'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: FIRST_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0004',
   programaLink:
@@ -238,11 +218,9 @@ export let ciencias_de_la_computacion_1_recursada: ISubject = {
   id: 'ciencias_de_la_computacion_1_recursada',
   name: 'Ciencias de la Computación I (Recursada)',
   status: localStorage.getItem('ciencias_de_la_computacion_1_recursada'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: FIRST_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0004',
   programaLink:
@@ -260,11 +238,9 @@ export let fisica_general: ISubject = {
   id: 'fisica_general',
   name: 'Física General',
   status: localStorage.getItem('fisica_general'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: FIRST_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0007',
   programaLink:
@@ -287,11 +263,9 @@ export let fisica_general_recursada: ISubject = {
   id: 'fisica_general_recursada',
   name: 'Física General (Recursada)',
   status: localStorage.getItem('fisica_general_recursada'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: FIRST_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0007',
   programaLink:
@@ -314,11 +288,9 @@ export let introduccion_a_la_programacion_2: ISubject = {
   id: 'introduccion_a_la_programacion_2',
   name: 'Introducción a la Programación II',
   status: localStorage.getItem('introduccion_a_la_programacion_2'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: FIRST_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0005',
   programaLink:
@@ -341,11 +313,9 @@ export let introduccion_a_la_programacion_2_recursada: ISubject = {
   id: 'introduccion_a_la_programacion_2_recursada',
   name: 'Introducción a la Programación II (Recursada)',
   status: localStorage.getItem('introduccion_a_la_programacion_2_recursada'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: FIRST_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0005',
   programaLink:
@@ -368,11 +338,9 @@ export let matematica_discreta: ISubject = {
   id: 'matematica_discreta',
   name: 'Matemática Discreta',
   status: localStorage.getItem('matematica_discreta'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: FIRST_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0127',
   programaLink:
@@ -395,11 +363,9 @@ export let matematica_discreta_recursada: ISubject = {
   id: 'matematica_discreta_recursada',
   name: 'Matemática Discreta (Recursada)',
   status: localStorage.getItem('matematica_discreta_recursada'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: FIRST_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0127',
   programaLink:
@@ -422,11 +388,9 @@ export let analisis_matematico_2: ISubject = {
   id: 'analisis_matematico_2',
   name: 'Análisis Matemático II',
   status: localStorage.getItem('analisis_matematico_2'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: SECOND_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0504',
   programaLink:
@@ -449,11 +413,9 @@ export let analisis_matematico_2_recursada: ISubject = {
   id: 'analisis_matematico_2_recursada',
   name: 'Análisis Matemático II (Recursada)',
   status: localStorage.getItem('analisis_matematico_2_recursada'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: SECOND_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink: '',
   programaLink: '',
   webLink: '',
@@ -474,11 +436,9 @@ export let analisis_y_diseño_de_algoritmos_1: ISubject = {
   id: 'analisis_y_diseño_de_algoritmos_1',
   name: 'Análisis y Diseño de Algoritmos I',
   status: localStorage.getItem('analisis_y_diseño_de_algoritmos_1'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: SECOND_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0009',
   programaLink:
@@ -509,11 +469,9 @@ export let ciencias_de_la_computacion_2: ISubject = {
   id: 'ciencias_de_la_computacion_2',
   name: 'Ciencias de la Computación II',
   status: localStorage.getItem('ciencias_de_la_computacion_2'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: SECOND_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0008',
   programaLink:
@@ -544,11 +502,9 @@ export let ciencias_de_la_computacion_2_recursada: ISubject = {
   id: 'ciencias_de_la_computacion_2_recursada',
   name: 'Ciencias de la Computación II (Recursada)',
   status: localStorage.getItem('ciencias_de_la_computacion_2_recursada'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: SECOND_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0008',
   programaLink:
@@ -579,11 +535,9 @@ export let electricidad_y_magnetismo: ISubject = {
   id: 'electricidad_y_magnetismo',
   name: 'Electricidad y Magnetismo',
   status: localStorage.getItem('electricidad_y_magnetismo'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: SECOND_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0012',
   programaLink:
@@ -607,11 +561,9 @@ export let introduccion_a_la_arquitectura_de_sistemas: ISubject = {
   id: 'introduccion_a_la_arquitectura_de_sistemas',
   name: 'Introducción a la Arquitectura de Sistemas',
   status: localStorage.getItem('introduccion_a_la_arquitectura_de_sistemas'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: SECOND_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=1024',
   programaLink:
@@ -634,11 +586,9 @@ export let analisis_y_diseño_de_algoritmos_2: ISubject = {
   id: 'analisis_y_diseño_de_algoritmos_2',
   name: 'Análisis y Diseño de Algoritmos II',
   status: localStorage.getItem('analisis_y_diseño_de_algoritmos_2'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: SECOND_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0013',
   programaLink:
@@ -665,11 +615,9 @@ export let analisis_y_diseño_de_algoritmos_2_recursada: ISubject = {
   id: 'analisis_y_diseño_de_algoritmos_2_recursada',
   name: 'Análisis y Diseño de Algoritmos II (Recursada)',
   status: localStorage.getItem('analisis_y_diseño_de_algoritmos_2_recursada'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: SECOND_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0013',
   programaLink:
@@ -696,11 +644,9 @@ export let comunicacion_de_datos_1: ISubject = {
   id: 'comunicacion_de_datos_1',
   name: 'Comunicación de Datos I',
   status: localStorage.getItem('comunicacion_de_datos_1'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: SECOND_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0014',
   programaLink:
@@ -723,11 +669,9 @@ export let electronica_digital: ISubject = {
   id: 'electronica_digital',
   name: 'Electrónica Digital',
   status: localStorage.getItem('electronica_digital'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: SECOND_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0016',
   programaLink:
@@ -750,11 +694,9 @@ export let ingles: ISubject = {
   id: 'ingles',
   name: 'Inglés',
   status: localStorage.getItem('ingles'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: SECOND_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0017',
   programaLink:
@@ -772,11 +714,9 @@ export let probabilidades_y_estadistica: ISubject = {
   id: 'probabilidades_y_estadistica',
   name: 'Probabilidades y Estadística',
   status: localStorage.getItem('probabilidades_y_estadistica'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: SECOND_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0015',
   programaLink:
@@ -807,11 +747,9 @@ export let arquitectura_de_computadoras_1: ISubject = {
   id: 'arquitectura_de_computadoras_1',
   name: 'Arquitectura de Computadoras I',
   status: localStorage.getItem('arquitectura_de_computadoras_1'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: THIRD_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0021',
   programaLink:
@@ -838,11 +776,9 @@ export let estructuras_de_almacenamiento_de_datos: ISubject = {
   id: 'estructuras_de_almacenamiento_de_datos',
   name: 'Estructuras de Almacenamiento de Datos',
   status: localStorage.getItem('estructuras_de_almacenamiento_de_datos'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: THIRD_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0019',
   programaLink:
@@ -869,11 +805,9 @@ export let metodologias_de_desarrollo_de_software_1: ISubject = {
   id: 'metodologias_de_desarrollo_de_software_1',
   name: 'Metodologías de Desarrollo de Software I',
   status: localStorage.getItem('metodologias_de_desarrollo_de_software_1'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: THIRD_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0020',
   programaLink:
@@ -896,11 +830,9 @@ export let programacion_orientada_a_objetos: ISubject = {
   id: 'programacion_orientada_a_objetos',
   name: 'Programación Orientada a Objetos',
   status: localStorage.getItem('programacion_orientada_a_objetos'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: THIRD_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0022',
   programaLink:
@@ -923,11 +855,9 @@ export let programacion_orientada_a_objetos_recursada: ISubject = {
   id: 'programacion_orientada_a_objetos_recursada',
   name: 'Programación Orientada a Objetos (Recursada)',
   status: localStorage.getItem('programacion_orientada_a_objetos_recursada'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: THIRD_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0022',
   programaLink:
@@ -950,11 +880,9 @@ export let bases_de_datos_1: ISubject = {
   id: 'bases_de_datos_1',
   name: 'Bases de Datos I',
   status: localStorage.getItem('bases_de_datos_1'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: THIRD_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0023',
   programaLink:
@@ -997,11 +925,9 @@ export let investigacion_operativa_1: ISubject = {
   id: 'investigacion_operativa_1',
   name: 'Investigación Operativa I',
   status: localStorage.getItem('investigacion_operativa_1'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: THIRD_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0026',
   programaLink:
@@ -1040,11 +966,9 @@ export let lenguajes_de_programacion_1: ISubject = {
   id: 'lenguajes_de_programacion_1',
   name: 'Lenguajes de Programación I',
   status: localStorage.getItem('lenguajes_de_programacion_1'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: THIRD_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0024',
   programaLink:
@@ -1083,11 +1007,9 @@ export let programacion_exploratoria: ISubject = {
   id: 'programacion_exploratoria',
   name: 'Programación Exploratoria',
   status: localStorage.getItem('programacion_exploratoria'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: THIRD_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink: '',
   programaLink: '',
   webLink: '',
@@ -1124,11 +1046,9 @@ export let sistemas_operativos_1: ISubject = {
   id: 'sistemas_operativos_1',
   name: 'Sistemas Operativos I',
   status: localStorage.getItem('sistemas_operativos_1'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: THIRD_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0025',
   programaLink:
@@ -1173,11 +1093,9 @@ export let arquitectura_de_computadoras_y_tecnicas_digitales: ISubject = {
   status: localStorage.getItem(
     'arquitectura_de_computadoras_y_tecnicas_digitales'
   ),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: FOURTH_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0027',
   programaLink:
@@ -1224,11 +1142,9 @@ export let comunicacion_de_datos_2: ISubject = {
   id: 'comunicacion_de_datos_2',
   name: 'Comunicación de Datos II',
   status: localStorage.getItem('comunicacion_de_datos_2'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: FOURTH_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0029',
   programaLink:
@@ -1277,11 +1193,9 @@ export let introduccion_al_calculo_diferencial_e_integral: ISubject = {
   status: localStorage.getItem(
     'introduccion_al_calculo_diferencial_e_integral'
   ),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: FOURTH_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0030',
   programaLink:
@@ -1328,11 +1242,9 @@ export let organizacion_empresarial: ISubject = {
   id: 'organizacion_empresarial',
   name: 'Organización Empresarial',
   status: localStorage.getItem('organizacion_empresarial'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: FOURTH_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=1188',
   programaLink:
@@ -1399,11 +1311,9 @@ export let teoria_de_la_informacion: ISubject = {
   id: 'teoria_de_la_informacion',
   name: 'Teoría de la Información',
   status: localStorage.getItem('teoria_de_la_informacion'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: FOURTH_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0028',
   programaLink:
@@ -1458,11 +1368,9 @@ export let diseño_de_compiladores_1: ISubject = {
   id: 'diseño_de_compiladores_1',
   name: 'Diseño de Compiladores I',
   status: localStorage.getItem('diseño_de_compiladores_1'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: FOURTH_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0032',
   programaLink:
@@ -1509,11 +1417,9 @@ export let diseño_de_sistemas_de_software: ISubject = {
   id: 'diseño_de_sistemas_de_software',
   name: 'Diseño de Sistemas de Software',
   status: localStorage.getItem('diseño_de_sistemas_de_software'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: FOURTH_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink: '',
   programaLink: '',
   webLink: '',
@@ -1568,11 +1474,9 @@ export let fundamentos_de_economia_y_proyectos_de_inversion: ISubject = {
   status: localStorage.getItem(
     'fundamentos_de_economia_y_proyectos_de_inversion'
   ),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: FOURTH_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink: '',
   programaLink: '',
   webLink: '',
@@ -1641,11 +1545,9 @@ export let ingenieria_de_software: ISubject = {
   id: 'ingenieria_de_software',
   name: 'Ingeniería de Software',
   status: localStorage.getItem('ingenieria_de_software'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: FIFTH_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink: '',
   programaLink: '',
   webLink: '',
@@ -1690,11 +1592,9 @@ export let legislacion_y_gestion_ambiental: ISubject = {
   id: 'legislacion_y_gestion_ambiental',
   name: 'Legislación y Gestión Ambiental',
   status: localStorage.getItem('legislacion_y_gestion_ambiental'),
-  career: INGENIERIA_DE_SISTEMAS_NAME,
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
   year: FIFTH_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  teacher: '',
-  contactEmail: '',
   modalidadLink:
     'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=1190',
   programaLink:
