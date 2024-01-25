@@ -8,8 +8,16 @@ export abstract class TercetoAbstracto {
     this.parentheses = parentheses;
   }
 
-  abstract getTercetoForm(): string;
   abstract getResultado(): number | IMatrixElement[][];
+  abstract getTercetoForm(): string;
   abstract getLatexForm(): string;
   abstract getTercetoType(): string;
+
+  protected getExpressionWithParentheses(
+    expressionBetweenParentheses: string
+  ): string {
+    const leftParenthesis: string = this.parentheses.left ? '(' : '';
+    const rightParenthesis: string = this.parentheses.right ? ')' : '';
+    return `${leftParenthesis}${expressionBetweenParentheses}${rightParenthesis}`;
+  }
 }

@@ -1,32 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  ingles_1_with_selection,
-  programacion_1_with_selection,
-  taller_de_matematica_computacional_with_selection,
-  web_1_with_selection,
-  ingles_2_with_selection,
-  programacion_2_with_selection,
-  tecnologia_de_la_informacion_en_las_organizaciones_with_selection,
-  web_2_with_selection,
-  bases_de_datos_tudai_with_selection,
-  configuracion_y_desarrollo_de_aplicaciones_en_redes_with_selection,
-  introduccion_a_las_metodologias_de_desarrollo_de_software_with_selection,
-  programacion_3_with_selection,
-  arquitecturas_web_with_selection,
-  interfaces_de_usuario_e_interaccion_with_selection,
-  tecnicas_de_documentacion_y_validacion_with_selection,
-} from './constants';
-import { ISubjectWithSelection } from 'src/app/common/interfaces';
 import { ModalService } from 'carbon-components-angular';
-import {
-  CORRELATIVE_COLOR_SUBJECT,
-  DEFAULT_COLOR_SUBJECT,
-  REQUISITO_CURSADA_COLOR_SUBJECT,
-  REQUISITO_FINAL_COLOR_SUBJECT,
-  SELECTED_COLOR_SUBJECT,
-} from 'src/app/common/constants';
 import { CatedraModalWindowComponent } from 'src/app/catedras/catedra-modal-window/catedra-modal-window.component';
-import { tudai_subjects } from 'src/app/catedras/tudai_subjects';
 import {
   CORRELATIVE_CURSADA_NAME,
   CORRELATIVE_FINAL_NAME,
@@ -41,6 +15,32 @@ import {
   THIRD_YEAR_NAME,
   TUDAI_NAME,
 } from 'src/app/catedras/interfaces';
+import { tudai_subjects } from 'src/app/catedras/tudai_subjects';
+import {
+  CORRELATIVE_COLOR_SUBJECT,
+  DEFAULT_COLOR_SUBJECT,
+  REQUISITO_CURSADA_COLOR_SUBJECT,
+  REQUISITO_FINAL_COLOR_SUBJECT,
+  SELECTED_COLOR_SUBJECT,
+} from 'src/app/common/constants';
+import { ISubjectWithSelection } from 'src/app/common/interfaces';
+import {
+  arquitecturas_web_with_selection,
+  bases_de_datos_tudai_with_selection,
+  configuracion_y_desarrollo_de_aplicaciones_en_redes_with_selection,
+  ingles_1_with_selection,
+  ingles_2_with_selection,
+  interfaces_de_usuario_e_interaccion_with_selection,
+  introduccion_a_las_metodologias_de_desarrollo_de_software_with_selection,
+  programacion_1_with_selection,
+  programacion_2_with_selection,
+  programacion_3_with_selection,
+  taller_de_matematica_computacional_with_selection,
+  tecnicas_de_documentacion_y_validacion_with_selection,
+  tecnologia_de_la_informacion_en_las_organizaciones_with_selection,
+  web_1_with_selection,
+  web_2_with_selection,
+} from './constants';
 
 @Component({
   selector: 'app-tudai-plan-de-estudios',
@@ -82,8 +82,6 @@ export class TudaiPlanDeEstudiosComponent implements OnInit {
       career: TUDAI_NAME,
       year: null,
       quarter: null,
-      teacher: '',
-      contactEmail: '',
       modalidadLink: '',
       programaLink: '',
       webLink: '',
@@ -105,8 +103,6 @@ export class TudaiPlanDeEstudiosComponent implements OnInit {
       career: TUDAI_NAME,
       year: null,
       quarter: null,
-      teacher: '',
-      contactEmail: '',
       modalidadLink: '',
       programaLink: '',
       webLink: '',
@@ -128,8 +124,6 @@ export class TudaiPlanDeEstudiosComponent implements OnInit {
       career: TUDAI_NAME,
       year: null,
       quarter: null,
-      teacher: '',
-      contactEmail: '',
       modalidadLink: '',
       programaLink: '',
       webLink: '',
@@ -151,8 +145,6 @@ export class TudaiPlanDeEstudiosComponent implements OnInit {
       career: TUDAI_NAME,
       year: null,
       quarter: null,
-      teacher: '',
-      contactEmail: '',
       modalidadLink: '',
       programaLink: '',
       webLink: '',

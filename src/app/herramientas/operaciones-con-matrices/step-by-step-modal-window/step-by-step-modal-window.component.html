@@ -6,20 +6,47 @@
     <div class="steps-container" *ngIf="steps.length > 0">
         <div ibmRow>
             <div ibmCol>
-                <p class="latex-expression" [mathjax]="latexExpression"></p>
+                <p>Expresión inicial:</p>
             </div>
         </div>
-        <ng-container *ngFor="let step of steps">
+        <div ibmRow>
+            <div ibmCol>
+                <p class="latex-expression" [mathjax]="'$' + latexExpression + '$'"></p>
+            </div>
+        </div>
+        <hr>
+        <ng-container *ngFor="let step of steps; let i = index">
             <div ibmRow>
                 <div ibmCol>
-                    <p [mathjax]="step.description"></p>
+                    <p class="step-with-number">
+                        <strong>{{i + 1}}.</strong>
+                        &nbsp;
+                        <span [mathjax]="step.description"></span>
+                    </p>
                 </div>
             </div>
             <div ibmRow>
                 <div ibmCol>
-                    <p class="latex-expression" [mathjax]="step.latexExpression"></p>
+                    <p>Expresión inicial:</p>
                 </div>
             </div>
+            <div ibmRow>
+                <div ibmCol>
+                    <p class="latex-expression" [mathjax]="'$' + step.initialLatexExpression + '$'"></p>
+                </div>
+            </div>
+            <div ibmRow>
+                <div ibmCol>
+                    <p>Expresión resultante:</p>
+                </div>
+            </div>
+            <div ibmRow>
+                <div ibmCol>
+                    <p class="latex-expression" [mathjax]="'$' + step.resultingExpression + '$'"></p>
+                </div>
+            </div>
+
+            <intermediate-steps [step]="step" [numberStep]="(i + 1).toString()"></intermediate-steps>
         </ng-container>
     </div>
 </ibm-modal>

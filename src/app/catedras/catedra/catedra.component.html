@@ -8,7 +8,8 @@
             </span>
         </h3>
         <br>
-        <ibm-tag *ngIf="subject.career === ingenieriaDeSistemasName" type="blue">{{subject.career}}</ibm-tag>
+        <ibm-tag *ngIf="subject.career === ingenieriaDeSistemas2024Name" type="purple">{{subject.career}}</ibm-tag>
+        <ibm-tag *ngIf="subject.career === ingenieriaDeSistemas2011Name" type="blue">{{subject.career}}</ibm-tag>
         <ibm-tag *ngIf="subject.career === tudaiName" type="teal">{{subject.career}}</ibm-tag>
         <ibm-tag *ngIf="subject.career === ltaName" type="green">{{subject.career}}</ibm-tag>
         <ibm-tag *ngIf="subject.quarter === firstQuarterName" type="gray">{{ subject.quarter }}</ibm-tag>
@@ -23,13 +24,6 @@
         </div>
     </div> -->
     <br>
-    <!-- <hr class="bx--side-nav__divider" />
-    <span class="info-catedra"><strong>Cuatrimestre:</strong> {{subject.quarter}}</span>
-    <hr class="bx--side-nav__divider" /> -->
-    <!-- <span class="info-catedra"><strong>Docente:</strong> {{subject.teacher}}</span>
-    <hr class="bx--side-nav__divider" />
-    <span class="info-catedra"><strong>Email de contacto:</strong> {{subject.contactEmail}}</span>
-    <hr class="bx--side-nav__divider" /> -->
     <div class="buttons-container">
         <div ibmRow>
             <app-catedra-column-with-button [elementIconImagePath]="'assets/images/search-icon.svg'"

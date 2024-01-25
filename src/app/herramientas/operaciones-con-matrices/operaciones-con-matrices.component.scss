@@ -37,7 +37,7 @@
   background-color: $principal-color;
   padding: 0;
   line-break: anywhere;
-  font-size: 24px;
+  font-size: 20px;
   justify-content: center;
   border-radius: 15px;
   -webkit-border-radius: 15px;
@@ -46,10 +46,10 @@
   -o-border-radius: 15px;
 
   p {
-    font-size: 1.5rem;
+    font-size: 20px;
 
     sup {
-      font-size: 1rem;
+      font-size: 0.75rem;
     }
   }
 }
@@ -93,4 +93,32 @@
 .warning-icon:focus {
   fill: black;
   outline: none;
+}
+
+.dropdown-container {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.math-content-within-button ::ng-deep {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .jax-process {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .MathJax {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        width: 80%;
+        height: 80%;
+      }
+    }
+  }
 }

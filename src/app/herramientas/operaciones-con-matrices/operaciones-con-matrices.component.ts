@@ -2,15 +2,32 @@ import { Component, OnInit } from '@angular/core';
 import { ListItem, ModalService } from 'carbon-components-angular';
 import { Lexer } from '../Parser/Lexer';
 import { Parser } from '../Parser/Parser';
-import { Terceto } from '../Parser/Terceto/Terceto';
 import { TercetoAbstracto } from '../Parser/Terceto/TercetoAbstracto';
-import { MATRIX_TYPE, NUMBER_TYPE } from '../Parser/constants';
+import { TercetoOperator } from '../Parser/Terceto/TercetoAbstractoImplementations/TercetoOperator';
+import {
+  DETERMINANTE_2_x_2_TYPE,
+  DETERMINANTE_CUARTA_COLUMNA_TYPE,
+  DETERMINANTE_CUARTA_FILA_TYPE,
+  DETERMINANTE_PRIMERA_COLUMNA_TYPE,
+  DETERMINANTE_PRIMERA_FILA_TYPE,
+  DETERMINANTE_QUINTA_COLUMNA_TYPE,
+  DETERMINANTE_QUINTA_FILA_TYPE,
+  DETERMINANTE_SARRUS_TYPE,
+  DETERMINANTE_SEGUNDA_COLUMNA_TYPE,
+  DETERMINANTE_SEGUNDA_FILA_TYPE,
+  DETERMINANTE_TERCERA_COLUMNA_TYPE,
+  DETERMINANTE_TERCERA_FILA_TYPE,
+  MATRIX_TYPE,
+  NUMBER_TYPE,
+  UNARY_FUNCTIONS,
+} from '../Parser/constants';
 import {
   decimalToFraction,
   getCorrectFormToDisplay,
   getMatrixLatexForm,
   getMatrixLatexWithDecimalsForm,
 } from '../commonFunctions';
+import { COLOR_TO_HIGHLIGHT_RESULTS } from '../constants';
 import { ICalculationStep } from './interfaces';
 import { IMatrixElement, IMatrixWithName } from './matrix/interfaces';
 import { StepByStepModalWindowComponent } from './step-by-step-modal-window/step-by-step-modal-window.component';
@@ -33,19 +50,81 @@ export class OperacionesConMatricesComponent implements OnInit {
   public latexExpressionResult: string = '';
 
   public matricesItems: ListItem[] = [];
+  public determinantesItems: ListItem[] = [
+    {
+      content: '2x2',
+      selected: false,
+    },
+    {
+      content: 'Sarrus',
+      selected: false,
+    },
+    {
+      content: '1ra columna',
+      selected: false,
+    },
+    {
+      content: '2da columna',
+      selected: false,
+    },
+    {
+      content: '3ra columna',
+      selected: false,
+    },
+    {
+      content: '4ta columna',
+      selected: false,
+    },
+    {
+      content: '5ta columna',
+      selected: false,
+    },
+    {
+      content: '1ra fila',
+      selected: false,
+    },
+    {
+      content: '2da fila',
+      selected: false,
+    },
+    {
+      content: '3ra fila',
+      selected: false,
+    },
+    {
+      content: '4ta fila',
+      selected: false,
+    },
+    {
+      content: '5ta fila',
+      selected: false,
+    },
+  ];
+
+  public steps: ICalculationStep[] = [];
+
+  public openParenthesesCounter: number = 0;
+  public closedParenthesesCounter: number = 0;
 
   public isExpressionToCalculateEmpty: boolean = true;
+  public isLastSymbolAOpenParentheses: boolean = false;
+  public isLastSymbolAClosedParentheses: boolean = false;
   public isLastSymbolAnOperator: boolean = false;
+  public isLastTokenANumber: boolean = false;
   public isLastTokenAFloat: boolean = false;
+  public isLastTokenAMatrix: boolean = false;
 
   public isDecimalsIconVisible: boolean = false;
   public isFractionIconVisible: boolean = false;
   public isWarningIconVisible: boolean = false;
 
+  public isThereAResult: boolean = false;
+
   public errorMessage: string = '';
 
+  public letterUsedToRepresentAnswerMatrix: string = 'Ñ';
+
   private parser: Parser = null;
-  public steps: ICalculationStep[] = [];
 
   constructor(private modalService: ModalService) {}
 
@@ -107,26 +186,105 @@ export class OperacionesConMatricesComponent implements OnInit {
     }
   }
 
+  public onSelectedAns(): void {
+    if (this.expressionResult) {
+      const expressionResultType: string =
+        this.expressionResult.getTercetoType();
+      if (expressionResultType === NUMBER_TYPE) {
+        this.addNewSymbolToTheExpressionToBeCalculated(
+          this.expressionResult.getResultado().toString()
+        );
+      } else if (expressionResultType === MATRIX_TYPE) {
+        const ansIndex: number = this.matrices.findIndex(
+          (mat: IMatrixWithName) =>
+            mat.name === this.letterUsedToRepresentAnswerMatrix
+        );
+        const deepCopy: IMatrixElement[][] = JSON.parse(
+          JSON.stringify(
+            (this.expressionResult.getResultado() as IMatrixElement[][]).map(
+              (row: IMatrixElement[]) => row.map((element) => ({ ...element }))
+            )
+          )
+        );
+
+        if (ansIndex !== -1) {
+          // Si ya existe una matriz con el nombre letterUsedToRepresentAnswerMatrix, reemplaza su valor
+          this.matrices[ansIndex].matrix = deepCopy;
+        } else {
+          // Si no existe una matriz con el nombre letterUsedToRepresentAnswerMatrix, agrégala a la lista de matrices
+          this.matrices.push({
+            name: this.letterUsedToRepresentAnswerMatrix,
+            matrix: deepCopy,
+          });
+        }
+        this.addNewSymbolToTheExpressionToBeCalculated(
+          this.letterUsedToRepresentAnswerMatrix
+        );
+      }
+    }
+  }
+
   public addNewSymbolToTheExpressionToBeCalculated(newSymbol: string): void {
     this.expressionToCalculate += newSymbol;
+    if (newSymbol.includes('(')) {
+      this.openParenthesesCounter++;
+    } else if (newSymbol === ')') {
+      this.closedParenthesesCounter++;
+    }
     this.checkLastSymbol();
     this.convertToLatexExpression();
   }
 
   public removeSymbolToTheExpressionToBeCalculated(): void {
-    this.expressionToCalculate = this.expressionToCalculate.slice(0, -1);
+    let lastToken: string = '';
+    if (this.expressionToCalculate.length >= 4) {
+      const lastFourCharacters: string = this.expressionToCalculate.substring(
+        this.expressionToCalculate.length - 4
+      );
+      const functionName: string = lastFourCharacters.substring(0, 3);
+      if (UNARY_FUNCTIONS.includes(functionName)) {
+        lastToken = lastFourCharacters;
+        this.openParenthesesCounter--;
+      } else {
+        lastToken = this.expressionToCalculate.trim().slice(-1);
+      }
+    } else {
+      lastToken = this.expressionToCalculate.trim().slice(-1);
+    }
+
+    const lastIndex: number = this.expressionToCalculate.lastIndexOf(lastToken);
+    if (lastIndex !== -1) {
+      this.expressionToCalculate =
+        this.expressionToCalculate.substring(0, lastIndex) +
+        this.expressionToCalculate.substring(lastIndex + lastToken.length);
+    }
+
+    if (lastToken === '(') {
+      if (this.openParenthesesCounter > 0) {
+        this.openParenthesesCounter--;
+      }
+    } else if (lastToken === ')') {
+      if (this.closedParenthesesCounter > 0) {
+        this.closedParenthesesCounter--;
+      }
+    }
     this.checkLastSymbol();
     this.convertToLatexExpression();
   }
 
   public resetExpressionToBeCalculated(): void {
     this.expressionToCalculate = '';
+    this.openParenthesesCounter = 0;
+    this.closedParenthesesCounter = 0;
+    this.isLastTokenANumber = false;
+    this.isLastTokenAFloat = false;
+    this.isLastTokenAMatrix = false;
     this.checkLastSymbol();
     this.convertToLatexExpression();
   }
 
   private checkLastSymbol(): void {
-    const operators: string[] = ['+', '-', '*', '/'];
+    const operators: string[] = ['=', '+', '-', '*', '/', '^'];
 
     const lastChar: string = this.expressionToCalculate.trim().slice(-1);
 
@@ -134,6 +292,14 @@ export class OperacionesConMatricesComponent implements OnInit {
       ? true
       : false;
     this.isLastSymbolAnOperator = operators.includes(lastChar);
+
+    this.isLastSymbolAOpenParentheses = false;
+    this.isLastSymbolAClosedParentheses = false;
+    if (lastChar === '(') {
+      this.isLastSymbolAOpenParentheses = true;
+    } else if (lastChar === ')') {
+      this.isLastSymbolAClosedParentheses = true;
+    }
   }
 
   private convertToLatexExpression(): void {
@@ -156,13 +322,27 @@ export class OperacionesConMatricesComponent implements OnInit {
         if (lastChar == '.') {
           this.latexExpression = `$${this.expressionResult.getLatexForm()}${lastChar}$`;
         }
-
-        this.isLastTokenAFloat = this.parser.isLastTokenAFloat;
       } catch (error) {
+        this.errorMessage = error.message;
         this.latexExpression = `$${this.expressionToCalculate}$`;
       }
+
+      this.isLastTokenANumber = this.parser.getResultado()
+        ? this.parser.getResultado().getTercetoType() === NUMBER_TYPE
+        : false;
+      this.isLastTokenAFloat = this.parser
+        ? this.parser.isLastTokenAFloat
+        : false;
+      this.isLastTokenAMatrix = this.parser.getResultado()
+        ? this.parser.getResultado().getTercetoType() === MATRIX_TYPE
+        : false;
     } else {
       this.latexExpression = '';
+      this.openParenthesesCounter = 0;
+      this.closedParenthesesCounter = 0;
+      this.isLastTokenANumber = false;
+      this.isLastTokenAFloat = false;
+      this.isLastTokenAMatrix = false;
     }
   }
 
@@ -173,21 +353,28 @@ export class OperacionesConMatricesComponent implements OnInit {
 
   public calculateResultInFraction(): void {
     try {
-      const expressionResultType: string =
-        this.expressionResult.getTercetoType();
-      if (expressionResultType === NUMBER_TYPE) {
-        this.latexExpressionResult = `$${decimalToFraction(
-          Number(this.expressionResult.getResultado())
-        )}$`;
-      } else if (expressionResultType === MATRIX_TYPE) {
-        this.latexExpressionResult = `$${getMatrixLatexForm(
-          this.expressionResult.getResultado() as IMatrixElement[][]
-        )}$`;
+      if (this.expressionResult) {
+        const expressionResultType: string =
+          this.expressionResult.getTercetoType();
+        if (expressionResultType === NUMBER_TYPE) {
+          this.latexExpressionResult = `$${decimalToFraction(
+            Number(this.expressionResult.getResultado())
+          )}$`;
+        } else if (expressionResultType === MATRIX_TYPE) {
+          this.latexExpressionResult = `$${getMatrixLatexForm(
+            this.expressionResult.getResultado() as IMatrixElement[][]
+          )}$`;
+        }
+        this.isDecimalsIconVisible = true;
+        this.isFractionIconVisible = false;
+        this.isWarningIconVisible = false;
+        this.isThereAResult = true;
+      } else {
+        this.isWarningIconVisible = true;
+        this.isThereAResult = false;
       }
-      this.isDecimalsIconVisible = true;
-      this.isFractionIconVisible = false;
-      this.isWarningIconVisible = false;
     } catch (error) {
+      this.isThereAResult = false;
       this.isWarningIconVisible = true;
       this.errorMessage = error.message;
     }
@@ -195,38 +382,99 @@ export class OperacionesConMatricesComponent implements OnInit {
 
   public calculateResultInDecimals(): void {
     try {
-      const expressionResultType: string =
-        this.expressionResult.getTercetoType();
-      if (expressionResultType === NUMBER_TYPE) {
-        this.latexExpressionResult = `$${Number(
-          this.expressionResult.getResultado()
-        )}$`;
-      } else if (expressionResultType === MATRIX_TYPE) {
-        this.latexExpressionResult = `$${getMatrixLatexWithDecimalsForm(
-          this.expressionResult.getResultado() as IMatrixElement[][]
-        )}$`;
+      if (this.expressionResult) {
+        const expressionResultType: string =
+          this.expressionResult.getTercetoType();
+        if (expressionResultType === NUMBER_TYPE) {
+          this.latexExpressionResult = `$${Number(
+            this.expressionResult.getResultado()
+          )}$`;
+        } else if (expressionResultType === MATRIX_TYPE) {
+          this.latexExpressionResult = `$${getMatrixLatexWithDecimalsForm(
+            this.expressionResult.getResultado() as IMatrixElement[][]
+          )}$`;
+        }
+        this.isDecimalsIconVisible = false;
+        this.isFractionIconVisible = true;
+        this.isWarningIconVisible = false;
+      } else {
+        this.isWarningIconVisible = true;
       }
-      this.isDecimalsIconVisible = false;
-      this.isFractionIconVisible = true;
-      this.isWarningIconVisible = false;
     } catch (error) {
       this.isWarningIconVisible = true;
       this.errorMessage = error.message;
     }
   }
 
-  public onSelectedMatrix(selectedMatrix: any) {
+  public onSelectedMatrix(selectedMatrix: any): void {
     this.addNewSymbolToTheExpressionToBeCalculated(selectedMatrix.item.content);
     selectedMatrix.item.selected = false;
   }
 
-  private replaceFirstOccurrence(
+  public onSelectedDeterminante(selectedDeterminante: any): void {
+    if (selectedDeterminante.item.content === '2x2') {
+      this.addNewSymbolToTheExpressionToBeCalculated(
+        `${DETERMINANTE_2_x_2_TYPE}(`
+      );
+    } else if (selectedDeterminante.item.content === 'Sarrus') {
+      this.addNewSymbolToTheExpressionToBeCalculated(
+        `${DETERMINANTE_SARRUS_TYPE}(`
+      );
+    } else if (selectedDeterminante.item.content === '1ra columna') {
+      this.addNewSymbolToTheExpressionToBeCalculated(
+        `${DETERMINANTE_PRIMERA_COLUMNA_TYPE}(`
+      );
+    } else if (selectedDeterminante.item.content === '2da columna') {
+      this.addNewSymbolToTheExpressionToBeCalculated(
+        `${DETERMINANTE_SEGUNDA_COLUMNA_TYPE}(`
+      );
+    } else if (selectedDeterminante.item.content === '3ra columna') {
+      this.addNewSymbolToTheExpressionToBeCalculated(
+        `${DETERMINANTE_TERCERA_COLUMNA_TYPE}(`
+      );
+    } else if (selectedDeterminante.item.content === '4ta columna') {
+      this.addNewSymbolToTheExpressionToBeCalculated(
+        `${DETERMINANTE_CUARTA_COLUMNA_TYPE}(`
+      );
+    } else if (selectedDeterminante.item.content === '5ta columna') {
+      this.addNewSymbolToTheExpressionToBeCalculated(
+        `${DETERMINANTE_QUINTA_COLUMNA_TYPE}(`
+      );
+    } else if (selectedDeterminante.item.content === '1ra fila') {
+      this.addNewSymbolToTheExpressionToBeCalculated(
+        `${DETERMINANTE_PRIMERA_FILA_TYPE}(`
+      );
+    } else if (selectedDeterminante.item.content === '2da fila') {
+      this.addNewSymbolToTheExpressionToBeCalculated(
+        `${DETERMINANTE_SEGUNDA_FILA_TYPE}(`
+      );
+    } else if (selectedDeterminante.item.content === '3ra fila') {
+      this.addNewSymbolToTheExpressionToBeCalculated(
+        `${DETERMINANTE_TERCERA_FILA_TYPE}(`
+      );
+    } else if (selectedDeterminante.item.content === '4ta fila') {
+      this.addNewSymbolToTheExpressionToBeCalculated(
+        `${DETERMINANTE_CUARTA_FILA_TYPE}(`
+      );
+    } else if (selectedDeterminante.item.content === '5ta fila') {
+      this.addNewSymbolToTheExpressionToBeCalculated(
+        `${DETERMINANTE_QUINTA_FILA_TYPE}(`
+      );
+    }
+    selectedDeterminante.item.selected = false;
+  }
+
+  private getNewPartialExpression(
     original: string,
     search: string,
-    replace: string
+    replace: string,
+    useColor: boolean
   ): string {
     // Find the position of the first occurrence of the substring
     const index: number = original.indexOf(search);
+    replace = useColor
+      ? `\\textcolor{${COLOR_TO_HIGHLIGHT_RESULTS}}{${replace}}`
+      : replace;
 
     // Check if the substring was found
     if (index !== -1) {
@@ -243,65 +491,78 @@ export class OperacionesConMatricesComponent implements OnInit {
     return original;
   }
 
+  private getInitialPartialExpression(
+    original: string,
+    search: string
+  ): string {
+    // Find the position of the first occurrence of the substring
+    const index: number = original.indexOf(search);
+
+    // Check if the substring was found
+    if (index !== -1) {
+      const newString: string =
+        original.substring(0, index) +
+        `\\textcolor{${COLOR_TO_HIGHLIGHT_RESULTS}}{${search}}` +
+        original.substring(index + search.length);
+
+      return newString;
+    }
+
+    // If the substring was not found, return the original string
+    return original;
+  }
+
   public calculateSteps(): void {
-    console.log(this.parser.getTercetos());
     this.steps = [];
-    const tercetos: Terceto[] = this.parser.getTercetos() as Terceto[];
-    tercetos.forEach((terceto: Terceto, index: number) => {
-      const operand1Result: string = getCorrectFormToDisplay(
-        terceto.operand1 as Terceto
-      );
-      const operand2Result: string = getCorrectFormToDisplay(
-        terceto.operand2 as Terceto
-      );
+    const tercetos: TercetoOperator[] =
+      this.parser.getTercetos() as TercetoOperator[];
+    tercetos.forEach((terceto: TercetoOperator, index: number) => {
       const stepNumber: number = index + 1;
       try {
-        const result: string = getCorrectFormToDisplay(terceto as Terceto);
-        const commonText: string = `$${operand1Result}$ y $${operand2Result}$ dando como resultado $${result}$`;
+        const result: string = getCorrectFormToDisplay(terceto);
         const lastPartialExpression: string = this.steps.slice(-1)[0]
           ? this.steps.slice(-1)[0].latexExpression
           : this.latexExpression;
-        let newPartialExpression: string = this.replaceFirstOccurrence(
+
+        let initialLatexExpression: string = this.getInitialPartialExpression(
           lastPartialExpression,
-          terceto.getLatexFormResult(),
-          result
+          terceto.getLatexFormResult()
         );
 
-        // console.log({ lastPartialExpression });
-        // console.log(terceto.getLatexFormResult());
-        // console.log({ result });
-        // console.log({ newPartialExpression });
-        // console.log('');
+        let newPartialExpression: string = this.getNewPartialExpression(
+          lastPartialExpression,
+          terceto.getLatexFormResult(),
+          result,
+          false
+        );
+
+        let resultingExpression: string = this.getNewPartialExpression(
+          lastPartialExpression,
+          terceto.getLatexFormResult(),
+          result,
+          true
+        );
+
         if (stepNumber === tercetos.length) {
           newPartialExpression = `$${result}$`;
         }
-        if (terceto.operator === '+') {
-          this.steps.push({
-            description: `${stepNumber}. Se realiza la suma entre ${commonText}`,
-            latexExpression: newPartialExpression,
-          });
-        } else if (terceto.operator === '-') {
-          this.steps.push({
-            description: `${stepNumber}. Se realiza la resta entre ${commonText}`,
-            latexExpression: newPartialExpression,
-          });
-        } else if (terceto.operator === '*') {
-          this.steps.push({
-            description: `${stepNumber}. Se realiza la multiplicación entre ${commonText}`,
-            latexExpression: newPartialExpression,
-          });
-        } else if (terceto.operator === '/') {
-          this.steps.push({
-            description: `${stepNumber}. Se realiza la división entre ${commonText}`,
-            latexExpression: newPartialExpression,
-          });
-        }
+        this.steps.push({
+          description: terceto.getDescription(),
+          initialLatexExpression: initialLatexExpression,
+          resultingExpression: resultingExpression,
+          latexExpression: newPartialExpression,
+          intermediateSteps: terceto.getIntermediateSteps(),
+        });
       } catch (error) {
         this.steps.push({
-          description: `${stepNumber}. Se produce el error: ${error} al hacer la cuenta $${operand1Result}$ ${terceto.operator} $${operand2Result}$`,
-          latexExpression: '',
+          description: `Se produce el error: ${error} al hacer la cuenta $${terceto.getLatexFormResult()}$`,
+          latexExpression:
+            terceto.getIntermediateSteps()[
+              terceto.getIntermediateSteps().length - 1
+            ].latexExpression,
+          intermediateSteps: terceto.getIntermediateSteps(),
         });
-        throw Error(
+        throw new Error(
           'No es posible seguir calculando los pasos debido a un error previo'
         );
       }

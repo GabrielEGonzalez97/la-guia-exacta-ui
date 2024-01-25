@@ -1,9 +1,14 @@
 export type CareerName =
-  | 'Ingenieria de Sistemas'
+  | 'Ingenieria de Sistemas (Plan 2024)'
+  | 'Ingenieria de Sistemas (Plan 2011)'
   | 'TUDAI'
   | 'Licenciatura en Tecnología Ambiental';
 
-export const INGENIERIA_DE_SISTEMAS_NAME = 'Ingenieria de Sistemas';
+export const INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME =
+  'Ingenieria de Sistemas (Plan 2011)';
+
+export const INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME =
+  'Ingenieria de Sistemas (Plan 2024)';
 
 export const LTA_NAME = 'Licenciatura en Tecnología Ambiental';
 
@@ -34,8 +39,6 @@ export interface ISubject {
   career: CareerName;
   year: YearType;
   quarter: QuarterType;
-  teacher: string;
-  contactEmail: string;
   modalidadLink: string;
   programaLink: string;
   webLink: string;

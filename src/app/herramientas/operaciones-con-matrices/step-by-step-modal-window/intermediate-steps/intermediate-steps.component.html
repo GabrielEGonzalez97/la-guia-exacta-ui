@@ -1,0 +1,47 @@
+<ng-container *ngIf="step.intermediateSteps && step.intermediateSteps.length > 0">
+    <div class="steps-container">
+        <ng-container *ngIf="!intermediateStepVisible">
+            <div ibmRow>
+                <div ibmCol>
+                    <button ibmButton="primary" (click)="setIntermediateStepVisibleValue()">
+                        Ver pasos intermedios
+                    </button>
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="intermediateStepVisible">
+            <ng-container *ngFor="let intermediateStep of step.intermediateSteps; let j = index">
+                <div ibmRow>
+                    <div ibmCol>
+                        <p class="step-with-number">
+                            <strong class="intermediate-step-p">{{numberStep}}.{{j + 1}}.</strong>
+                            &nbsp;
+                            <span class="intermediate-step-p" [mathjax]="intermediateStep.description"></span>
+                        </p>
+                    </div>
+                </div>
+                <div ibmRow>
+                    <div ibmCol>
+                        <p class="latex-expression intermediate-step-p"
+                            [mathjax]="'$' + intermediateStep.latexExpression + '$'"></p>
+                    </div>
+                </div>
+
+                <ng-container
+                    *ngIf="intermediateStep.intermediateSteps && intermediateStep.intermediateSteps.length > 0">
+                    <!-- Llamar recursivamente al mismo componente para los pasos intermedios -->
+                    <intermediate-steps [step]="intermediateStep"
+                        [numberStep]="numberStep + '.' + (j + 1).toString()"></intermediate-steps>
+                </ng-container>
+            </ng-container>
+            <div ibmRow>
+                <div ibmCol>
+                    <button ibmButton="primary" (click)="setIntermediateStepVisibleValue()">
+                        Ocultar pasos intermedios
+                    </button>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</ng-container>
+<hr>

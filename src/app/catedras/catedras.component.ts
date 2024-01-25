@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ListItem } from 'carbon-components-angular';
 import { CAREERS_DROPDOWN_ITEMS, QUARTERS_DROPDOWN_ITEMS } from './constants';
 import { ingenieria_de_sistemas_subjects_plan_2011 } from './ingenieria-de-sistemas-plan-2011';
+import { ingenieria_de_sistemas_subjects_plan_2024 } from './ingenieria-de-sistemas-plan-2024';
 import { ISubject } from './interfaces';
 import { lta_subjects } from './lta_subjects';
 import { tudai_subjects } from './tudai_subjects';
@@ -15,6 +16,7 @@ export class CatedrasComponent implements OnInit {
   public careers_dropdown_items: ListItem[] = CAREERS_DROPDOWN_ITEMS;
   public quarters_dropdown_items: ListItem[] = QUARTERS_DROPDOWN_ITEMS;
   public allSubjects: ISubject[] = [
+    ...ingenieria_de_sistemas_subjects_plan_2024,
     ...ingenieria_de_sistemas_subjects_plan_2011,
     ...tudai_subjects,
     ...lta_subjects,
@@ -23,7 +25,6 @@ export class CatedrasComponent implements OnInit {
 
   private selectedCareerContent: string = '';
   private selectedQuarterContent: string = '';
-  private searchingByTeacherContent: string = '';
   private searchingBySubjectContent: string = '';
 
   constructor() {}
@@ -41,8 +42,7 @@ export class CatedrasComponent implements OnInit {
       (subject: ISubject) =>
         filterFunction(subject.career, this.selectedCareerContent) &&
         filterFunction(subject.quarter, this.selectedQuarterContent) &&
-        filterFunction(subject.name, this.searchingBySubjectContent) &&
-        filterFunction(subject.teacher, this.searchingByTeacherContent)
+        filterFunction(subject.name, this.searchingBySubjectContent)
     );
   }
 
@@ -59,11 +59,6 @@ export class CatedrasComponent implements OnInit {
       selectedQuarter.item.content !== 'Todos'
         ? selectedQuarter.item.content
         : '';
-    this.onFilterChange();
-  }
-
-  public onChangeSearchingByTeacher(teacherNameToSearch: any): void {
-    this.searchingByTeacherContent = teacherNameToSearch.target.value;
     this.onFilterChange();
   }
 

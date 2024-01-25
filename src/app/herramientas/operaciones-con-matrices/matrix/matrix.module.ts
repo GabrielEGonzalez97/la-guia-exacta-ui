@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import TrashCan24 from '@carbon/icons/es/trash-can/24';
 import {
+  DropdownModule,
   GridModule,
   IconModule,
   IconService,
@@ -10,7 +11,7 @@ import {
 } from 'carbon-components-angular';
 import { MatrixComponent } from './matrix.component';
 
-const CARBON_IMPORTS = [GridModule, IconModule, NumberModule];
+const CARBON_IMPORTS = [DropdownModule, GridModule, IconModule, NumberModule];
 
 @NgModule({
   declarations: [MatrixComponent],

@@ -4,7 +4,8 @@ import { UtilsService } from 'src/app/services/utils.service';
 import { CorrelativesModalWindowComponent } from '../correlatives-modal-window/correlatives-modal-window.component';
 import {
   FIRST_QUARTER_NAME,
-  INGENIERIA_DE_SISTEMAS_NAME,
+  INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME,
+  INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
   ISubject,
   LTA_NAME,
   SECOND_QUARTER_NAME,
@@ -23,7 +24,10 @@ export class CatedraComponent implements OnInit {
 
   public isOpenCorrelativesModalWindow: boolean = false;
 
-  public ingenieriaDeSistemasName: string = INGENIERIA_DE_SISTEMAS_NAME;
+  public ingenieriaDeSistemas2024Name: string =
+    INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME;
+  public ingenieriaDeSistemas2011Name: string =
+    INGENIERIA_DE_SISTEMAS_PLAN_2011_NAME;
   public tudaiName: string = TUDAI_NAME;
   public ltaName: string = LTA_NAME;
 
