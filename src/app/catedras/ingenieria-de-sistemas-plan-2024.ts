@@ -18,14 +18,16 @@ export let ingles_plan_2024: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
   year: FIRST_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  modalidadLink: '',
-  programaLink: '',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0017',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0017',
   webLink: '',
-  moodleLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=710',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'ingles',
+  parcialesLink: 'ingles',
+  finalesLink: 'ingles',
   correlatives: [],
 };
 
@@ -36,14 +38,16 @@ export let introduccion_al_algebra_plan_2024: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
   year: FIRST_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  modalidadLink: '',
-  programaLink: '',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0003',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0003',
   webLink: '',
-  moodleLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=604',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'algebra-i',
+  parcialesLink: 'algebra-i',
+  finalesLink: 'algebra-i',
   correlatives: [],
 };
 
@@ -76,14 +80,16 @@ export let introduccion_a_los_sistemas_informaticos_plan_2024: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
   year: FIRST_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  modalidadLink: '',
-  programaLink: '',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=1024',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=1024',
   webLink: '',
-  moodleLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=593',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'introduccion-a-la-arquitectura-de-sistemas',
+  parcialesLink: 'introduccion-a-la-arquitectura-de-sistemas',
+  finalesLink: 'introduccion-a-la-arquitectura-de-sistemas',
   correlatives: [],
 };
 
@@ -94,14 +100,16 @@ export let calculo_1_plan_2024: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
   year: FIRST_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  modalidadLink: '',
-  programaLink: '',
-  webLink: '',
-  moodleLink: '',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0500',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0500',
+  webLink: 'https://analisis-matematico-i.alumnos.exa.unicen.edu.ar/',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=712',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'analisis-matematico-i',
+  parcialesLink: 'analisis-matematico-i',
+  finalesLink: 'analisis-matematico-i',
   correlatives: [],
 };
 
@@ -112,14 +120,16 @@ export let disenio_logico_plan_2024: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
   year: FIRST_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  modalidadLink: '',
-  programaLink: '',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0016',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0016',
   webLink: '',
-  moodleLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=747',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'electronica-digital',
+  parcialesLink: 'electronica-digital',
+  finalesLink: 'electronica-digital',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -139,14 +149,16 @@ export let introduccion_a_la_programacion_2_plan_2024: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
   year: FIRST_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  modalidadLink: '',
-  programaLink: '',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0005',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0005',
   webLink: '',
-  moodleLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=780',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'introduccion-a-la-programacion-ii',
+  parcialesLink: 'introduccion-a-la-programacion-ii',
+  finalesLink: 'introduccion-a-la-programacion-ii',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -162,14 +174,16 @@ export let lenguajes_formales_y_automatas_plan_2024: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
   year: FIRST_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  modalidadLink: '',
-  programaLink: '',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0004',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0004',
   webLink: '',
   moodleLink: '',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'ciencias-de-la-computacion-i',
+  parcialesLink: 'ciencias-de-la-computacion-i',
+  finalesLink: 'ciencias-de-la-computacion-i',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -185,14 +199,16 @@ export let algebra_lineal_plan_2024: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
   year: SECOND_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  modalidadLink: '',
-  programaLink: '',
-  webLink: '',
-  moodleLink: '',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0125',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0125',
+  webLink: 'http://algebra-lineal.alumnos.exa.unicen.edu.ar/',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=761',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'algebra-lineal',
+  parcialesLink: 'algebra-lineal',
+  finalesLink: 'algebra-lineal',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -208,14 +224,16 @@ export let analisis_y_disenio_de_algoritmos_1_plan_2024: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
   year: SECOND_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  modalidadLink: '',
-  programaLink: '',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0009',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0009',
   webLink: '',
-  moodleLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=740',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'analisis-y-disenio-de-algoritmos-i',
+  parcialesLink: 'analisis-y-disenio-de-algoritmos-i',
+  finalesLink: 'analisis-y-disenio-de-algoritmos-i',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -239,14 +257,16 @@ export let arquitectura_de_computadoras_1_plan_2024: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
   year: SECOND_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  modalidadLink: '',
-  programaLink: '',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0021',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0021',
   webLink: '',
-  moodleLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=610',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'arquitectura-de-computadoras-i',
+  parcialesLink: 'arquitectura-de-computadoras-i',
+  finalesLink: 'arquitectura-de-computadoras-i',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -262,14 +282,16 @@ export let programacion_orientada_a_objetos_plan_2024: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
   year: SECOND_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  modalidadLink: '',
-  programaLink: '',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0022',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0022',
   webLink: '',
   moodleLink: '',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'programacion-orientada-a-objetos',
+  parcialesLink: 'programacion-orientada-a-objetos',
+  finalesLink: 'programacion-orientada-a-objetos',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -285,14 +307,16 @@ export let analisis_y_disenio_de_algoritmos_2_plan_2024: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
   year: SECOND_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  modalidadLink: '',
-  programaLink: '',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0013',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0013',
   webLink: '',
-  moodleLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=766',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'analisis-y-disenio-de-algoritmos-ii',
+  parcialesLink: 'analisis-y-disenio-de-algoritmos-ii',
+  finalesLink: 'analisis-y-disenio-de-algoritmos-ii',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -308,14 +332,16 @@ export let calculo_2_plan_2024: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
   year: SECOND_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  modalidadLink: '',
-  programaLink: '',
-  webLink: '',
-  moodleLink: '',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0504',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0504',
+  webLink: 'http://analisis-matematico-ii.alumnos.exa.unicen.edu.ar/',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=664',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'analisis-matematico-ii',
+  parcialesLink: 'analisis-matematico-ii',
+  finalesLink: 'analisis-matematico-ii',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -333,14 +359,16 @@ export let metodologias_de_desarrollo_de_software_plan_2024: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
   year: SECOND_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  modalidadLink: '',
-  programaLink: '',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0020',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0020',
   webLink: '',
-  moodleLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=599',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'metodologias-de-desarrollo-de-software-i',
+  parcialesLink: 'metodologias-de-desarrollo-de-software-i',
+  finalesLink: 'metodologias-de-desarrollo-de-software-i',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -356,14 +384,16 @@ export let redes_de_computadoras_1_plan_2024: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
   year: SECOND_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  modalidadLink: '',
-  programaLink: '',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0014',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0014',
   webLink: '',
-  moodleLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=771',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'comunicacion-de-datos-i',
+  parcialesLink: 'comunicacion-de-datos-i',
+  finalesLink: 'comunicacion-de-datos-i',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -383,14 +413,16 @@ export let base_de_datos_1_plan_2024: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
   year: THIRD_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  modalidadLink: '',
-  programaLink: '',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0019',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0019',
   webLink: '',
-  moodleLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=637',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'estructuras-de-almacenamiento-de-datos',
+  parcialesLink: 'estructuras-de-almacenamiento-de-datos',
+  finalesLink: 'estructuras-de-almacenamiento-de-datos',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -406,14 +438,16 @@ export let fisica_1_plan_2024: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
   year: THIRD_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  modalidadLink: '',
-  programaLink: '',
-  webLink: '',
-  moodleLink: '',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0007',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0007',
+  webLink: 'https://fisica-general.alumnos.exa.unicen.edu.ar/home',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=749',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'fisica-general',
+  parcialesLink: 'fisica-general',
+  finalesLink: 'fisica-general',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -433,14 +467,16 @@ export let lenguajes_y_paradigmas_plan_2024: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
   year: THIRD_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  modalidadLink: '',
-  programaLink: '',
-  webLink: '',
-  moodleLink: '',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0024',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0024',
+  webLink: 'https://lengprg1.alumnos.exa.unicen.edu.ar/',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=562',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'lenguajes-de-programacion-i',
+  parcialesLink: 'lenguajes-de-programacion-i',
+  finalesLink: 'lenguajes-de-programacion-i',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -460,14 +496,16 @@ export let sistemas_operativos_plan_2024: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
   year: THIRD_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  modalidadLink: '',
-  programaLink: '',
-  webLink: '',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0025',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0025',
+  webLink: 'https://users.exa.unicen.edu.ar/catedras/sisop1/',
   moodleLink: '',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'sistemas-operativos-i',
+  parcialesLink: 'sistemas-operativos-i',
+  finalesLink: 'sistemas-operativos-i',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -487,14 +525,16 @@ export let base_de_datos_2_plan_2024: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
   year: THIRD_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  modalidadLink: '',
-  programaLink: '',
-  webLink: '',
-  moodleLink: '',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0023',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0023',
+  webLink: 'https://bdatos1.alumnos.exa.unicen.edu.ar/',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=721',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'bases-de-datos-i',
+  parcialesLink: 'bases-de-datos-i',
+  finalesLink: 'bases-de-datos-i',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -519,9 +559,9 @@ export let ingenieria_de_software_1_plan_2024: ISubject = {
   webLink: '',
   moodleLink: '',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'ingenieria-de-software-i',
+  parcialesLink: 'ingenieria-de-software-i',
+  finalesLink: 'ingenieria-de-software-i',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -537,14 +577,16 @@ export let probabilidad_y_estadistica_plan_2024: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
   year: THIRD_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  modalidadLink: '',
-  programaLink: '',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0015',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0015',
   webLink: '',
-  moodleLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=704',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'probabilidades-y-estadistica',
+  parcialesLink: 'probabilidades-y-estadistica',
+  finalesLink: 'probabilidades-y-estadistica',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -565,9 +607,9 @@ export let programacion_web_plan_2024: ISubject = {
   webLink: '',
   moodleLink: '',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'programacion-web',
+  parcialesLink: 'programacion-web',
+  finalesLink: 'programacion-web',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -587,14 +629,17 @@ export let fisica_2_plan_2024: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
   year: FOURTH_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  modalidadLink: '',
-  programaLink: '',
-  webLink: '',
-  moodleLink: '',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0012',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0012',
+  webLink:
+    'https://drive.google.com/drive/folders/1IpRsJmRVRwEgmuy9b4ktLdegFyrv2KCd',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=657',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'electricidad-y-magnetismo',
+  parcialesLink: 'electricidad-y-magnetismo',
+  finalesLink: 'electricidad-y-magnetismo',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -609,19 +654,21 @@ export let fisica_2_plan_2024: ISubject = {
 
 export let organizacion_empresarial_plan_2024: ISubject = {
   id: 'organizacion_empresarial_plan_2024',
-  name: 'Organización Empresarial',
+  name: 'Organización y Gestión Empresarial',
   status: localStorage.getItem('organizacion_empresarial_plan_2024'),
   career: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
   year: FOURTH_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  modalidadLink: '',
-  programaLink: '',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=1188',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=1188',
   webLink: '',
-  moodleLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=616',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'organizacion-empresarial',
+  parcialesLink: 'organizacion-empresarial',
+  finalesLink: 'organizacion-empresarial',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -641,14 +688,16 @@ export let redes_de_computadoras_2_plan_2024: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
   year: FOURTH_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  modalidadLink: '',
-  programaLink: '',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0029',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0029',
   webLink: '',
-  moodleLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=669',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'comunicacion-de-datos-ii',
+  parcialesLink: 'comunicacion-de-datos-ii',
+  finalesLink: 'comunicacion-de-datos-ii',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -664,14 +713,16 @@ export let teoria_de_la_informacion_plan_2024: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
   year: FOURTH_YEAR_NAME,
   quarter: FIRST_QUARTER_NAME,
-  modalidadLink: '',
-  programaLink: '',
-  webLink: '',
-  moodleLink: '',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0028',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0028',
+  webLink: 'https://teoinfo.alumnos.exa.unicen.edu.ar/',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=643',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'teoria-de-la-informacion',
+  parcialesLink: 'teoria-de-la-informacion',
+  finalesLink: 'teoria-de-la-informacion',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -691,14 +742,16 @@ export let arquitectura_de_computadoras_2_plan_2024: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
   year: FOURTH_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  modalidadLink: '',
-  programaLink: '',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0027',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0027',
   webLink: '',
-  moodleLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=611',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'arquitectura-de-computadoras-y-tecnicas-digitales',
+  parcialesLink: 'arquitectura-de-computadoras-y-tecnicas-digitales',
+  finalesLink: 'arquitectura-de-computadoras-y-tecnicas-digitales',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -719,9 +772,9 @@ export let calidad_de_software_plan_2024: ISubject = {
   webLink: '',
   moodleLink: '',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'calidad-de-software',
+  parcialesLink: 'calidad-de-software',
+  finalesLink: 'calidad-de-software',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -737,14 +790,16 @@ export let compiladores_e_interpretes_plan_2024: ISubject = {
   career: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
   year: FOURTH_YEAR_NAME,
   quarter: SECOND_QUARTER_NAME,
-  modalidadLink: '',
-  programaLink: '',
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=0032',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=0032',
   webLink: '',
-  moodleLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=778',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'disenio-de-compiladores-i',
+  parcialesLink: 'disenio-de-compiladores-i',
+  finalesLink: 'disenio-de-compiladores-i',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -765,9 +820,9 @@ export let fundamentos_de_la_ciencia_de_datos_plan_2024: ISubject = {
   webLink: '',
   moodleLink: '',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'fundamentos-de-la-ciencia-de-datos',
+  parcialesLink: 'fundamentos-de-la-ciencia-de-datos',
+  finalesLink: 'fundamentos-de-la-ciencia-de-datos',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -796,9 +851,9 @@ export let ciberseguridad_plan_2024: ISubject = {
   webLink: '',
   moodleLink: '',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'ciberseguridad',
+  parcialesLink: 'ciberseguridad',
+  finalesLink: 'ciberseguridad',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -827,9 +882,9 @@ export let ingenieria_de_software_2_plan_2024: ISubject = {
   webLink: '',
   moodleLink: '',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'ingenieria-de-software-ii',
+  parcialesLink: 'ingenieria-de-software-ii',
+  finalesLink: 'ingenieria-de-software-ii',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -850,9 +905,9 @@ export let inteligencia_artificial_plan_2024: ISubject = {
   webLink: '',
   moodleLink: '',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'inteligencia-artificial',
+  parcialesLink: 'inteligencia-artificial',
+  finalesLink: 'inteligencia-artificial',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
@@ -865,31 +920,32 @@ export let inteligencia_artificial_plan_2024: ISubject = {
   ],
 };
 
-export let etica_y_legislacion_de_la_practica_profesional_plan_2024: ISubject =
-  {
-    id: 'etica_y_legislacion_de_la_practica_profesional_plan_2024',
-    name: 'Ética y Legislación de la práctica profesional',
-    status: localStorage.getItem(
-      'etica_y_legislacion_de_la_practica_profesional_plan_2024'
-    ),
-    career: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
-    year: FIFTH_YEAR_NAME,
-    quarter: SECOND_QUARTER_NAME,
-    modalidadLink: '',
-    programaLink: '',
-    webLink: '',
-    moodleLink: '',
-    clasesLink: '',
-    resumenesLink: '',
-    parcialesLink: '',
-    finalesLink: '',
-    correlatives: [
-      {
-        typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
-        subject: organizacion_empresarial_plan_2024,
-      },
-    ],
-  };
+export let etica_y_legislacion_de_la_practica_profesional_plan_2024: ISubject = {
+  id: 'etica_y_legislacion_de_la_practica_profesional_plan_2024',
+  name: 'Ética y Legislación de la práctica profesional',
+  status: localStorage.getItem(
+    'etica_y_legislacion_de_la_practica_profesional_plan_2024'
+  ),
+  career: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
+  year: FIFTH_YEAR_NAME,
+  quarter: SECOND_QUARTER_NAME,
+  modalidadLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=planificacion&materia=1190',
+  programaLink:
+    'https://aplicaciones.exa.unicen.edu.ar/Docentes/1.0/ws.php?servicio=programa&materia=1190',
+  webLink: '',
+  moodleLink: 'https://moodle.exa.unicen.edu.ar/course/edit.php?id=626',
+  clasesLink: '',
+  resumenesLink: 'legislacion-y-gestion-ambiental',
+  parcialesLink: 'legislacion-y-gestion-ambiental',
+  finalesLink: 'legislacion-y-gestion-ambiental',
+  correlatives: [
+    {
+      typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
+      subject: organizacion_empresarial_plan_2024,
+    },
+  ],
+};
 
 export let formulacion_y_evaluacion_de_proyectos_tics_plan_2024: ISubject = {
   id: 'formulacion_y_evaluacion_de_proyectos_tics_plan_2024',
@@ -905,9 +961,9 @@ export let formulacion_y_evaluacion_de_proyectos_tics_plan_2024: ISubject = {
   webLink: '',
   moodleLink: '',
   clasesLink: '',
-  resumenesLink: '',
-  parcialesLink: '',
-  finalesLink: '',
+  resumenesLink: 'fundamentos-de-economia-y-proyectos-de-inversion',
+  parcialesLink: 'fundamentos-de-economia-y-proyectos-de-inversion',
+  finalesLink: 'fundamentos-de-economia-y-proyectos-de-inversion',
   correlatives: [
     {
       typeOfCorrelativity: CORRELATIVE_CURSADA_NAME,
