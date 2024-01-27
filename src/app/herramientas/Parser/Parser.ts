@@ -158,7 +158,7 @@ export class Parser {
       return expresion;
     } else if (this.currentToken && this.currentToken.type === NUMBER_TYPE) {
       const numero: TercetoNumerico = new TercetoNumerico(
-        parseFloat(this.currentToken.value),
+        this.currentToken.value,
         {
           left: false,
           right: false,

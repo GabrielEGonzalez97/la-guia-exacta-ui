@@ -7,6 +7,7 @@ import {
   getDeterminanteMatrixLatexFormWithColors,
   getDeterminanteMatrixLatexFormWithMultiplicationsAndColors,
   getMatrixCellValue,
+  getResultWithAlgebrite,
 } from 'src/app/herramientas/commonFunctions';
 import { IMatrixElement } from 'src/app/herramientas/operaciones-con-matrices/matrix/interfaces';
 import { TercetoAbstracto } from '../../../TercetoAbstracto';
@@ -22,7 +23,7 @@ export class TercetoDeterminanteSarrus extends TercetoUnaryOperator {
     super(operator, operand, parentheses);
   }
 
-  public override getResultado(): number | IMatrixElement[][] {
+  public override getResultado(): string | IMatrixElement[][] {
     this.intermediateSteps = [];
     if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
       throw new Error('No se puede calcular el determinante de un número');
@@ -61,35 +62,41 @@ export class TercetoDeterminanteSarrus extends TercetoUnaryOperator {
           )}`,
         });
 
-        const firstMultiplicationValue: number =
-          getMatrixCellValue(matrix[0][0]) *
-          getMatrixCellValue(matrix[1][1]) *
-          getMatrixCellValue(matrix[2][2]);
+        const firstMultiplicationValue: string = getResultWithAlgebrite(
+          `(${getMatrixCellValue(matrix[0][0])}) * (${getMatrixCellValue(
+            matrix[1][1]
+          )}) * (${getMatrixCellValue(matrix[2][2])})`
+        );
 
-        const secondMultiplicationValue: number =
-          getMatrixCellValue(matrix[0][2]) *
-          getMatrixCellValue(matrix[1][0]) *
-          getMatrixCellValue(matrix[2][1]);
+        const secondMultiplicationValue: string = getResultWithAlgebrite(
+          `(${getMatrixCellValue(matrix[0][2])}) * (${getMatrixCellValue(
+            matrix[1][0]
+          )}) * (${getMatrixCellValue(matrix[2][1])})`
+        );
 
-        const thirdMultiplicationValue: number =
-          getMatrixCellValue(matrix[0][1]) *
-          getMatrixCellValue(matrix[1][2]) *
-          getMatrixCellValue(matrix[2][0]);
+        const thirdMultiplicationValue: string = getResultWithAlgebrite(
+          `(${getMatrixCellValue(matrix[0][1])}) * (${getMatrixCellValue(
+            matrix[1][2]
+          )}) * (${getMatrixCellValue(matrix[2][0])})`
+        );
 
-        const fourthMultiplicationValue: number =
-          getMatrixCellValue(matrix[0][2]) *
-          getMatrixCellValue(matrix[1][1]) *
-          getMatrixCellValue(matrix[2][0]);
+        const fourthMultiplicationValue: string = getResultWithAlgebrite(
+          `(${getMatrixCellValue(matrix[0][2])}) * (${getMatrixCellValue(
+            matrix[1][1]
+          )}) * (${getMatrixCellValue(matrix[2][0])})`
+        );
 
-        const fifthMultiplicationValue: number =
-          getMatrixCellValue(matrix[0][0]) *
-          getMatrixCellValue(matrix[1][2]) *
-          getMatrixCellValue(matrix[2][1]);
+        const fifthMultiplicationValue: string = getResultWithAlgebrite(
+          `(${getMatrixCellValue(matrix[0][0])}) * (${getMatrixCellValue(
+            matrix[1][2]
+          )}) * (${getMatrixCellValue(matrix[2][1])})`
+        );
 
-        const sixthMultiplicationValue: number =
-          getMatrixCellValue(matrix[0][1]) *
-          getMatrixCellValue(matrix[1][0]) *
-          getMatrixCellValue(matrix[2][2]);
+        const sixthMultiplicationValue: string = getResultWithAlgebrite(
+          `(${getMatrixCellValue(matrix[0][1])}) * (${getMatrixCellValue(
+            matrix[1][0]
+          )}) * (${getMatrixCellValue(matrix[2][2])})`
+        );
 
         const highlightedCellsStep2 = [
           { row: 0, col: 0, color: 'NavyBlue' },
@@ -238,13 +245,13 @@ export class TercetoDeterminanteSarrus extends TercetoUnaryOperator {
           ],
         });
 
-        const determinante: number =
-          firstMultiplicationValue +
-          secondMultiplicationValue +
-          thirdMultiplicationValue -
-          (fourthMultiplicationValue +
-            fifthMultiplicationValue +
-            sixthMultiplicationValue);
+        const determinante: string = getResultWithAlgebrite(`
+          (${firstMultiplicationValue}) +
+          (${secondMultiplicationValue}) +
+            (${thirdMultiplicationValue}) -
+          ((${fourthMultiplicationValue}) +
+            (${fifthMultiplicationValue}) +
+            (${sixthMultiplicationValue}))`);
         this.intermediateSteps.push({
           description: `Se realiza la resta entre lo obtenido en los dos pasos anteriores, dando como resultado ${determinante}`,
           latexExpression: `\\text{det} = ${firstMultiplicationValue} + ${secondMultiplicationValue} + ${thirdMultiplicationValue} - (${fourthMultiplicationValue} + ${fifthMultiplicationValue} + ${sixthMultiplicationValue}) = ${determinante}`,

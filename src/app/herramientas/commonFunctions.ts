@@ -3,34 +3,41 @@ import { TercetoAbstracto } from './Parser/Terceto/TercetoAbstracto';
 import { MATRIX_TYPE, NUMBER_TYPE } from './Parser/constants';
 import { IMatrixElement } from './operaciones-con-matrices/matrix/interfaces';
 
-export function decimalToFraction(decimal: number): string {
+var Algebrite = require('algebrite');
+
+export function decimalToFraction(decimal: string): string {
   if (decimal !== null) {
-    const fraction: Fraction = new Fraction(decimal);
+    decimal = decimal.replace(/\s/g, '');
+    if (!isNaN(Number(decimal))) {
+      const fraction: Fraction = new Fraction(decimal).simplify();
 
-    const numerator: number = fraction.n;
-    const denominator: number = fraction.d;
+      const numerator: number = fraction.n;
+      const denominator: number = fraction.d;
 
-    const minusSign: string = decimal < 0 ? '-' : '';
-    const fractionString: string = `${minusSign}{${numerator} \\over ${denominator}}`;
+      const minusSign: string = decimal.includes('-') ? '-' : '';
+      const fractionString: string = `${minusSign}{${numerator} \\over ${denominator}}`;
 
-    if (denominator > 1) {
-      return fractionString;
+      if (denominator > 1) {
+        return fractionString;
+      }
+
+      return `${minusSign}${numerator}`;
+    } else {
+      return decimal.replace('/', '\\over');
     }
-
-    return `${minusSign}${numerator}`;
   } else {
     return null;
   }
 }
 
-export function getMatrixCellValue(cellValue: IMatrixElement): number {
+export function getMatrixCellValue(cellValue: IMatrixElement): string {
   if (cellValue.value.includes('/')) {
     const divisionParts: string[] = cellValue.value.split('/');
-    return Number(divisionParts[0]) / Number(divisionParts[1]);
+    return `${divisionParts[0]} / ${divisionParts[1]}`;
   } else if (cellValue.value === '') {
     return null;
   } else {
-    return Number(cellValue.value);
+    return cellValue.value;
   }
 }
 
@@ -252,9 +259,7 @@ export function getMatrixLatexWithDecimalsForm(
 ): string {
   // $\\begin{pmatrix}a & b\\\\ c & d \\\\ c & d\\end{pmatrix}$
   const rows: string[] = matrix.map((row: IMatrixElement[]) =>
-    row
-      .map((cell: IMatrixElement) => getMatrixCellValue(cell).toString())
-      .join(' & ')
+    row.map((cell: IMatrixElement) => getMatrixCellValue(cell)).join(' & ')
   );
   const matrixBody: string = rows.join('\\\\ ');
   return `\\begin{pmatrix}${matrixBody}\\end{pmatrix}`;
@@ -264,9 +269,13 @@ export function getCorrectFormToDisplay(terceto: TercetoAbstracto): string {
   const type: string = terceto.getTercetoType();
   let result: string = '';
   if (type === NUMBER_TYPE) {
-    result = decimalToFraction(Number(terceto.getResultado()));
+    result = decimalToFraction(terceto.getResultado().toString());
   } else if (type === MATRIX_TYPE) {
     result = getMatrixLatexForm(terceto.getResultado() as IMatrixElement[][]);
   }
   return result;
+}
+
+export function getResultWithAlgebrite(expressionToCalculate: string): string {
+  return Algebrite.run(expressionToCalculate);
 }

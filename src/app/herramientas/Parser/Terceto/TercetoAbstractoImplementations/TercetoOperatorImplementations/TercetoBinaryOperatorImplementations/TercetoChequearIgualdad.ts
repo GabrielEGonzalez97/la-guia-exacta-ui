@@ -22,12 +22,12 @@ export class TercetoChequearIgualdad extends TercetoBinaryOperator {
     super(operator, operand1, operand2, parentheses);
   }
 
-  public override getResultado(): number | IMatrixElement[][] {
+  public override getResultado(): string | IMatrixElement[][] {
     this.intermediateSteps = [];
     if (this.evaluateOperandsTypes(NUMBER_TYPE, NUMBER_TYPE)) {
       if (
-        Number(this.operand1.getResultado()) ===
-        Number(this.operand2.getResultado())
+        this.operand1.getResultado().toString() ===
+        this.operand2.getResultado().toString()
       ) {
         this.intermediateSteps.push({
           description: `${this.operand1.getResultado()} es igual a ${this.operand2.getResultado()}`,
@@ -35,7 +35,7 @@ export class TercetoChequearIgualdad extends TercetoBinaryOperator {
             this.operand1
           )} = ${getCorrectFormToDisplay(this.operand2)}`,
         });
-        return Number(this.operand1.getResultado());
+        return this.operand1.getResultado();
       } else {
         this.intermediateSteps.push({
           description: `${this.operand1.getResultado()} no es igual a ${this.operand2.getResultado()}`,

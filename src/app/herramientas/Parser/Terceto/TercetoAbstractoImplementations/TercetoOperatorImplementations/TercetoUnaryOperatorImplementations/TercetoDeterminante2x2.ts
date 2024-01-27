@@ -6,6 +6,7 @@ import {
   getDeterminanteMatrixLatexForm,
   getDeterminanteMatrixLatexFormWithMultiplicationsAndColors,
   getMatrixCellValue,
+  getResultWithAlgebrite,
 } from 'src/app/herramientas/commonFunctions';
 import { IMatrixElement } from 'src/app/herramientas/operaciones-con-matrices/matrix/interfaces';
 import { TercetoAbstracto } from '../../../TercetoAbstracto';
@@ -21,7 +22,7 @@ export class TercetoDeterminante2x2 extends TercetoUnaryOperator {
     super(operator, operand, parentheses);
   }
 
-  public override getResultado(): number | IMatrixElement[][] {
+  public override getResultado(): string | IMatrixElement[][] {
     this.intermediateSteps = [];
     if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
       throw new Error('No se puede calcular el determinante de un número');
@@ -40,11 +41,19 @@ export class TercetoDeterminante2x2 extends TercetoUnaryOperator {
       const size: number = matrix.length;
 
       if (size === 2) {
-        const firstResult: number =
-          getMatrixCellValue(matrix[0][0]) * getMatrixCellValue(matrix[1][1]);
-        const secondResult: number =
-          getMatrixCellValue(matrix[0][1]) * getMatrixCellValue(matrix[1][0]);
-        const determinante: number = firstResult - secondResult;
+        const firstResult: string = getResultWithAlgebrite(
+          `(${getMatrixCellValue(matrix[0][0])}) * (${getMatrixCellValue(
+            matrix[1][1]
+          )})`
+        );
+        const secondResult: string = getResultWithAlgebrite(
+          `(${getMatrixCellValue(matrix[0][1])}) * (${getMatrixCellValue(
+            matrix[1][0]
+          )})`
+        );
+        const determinante: string = getResultWithAlgebrite(
+          `(${firstResult}) - (${secondResult})`
+        );
 
         const highlightedCellsStep1 = [
           { row: 0, col: 0, color: 'NavyBlue' },

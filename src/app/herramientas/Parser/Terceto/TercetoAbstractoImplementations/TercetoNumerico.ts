@@ -3,14 +3,14 @@ import { TercetoAbstracto } from '../TercetoAbstracto';
 import { IParentheses } from '../interfaces';
 
 export class TercetoNumerico extends TercetoAbstracto {
-  public number: number;
+  public number: string;
 
-  constructor(number: number, parentheses: IParentheses) {
+  constructor(number: string, parentheses: IParentheses) {
     super(parentheses);
     this.number = number;
   }
 
-  public override getResultado(): number {
+  public override getResultado(): string {
     return this.number;
   }
 

@@ -68,7 +68,7 @@
         <div ibmRow>
             <div class="dropdown-container" ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 4, sm: 2 }">
                 <ibm-dropdown placeholder="Elegir matriz" (selected)="onSelectedMatrix($event)"
-                    [disabled]="isLastTokenANumber">
+                    [disabled]="isLastTokenANumber || isLastTokenAMatrix || isLastSymbolAClosedParentheses">
                     <ibm-dropdown-list [items]="matricesItems"></ibm-dropdown-list>
                 </ibm-dropdown>
             </div>

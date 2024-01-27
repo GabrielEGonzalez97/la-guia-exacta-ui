@@ -2,7 +2,10 @@ import {
   MATRIX_TYPE,
   NUMBER_TYPE,
 } from 'src/app/herramientas/Parser/constants';
-import { getCorrectFormToDisplay } from 'src/app/herramientas/commonFunctions';
+import {
+  getCorrectFormToDisplay,
+  getResultWithAlgebrite,
+} from 'src/app/herramientas/commonFunctions';
 import { IMatrixElement } from 'src/app/herramientas/operaciones-con-matrices/matrix/interfaces';
 import { TercetoAbstracto } from '../../../TercetoAbstracto';
 import { IParentheses } from '../../../interfaces';
@@ -18,12 +21,11 @@ export class TercetoPotencia extends TercetoBinaryOperator {
     super(operator, operand1, operand2, parentheses);
   }
 
-  public override getResultado(): number | IMatrixElement[][] {
+  public override getResultado(): string | IMatrixElement[][] {
     this.intermediateSteps = [];
     if (this.evaluateOperandsTypes(NUMBER_TYPE, NUMBER_TYPE)) {
-      return Math.pow(
-        Number(this.operand1.getResultado()),
-        Number(this.operand2.getResultado())
+      return getResultWithAlgebrite(
+        `(${this.operand1.getResultado()}) ^ (${this.operand2.getResultado()})`
       );
     } else if (this.evaluateOperandsTypes(NUMBER_TYPE, MATRIX_TYPE)) {
       throw new Error('Una matriz no puede ser parte del exponente');

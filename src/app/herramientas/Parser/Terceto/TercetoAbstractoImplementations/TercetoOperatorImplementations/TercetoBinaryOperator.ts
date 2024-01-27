@@ -1,7 +1,9 @@
 import {
+  decimalToFraction,
   getCorrectFormToDisplay,
   getMatrixCellValue,
   getMatrixLatexForm,
+  getResultWithAlgebrite,
 } from '../../../../commonFunctions';
 import { IMatrixElement } from '../../../../operaciones-con-matrices/matrix/interfaces';
 import { TercetoAbstracto } from '../../TercetoAbstracto';
@@ -23,7 +25,7 @@ export abstract class TercetoBinaryOperator extends TercetoOperator {
     this.operand2 = operand2;
   }
 
-  public abstract override getResultado(): number | IMatrixElement[][];
+  public abstract override getResultado(): string | IMatrixElement[][];
   public abstract override getTercetoType(): string;
   public abstract override getDescription(): string;
 
@@ -100,18 +102,20 @@ export abstract class TercetoBinaryOperator extends TercetoOperator {
     let intermediateCalculations: string[] = [];
     for (let i = 0; i < numberOfRowsOfMatrix1; i++) {
       for (let j = 0; j < numberOfColumnsOfMatrix2; j++) {
-        let suma: number = 0;
+        let suma: string = '0';
         intermediateCalculations = [];
         for (let k = 0; k < numberOfColumnsOfMatrix1; k++) {
-          const valorMatriz1: number = getMatrixCellValue(matrix1[i][k]);
-          const valorMatriz2: number = getMatrixCellValue(matrix2[k][j]);
+          const valorMatriz1: string = getMatrixCellValue(matrix1[i][k]);
+          const valorMatriz2: string = getMatrixCellValue(matrix2[k][j]);
           intermediateCalculations.push(`${valorMatriz1} * ${valorMatriz2}`);
 
-          suma += valorMatriz1 * valorMatriz2;
+          suma = getResultWithAlgebrite(
+            `(${suma}) + (${valorMatriz1}) * (${valorMatriz2})`
+          );
         }
         resultado[i][j].value = getMatrixCellValue({
-          value: suma.toString(),
-        }).toString();
+          value: suma,
+        });
         this.intermediateSteps.push({
           description: `Se multiplica la fila ${
             i + 1
@@ -119,9 +123,9 @@ export abstract class TercetoBinaryOperator extends TercetoOperator {
             j + 1
           } de la segunda matriz (${intermediateCalculations.join(
             ' + '
-          )}), siendo el resultado ${
+          )}), siendo el resultado ${decimalToFraction(
             resultado[i][j].value
-          }. Se coloca el resultado en la celda [${i + 1}, ${
+          )}. Se coloca el resultado en la celda [${i + 1}, ${
             j + 1
           }] de la matriz resultante.`,
           latexExpression: getMatrixLatexForm(resultado),

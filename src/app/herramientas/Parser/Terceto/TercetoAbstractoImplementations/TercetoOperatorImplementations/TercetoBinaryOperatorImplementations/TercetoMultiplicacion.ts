@@ -2,7 +2,10 @@ import {
   MATRIX_TYPE,
   NUMBER_TYPE,
 } from 'src/app/herramientas/Parser/constants';
-import { getMatrixCellValue } from 'src/app/herramientas/commonFunctions';
+import {
+  getMatrixCellValue,
+  getResultWithAlgebrite,
+} from 'src/app/herramientas/commonFunctions';
 import { IMatrixElement } from 'src/app/herramientas/operaciones-con-matrices/matrix/interfaces';
 import { TercetoAbstracto } from '../../../TercetoAbstracto';
 import { IParentheses } from '../../../interfaces';
@@ -19,7 +22,7 @@ export class TercetoMultiplicacion extends TercetoBinaryOperator {
   }
 
   private multiplyNumberByMatrix(
-    number: number,
+    number: string,
     matrix: IMatrixElement[][]
   ): IMatrixElement[][] {
     const result: IMatrixElement[][] = [];
@@ -28,7 +31,9 @@ export class TercetoMultiplicacion extends TercetoBinaryOperator {
       result[i] = [];
       for (let j = 0; j < matrix[0].length; j++) {
         result[i][j] = {
-          value: (getMatrixCellValue(matrix[i][j]) * number).toString(),
+          value: getResultWithAlgebrite(
+            `(${getMatrixCellValue(matrix[i][j])}) * (${number})`
+          ),
         };
       }
     }
@@ -36,21 +41,20 @@ export class TercetoMultiplicacion extends TercetoBinaryOperator {
     return result;
   }
 
-  public override getResultado(): number | IMatrixElement[][] {
+  public override getResultado(): string | IMatrixElement[][] {
     this.intermediateSteps = [];
     if (this.evaluateOperandsTypes(NUMBER_TYPE, NUMBER_TYPE)) {
-      return (
-        Number(this.operand1.getResultado()) *
-        Number(this.operand2.getResultado())
+      return getResultWithAlgebrite(
+        `(${this.operand1.getResultado()}) * (${this.operand2.getResultado()})`
       );
     } else if (this.evaluateOperandsTypes(NUMBER_TYPE, MATRIX_TYPE)) {
       return this.multiplyNumberByMatrix(
-        Number(this.operand1.getResultado()),
+        this.operand1.getResultado().toString(),
         this.operand2.getResultado() as IMatrixElement[][]
       );
     } else if (this.evaluateOperandsTypes(MATRIX_TYPE, NUMBER_TYPE)) {
       return this.multiplyNumberByMatrix(
-        Number(this.operand2.getResultado()),
+        this.operand2.getResultado().toString(),
         this.operand1.getResultado() as IMatrixElement[][]
       );
     } else if (this.evaluateOperandsTypes(MATRIX_TYPE, MATRIX_TYPE)) {

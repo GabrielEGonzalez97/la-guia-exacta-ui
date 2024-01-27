@@ -358,7 +358,7 @@ export class OperacionesConMatricesComponent implements OnInit {
           this.expressionResult.getTercetoType();
         if (expressionResultType === NUMBER_TYPE) {
           this.latexExpressionResult = `$${decimalToFraction(
-            Number(this.expressionResult.getResultado())
+            this.expressionResult.getResultado().toString()
           )}$`;
         } else if (expressionResultType === MATRIX_TYPE) {
           this.latexExpressionResult = `$${getMatrixLatexForm(
@@ -386,9 +386,7 @@ export class OperacionesConMatricesComponent implements OnInit {
         const expressionResultType: string =
           this.expressionResult.getTercetoType();
         if (expressionResultType === NUMBER_TYPE) {
-          this.latexExpressionResult = `$${Number(
-            this.expressionResult.getResultado()
-          )}$`;
+          this.latexExpressionResult = `$${this.expressionResult.getResultado()}$`;
         } else if (expressionResultType === MATRIX_TYPE) {
           this.latexExpressionResult = `$${getMatrixLatexWithDecimalsForm(
             this.expressionResult.getResultado() as IMatrixElement[][]
@@ -556,10 +554,13 @@ export class OperacionesConMatricesComponent implements OnInit {
       } catch (error) {
         this.steps.push({
           description: `Se produce el error: ${error} al hacer la cuenta $${terceto.getLatexFormResult()}$`,
-          latexExpression:
-            terceto.getIntermediateSteps()[
-              terceto.getIntermediateSteps().length - 1
-            ].latexExpression,
+          latexExpression: terceto.getIntermediateSteps()[
+            terceto.getIntermediateSteps().length - 1
+          ]
+            ? terceto.getIntermediateSteps()[
+                terceto.getIntermediateSteps().length - 1
+              ].latexExpression
+            : '',
           intermediateSteps: terceto.getIntermediateSteps(),
         });
         throw new Error(

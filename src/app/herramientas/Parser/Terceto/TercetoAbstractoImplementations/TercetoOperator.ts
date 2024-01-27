@@ -13,7 +13,7 @@ export abstract class TercetoOperator extends TercetoAbstracto {
     this.operator = operator;
   }
 
-  abstract override getResultado(): number | IMatrixElement[][];
+  abstract override getResultado(): string | IMatrixElement[][];
   abstract override getTercetoForm(): string;
   abstract override getLatexForm(): string;
   abstract override getTercetoType(): string;
