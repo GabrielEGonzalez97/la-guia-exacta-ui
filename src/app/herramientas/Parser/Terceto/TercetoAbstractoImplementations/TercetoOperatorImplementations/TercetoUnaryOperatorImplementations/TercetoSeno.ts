@@ -17,10 +17,10 @@ export class TercetoSeno extends TercetoUnaryOperator {
     super(operator, operand, parentheses);
   }
 
-  public override getResultado(): number | IMatrixElement[][] {
+  public override getResultado(): string | IMatrixElement[][] {
     this.intermediateSteps = [];
     if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
-      return Math.sin(Number(this.operand.getResultado()));
+      return Math.sin(Number(this.operand.getResultado())).toString();
     } else if (this.evaluateOperandsTypes(MATRIX_TYPE)) {
       throw new Error('No se puede calcular el seno de una matriz');
     }
