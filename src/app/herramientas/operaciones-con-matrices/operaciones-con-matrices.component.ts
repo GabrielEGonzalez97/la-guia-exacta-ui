@@ -4,23 +4,7 @@ import { Lexer } from '../Parser/Lexer';
 import { Parser } from '../Parser/Parser';
 import { TercetoAbstracto } from '../Parser/Terceto/TercetoAbstracto';
 import { TercetoOperator } from '../Parser/Terceto/TercetoAbstractoImplementations/TercetoOperator';
-import {
-  DETERMINANTE_2_x_2_TYPE,
-  DETERMINANTE_CUARTA_COLUMNA_TYPE,
-  DETERMINANTE_CUARTA_FILA_TYPE,
-  DETERMINANTE_PRIMERA_COLUMNA_TYPE,
-  DETERMINANTE_PRIMERA_FILA_TYPE,
-  DETERMINANTE_QUINTA_COLUMNA_TYPE,
-  DETERMINANTE_QUINTA_FILA_TYPE,
-  DETERMINANTE_SARRUS_TYPE,
-  DETERMINANTE_SEGUNDA_COLUMNA_TYPE,
-  DETERMINANTE_SEGUNDA_FILA_TYPE,
-  DETERMINANTE_TERCERA_COLUMNA_TYPE,
-  DETERMINANTE_TERCERA_FILA_TYPE,
-  MATRIX_TYPE,
-  NUMBER_TYPE,
-  UNARY_FUNCTIONS,
-} from '../Parser/constants';
+import { MATRIX_TYPE, NUMBER_TYPE, UNARY_FUNCTIONS } from '../Parser/constants';
 import {
   decimalToFraction,
   getCorrectFormToDisplay,
@@ -28,7 +12,16 @@ import {
   getMatrixLatexWithDecimalsForm,
 } from '../commonFunctions';
 import { COLOR_TO_HIGHLIGHT_RESULTS } from '../constants';
-import { ICalculationStep } from './interfaces';
+import {
+  DETERMINANTS_ITEMS,
+  REDUCE_MATRIX_ITEMS,
+  TRIGONOMETRIC_FUNCTIONS_ITEMS,
+} from './constants';
+import {
+  ICalculationStep,
+  IDropdownWithFunctionToCall,
+  IDropdownWithFunctionToCallSelected,
+} from './interfaces';
 import { IMatrixElement, IMatrixWithName } from './matrix/interfaces';
 import { StepByStepModalWindowComponent } from './step-by-step-modal-window/step-by-step-modal-window.component';
 
@@ -50,53 +43,21 @@ export class OperacionesConMatricesComponent implements OnInit {
   public latexExpressionResult: string = '';
 
   public matricesItems: ListItem[] = [];
-  public determinantesItems: ListItem[] = [
+
+  public determinantItems: IDropdownWithFunctionToCall[] = DETERMINANTS_ITEMS;
+
+  public reduceMatrixItems: IDropdownWithFunctionToCall[] = REDUCE_MATRIX_ITEMS;
+
+  public trigonometricFunctionsItems: IDropdownWithFunctionToCall[] =
+    TRIGONOMETRIC_FUNCTIONS_ITEMS;
+
+  public lettersItems: ListItem[] = [
     {
-      content: '2x2',
+      content: 'a',
       selected: false,
     },
     {
-      content: 'Sarrus',
-      selected: false,
-    },
-    {
-      content: '1ra columna',
-      selected: false,
-    },
-    {
-      content: '2da columna',
-      selected: false,
-    },
-    {
-      content: '3ra columna',
-      selected: false,
-    },
-    {
-      content: '4ta columna',
-      selected: false,
-    },
-    {
-      content: '5ta columna',
-      selected: false,
-    },
-    {
-      content: '1ra fila',
-      selected: false,
-    },
-    {
-      content: '2da fila',
-      selected: false,
-    },
-    {
-      content: '3ra fila',
-      selected: false,
-    },
-    {
-      content: '4ta fila',
-      selected: false,
-    },
-    {
-      content: '5ta fila',
+      content: 'b',
       selected: false,
     },
   ];
@@ -404,62 +365,41 @@ export class OperacionesConMatricesComponent implements OnInit {
     }
   }
 
-  public onSelectedMatrix(selectedMatrix: any): void {
+  public onSelectedMatrix(event: any): void {
+    const selectedMatrix: IDropdownWithFunctionToCallSelected = event;
     this.addNewSymbolToTheExpressionToBeCalculated(selectedMatrix.item.content);
     selectedMatrix.item.selected = false;
   }
 
-  public onSelectedDeterminante(selectedDeterminante: any): void {
-    if (selectedDeterminante.item.content === '2x2') {
-      this.addNewSymbolToTheExpressionToBeCalculated(
-        `${DETERMINANTE_2_x_2_TYPE}(`
-      );
-    } else if (selectedDeterminante.item.content === 'Sarrus') {
-      this.addNewSymbolToTheExpressionToBeCalculated(
-        `${DETERMINANTE_SARRUS_TYPE}(`
-      );
-    } else if (selectedDeterminante.item.content === '1ra columna') {
-      this.addNewSymbolToTheExpressionToBeCalculated(
-        `${DETERMINANTE_PRIMERA_COLUMNA_TYPE}(`
-      );
-    } else if (selectedDeterminante.item.content === '2da columna') {
-      this.addNewSymbolToTheExpressionToBeCalculated(
-        `${DETERMINANTE_SEGUNDA_COLUMNA_TYPE}(`
-      );
-    } else if (selectedDeterminante.item.content === '3ra columna') {
-      this.addNewSymbolToTheExpressionToBeCalculated(
-        `${DETERMINANTE_TERCERA_COLUMNA_TYPE}(`
-      );
-    } else if (selectedDeterminante.item.content === '4ta columna') {
-      this.addNewSymbolToTheExpressionToBeCalculated(
-        `${DETERMINANTE_CUARTA_COLUMNA_TYPE}(`
-      );
-    } else if (selectedDeterminante.item.content === '5ta columna') {
-      this.addNewSymbolToTheExpressionToBeCalculated(
-        `${DETERMINANTE_QUINTA_COLUMNA_TYPE}(`
-      );
-    } else if (selectedDeterminante.item.content === '1ra fila') {
-      this.addNewSymbolToTheExpressionToBeCalculated(
-        `${DETERMINANTE_PRIMERA_FILA_TYPE}(`
-      );
-    } else if (selectedDeterminante.item.content === '2da fila') {
-      this.addNewSymbolToTheExpressionToBeCalculated(
-        `${DETERMINANTE_SEGUNDA_FILA_TYPE}(`
-      );
-    } else if (selectedDeterminante.item.content === '3ra fila') {
-      this.addNewSymbolToTheExpressionToBeCalculated(
-        `${DETERMINANTE_TERCERA_FILA_TYPE}(`
-      );
-    } else if (selectedDeterminante.item.content === '4ta fila') {
-      this.addNewSymbolToTheExpressionToBeCalculated(
-        `${DETERMINANTE_CUARTA_FILA_TYPE}(`
-      );
-    } else if (selectedDeterminante.item.content === '5ta fila') {
-      this.addNewSymbolToTheExpressionToBeCalculated(
-        `${DETERMINANTE_QUINTA_FILA_TYPE}(`
-      );
-    }
+  public onSelectedDeterminante(event: any): void {
+    const selectedDeterminante: IDropdownWithFunctionToCallSelected = event;
+    this.addNewSymbolToTheExpressionToBeCalculated(
+      selectedDeterminante.item.functionToCall
+    );
     selectedDeterminante.item.selected = false;
+  }
+
+  public onSelectedReduceMatrix(event: any): void {
+    const selectedReduceMatrix: IDropdownWithFunctionToCallSelected = event;
+    this.addNewSymbolToTheExpressionToBeCalculated(
+      selectedReduceMatrix.item.functionToCall
+    );
+    selectedReduceMatrix.item.selected = false;
+  }
+
+  public onSelectedTrigonometricFunction(event: any): void {
+    const selectedTrigonometricFunction: IDropdownWithFunctionToCallSelected =
+      event;
+    this.addNewSymbolToTheExpressionToBeCalculated(
+      selectedTrigonometricFunction.item.functionToCall
+    );
+    selectedTrigonometricFunction.item.selected = false;
+  }
+
+  public onSelectedLetter(event: any): void {
+    const selectedLetter: IDropdownWithFunctionToCallSelected = event;
+    this.addNewSymbolToTheExpressionToBeCalculated(selectedLetter.item.content);
+    selectedLetter.item.selected = false;
   }
 
   private getNewPartialExpression(
