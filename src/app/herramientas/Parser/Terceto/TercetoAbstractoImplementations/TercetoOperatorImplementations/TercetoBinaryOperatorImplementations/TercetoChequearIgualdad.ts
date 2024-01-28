@@ -35,7 +35,7 @@ export class TercetoChequearIgualdad extends TercetoBinaryOperator {
             this.operand1
           )} = ${getCorrectFormToDisplay(this.operand2)}`,
         });
-        return this.operand1.getResultado();
+        return '\\text{Verdadero}';
       } else {
         this.intermediateSteps.push({
           description: `${this.operand1.getResultado()} no es igual a ${this.operand2.getResultado()}`,
@@ -43,7 +43,7 @@ export class TercetoChequearIgualdad extends TercetoBinaryOperator {
             this.operand1
           )} \\neq ${getCorrectFormToDisplay(this.operand2)}`,
         });
-        throw new Error('Los números no son iguales');
+        return '\\text{Falso}';
       }
     } else if (this.evaluateOperandsTypes(NUMBER_TYPE, MATRIX_TYPE)) {
       this.intermediateSteps.push({
@@ -52,7 +52,7 @@ export class TercetoChequearIgualdad extends TercetoBinaryOperator {
           this.operand1
         )} \\neq ${getCorrectFormToDisplay(this.operand2)}`,
       });
-      throw new Error('Un número no puede ser igual a una matriz');
+      return '\\text{Falso}';
     } else if (this.evaluateOperandsTypes(MATRIX_TYPE, NUMBER_TYPE)) {
       this.intermediateSteps.push({
         description: `${this.operand1.getResultado()} no es igual a ${this.operand2.getResultado()}`,
@@ -60,7 +60,7 @@ export class TercetoChequearIgualdad extends TercetoBinaryOperator {
           this.operand1
         )} \\neq ${getCorrectFormToDisplay(this.operand2)}`,
       });
-      throw new Error('Una matriz no puede ser igual a un número');
+      return '\\text{Falso}';
     } else if (this.evaluateOperandsTypes(MATRIX_TYPE, MATRIX_TYPE)) {
       const matrix1: IMatrixElement[][] =
         this.operand1.getResultado() as IMatrixElement[][];
@@ -79,7 +79,7 @@ export class TercetoChequearIgualdad extends TercetoBinaryOperator {
             this.operand1
           )} \\neq ${getCorrectFormToDisplay(this.operand2)}`,
         });
-        throw new Error('Las matrices no tienen el mismo número de filas');
+        return '\\text{Falso}';
       }
 
       if (numColsMatrix1 !== numColsMatrix2) {
@@ -89,7 +89,7 @@ export class TercetoChequearIgualdad extends TercetoBinaryOperator {
             this.operand1
           )} \\neq ${getCorrectFormToDisplay(this.operand2)}`,
         });
-        throw new Error('Las matrices no tienen el mismo número de columnas');
+        return '\\text{Falso}';
       }
 
       const resultado: IMatrixElement[][] = Array.from(
@@ -113,7 +113,7 @@ export class TercetoChequearIgualdad extends TercetoBinaryOperator {
                 this.operand1
               )} \\neq ${getCorrectFormToDisplay(this.operand2)}`,
             });
-            throw new Error('Las matrices son diferentes');
+            return '\\text{Falso}';
           } else {
             resultado[i][j].value = matrix1[i][j].value;
             this.intermediateSteps.push({
@@ -128,7 +128,7 @@ export class TercetoChequearIgualdad extends TercetoBinaryOperator {
         }
       }
 
-      return matrix1;
+      return '\\text{Verdadero}';
     }
 
     return null;

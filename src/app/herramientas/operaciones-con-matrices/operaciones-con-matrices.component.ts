@@ -8,12 +8,14 @@ import { MATRIX_TYPE, NUMBER_TYPE, UNARY_FUNCTIONS } from '../Parser/constants';
 import {
   decimalToFraction,
   getCorrectFormToDisplay,
+  getHtmlTree,
   getMatrixLatexForm,
   getMatrixLatexWithDecimalsForm,
 } from '../commonFunctions';
 import { COLOR_TO_HIGHLIGHT_RESULTS } from '../constants';
 import {
   DETERMINANTS_ITEMS,
+  LETTERS_TO_USE_AS_UNKNOWNS,
   REDUCE_MATRIX_ITEMS,
   TRIGONOMETRIC_FUNCTIONS_ITEMS,
 } from './constants';
@@ -51,16 +53,7 @@ export class OperacionesConMatricesComponent implements OnInit {
   public trigonometricFunctionsItems: IDropdownWithFunctionToCall[] =
     TRIGONOMETRIC_FUNCTIONS_ITEMS;
 
-  public lettersItems: ListItem[] = [
-    {
-      content: 'a',
-      selected: false,
-    },
-    {
-      content: 'b',
-      selected: false,
-    },
-  ];
+  public lettersItems: ListItem[] = [];
 
   public steps: ICalculationStep[] = [];
 
@@ -85,12 +78,24 @@ export class OperacionesConMatricesComponent implements OnInit {
 
   public letterUsedToRepresentAnswerMatrix: string = 'Ñ';
 
+  public htmlTree: string = '';
+
   private parser: Parser = null;
 
   constructor(private modalService: ModalService) {}
 
   public ngOnInit(): void {
     this.addNewMatrix();
+
+    LETTERS_TO_USE_AS_UNKNOWNS.forEach((letter: string) => {
+      this.lettersItems = [
+        ...this.lettersItems,
+        {
+          content: letter,
+          selected: false,
+        },
+      ];
+    });
   }
 
   private createEmptyMatrix(): IMatrixElement[][] {
@@ -265,6 +270,7 @@ export class OperacionesConMatricesComponent implements OnInit {
 
   private convertToLatexExpression(): void {
     this.latexExpressionResult = '';
+    this.htmlTree = '';
     this.steps = [];
     this.isDecimalsIconVisible = false;
     this.isFractionIconVisible = false;
@@ -308,6 +314,7 @@ export class OperacionesConMatricesComponent implements OnInit {
   }
 
   public calculate(): void {
+    this.htmlTree = getHtmlTree(this.expressionToCalculate);
     this.calculateResultInFraction();
     this.calculateSteps();
   }

@@ -118,3 +118,5 @@ export const TRIGONOMETRIC_FUNCTIONS_ITEMS: IDropdownWithFunctionToCall[] = [
     functionToCall: `${TAN_TYPE}(`,
   },
 ];
+
+export const LETTERS_TO_USE_AS_UNKNOWNS: string[] = ['a', 'b'];

@@ -1,3 +1,4 @@
+import { LETTERS_TO_USE_AS_UNKNOWNS } from '../operaciones-con-matrices/constants';
 import { Token } from './Token';
 import { MATRIX_TYPE, NUMBER_TYPE, UNARY_FUNCTIONS } from './constants';
 
@@ -37,7 +38,10 @@ export class Lexer {
         identifier = '√';
         this.currentPos++;
       } else {
-        while (/[a-z0-9]/.test(this.input[this.currentPos])) {
+        while (
+          this.currentPos < this.input.length &&
+          /[a-z0-9]/.test(this.input[this.currentPos])
+        ) {
           identifier += this.input[this.currentPos];
           this.currentPos++;
         }
@@ -46,6 +50,10 @@ export class Lexer {
       // Check if it's a unary function
       if (this.isFunction(identifier)) {
         return new Token(identifier, identifier);
+      }
+
+      if (LETTERS_TO_USE_AS_UNKNOWNS.includes(identifier)) {
+        return new Token(NUMBER_TYPE, identifier);
       }
     }
 

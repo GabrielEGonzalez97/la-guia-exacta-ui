@@ -1,30 +1,55 @@
 import Fraction from 'fraction.js';
 import { TercetoAbstracto } from './Parser/Terceto/TercetoAbstracto';
-import { MATRIX_TYPE, NUMBER_TYPE } from './Parser/constants';
+import {
+  DETERMINANT_2_x_2_TYPE,
+  DETERMINANT_FIFTH_COLUMN_TYPE,
+  DETERMINANT_FIFTH_ROW_TYPE,
+  DETERMINANT_FIRST_COLUMN_TYPE,
+  DETERMINANT_FIRST_ROW_TYPE,
+  DETERMINANT_FOURTH_COLUMN_TYPE,
+  DETERMINANT_FOURTH_ROW_TYPE,
+  DETERMINANT_SARRUS_TYPE,
+  DETERMINANT_SECOND_COLUMN_TYPE,
+  DETERMINANT_SECOND_ROW_TYPE,
+  DETERMINANT_THIRD_COLUMN_TYPE,
+  DETERMINANT_THIRD_ROW_TYPE,
+  MATRIX_TYPE,
+  MATRIZ_DIAGONAL,
+  MATRIZ_INVERTIDA_TYPE,
+  MATRIZ_TRANSPUESTA_TYPE,
+  MATRIZ_TRIANGULAR_INFERIOR,
+  MATRIZ_TRIANGULAR_SUPERIOR,
+  NUMBER_TYPE,
+  SQRT_TYPE,
+} from './Parser/constants';
 import { IMatrixElement } from './operaciones-con-matrices/matrix/interfaces';
 
 var Algebrite = require('algebrite');
+var Nerdamer = require('nerdamer');
 
 export function decimalToFraction(decimal: string): string {
   if (decimal !== null) {
     decimal = decimal.replace(/\s/g, '');
-    if (!isNaN(Number(decimal))) {
-      const fraction: Fraction = new Fraction(decimal).simplify();
 
-      const numerator: number = fraction.n;
-      const denominator: number = fraction.d;
+    const terms: string[] = decimal
+      .split(/([+\-*/])/)
+      .map((term) => term.trim())
+      .filter((term) => term !== '');
 
-      const minusSign: string = decimal.includes('-') ? '-' : '';
-      const fractionString: string = `${minusSign}{${numerator} \\over ${denominator}}`;
-
-      if (denominator > 1) {
-        return fractionString;
+    const fractionTerms: string[] = terms.map((term, index) => {
+      if (['+', '*', '/'].includes(term) || (term === '-' && index === 0)) {
+        return term;
+      } else if (!isNaN(Number(term))) {
+        const fraction: Fraction = new Fraction(term).simplify();
+        return fraction.toLatex();
+      } else if (term.includes('/')) {
+        return term.replace('/', '\\over');
+      } else {
+        return term;
       }
+    });
 
-      return `${minusSign}${numerator}`;
-    } else {
-      return decimal.replace('/', '\\over');
-    }
+    return fractionTerms.join(' ');
   } else {
     return null;
   }
@@ -277,5 +302,34 @@ export function getCorrectFormToDisplay(terceto: TercetoAbstracto): string {
 }
 
 export function getResultWithAlgebrite(expressionToCalculate: string): string {
-  return Algebrite.run(expressionToCalculate);
+  const result: string = Algebrite.run(expressionToCalculate).split('...')[0];
+  return Algebrite.float(result).toString().split('...')[0];
+}
+
+export function getHtmlTree(expression: string): string {
+  expression = expression.replace(SQRT_TYPE, 'sqrt');
+  expression = expression.replace(DETERMINANT_2_x_2_TYPE, 'determinant');
+  expression = expression.replace(DETERMINANT_SARRUS_TYPE, 'determinant');
+  expression = expression.replace(DETERMINANT_FIRST_COLUMN_TYPE, 'determinant');
+  expression = expression.replace(
+    DETERMINANT_SECOND_COLUMN_TYPE,
+    'determinant'
+  );
+  expression = expression.replace(DETERMINANT_THIRD_COLUMN_TYPE, 'determinant');
+  expression = expression.replace(
+    DETERMINANT_FOURTH_COLUMN_TYPE,
+    'determinant'
+  );
+  expression = expression.replace(DETERMINANT_FIFTH_COLUMN_TYPE, 'determinant');
+  expression = expression.replace(DETERMINANT_FIRST_ROW_TYPE, 'determinant');
+  expression = expression.replace(DETERMINANT_SECOND_ROW_TYPE, 'determinant');
+  expression = expression.replace(DETERMINANT_THIRD_ROW_TYPE, 'determinant');
+  expression = expression.replace(DETERMINANT_FOURTH_ROW_TYPE, 'determinant');
+  expression = expression.replace(DETERMINANT_FIFTH_ROW_TYPE, 'determinant');
+  expression = expression.replace(MATRIZ_INVERTIDA_TYPE, 'invert');
+  expression = expression.replace(MATRIZ_TRANSPUESTA_TYPE, 'transpose');
+  expression = expression.replace(MATRIZ_DIAGONAL, 'matrix');
+  expression = expression.replace(MATRIZ_TRIANGULAR_SUPERIOR, 'matrix');
+  expression = expression.replace(MATRIZ_TRIANGULAR_INFERIOR, 'matrix');
+  return Nerdamer.htmlTree(expression);
 }
