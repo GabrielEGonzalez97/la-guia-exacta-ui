@@ -3,6 +3,7 @@ import {
   NUMBER_TYPE,
 } from 'src/app/herramientas/Parser/constants';
 import {
+  decimalToFraction,
   getMatrixCellValue,
   getMatrixLatexForm,
   getResultWithAlgebrite,
@@ -71,9 +72,11 @@ export class TercetoResta extends TercetoBinaryOperator {
           this.intermediateSteps.push({
             description: `Se calcula la resta entre las celdas [${i + 1}, ${
               j + 1
-            }] de cada matriz (${valorMatriz1} y ${valorMatriz2}), siendo el resultado ${resta}. Se coloca el resultado en la celda [${
-              i + 1
-            }, ${j + 1}] de la matriz resultante.`,
+            }] de cada matriz (${valorMatriz1} y ${valorMatriz2}), siendo el resultado ${decimalToFraction(
+              resta
+            )}. Se coloca el resultado en la celda [${i + 1}, ${
+              j + 1
+            }] de la matriz resultante.`,
             latexExpression: getMatrixLatexForm(resultado),
           });
         }

@@ -6,7 +6,9 @@ import {
   getCorrectFormToDisplay,
   getMatrixCellValue,
   getMatrixLatexForm,
+  solveEquation,
 } from 'src/app/herramientas/commonFunctions';
+import { LETTERS_TO_USE_AS_UNKNOWNS } from 'src/app/herramientas/operaciones-con-matrices/constants';
 import { IMatrixElement } from 'src/app/herramientas/operaciones-con-matrices/matrix/interfaces';
 import { TercetoAbstracto } from '../../../TercetoAbstracto';
 import { IParentheses } from '../../../interfaces';
@@ -30,24 +32,55 @@ export class TercetoChequearIgualdad extends TercetoBinaryOperator {
         this.operand2.getResultado().toString()
       ) {
         this.intermediateSteps.push({
-          description: `${this.operand1.getResultado()} es igual a ${this.operand2.getResultado()}`,
+          description: `${getCorrectFormToDisplay(
+            this.operand1
+          )} es igual a ${getCorrectFormToDisplay(this.operand2)}`,
           latexExpression: `${getCorrectFormToDisplay(
             this.operand1
           )} = ${getCorrectFormToDisplay(this.operand2)}`,
         });
         return '\\text{Verdadero}';
       } else {
-        this.intermediateSteps.push({
-          description: `${this.operand1.getResultado()} no es igual a ${this.operand2.getResultado()}`,
-          latexExpression: `${getCorrectFormToDisplay(
-            this.operand1
-          )} \\neq ${getCorrectFormToDisplay(this.operand2)}`,
-        });
-        return '\\text{Falso}';
+        if (
+          this.getUnknownLetter(this.operand1.getResultado().toString()) ||
+          this.getUnknownLetter(this.operand2.getResultado().toString())
+        ) {
+          const letterValueToFind: string = this.getUnknownLetter(
+            this.operand1.getResultado().toString()
+          );
+          this.intermediateSteps.push({
+            description:
+              'Para que se cumpla la igualdad se tiene que cumplir que:',
+            latexExpression: `${letterValueToFind} = ${solveEquation(
+              `${this.operand1.getResultado().toString()} = ${this.operand2
+                .getResultado()
+                .toString()}`,
+              letterValueToFind
+            )}`,
+          });
+          return `${letterValueToFind} = ${solveEquation(
+            `${this.operand1.getResultado().toString()} = ${this.operand2
+              .getResultado()
+              .toString()}`,
+            letterValueToFind
+          )}`;
+        } else {
+          this.intermediateSteps.push({
+            description: `${getCorrectFormToDisplay(
+              this.operand1
+            )} no es igual a ${getCorrectFormToDisplay(this.operand2)}`,
+            latexExpression: `${getCorrectFormToDisplay(
+              this.operand1
+            )} \\neq ${getCorrectFormToDisplay(this.operand2)}`,
+          });
+          return '\\text{Falso}';
+        }
       }
     } else if (this.evaluateOperandsTypes(NUMBER_TYPE, MATRIX_TYPE)) {
       this.intermediateSteps.push({
-        description: `${this.operand1.getResultado()} no es igual a ${this.operand2.getResultado()}`,
+        description: `${getCorrectFormToDisplay(
+          this.operand1
+        )} no es igual a ${getCorrectFormToDisplay(this.operand2)}`,
         latexExpression: `${getCorrectFormToDisplay(
           this.operand1
         )} \\neq ${getCorrectFormToDisplay(this.operand2)}`,
@@ -55,7 +88,9 @@ export class TercetoChequearIgualdad extends TercetoBinaryOperator {
       return '\\text{Falso}';
     } else if (this.evaluateOperandsTypes(MATRIX_TYPE, NUMBER_TYPE)) {
       this.intermediateSteps.push({
-        description: `${this.operand1.getResultado()} no es igual a ${this.operand2.getResultado()}`,
+        description: `${getCorrectFormToDisplay(
+          this.operand1
+        )} no es igual a ${getCorrectFormToDisplay(this.operand2)}`,
         latexExpression: `${getCorrectFormToDisplay(
           this.operand1
         )} \\neq ${getCorrectFormToDisplay(this.operand2)}`,
@@ -150,5 +185,15 @@ export class TercetoChequearIgualdad extends TercetoBinaryOperator {
 
   public override getDescription(): string {
     return `Se verifica la igualdad entre ${this.getDescriptionCommonText()}`;
+  }
+
+  private getUnknownLetter(expression: string): string {
+    const unknownLetters = new RegExp(
+      LETTERS_TO_USE_AS_UNKNOWNS.join('|'),
+      'i'
+    );
+    const match: RegExpMatchArray = expression.match(unknownLetters);
+
+    return match ? match[0].toLowerCase() : null;
   }
 }

@@ -1,4 +1,8 @@
 import Fraction from 'fraction.js';
+import 'nerdamer/Algebra.js';
+import 'nerdamer/Calculus.js';
+import 'nerdamer/Solve.js';
+import nerdamer from 'nerdamer/nerdamer.core.js';
 import { TercetoAbstracto } from './Parser/Terceto/TercetoAbstracto';
 import {
   DETERMINANT_2_x_2_TYPE,
@@ -25,7 +29,6 @@ import {
 import { IMatrixElement } from './operaciones-con-matrices/matrix/interfaces';
 
 var Algebrite = require('algebrite');
-var Nerdamer = require('nerdamer');
 
 export function decimalToFraction(decimal: string): string {
   if (decimal !== null) {
@@ -303,7 +306,10 @@ export function getCorrectFormToDisplay(terceto: TercetoAbstracto): string {
 
 export function getResultWithAlgebrite(expressionToCalculate: string): string {
   const result: string = Algebrite.run(expressionToCalculate).split('...')[0];
-  return Algebrite.float(result).toString().split('...')[0];
+  return Algebrite.float(result)
+    .toString()
+    .split('...')[0]
+    .replace(/\.0(?![0-9])/g, '');
 }
 
 export function getHtmlTree(expression: string): string {
@@ -331,5 +337,9 @@ export function getHtmlTree(expression: string): string {
   expression = expression.replace(MATRIZ_DIAGONAL, 'matrix');
   expression = expression.replace(MATRIZ_TRIANGULAR_SUPERIOR, 'matrix');
   expression = expression.replace(MATRIZ_TRIANGULAR_INFERIOR, 'matrix');
-  return Nerdamer.htmlTree(expression);
+  return nerdamer.htmlTree(expression);
+}
+
+export function solveEquation(equation: string, letterToFind: string): string {
+  return nerdamer.solve(equation, letterToFind).toString();
 }
