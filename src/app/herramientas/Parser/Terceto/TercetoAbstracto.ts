@@ -8,7 +8,7 @@ export abstract class TercetoAbstracto {
     this.parentheses = parentheses;
   }
 
-  abstract getResultado(): number | IMatrixElement[][];
+  abstract getResultado(): string | IMatrixElement[][];
   abstract getTercetoForm(): string;
   abstract getLatexForm(): string;
   abstract getTercetoType(): string;

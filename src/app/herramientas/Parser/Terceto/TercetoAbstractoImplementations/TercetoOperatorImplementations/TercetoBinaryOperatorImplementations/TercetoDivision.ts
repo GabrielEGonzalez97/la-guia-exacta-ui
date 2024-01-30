@@ -5,6 +5,7 @@ import {
 import {
   getCorrectFormToDisplay,
   getMatrixCellValue,
+  getResultWithAlgebrite,
 } from 'src/app/herramientas/commonFunctions';
 import { IMatrixElement } from 'src/app/herramientas/operaciones-con-matrices/matrix/interfaces';
 import { TercetoAbstracto } from '../../../TercetoAbstracto';
@@ -22,10 +23,10 @@ export class TercetoDivision extends TercetoBinaryOperator {
   }
 
   private divideNumberByMatrix(
-    number: number,
+    number: string,
     matrix: IMatrixElement[][]
   ): IMatrixElement[][] {
-    if (number === 0) {
+    if (number === '0') {
       throw new Error('No se puede dividir por cero');
     }
 
@@ -35,7 +36,9 @@ export class TercetoDivision extends TercetoBinaryOperator {
       result[i] = [];
       for (let j = 0; j < matrix[0].length; j++) {
         result[i][j] = {
-          value: (getMatrixCellValue(matrix[i][j]) / number).toString(),
+          value: getResultWithAlgebrite(
+            `(${getMatrixCellValue(matrix[i][j])}) / (${number})`
+          ),
         };
       }
     }
@@ -43,21 +46,20 @@ export class TercetoDivision extends TercetoBinaryOperator {
     return result;
   }
 
-  public override getResultado(): number | IMatrixElement[][] {
+  public override getResultado(): string | IMatrixElement[][] {
     this.intermediateSteps = [];
     if (this.evaluateOperandsTypes(NUMBER_TYPE, NUMBER_TYPE)) {
-      if (Number(this.operand2.getResultado()) === 0) {
+      if (this.operand2.getResultado().toString() === '0') {
         throw new Error('No se puede dividir por cero');
       }
-      return (
-        Number(this.operand1.getResultado()) /
-        Number(this.operand2.getResultado())
+      return getResultWithAlgebrite(
+        `(${this.operand1.getResultado()}) / (${this.operand2.getResultado()})`
       );
     } else if (this.evaluateOperandsTypes(NUMBER_TYPE, MATRIX_TYPE)) {
       throw new Error('No se puede dividir un número por una matriz');
     } else if (this.evaluateOperandsTypes(MATRIX_TYPE, NUMBER_TYPE)) {
       return this.divideNumberByMatrix(
-        Number(this.operand2.getResultado()),
+        this.operand2.getResultado().toString(),
         this.operand1.getResultado() as IMatrixElement[][]
       );
     } else if (this.evaluateOperandsTypes(MATRIX_TYPE, MATRIX_TYPE)) {

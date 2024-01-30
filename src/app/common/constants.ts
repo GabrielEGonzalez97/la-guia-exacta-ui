@@ -44,6 +44,8 @@ export const PAGE_SECTIONS: IPageSection[] = [
   {
     name: 'Herramientas',
     route: 'herramientas/operaciones-con-matrices',
+    cardFrontImagePath: 'assets/images/home-logos/herramientas-front-logo.svg',
+    cardBackImagePath: 'assets/images/home-logos/herramientas-back-logo.svg',
     subSections: [
       {
         name: 'Operaciones con matrices',

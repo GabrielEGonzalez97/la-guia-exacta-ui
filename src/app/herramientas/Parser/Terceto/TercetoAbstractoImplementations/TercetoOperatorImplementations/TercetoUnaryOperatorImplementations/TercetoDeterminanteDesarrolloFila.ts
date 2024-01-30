@@ -9,6 +9,7 @@ import {
   getDeterminanteMatrixLatexFormWithSpecificColor,
   getMatrixCellValue,
   getMatrixLatexForm,
+  getResultWithAlgebrite,
   getSignsMatrix,
 } from 'src/app/herramientas/commonFunctions';
 import { ICalculationStep } from 'src/app/herramientas/operaciones-con-matrices/interfaces';
@@ -30,7 +31,7 @@ export class TercetoDeterminanteDesarrolloFila extends TercetoUnaryOperator {
     this.rowToUse = rowToUse;
   }
 
-  public override getResultado(): number | IMatrixElement[][] {
+  public override getResultado(): string | IMatrixElement[][] {
     this.intermediateSteps = [];
     if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
       throw new Error('No se puede calcular el determinante de un número');
@@ -57,14 +58,14 @@ export class TercetoDeterminanteDesarrolloFila extends TercetoUnaryOperator {
   private getDeterminante(
     matrix: IMatrixElement[][],
     rowToUse: number
-  ): number {
+  ): string {
     const n: number = matrix.length;
 
     while (rowToUse >= n) {
       rowToUse = rowToUse - 1;
     }
 
-    let determinante: number = 0;
+    let determinante: string = '0';
 
     if (n === 2) {
       return this.getDeterminante2x2(matrix);
@@ -76,11 +77,14 @@ export class TercetoDeterminanteDesarrolloFila extends TercetoUnaryOperator {
           rowToUse,
           columnIndex
         );
-        const determinanteParcial: number =
-          getMatrixCellValue(matrix[rowToUse][columnIndex]) *
-          sign *
-          this.getDeterminante(matrixCofactor, rowToUse);
-        determinante += determinanteParcial;
+        const determinanteParcial: string = getResultWithAlgebrite(
+          `(${getMatrixCellValue(
+            matrix[rowToUse][columnIndex]
+          )}) * (${sign}) * (${this.getDeterminante(matrixCofactor, rowToUse)})`
+        );
+        determinante = getResultWithAlgebrite(
+          `(${determinante}) + (${determinanteParcial})`
+        );
       }
 
       return determinante;
@@ -106,7 +110,7 @@ export class TercetoDeterminanteDesarrolloFila extends TercetoUnaryOperator {
       });
     }
 
-    let determinante: number = 0;
+    let determinante: string = '0';
     let determinantesParciales: string[] = [];
 
     if (n === 2) {
@@ -133,15 +137,16 @@ export class TercetoDeterminanteDesarrolloFila extends TercetoUnaryOperator {
           description: `Se determina si hay que multiplicar por -1 o 1 mirando la matriz de signos:`,
           latexExpression: `${getSignsMatrix(n, rowToUse, columnIndex)}`,
         });
-        const cellValue: number = getMatrixCellValue(
+        const cellValue: string = getMatrixCellValue(
           matrix[rowToUse][columnIndex]
         );
-        const determinanteCofactor: number = this.getDeterminante(
+        const determinanteCofactor: string = this.getDeterminante(
           matrixCofactor,
           rowToUse
         );
-        const determinanteParcial: number =
-          cellValue * sign * determinanteCofactor;
+        const determinanteParcial: string = getResultWithAlgebrite(
+          `(${cellValue}) * (${sign}) * (${determinanteCofactor})`
+        );
         determinantesParciales.push(
           `\\textcolor{BurntOrange}{${determinanteParcial}}`
         );
@@ -157,12 +162,12 @@ export class TercetoDeterminanteDesarrolloFila extends TercetoUnaryOperator {
             {
               description: `Se realiza la multiplicación $\\textcolor{blue}{${getMatrixCellValue(
                 matrix[rowToUse][columnIndex]
-              )}} * \\textcolor{blue}{${sign}}$ dando como resultado ${
-                cellValue * sign
-              }:`,
-              latexExpression: `${
-                cellValue * sign
-              } * ${getDeterminanteMatrixLatexFormWithSpecificColor(
+              )}} * \\textcolor{blue}{${sign}}$ dando como resultado ${getResultWithAlgebrite(
+                `(${cellValue}) * (${sign})`
+              )}:`,
+              latexExpression: `${getResultWithAlgebrite(
+                `(${cellValue}) * (${sign})`
+              )} * ${getDeterminanteMatrixLatexFormWithSpecificColor(
                 matrixCofactor,
                 'BrickRed'
               )}`,
@@ -171,9 +176,9 @@ export class TercetoDeterminanteDesarrolloFila extends TercetoUnaryOperator {
               description: `$\\text{Se calcula el determinante de la matriz } ${getMatrixLatexForm(
                 matrixCofactor
               )} \\text{ dando como resultado } ${determinanteCofactor}$:`,
-              latexExpression: `${
-                cellValue * sign
-              } * ${determinanteCofactor} = ${determinanteCofactor}`,
+              latexExpression: `${getResultWithAlgebrite(
+                `(${cellValue}) * (${sign})`
+              )} * ${determinanteCofactor} = ${determinanteCofactor}`,
               intermediateSteps: this.getDeterminanteSteps(
                 matrixCofactor,
                 rowToUse
@@ -181,7 +186,9 @@ export class TercetoDeterminanteDesarrolloFila extends TercetoUnaryOperator {
             },
           ],
         });
-        determinante += determinanteParcial;
+        determinante = getResultWithAlgebrite(
+          `(${determinante}) + (${determinanteParcial})`
+        );
       }
 
       localIntermediateSteps.push({
@@ -195,12 +202,20 @@ export class TercetoDeterminanteDesarrolloFila extends TercetoUnaryOperator {
     }
   }
 
-  private getDeterminante2x2(matrix: IMatrixElement[][]): number {
-    const firstResult: number =
-      getMatrixCellValue(matrix[0][0]) * getMatrixCellValue(matrix[1][1]);
-    const secondResult: number =
-      getMatrixCellValue(matrix[0][1]) * getMatrixCellValue(matrix[1][0]);
-    const determinante: number = firstResult - secondResult;
+  private getDeterminante2x2(matrix: IMatrixElement[][]): string {
+    const firstResult: string = getResultWithAlgebrite(
+      `(${getMatrixCellValue(matrix[0][0])}) * (${getMatrixCellValue(
+        matrix[1][1]
+      )})`
+    );
+    const secondResult: string = getResultWithAlgebrite(
+      `(${getMatrixCellValue(matrix[0][1])}) * (${getMatrixCellValue(
+        matrix[1][0]
+      )})`
+    );
+    const determinante: string = getResultWithAlgebrite(
+      `(${firstResult}) - (${secondResult})`
+    );
 
     return determinante;
   }
@@ -210,11 +225,19 @@ export class TercetoDeterminanteDesarrolloFila extends TercetoUnaryOperator {
   ): ICalculationStep[] {
     let localIntermediateSteps: ICalculationStep[] = [];
 
-    const firstResult: number =
-      getMatrixCellValue(matrix[0][0]) * getMatrixCellValue(matrix[1][1]);
-    const secondResult: number =
-      getMatrixCellValue(matrix[0][1]) * getMatrixCellValue(matrix[1][0]);
-    const determinante: number = firstResult - secondResult;
+    const firstResult: string = getResultWithAlgebrite(
+      `(${getMatrixCellValue(matrix[0][0])}) * (${getMatrixCellValue(
+        matrix[1][1]
+      )})`
+    );
+    const secondResult: string = getResultWithAlgebrite(
+      `(${getMatrixCellValue(matrix[0][1])}) * (${getMatrixCellValue(
+        matrix[1][0]
+      )})`
+    );
+    const determinante: string = getResultWithAlgebrite(
+      `(${firstResult}) - (${secondResult})`
+    );
 
     const highlightedCellsStep1 = [
       { row: 0, col: 0, color: 'NavyBlue' },

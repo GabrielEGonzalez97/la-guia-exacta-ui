@@ -3,8 +3,10 @@ import {
   NUMBER_TYPE,
 } from 'src/app/herramientas/Parser/constants';
 import {
+  decimalToFraction,
   getMatrixCellValue,
   getMatrixLatexForm,
+  getResultWithAlgebrite,
 } from 'src/app/herramientas/commonFunctions';
 import { IMatrixElement } from 'src/app/herramientas/operaciones-con-matrices/matrix/interfaces';
 import { TercetoAbstracto } from '../../../TercetoAbstracto';
@@ -21,12 +23,11 @@ export class TercetoResta extends TercetoBinaryOperator {
     super(operator, operand1, operand2, parentheses);
   }
 
-  public override getResultado(): number | IMatrixElement[][] {
+  public override getResultado(): string | IMatrixElement[][] {
     this.intermediateSteps = [];
     if (this.evaluateOperandsTypes(NUMBER_TYPE, NUMBER_TYPE)) {
-      return (
-        Number(this.operand1.getResultado()) -
-        Number(this.operand2.getResultado())
+      return getResultWithAlgebrite(
+        `(${this.operand1.getResultado()}) - (${this.operand2.getResultado()})`
       );
     } else if (
       this.evaluateOperandsTypes(NUMBER_TYPE, MATRIX_TYPE) ||
@@ -61,17 +62,21 @@ export class TercetoResta extends TercetoBinaryOperator {
 
       for (let i: number = 0; i < numberOfRowsOfMatrix1; i++) {
         for (let j: number = 0; j < numberOfColumnsOfMatrix1; j++) {
-          const valorMatriz1: number = getMatrixCellValue(matrix1[i][j]);
-          const valorMatriz2: number = getMatrixCellValue(matrix2[i][j]);
+          const valorMatriz1: string = getMatrixCellValue(matrix1[i][j]);
+          const valorMatriz2: string = getMatrixCellValue(matrix2[i][j]);
 
-          const resta: number = valorMatriz1 - valorMatriz2;
-          resultado[i][j].value = resta.toString();
+          const resta: string = getResultWithAlgebrite(
+            `(${valorMatriz1}) - (${valorMatriz2})`
+          );
+          resultado[i][j].value = resta;
           this.intermediateSteps.push({
             description: `Se calcula la resta entre las celdas [${i + 1}, ${
               j + 1
-            }] de cada matriz (${valorMatriz1} y ${valorMatriz2}), siendo el resultado ${resta}. Se coloca el resultado en la celda [${
-              i + 1
-            }, ${j + 1}] de la matriz resultante.`,
+            }] de cada matriz (${valorMatriz1} y ${valorMatriz2}), siendo el resultado ${decimalToFraction(
+              resta
+            )}. Se coloca el resultado en la celda [${i + 1}, ${
+              j + 1
+            }] de la matriz resultante.`,
             latexExpression: getMatrixLatexForm(resultado),
           });
         }

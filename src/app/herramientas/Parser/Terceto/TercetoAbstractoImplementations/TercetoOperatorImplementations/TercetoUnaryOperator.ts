@@ -1,6 +1,3 @@
-import { all, create } from 'mathjs';
-const math = create(all);
-
 import { getCorrectFormToDisplay } from '../../../../commonFunctions';
 import { IMatrixElement } from '../../../../operaciones-con-matrices/matrix/interfaces';
 import { TercetoAbstracto } from '../../TercetoAbstracto';
@@ -27,7 +24,7 @@ export abstract class TercetoUnaryOperator extends TercetoOperator {
     return `$${getCorrectFormToDisplay(this.operand)}$`;
   }
 
-  public abstract override getResultado(): number | IMatrixElement[][];
+  public abstract override getResultado(): string | IMatrixElement[][];
   public abstract override getLatexForm(): string;
   public abstract override getTercetoType(): string;
   public abstract override getDescription(): string;

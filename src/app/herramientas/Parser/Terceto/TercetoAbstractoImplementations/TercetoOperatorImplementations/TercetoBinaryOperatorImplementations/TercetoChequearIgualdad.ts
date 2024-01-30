@@ -6,7 +6,9 @@ import {
   getCorrectFormToDisplay,
   getMatrixCellValue,
   getMatrixLatexForm,
+  solveEquation,
 } from 'src/app/herramientas/commonFunctions';
+import { LETTERS_TO_USE_AS_UNKNOWNS } from 'src/app/herramientas/operaciones-con-matrices/constants';
 import { IMatrixElement } from 'src/app/herramientas/operaciones-con-matrices/matrix/interfaces';
 import { TercetoAbstracto } from '../../../TercetoAbstracto';
 import { IParentheses } from '../../../interfaces';
@@ -22,45 +24,78 @@ export class TercetoChequearIgualdad extends TercetoBinaryOperator {
     super(operator, operand1, operand2, parentheses);
   }
 
-  public override getResultado(): number | IMatrixElement[][] {
+  public override getResultado(): string | IMatrixElement[][] {
     this.intermediateSteps = [];
     if (this.evaluateOperandsTypes(NUMBER_TYPE, NUMBER_TYPE)) {
       if (
-        Number(this.operand1.getResultado()) ===
-        Number(this.operand2.getResultado())
+        this.operand1.getResultado().toString() ===
+        this.operand2.getResultado().toString()
       ) {
         this.intermediateSteps.push({
-          description: `${this.operand1.getResultado()} es igual a ${this.operand2.getResultado()}`,
+          description: `${getCorrectFormToDisplay(
+            this.operand1
+          )} es igual a ${getCorrectFormToDisplay(this.operand2)}`,
           latexExpression: `${getCorrectFormToDisplay(
             this.operand1
           )} = ${getCorrectFormToDisplay(this.operand2)}`,
         });
-        return Number(this.operand1.getResultado());
+        return '\\text{Verdadero}';
       } else {
-        this.intermediateSteps.push({
-          description: `${this.operand1.getResultado()} no es igual a ${this.operand2.getResultado()}`,
-          latexExpression: `${getCorrectFormToDisplay(
-            this.operand1
-          )} \\neq ${getCorrectFormToDisplay(this.operand2)}`,
-        });
-        throw new Error('Los números no son iguales');
+        if (
+          this.getUnknownLetter(this.operand1.getResultado().toString()) ||
+          this.getUnknownLetter(this.operand2.getResultado().toString())
+        ) {
+          const letterValueToFind: string = this.getUnknownLetter(
+            this.operand1.getResultado().toString()
+          );
+          this.intermediateSteps.push({
+            description:
+              'Para que se cumpla la igualdad se tiene que cumplir que:',
+            latexExpression: `${letterValueToFind} = ${solveEquation(
+              `${this.operand1.getResultado().toString()} = ${this.operand2
+                .getResultado()
+                .toString()}`,
+              letterValueToFind
+            )}`,
+          });
+          return `${letterValueToFind} = ${solveEquation(
+            `${this.operand1.getResultado().toString()} = ${this.operand2
+              .getResultado()
+              .toString()}`,
+            letterValueToFind
+          )}`;
+        } else {
+          this.intermediateSteps.push({
+            description: `${getCorrectFormToDisplay(
+              this.operand1
+            )} no es igual a ${getCorrectFormToDisplay(this.operand2)}`,
+            latexExpression: `${getCorrectFormToDisplay(
+              this.operand1
+            )} \\neq ${getCorrectFormToDisplay(this.operand2)}`,
+          });
+          return '\\text{Falso}';
+        }
       }
     } else if (this.evaluateOperandsTypes(NUMBER_TYPE, MATRIX_TYPE)) {
       this.intermediateSteps.push({
-        description: `${this.operand1.getResultado()} no es igual a ${this.operand2.getResultado()}`,
+        description: `${getCorrectFormToDisplay(
+          this.operand1
+        )} no es igual a ${getCorrectFormToDisplay(this.operand2)}`,
         latexExpression: `${getCorrectFormToDisplay(
           this.operand1
         )} \\neq ${getCorrectFormToDisplay(this.operand2)}`,
       });
-      throw new Error('Un número no puede ser igual a una matriz');
+      return '\\text{Falso}';
     } else if (this.evaluateOperandsTypes(MATRIX_TYPE, NUMBER_TYPE)) {
       this.intermediateSteps.push({
-        description: `${this.operand1.getResultado()} no es igual a ${this.operand2.getResultado()}`,
+        description: `${getCorrectFormToDisplay(
+          this.operand1
+        )} no es igual a ${getCorrectFormToDisplay(this.operand2)}`,
         latexExpression: `${getCorrectFormToDisplay(
           this.operand1
         )} \\neq ${getCorrectFormToDisplay(this.operand2)}`,
       });
-      throw new Error('Una matriz no puede ser igual a un número');
+      return '\\text{Falso}';
     } else if (this.evaluateOperandsTypes(MATRIX_TYPE, MATRIX_TYPE)) {
       const matrix1: IMatrixElement[][] =
         this.operand1.getResultado() as IMatrixElement[][];
@@ -79,7 +114,7 @@ export class TercetoChequearIgualdad extends TercetoBinaryOperator {
             this.operand1
           )} \\neq ${getCorrectFormToDisplay(this.operand2)}`,
         });
-        throw new Error('Las matrices no tienen el mismo número de filas');
+        return '\\text{Falso}';
       }
 
       if (numColsMatrix1 !== numColsMatrix2) {
@@ -89,7 +124,7 @@ export class TercetoChequearIgualdad extends TercetoBinaryOperator {
             this.operand1
           )} \\neq ${getCorrectFormToDisplay(this.operand2)}`,
         });
-        throw new Error('Las matrices no tienen el mismo número de columnas');
+        return '\\text{Falso}';
       }
 
       const resultado: IMatrixElement[][] = Array.from(
@@ -113,7 +148,7 @@ export class TercetoChequearIgualdad extends TercetoBinaryOperator {
                 this.operand1
               )} \\neq ${getCorrectFormToDisplay(this.operand2)}`,
             });
-            throw new Error('Las matrices son diferentes');
+            return '\\text{Falso}';
           } else {
             resultado[i][j].value = matrix1[i][j].value;
             this.intermediateSteps.push({
@@ -128,7 +163,7 @@ export class TercetoChequearIgualdad extends TercetoBinaryOperator {
         }
       }
 
-      return matrix1;
+      return '\\text{Verdadero}';
     }
 
     return null;
@@ -150,5 +185,15 @@ export class TercetoChequearIgualdad extends TercetoBinaryOperator {
 
   public override getDescription(): string {
     return `Se verifica la igualdad entre ${this.getDescriptionCommonText()}`;
+  }
+
+  private getUnknownLetter(expression: string): string {
+    const unknownLetters = new RegExp(
+      LETTERS_TO_USE_AS_UNKNOWNS.join('|'),
+      'i'
+    );
+    const match: RegExpMatchArray = expression.match(unknownLetters);
+
+    return match ? match[0].toLowerCase() : null;
   }
 }

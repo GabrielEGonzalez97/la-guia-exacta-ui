@@ -7,6 +7,7 @@ import {
   getCorrectFormToDisplay,
   getMatrixCellValue,
   getMatrixLatexForm,
+  getResultWithAlgebrite,
 } from 'src/app/herramientas/commonFunctions';
 import { IMatrixElement } from 'src/app/herramientas/operaciones-con-matrices/matrix/interfaces';
 import { TercetoAbstracto } from '../../../TercetoAbstracto';
@@ -22,7 +23,7 @@ export class TercetoMatrizTriangularSuperior extends TercetoUnaryOperator {
     super(operator, operand, parentheses);
   }
 
-  public override getResultado(): number | IMatrixElement[][] {
+  public override getResultado(): string | IMatrixElement[][] {
     this.intermediateSteps = [];
     if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
       throw new Error(
@@ -42,37 +43,43 @@ export class TercetoMatrizTriangularSuperior extends TercetoUnaryOperator {
 
       for (let col: number = 0; col < numCols - 1; col++) {
         for (let row: number = col + 1; row < numRows; row++) {
-          if (getMatrixCellValue(matrix[col][col]) !== 0) {
-            const factor: number =
-              getMatrixCellValue(matrix[row][col]) /
-              getMatrixCellValue(matrix[col][col]);
-            for (let i = col; i < numCols; i++) {
-              matrix[row][i].value = (
-                getMatrixCellValue(matrix[row][i]) -
-                factor * getMatrixCellValue(matrix[col][i])
-              ).toString();
+          if (getMatrixCellValue(matrix[col][col]) !== '0') {
+            let factor: string = getResultWithAlgebrite(
+              `(${getMatrixCellValue(
+                matrix[row][col]
+              )}) / (${getMatrixCellValue(matrix[col][col])})`
+            );
+            if (factor !== '0') {
+              for (let i = col; i < numCols; i++) {
+                matrix[row][i].value = getResultWithAlgebrite(
+                  `(${getMatrixCellValue(
+                    matrix[row][i]
+                  )}) - (${factor}) * (${getMatrixCellValue(matrix[col][i])})`
+                );
+              }
+
+              factor = factor.replace(/\s/g, '');
+              const fraction: Fraction = new Fraction(factor).simplify();
+
+              const numerator: number = fraction.n;
+              const denominator: number = fraction.d;
+
+              const minusSign: string = factor.includes('-') ? '-' : '';
+              let fractionString: string = `${numerator} \\over ${denominator}`;
+
+              if (denominator === 1) {
+                fractionString = numerator.toString();
+              }
+              const operationToShow: string = minusSign
+                ? `+ $${fractionString}$`
+                : `- $${fractionString}$`;
+              this.intermediateSteps.push({
+                description: `Se realiza la operación F$_{${row + 1}}$ = F$_{${
+                  row + 1
+                }}$ ${operationToShow} $*$ F$_{${col + 1}}$`,
+                latexExpression: getMatrixLatexForm(matrix),
+              });
             }
-
-            const fraction: Fraction = new Fraction(factor);
-
-            const numerator: number = fraction.n;
-            const denominator: number = fraction.d;
-
-            const minusSign: string = factor < 0 ? '-' : '';
-            let fractionString: string = `${numerator} \\over ${denominator}`;
-
-            if (denominator === 1) {
-              fractionString = numerator.toString();
-            }
-            const operationToShow: string = minusSign
-              ? `+ $${fractionString}$`
-              : `- $${fractionString}$`;
-            this.intermediateSteps.push({
-              description: `Se realiza la operación F$_{${row + 1}}$ = F$_{${
-                row + 1
-              }}$ ${operationToShow} $*$ F$_{${col + 1}}$`,
-              latexExpression: getMatrixLatexForm(matrix),
-            });
           }
         }
       }

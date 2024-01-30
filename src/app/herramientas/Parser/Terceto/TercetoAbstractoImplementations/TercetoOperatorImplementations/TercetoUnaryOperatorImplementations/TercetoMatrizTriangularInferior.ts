@@ -7,6 +7,7 @@ import {
   getCorrectFormToDisplay,
   getMatrixCellValue,
   getMatrixLatexForm,
+  getResultWithAlgebrite,
 } from 'src/app/herramientas/commonFunctions';
 import { IMatrixElement } from 'src/app/herramientas/operaciones-con-matrices/matrix/interfaces';
 import { TercetoAbstracto } from '../../../TercetoAbstracto';
@@ -22,7 +23,7 @@ export class TercetoMatrizTriangularInferior extends TercetoUnaryOperator {
     super(operator, operand, parentheses);
   }
 
-  public override getResultado(): number | IMatrixElement[][] {
+  public override getResultado(): string | IMatrixElement[][] {
     this.intermediateSteps = [];
     if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
       throw new Error(
@@ -41,24 +42,28 @@ export class TercetoMatrizTriangularInferior extends TercetoUnaryOperator {
 
       for (let col: number = numCols - 1; col > 0; col--) {
         for (let row: number = col - 1; row >= 0; row--) {
-          if (getMatrixCellValue(matrix[col][col]) !== 0) {
-            const factor: number =
-              getMatrixCellValue(matrix[row][col]) /
-              getMatrixCellValue(matrix[col][col]);
-            if (factor !== 0) {
+          if (getMatrixCellValue(matrix[col][col]) !== '0') {
+            let factor: string = getResultWithAlgebrite(
+              `(${getMatrixCellValue(
+                matrix[row][col]
+              )}) / (${getMatrixCellValue(matrix[col][col])})`
+            );
+            if (factor !== '0') {
               for (let i = col; i >= 0; i--) {
-                matrix[row][i].value = (
-                  getMatrixCellValue(matrix[row][i]) -
-                  factor * getMatrixCellValue(matrix[col][i])
-                ).toString();
+                matrix[row][i].value = getResultWithAlgebrite(
+                  `(${getMatrixCellValue(
+                    matrix[row][i]
+                  )}) - (${factor}) * (${getMatrixCellValue(matrix[col][i])})`
+                );
               }
 
-              const fraction: Fraction = new Fraction(factor);
+              factor = factor.replace(/\s/g, '');
+              const fraction: Fraction = new Fraction(factor).simplify();
 
               const numerator: number = fraction.n;
               const denominator: number = fraction.d;
 
-              const minusSign: string = factor < 0 ? '-' : '';
+              const minusSign: string = factor.includes('-') ? '-' : '';
               let fractionString: string = `${numerator} \\over ${denominator}`;
 
               if (denominator === 1) {

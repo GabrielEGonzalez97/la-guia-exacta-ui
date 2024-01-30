@@ -2,7 +2,10 @@ import {
   MATRIX_TYPE,
   NUMBER_TYPE,
 } from 'src/app/herramientas/Parser/constants';
-import { getCorrectFormToDisplay } from 'src/app/herramientas/commonFunctions';
+import {
+  getCorrectFormToDisplay,
+  getResultWithAlgebrite,
+} from 'src/app/herramientas/commonFunctions';
 import { IMatrixElement } from 'src/app/herramientas/operaciones-con-matrices/matrix/interfaces';
 import { TercetoAbstracto } from '../../../TercetoAbstracto';
 import { IParentheses } from '../../../interfaces';
@@ -17,10 +20,10 @@ export class TercetoRaizCuadrada extends TercetoUnaryOperator {
     super(operator, operand, parentheses);
   }
 
-  public override getResultado(): number | IMatrixElement[][] {
+  public override getResultado(): string | IMatrixElement[][] {
     this.intermediateSteps = [];
     if (this.evaluateOperandsTypes(NUMBER_TYPE)) {
-      return Math.sqrt(Number(this.operand.getResultado()));
+      return getResultWithAlgebrite(`sqrt(${this.operand.getResultado()})`);
     } else if (this.evaluateOperandsTypes(MATRIX_TYPE)) {
       throw new Error('No se puede calcular la raíz de una matriz');
     }

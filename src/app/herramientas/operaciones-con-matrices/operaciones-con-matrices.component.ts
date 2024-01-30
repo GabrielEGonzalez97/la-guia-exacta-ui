@@ -4,31 +4,26 @@ import { Lexer } from '../Parser/Lexer';
 import { Parser } from '../Parser/Parser';
 import { TercetoAbstracto } from '../Parser/Terceto/TercetoAbstracto';
 import { TercetoOperator } from '../Parser/Terceto/TercetoAbstractoImplementations/TercetoOperator';
-import {
-  DETERMINANTE_2_x_2_TYPE,
-  DETERMINANTE_CUARTA_COLUMNA_TYPE,
-  DETERMINANTE_CUARTA_FILA_TYPE,
-  DETERMINANTE_PRIMERA_COLUMNA_TYPE,
-  DETERMINANTE_PRIMERA_FILA_TYPE,
-  DETERMINANTE_QUINTA_COLUMNA_TYPE,
-  DETERMINANTE_QUINTA_FILA_TYPE,
-  DETERMINANTE_SARRUS_TYPE,
-  DETERMINANTE_SEGUNDA_COLUMNA_TYPE,
-  DETERMINANTE_SEGUNDA_FILA_TYPE,
-  DETERMINANTE_TERCERA_COLUMNA_TYPE,
-  DETERMINANTE_TERCERA_FILA_TYPE,
-  MATRIX_TYPE,
-  NUMBER_TYPE,
-  UNARY_FUNCTIONS,
-} from '../Parser/constants';
+import { MATRIX_TYPE, NUMBER_TYPE, UNARY_FUNCTIONS } from '../Parser/constants';
 import {
   decimalToFraction,
   getCorrectFormToDisplay,
+  getHtmlTree,
   getMatrixLatexForm,
   getMatrixLatexWithDecimalsForm,
 } from '../commonFunctions';
 import { COLOR_TO_HIGHLIGHT_RESULTS } from '../constants';
-import { ICalculationStep } from './interfaces';
+import {
+  DETERMINANTS_ITEMS,
+  LETTERS_TO_USE_AS_UNKNOWNS,
+  REDUCE_MATRIX_ITEMS,
+  TRIGONOMETRIC_FUNCTIONS_ITEMS,
+} from './constants';
+import {
+  ICalculationStep,
+  IDropdownWithFunctionToCall,
+  IDropdownWithFunctionToCallSelected,
+} from './interfaces';
 import { IMatrixElement, IMatrixWithName } from './matrix/interfaces';
 import { StepByStepModalWindowComponent } from './step-by-step-modal-window/step-by-step-modal-window.component';
 
@@ -50,56 +45,15 @@ export class OperacionesConMatricesComponent implements OnInit {
   public latexExpressionResult: string = '';
 
   public matricesItems: ListItem[] = [];
-  public determinantesItems: ListItem[] = [
-    {
-      content: '2x2',
-      selected: false,
-    },
-    {
-      content: 'Sarrus',
-      selected: false,
-    },
-    {
-      content: '1ra columna',
-      selected: false,
-    },
-    {
-      content: '2da columna',
-      selected: false,
-    },
-    {
-      content: '3ra columna',
-      selected: false,
-    },
-    {
-      content: '4ta columna',
-      selected: false,
-    },
-    {
-      content: '5ta columna',
-      selected: false,
-    },
-    {
-      content: '1ra fila',
-      selected: false,
-    },
-    {
-      content: '2da fila',
-      selected: false,
-    },
-    {
-      content: '3ra fila',
-      selected: false,
-    },
-    {
-      content: '4ta fila',
-      selected: false,
-    },
-    {
-      content: '5ta fila',
-      selected: false,
-    },
-  ];
+
+  public determinantItems: IDropdownWithFunctionToCall[] = DETERMINANTS_ITEMS;
+
+  public reduceMatrixItems: IDropdownWithFunctionToCall[] = REDUCE_MATRIX_ITEMS;
+
+  public trigonometricFunctionsItems: IDropdownWithFunctionToCall[] =
+    TRIGONOMETRIC_FUNCTIONS_ITEMS;
+
+  public lettersItems: ListItem[] = [];
 
   public steps: ICalculationStep[] = [];
 
@@ -124,12 +78,24 @@ export class OperacionesConMatricesComponent implements OnInit {
 
   public letterUsedToRepresentAnswerMatrix: string = 'Ñ';
 
+  public htmlTree: string = '';
+
   private parser: Parser = null;
 
   constructor(private modalService: ModalService) {}
 
   public ngOnInit(): void {
     this.addNewMatrix();
+
+    LETTERS_TO_USE_AS_UNKNOWNS.forEach((letter: string) => {
+      this.lettersItems = [
+        ...this.lettersItems,
+        {
+          content: letter,
+          selected: false,
+        },
+      ];
+    });
   }
 
   private createEmptyMatrix(): IMatrixElement[][] {
@@ -304,6 +270,7 @@ export class OperacionesConMatricesComponent implements OnInit {
 
   private convertToLatexExpression(): void {
     this.latexExpressionResult = '';
+    this.htmlTree = '';
     this.steps = [];
     this.isDecimalsIconVisible = false;
     this.isFractionIconVisible = false;
@@ -347,6 +314,7 @@ export class OperacionesConMatricesComponent implements OnInit {
   }
 
   public calculate(): void {
+    this.htmlTree = getHtmlTree(this.expressionToCalculate);
     this.calculateResultInFraction();
     this.calculateSteps();
   }
@@ -358,7 +326,7 @@ export class OperacionesConMatricesComponent implements OnInit {
           this.expressionResult.getTercetoType();
         if (expressionResultType === NUMBER_TYPE) {
           this.latexExpressionResult = `$${decimalToFraction(
-            Number(this.expressionResult.getResultado())
+            this.expressionResult.getResultado().toString()
           )}$`;
         } else if (expressionResultType === MATRIX_TYPE) {
           this.latexExpressionResult = `$${getMatrixLatexForm(
@@ -386,9 +354,7 @@ export class OperacionesConMatricesComponent implements OnInit {
         const expressionResultType: string =
           this.expressionResult.getTercetoType();
         if (expressionResultType === NUMBER_TYPE) {
-          this.latexExpressionResult = `$${Number(
-            this.expressionResult.getResultado()
-          )}$`;
+          this.latexExpressionResult = `$${this.expressionResult.getResultado()}$`;
         } else if (expressionResultType === MATRIX_TYPE) {
           this.latexExpressionResult = `$${getMatrixLatexWithDecimalsForm(
             this.expressionResult.getResultado() as IMatrixElement[][]
@@ -406,62 +372,41 @@ export class OperacionesConMatricesComponent implements OnInit {
     }
   }
 
-  public onSelectedMatrix(selectedMatrix: any): void {
+  public onSelectedMatrix(event: any): void {
+    const selectedMatrix: IDropdownWithFunctionToCallSelected = event;
     this.addNewSymbolToTheExpressionToBeCalculated(selectedMatrix.item.content);
     selectedMatrix.item.selected = false;
   }
 
-  public onSelectedDeterminante(selectedDeterminante: any): void {
-    if (selectedDeterminante.item.content === '2x2') {
-      this.addNewSymbolToTheExpressionToBeCalculated(
-        `${DETERMINANTE_2_x_2_TYPE}(`
-      );
-    } else if (selectedDeterminante.item.content === 'Sarrus') {
-      this.addNewSymbolToTheExpressionToBeCalculated(
-        `${DETERMINANTE_SARRUS_TYPE}(`
-      );
-    } else if (selectedDeterminante.item.content === '1ra columna') {
-      this.addNewSymbolToTheExpressionToBeCalculated(
-        `${DETERMINANTE_PRIMERA_COLUMNA_TYPE}(`
-      );
-    } else if (selectedDeterminante.item.content === '2da columna') {
-      this.addNewSymbolToTheExpressionToBeCalculated(
-        `${DETERMINANTE_SEGUNDA_COLUMNA_TYPE}(`
-      );
-    } else if (selectedDeterminante.item.content === '3ra columna') {
-      this.addNewSymbolToTheExpressionToBeCalculated(
-        `${DETERMINANTE_TERCERA_COLUMNA_TYPE}(`
-      );
-    } else if (selectedDeterminante.item.content === '4ta columna') {
-      this.addNewSymbolToTheExpressionToBeCalculated(
-        `${DETERMINANTE_CUARTA_COLUMNA_TYPE}(`
-      );
-    } else if (selectedDeterminante.item.content === '5ta columna') {
-      this.addNewSymbolToTheExpressionToBeCalculated(
-        `${DETERMINANTE_QUINTA_COLUMNA_TYPE}(`
-      );
-    } else if (selectedDeterminante.item.content === '1ra fila') {
-      this.addNewSymbolToTheExpressionToBeCalculated(
-        `${DETERMINANTE_PRIMERA_FILA_TYPE}(`
-      );
-    } else if (selectedDeterminante.item.content === '2da fila') {
-      this.addNewSymbolToTheExpressionToBeCalculated(
-        `${DETERMINANTE_SEGUNDA_FILA_TYPE}(`
-      );
-    } else if (selectedDeterminante.item.content === '3ra fila') {
-      this.addNewSymbolToTheExpressionToBeCalculated(
-        `${DETERMINANTE_TERCERA_FILA_TYPE}(`
-      );
-    } else if (selectedDeterminante.item.content === '4ta fila') {
-      this.addNewSymbolToTheExpressionToBeCalculated(
-        `${DETERMINANTE_CUARTA_FILA_TYPE}(`
-      );
-    } else if (selectedDeterminante.item.content === '5ta fila') {
-      this.addNewSymbolToTheExpressionToBeCalculated(
-        `${DETERMINANTE_QUINTA_FILA_TYPE}(`
-      );
-    }
+  public onSelectedDeterminante(event: any): void {
+    const selectedDeterminante: IDropdownWithFunctionToCallSelected = event;
+    this.addNewSymbolToTheExpressionToBeCalculated(
+      selectedDeterminante.item.functionToCall
+    );
     selectedDeterminante.item.selected = false;
+  }
+
+  public onSelectedReduceMatrix(event: any): void {
+    const selectedReduceMatrix: IDropdownWithFunctionToCallSelected = event;
+    this.addNewSymbolToTheExpressionToBeCalculated(
+      selectedReduceMatrix.item.functionToCall
+    );
+    selectedReduceMatrix.item.selected = false;
+  }
+
+  public onSelectedTrigonometricFunction(event: any): void {
+    const selectedTrigonometricFunction: IDropdownWithFunctionToCallSelected =
+      event;
+    this.addNewSymbolToTheExpressionToBeCalculated(
+      selectedTrigonometricFunction.item.functionToCall
+    );
+    selectedTrigonometricFunction.item.selected = false;
+  }
+
+  public onSelectedLetter(event: any): void {
+    const selectedLetter: IDropdownWithFunctionToCallSelected = event;
+    this.addNewSymbolToTheExpressionToBeCalculated(selectedLetter.item.content);
+    selectedLetter.item.selected = false;
   }
 
   private getNewPartialExpression(
@@ -556,10 +501,13 @@ export class OperacionesConMatricesComponent implements OnInit {
       } catch (error) {
         this.steps.push({
           description: `Se produce el error: ${error} al hacer la cuenta $${terceto.getLatexFormResult()}$`,
-          latexExpression:
-            terceto.getIntermediateSteps()[
-              terceto.getIntermediateSteps().length - 1
-            ].latexExpression,
+          latexExpression: terceto.getIntermediateSteps()[
+            terceto.getIntermediateSteps().length - 1
+          ]
+            ? terceto.getIntermediateSteps()[
+                terceto.getIntermediateSteps().length - 1
+              ].latexExpression
+            : '',
           intermediateSteps: terceto.getIntermediateSteps(),
         });
         throw new Error(

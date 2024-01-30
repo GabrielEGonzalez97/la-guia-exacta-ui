@@ -95,9 +95,40 @@
   outline: none;
 }
 
-.dropdown-container {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+.dropdown-container ::ng-deep {
+  .bx--dropdown {
+    height: 48px !important;
+    max-height: 48px !important;
+    border-bottom: 0px;
+  }
+
+  .bx--list-box__field {
+    height: 48px !important;
+    background-color: $principal-color;
+    font-size: 20px;
+    justify-content: center;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+  }
+
+  .bx--list-box__field:disabled {
+    opacity: 50%;
+  }
+
+  .bx--list-box__field:hover {
+    background-color: #cbcbcb;
+  }
+
+  .bx--list-box__label {
+    color: white;
+  }
+
+  .bx--list-box__menu-icon > svg {
+    fill: white;
+  }
 }
 
 .math-content-within-button ::ng-deep {
@@ -120,5 +151,118 @@
         height: 80%;
       }
     }
+  }
+}
+
+.tree-container ::ng-deep {
+  .tree ul {
+    position: relative;
+    padding: 1em 0;
+    white-space: nowrap;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .tree ul::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .tree li {
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    list-style-type: none;
+    position: relative;
+    padding: 1em 0.5em 0 0.5em;
+  }
+
+  .tree li::before,
+  .tree li::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 50%;
+    border-top: 1px solid #ababab;
+    width: 50%;
+    height: 1em;
+  }
+
+  .tree li::after {
+    right: auto;
+    left: 50%;
+    border-left: 1px solid #ababab;
+  }
+
+  .tree li:only-child::after,
+  .tree li:only-child::before {
+    display: none;
+  }
+
+  .tree li:only-child {
+    padding-top: 0;
+  }
+
+  .tree li:first-child::before,
+  .tree li:last-child::after {
+    border: 0 none;
+  }
+
+  .tree li:last-child::before {
+    border-right: 1px solid #ababab;
+    border-radius: 0 5px 0 0;
+  }
+
+  .tree li:first-child::after {
+    border-radius: 5px 0 0 0;
+  }
+
+  .tree ul ul::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    border-left: 1px solid #ababab;
+    width: 0;
+    height: 1em;
+  }
+
+  .tree li div {
+    border: 1px solid #ababab;
+    padding: 0.5em 0.75em;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    color: #333;
+    position: relative;
+    top: 1px;
+  }
+
+  .tree li div:hover,
+  .tree li div:hover + ul li div {
+    background: #B6DD92;
+    color: #fff;
+    border: 1px solid #ababab;
+  }
+
+  .tree li div:hover + ul li::after,
+  .tree li div:hover + ul li::before,
+  .tree li div:hover + ul::before,
+  .tree li div:hover + ul ul::before {
+    border-color: #B6DD92;
+  }
+
+  .tree div span {
+    display: inline-block;
+    min-width: 30px;
+  }
+
+  .operator {
+    background: #9CCBE7;
+  }
+
+  .function {
+    background: #8BE4DB;
   }
 }

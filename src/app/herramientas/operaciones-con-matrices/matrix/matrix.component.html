@@ -44,8 +44,7 @@
                     <td *ngFor="let cell of row; let colIndex = index" class="column">
                         <div class="cell">
                             <input type="text" [value]="cell.value"
-                                (input)="onCellValueChange(rowIndex, colIndex, $event)"
-                                (keypress)="validateInput($event)">
+                                (input)="onCellValueChange(rowIndex, colIndex, $event)">
                         </div>
                     </td>
                 </tr>

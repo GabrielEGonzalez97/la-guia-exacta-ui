@@ -27,18 +27,18 @@ import { TercetoTangente } from './Terceto/TercetoAbstractoImplementations/Terce
 import { Token } from './Token';
 import {
   COS_TYPE,
-  DETERMINANTE_2_x_2_TYPE,
-  DETERMINANTE_CUARTA_COLUMNA_TYPE,
-  DETERMINANTE_CUARTA_FILA_TYPE,
-  DETERMINANTE_PRIMERA_COLUMNA_TYPE,
-  DETERMINANTE_PRIMERA_FILA_TYPE,
-  DETERMINANTE_QUINTA_COLUMNA_TYPE,
-  DETERMINANTE_QUINTA_FILA_TYPE,
-  DETERMINANTE_SARRUS_TYPE,
-  DETERMINANTE_SEGUNDA_COLUMNA_TYPE,
-  DETERMINANTE_SEGUNDA_FILA_TYPE,
-  DETERMINANTE_TERCERA_COLUMNA_TYPE,
-  DETERMINANTE_TERCERA_FILA_TYPE,
+  DETERMINANT_2_x_2_TYPE,
+  DETERMINANT_FIFTH_COLUMN_TYPE,
+  DETERMINANT_FIFTH_ROW_TYPE,
+  DETERMINANT_FIRST_COLUMN_TYPE,
+  DETERMINANT_FIRST_ROW_TYPE,
+  DETERMINANT_FOURTH_COLUMN_TYPE,
+  DETERMINANT_FOURTH_ROW_TYPE,
+  DETERMINANT_SARRUS_TYPE,
+  DETERMINANT_SECOND_COLUMN_TYPE,
+  DETERMINANT_SECOND_ROW_TYPE,
+  DETERMINANT_THIRD_COLUMN_TYPE,
+  DETERMINANT_THIRD_ROW_TYPE,
   MATRIX_TYPE,
   MATRIZ_DIAGONAL,
   MATRIZ_INVERTIDA_TYPE,
@@ -158,7 +158,7 @@ export class Parser {
       return expresion;
     } else if (this.currentToken && this.currentToken.type === NUMBER_TYPE) {
       const numero: TercetoNumerico = new TercetoNumerico(
-        parseFloat(this.currentToken.value),
+        this.currentToken.value,
         {
           left: false,
           right: false,
@@ -280,17 +280,17 @@ export class Parser {
         left: false,
         right: false,
       });
-    } else if (functionName === DETERMINANTE_2_x_2_TYPE) {
+    } else if (functionName === DETERMINANT_2_x_2_TYPE) {
       return new TercetoDeterminante2x2(functionName, expression, {
         left: false,
         right: false,
       });
-    } else if (functionName === DETERMINANTE_SARRUS_TYPE) {
+    } else if (functionName === DETERMINANT_SARRUS_TYPE) {
       return new TercetoDeterminanteSarrus(functionName, expression, {
         left: false,
         right: false,
       });
-    } else if (functionName === DETERMINANTE_PRIMERA_COLUMNA_TYPE) {
+    } else if (functionName === DETERMINANT_FIRST_COLUMN_TYPE) {
       return new TercetoDeterminanteDesarrolloColumna(
         functionName,
         expression,
@@ -300,7 +300,7 @@ export class Parser {
         },
         0
       );
-    } else if (functionName === DETERMINANTE_SEGUNDA_COLUMNA_TYPE) {
+    } else if (functionName === DETERMINANT_SECOND_COLUMN_TYPE) {
       return new TercetoDeterminanteDesarrolloColumna(
         functionName,
         expression,
@@ -310,7 +310,7 @@ export class Parser {
         },
         1
       );
-    } else if (functionName === DETERMINANTE_TERCERA_COLUMNA_TYPE) {
+    } else if (functionName === DETERMINANT_THIRD_COLUMN_TYPE) {
       return new TercetoDeterminanteDesarrolloColumna(
         functionName,
         expression,
@@ -320,7 +320,7 @@ export class Parser {
         },
         2
       );
-    } else if (functionName === DETERMINANTE_CUARTA_COLUMNA_TYPE) {
+    } else if (functionName === DETERMINANT_FOURTH_COLUMN_TYPE) {
       return new TercetoDeterminanteDesarrolloColumna(
         functionName,
         expression,
@@ -330,7 +330,7 @@ export class Parser {
         },
         3
       );
-    } else if (functionName === DETERMINANTE_QUINTA_COLUMNA_TYPE) {
+    } else if (functionName === DETERMINANT_FIFTH_COLUMN_TYPE) {
       return new TercetoDeterminanteDesarrolloColumna(
         functionName,
         expression,
@@ -340,7 +340,7 @@ export class Parser {
         },
         4
       );
-    } else if (functionName === DETERMINANTE_PRIMERA_FILA_TYPE) {
+    } else if (functionName === DETERMINANT_FIRST_ROW_TYPE) {
       return new TercetoDeterminanteDesarrolloFila(
         functionName,
         expression,
@@ -350,7 +350,7 @@ export class Parser {
         },
         0
       );
-    } else if (functionName === DETERMINANTE_SEGUNDA_FILA_TYPE) {
+    } else if (functionName === DETERMINANT_SECOND_ROW_TYPE) {
       return new TercetoDeterminanteDesarrolloFila(
         functionName,
         expression,
@@ -360,7 +360,7 @@ export class Parser {
         },
         1
       );
-    } else if (functionName === DETERMINANTE_TERCERA_FILA_TYPE) {
+    } else if (functionName === DETERMINANT_THIRD_ROW_TYPE) {
       return new TercetoDeterminanteDesarrolloFila(
         functionName,
         expression,
@@ -370,7 +370,7 @@ export class Parser {
         },
         2
       );
-    } else if (functionName === DETERMINANTE_CUARTA_FILA_TYPE) {
+    } else if (functionName === DETERMINANT_FOURTH_ROW_TYPE) {
       return new TercetoDeterminanteDesarrolloFila(
         functionName,
         expression,
@@ -380,7 +380,7 @@ export class Parser {
         },
         3
       );
-    } else if (functionName === DETERMINANTE_QUINTA_FILA_TYPE) {
+    } else if (functionName === DETERMINANT_FIFTH_ROW_TYPE) {
       return new TercetoDeterminanteDesarrolloFila(
         functionName,
         expression,

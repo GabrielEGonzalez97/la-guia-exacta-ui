@@ -1,36 +1,71 @@
 import Fraction from 'fraction.js';
+import 'nerdamer/Algebra.js';
+import 'nerdamer/Calculus.js';
+import 'nerdamer/Solve.js';
+import nerdamer from 'nerdamer/nerdamer.core.js';
 import { TercetoAbstracto } from './Parser/Terceto/TercetoAbstracto';
-import { MATRIX_TYPE, NUMBER_TYPE } from './Parser/constants';
+import {
+  DETERMINANT_2_x_2_TYPE,
+  DETERMINANT_FIFTH_COLUMN_TYPE,
+  DETERMINANT_FIFTH_ROW_TYPE,
+  DETERMINANT_FIRST_COLUMN_TYPE,
+  DETERMINANT_FIRST_ROW_TYPE,
+  DETERMINANT_FOURTH_COLUMN_TYPE,
+  DETERMINANT_FOURTH_ROW_TYPE,
+  DETERMINANT_SARRUS_TYPE,
+  DETERMINANT_SECOND_COLUMN_TYPE,
+  DETERMINANT_SECOND_ROW_TYPE,
+  DETERMINANT_THIRD_COLUMN_TYPE,
+  DETERMINANT_THIRD_ROW_TYPE,
+  MATRIX_TYPE,
+  MATRIZ_DIAGONAL,
+  MATRIZ_INVERTIDA_TYPE,
+  MATRIZ_TRANSPUESTA_TYPE,
+  MATRIZ_TRIANGULAR_INFERIOR,
+  MATRIZ_TRIANGULAR_SUPERIOR,
+  NUMBER_TYPE,
+  SQRT_TYPE,
+} from './Parser/constants';
 import { IMatrixElement } from './operaciones-con-matrices/matrix/interfaces';
 
-export function decimalToFraction(decimal: number): string {
+var Algebrite = require('algebrite');
+
+export function decimalToFraction(decimal: string): string {
   if (decimal !== null) {
-    const fraction: Fraction = new Fraction(decimal);
+    decimal = decimal.replace(/\s/g, '');
 
-    const numerator: number = fraction.n;
-    const denominator: number = fraction.d;
+    const terms: string[] = decimal
+      .split(/([+\-*/])/)
+      .map((term) => term.trim())
+      .filter((term) => term !== '');
 
-    const minusSign: string = decimal < 0 ? '-' : '';
-    const fractionString: string = `${minusSign}{${numerator} \\over ${denominator}}`;
+    const fractionTerms: string[] = terms.map((term, index) => {
+      if (['+', '*', '/'].includes(term) || (term === '-' && index === 0)) {
+        return term;
+      } else if (!isNaN(Number(term))) {
+        const fraction: Fraction = new Fraction(term).simplify();
+        return fraction.toLatex();
+      } else if (term.includes('/')) {
+        return term.replace('/', '\\over');
+      } else {
+        return term;
+      }
+    });
 
-    if (denominator > 1) {
-      return fractionString;
-    }
-
-    return `${minusSign}${numerator}`;
+    return fractionTerms.join(' ');
   } else {
     return null;
   }
 }
 
-export function getMatrixCellValue(cellValue: IMatrixElement): number {
+export function getMatrixCellValue(cellValue: IMatrixElement): string {
   if (cellValue.value.includes('/')) {
     const divisionParts: string[] = cellValue.value.split('/');
-    return Number(divisionParts[0]) / Number(divisionParts[1]);
+    return `${divisionParts[0]} / ${divisionParts[1]}`;
   } else if (cellValue.value === '') {
     return null;
   } else {
-    return Number(cellValue.value);
+    return cellValue.value;
   }
 }
 
@@ -252,9 +287,7 @@ export function getMatrixLatexWithDecimalsForm(
 ): string {
   // $\\begin{pmatrix}a & b\\\\ c & d \\\\ c & d\\end{pmatrix}$
   const rows: string[] = matrix.map((row: IMatrixElement[]) =>
-    row
-      .map((cell: IMatrixElement) => getMatrixCellValue(cell).toString())
-      .join(' & ')
+    row.map((cell: IMatrixElement) => getMatrixCellValue(cell)).join(' & ')
   );
   const matrixBody: string = rows.join('\\\\ ');
   return `\\begin{pmatrix}${matrixBody}\\end{pmatrix}`;
@@ -264,9 +297,49 @@ export function getCorrectFormToDisplay(terceto: TercetoAbstracto): string {
   const type: string = terceto.getTercetoType();
   let result: string = '';
   if (type === NUMBER_TYPE) {
-    result = decimalToFraction(Number(terceto.getResultado()));
+    result = decimalToFraction(terceto.getResultado().toString());
   } else if (type === MATRIX_TYPE) {
     result = getMatrixLatexForm(terceto.getResultado() as IMatrixElement[][]);
   }
   return result;
+}
+
+export function getResultWithAlgebrite(expressionToCalculate: string): string {
+  const result: string = Algebrite.run(expressionToCalculate).split('...')[0];
+  return Algebrite.float(result)
+    .toString()
+    .split('...')[0]
+    .replace(/\.0(?![0-9])/g, '');
+}
+
+export function getHtmlTree(expression: string): string {
+  expression = expression.replace(SQRT_TYPE, 'sqrt');
+  expression = expression.replace(DETERMINANT_2_x_2_TYPE, 'determinant');
+  expression = expression.replace(DETERMINANT_SARRUS_TYPE, 'determinant');
+  expression = expression.replace(DETERMINANT_FIRST_COLUMN_TYPE, 'determinant');
+  expression = expression.replace(
+    DETERMINANT_SECOND_COLUMN_TYPE,
+    'determinant'
+  );
+  expression = expression.replace(DETERMINANT_THIRD_COLUMN_TYPE, 'determinant');
+  expression = expression.replace(
+    DETERMINANT_FOURTH_COLUMN_TYPE,
+    'determinant'
+  );
+  expression = expression.replace(DETERMINANT_FIFTH_COLUMN_TYPE, 'determinant');
+  expression = expression.replace(DETERMINANT_FIRST_ROW_TYPE, 'determinant');
+  expression = expression.replace(DETERMINANT_SECOND_ROW_TYPE, 'determinant');
+  expression = expression.replace(DETERMINANT_THIRD_ROW_TYPE, 'determinant');
+  expression = expression.replace(DETERMINANT_FOURTH_ROW_TYPE, 'determinant');
+  expression = expression.replace(DETERMINANT_FIFTH_ROW_TYPE, 'determinant');
+  expression = expression.replace(MATRIZ_INVERTIDA_TYPE, 'invert');
+  expression = expression.replace(MATRIZ_TRANSPUESTA_TYPE, 'transpose');
+  expression = expression.replace(MATRIZ_DIAGONAL, 'matrix');
+  expression = expression.replace(MATRIZ_TRIANGULAR_SUPERIOR, 'matrix');
+  expression = expression.replace(MATRIZ_TRIANGULAR_INFERIOR, 'matrix');
+  return nerdamer.htmlTree(expression);
+}
+
+export function solveEquation(equation: string, letterToFind: string): string {
+  return nerdamer.solve(equation, letterToFind).toString();
 }
