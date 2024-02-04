@@ -47,14 +47,14 @@ export class Link {
 		this.perpendicularPart = (dx * (y - this.nodeA.coordinateY) - dy * (x - this.nodeA.coordinateX)) / scale;
 
 		// Snap to a straight line
-		if(this.parallelPart > 0 && this.parallelPart < 1 && Math.abs(this.perpendicularPart) < SNAP_TO_PADDING) {
+		if (this.parallelPart > 0 && this.parallelPart < 1 && Math.abs(this.perpendicularPart) < SNAP_TO_PADDING) {
 			this.lineAngleAdjust = (this.perpendicularPart < 0) ? Math.PI : 0;
 			this.perpendicularPart = 0;
 		}
 	};
 
 	private getEndPointsAndCircle() {
-		if(this.perpendicularPart == 0) {
+		if (this.perpendicularPart == 0) {
 			const midX: number = (this.nodeA.coordinateX + this.nodeB.coordinateX) / 2;
 			const midY: number = (this.nodeA.coordinateY + this.nodeB.coordinateY) / 2;
 			const start: IMouseCoordinates = this.nodeA.closestPointOnCircle(midX, midY);
@@ -108,7 +108,7 @@ export class Link {
 		canvasContext.stroke();
 
 		// Draw the head of the arrow
-		if(stuff.hasCircle) {
+		if (stuff.hasCircle) {
 			drawArrow(canvasContext, stuff.endX, stuff.endY, stuff.endAngle - stuff.reverseScale * (Math.PI / 2));
 		} else {
 			drawArrow(canvasContext, stuff.endX, stuff.endY, Math.atan2(stuff.endY - stuff.startY, stuff.endX - stuff.startX));
@@ -135,25 +135,25 @@ export class Link {
 
 	public containsPoint(x: number, y: number): boolean {
 		const stuff = this.getEndPointsAndCircle();
-		if(stuff.hasCircle) {
+		if (stuff.hasCircle) {
 			const dx: number = x - stuff.circleX;
 			const dy: number = y - stuff.circleY;
 			const distance: number = Math.sqrt(dx * dx + dy * dy) - stuff.circleRadius;
-			if(Math.abs(distance) < HIT_TARGET_PADDING) {
+			if (Math.abs(distance) < HIT_TARGET_PADDING) {
 				let angle: number = Math.atan2(dy, dx);
 				let startAngle: number = stuff.startAngle;
 				let endAngle: number = stuff.endAngle;
-				if(stuff.isReversed) {
+				if (stuff.isReversed) {
 					const temp: number = startAngle;
 					startAngle = endAngle;
 					endAngle = temp;
 				}
-				if(endAngle < startAngle) {
+				if (endAngle < startAngle) {
 					endAngle += Math.PI * 2;
 				}
-				if(angle < startAngle) {
+				if (angle < startAngle) {
 					angle += Math.PI * 2;
-				} else if(angle > endAngle) {
+				} else if (angle > endAngle) {
 					angle -= Math.PI * 2;
 				}
 				return (angle > startAngle && angle < endAngle);

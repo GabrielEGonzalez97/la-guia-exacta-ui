@@ -70,7 +70,7 @@ export class StartLink {
 		const stuff = this.getEndPoints();
 		const dx: number = stuff.endX - stuff.startX;
 		const dy: number = stuff.endY - stuff.startY;
-		const length: number = Math.sqrt(dx*dx + dy*dy);
+		const length: number = Math.sqrt(dx * dx + dy * dy);
 		const percent: number = (dx * (x - stuff.startX) + dy * (y - stuff.startY)) / (length * length);
 		const distance: number = (dx * (y - stuff.startY) - dy * (x - stuff.startX)) / length;
 		return (percent > 0 && percent < 1 && Math.abs(distance) < HIT_TARGET_PADDING);

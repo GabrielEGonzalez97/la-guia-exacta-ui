@@ -29,14 +29,14 @@ const greekLetterNames: string[] = [
 
 function convertLatexShortcuts(text: string): string {
 	// html greek characters
-	for(let i: number = 0; i < greekLetterNames.length; i++) {
+	for (let i: number = 0; i < greekLetterNames.length; i++) {
 		let name: string = greekLetterNames[i];
 		text = text.replace(new RegExp('\\\\' + name, 'g'), String.fromCharCode(913 + i + (i > 16 ? 1 : 0)));
 		text = text.replace(new RegExp('\\\\' + name.toLowerCase(), 'g'), String.fromCharCode(945 + i + (i > 16 ? 1 : 0)));
 	}
 
 	// subscripts
-	for(let i: number = 0; i < 10; i++) {
+	for (let i: number = 0; i < 10; i++) {
 		text = text.replace(new RegExp('_' + i, 'g'), String.fromCharCode(8320 + i));
 	}
 
@@ -44,7 +44,7 @@ function convertLatexShortcuts(text: string): string {
 }
 
 export function canvasHasFocus(canvasElement: HTMLCanvasElement): boolean {
-    return canvasElement === document.activeElement;
+    return (document.activeElement || document.body) == document.body;
 }
 
 export function drawArrow(canvasContext: CanvasRenderingContext2D, x: number, y: number, angle: number): void {

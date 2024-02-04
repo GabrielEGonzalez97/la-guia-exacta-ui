@@ -1,9 +1,9 @@
 import {
-    AfterViewInit,
-    Component,
-    ElementRef,
-    NgZone,
-    ViewChild,
+  AfterViewInit,
+  Component,
+  ElementRef,
+  NgZone,
+  ViewChild,
 } from '@angular/core';
 import { canvasHasFocus } from './commonFunctions';
 import { SNAP_TO_PADDING } from './constants';
@@ -186,6 +186,7 @@ export class ConstructorAutomatasComponent implements AfterViewInit {
   private onCanvasDoubleClick(event: MouseEvent): void {
     const mouse: IMouseCoordinates =
       this.getBrowserRelativeMousePosition(event);
+
     this.selectedObject = this.selectObject(
       mouse.coordinateX,
       mouse.coordinateY
@@ -302,7 +303,8 @@ export class ConstructorAutomatasComponent implements AfterViewInit {
           this.selectedObject.text.length - 1
         );
         this.resetCaret();
-        this.draw();
+        this.drawUsing(this.canvasContext);
+        this.saveBackup();
       }
 
       // backspace is a shortcut for the back button, but do NOT want to change pages
@@ -327,7 +329,8 @@ export class ConstructorAutomatasComponent implements AfterViewInit {
           }
         }
         this.selectedObject = null;
-        this.draw();
+        this.drawUsing(this.canvasContext);
+        this.saveBackup();
       }
     } else if (
       key >= 0x20 &&
@@ -340,7 +343,8 @@ export class ConstructorAutomatasComponent implements AfterViewInit {
     ) {
       this.selectedObject.text += String.fromCharCode(key);
       this.resetCaret();
-      this.draw();
+      this.drawUsing(this.canvasContext);
+      this.saveBackup();
 
       // don't let keys do their actions (like space scrolls down the page)
       return;
@@ -372,7 +376,7 @@ export class ConstructorAutomatasComponent implements AfterViewInit {
       this.nodes[i].draw(canvasContext);
     }
 
-    for (var i = 0; i < this.links.length; i++) {
+    for (let i: number = 0; i < this.links.length; i++) {
       canvasContext.lineWidth = 1;
       canvasContext.fillStyle = canvasContext.strokeStyle =
         this.links[i] == this.selectedObject ? 'blue' : 'black';

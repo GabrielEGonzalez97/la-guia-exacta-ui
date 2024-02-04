@@ -61,6 +61,6 @@ export class Node {
 	};
 
 	public containsPoint(x: number, y: number): boolean {
-		return (x - this.coordinateX)*(x - this.coordinateX) + (y - this.coordinateY)*(y - this.coordinateY) < NODE_RADIUS * NODE_RADIUS;
+		return ((x - this.coordinateX) * (x - this.coordinateX) + (y - this.coordinateY) * (y - this.coordinateY)) < (NODE_RADIUS * NODE_RADIUS);
 	};
 }
