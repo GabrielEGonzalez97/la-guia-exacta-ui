@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { GridModule } from 'carbon-components-angular';
+import { ButtonModule, GridModule } from 'carbon-components-angular';
 
 import { ConstructorAutomatasComponent } from './constructor-automatas.component';
 
-const CARBON_IMPORTS = [GridModule];
+const CARBON_IMPORTS = [ButtonModule, GridModule];
 
 @NgModule({
   declarations: [ConstructorAutomatasComponent],

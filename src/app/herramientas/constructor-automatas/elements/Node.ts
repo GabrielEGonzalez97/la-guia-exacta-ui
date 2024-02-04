@@ -5,9 +5,8 @@ import { IMouseCoordinates } from '../interfaces';
 export class Node {
 	public coordinateX: number;
 	public coordinateY: number;
-	private canvasElement: HTMLCanvasElement
+	private canvasElement: HTMLCanvasElement;
 	private caretVisible: boolean;
-	private selectedObject: any;
 
 	private mouseOffsetX: number = 0;
 	private mouseOffsetY: number = 0;
@@ -15,12 +14,11 @@ export class Node {
 	public isAcceptState: boolean = false;
 	public text: string = '';
 
-	constructor(coordinateX: number, coordinateY: number, canvasElement: HTMLCanvasElement, caretVisible: boolean, selectedObject: any) {
+	constructor(coordinateX: number, coordinateY: number, canvasElement: HTMLCanvasElement, caretVisible: boolean) {
 		this.coordinateX = coordinateX;
 		this.coordinateY = coordinateY;
 		this.canvasElement = canvasElement;
 		this.caretVisible = caretVisible;
-		this.selectedObject = selectedObject;
 	}
 
 	public setMouseStart(x: number, y: number): void {
@@ -40,7 +38,7 @@ export class Node {
 		canvasContext.stroke();
 	
 		// Draw the text
-		this.text = drawText(canvasContext, this.text, this.coordinateX, this.coordinateY, null, this.selectedObject == this, this.canvasElement, this.caretVisible);
+		this.text = drawText(canvasContext, this.text, this.coordinateX, this.coordinateY, null, false, this.canvasElement, this.caretVisible);
 	
 		// Draw a double circle for an accept state
 		if (this.isAcceptState) {

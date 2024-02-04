@@ -1,23 +1,19 @@
-import { drawArrow, drawText } from '../commonFunctions';
+import { drawArrow } from '../commonFunctions';
 import { HIT_TARGET_PADDING, SNAP_TO_PADDING } from '../constants';
 import { IMouseCoordinates } from '../interfaces';
 import { Node } from './node';
 
 export class StartLink {
 	public node: Node;
-	private canvasElement: HTMLCanvasElement
-	private caretVisible: boolean;
-	private selectedObject: any;
+	public isSelected: boolean;
 
 	public deltaX: number = 0;
 	public deltaY: number = 0;
 	public text: string = '';
 
-	constructor(node: Node, start: IMouseCoordinates, canvasElement: HTMLCanvasElement, caretVisible: boolean, selectedObject: any) {
+	constructor(node: Node, start: IMouseCoordinates, isSelected: boolean) {
 		this.node = node;
-		this.canvasElement = canvasElement;
-		this.caretVisible = caretVisible;
-		this.selectedObject = selectedObject;
+		this.isSelected = isSelected;
 
 		if (start) {
 			this.setAnchorPoint(start.coordinateX, start.coordinateY);
@@ -57,10 +53,6 @@ export class StartLink {
 		canvasContext.moveTo(stuff.startX, stuff.startY);
 		canvasContext.lineTo(stuff.endX, stuff.endY);
 		canvasContext.stroke();
-	
-		// Draw the text at the end without the arrow
-		const textAngle: number = Math.atan2(stuff.startY - stuff.endY, stuff.startX - stuff.endX);
-		this.text = drawText(canvasContext, this.text, stuff.startX, stuff.startY, textAngle, this.selectedObject == this, this.canvasElement, this.caretVisible);
 	
 		// Draw the head of the arrow
 		drawArrow(canvasContext, stuff.endX, stuff.endY, Math.atan2(-this.deltaY, -this.deltaX));

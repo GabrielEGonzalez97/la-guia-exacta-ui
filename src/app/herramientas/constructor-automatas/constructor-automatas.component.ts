@@ -24,20 +24,21 @@ export class ConstructorAutomatasComponent implements AfterViewInit {
   private canvasElement: HTMLCanvasElement;
   private canvasContext: CanvasRenderingContext2D;
 
-  private nodes: Node[] = [];
-  private links: (Link | SelfLink | StartLink)[] = [];
+  public nodes: Node[] = [];
+  public links: (Link | SelfLink | StartLink)[] = [];
 
   private isMovingAnObject: boolean = false;
   private isShiftPressed: boolean = false;
   private isMouseInsideCanvas: boolean = false;
 
   private caretTimer: any;
-  private caretVisible: boolean = true;
 
   private selectedObject = null; // Either a Link or a Node
   private currentLink: Link | SelfLink | StartLink | TemporaryLink = null; // A Link
 
   private originalMouseClickPosition: IMouseCoordinates;
+
+  private deletedNodes: string[] = [];
 
   constructor(private zone: NgZone) {}
 
@@ -49,6 +50,37 @@ export class ConstructorAutomatasComponent implements AfterViewInit {
     this.drawUsing(this.canvasContext);
 
     this.initializeCanvas();
+  }
+
+  public clearCanvas(): void {
+    this.nodes = [];
+    this.links = [];
+    this.selectedObject = null;
+    this.drawUsing(this.canvasContext);
+    this.saveBackup();
+  }
+
+  public captureAndDownloadCanvas(): void {
+    // Create an image data URL from the canvas
+    const dataURL: string = this.canvasElement.toDataURL('image/png');
+
+    // Create a temporary link element
+    let link: HTMLAnchorElement = document.createElement('a');
+
+    // Set the href attribute of the link to the data URL
+    link.href = dataURL;
+
+    // Set the download attribute of the link to specify the filename
+    link.download = 'automata_creado.png';
+
+    // Append the link to the document
+    document.body.appendChild(link);
+
+    // Trigger a click event on the link to initiate the download
+    link.click();
+
+    // Remove the link from the document
+    document.body.removeChild(link);
   }
 
   private initializeCanvas(): void {
@@ -85,12 +117,9 @@ export class ConstructorAutomatasComponent implements AfterViewInit {
     clearInterval(this.caretTimer);
     this.caretTimer = setInterval(() => {
       this.zone.runOutsideAngular(() => {
-        this.caretVisible = !this.caretVisible;
         this.draw();
       });
     }, 500);
-
-    this.caretVisible = true;
   }
 
   private getBrowserElementPosition(event: MouseEvent): IMouseCoordinates {
@@ -154,8 +183,7 @@ export class ConstructorAutomatasComponent implements AfterViewInit {
           this.selectedObject,
           mouse,
           this.canvasElement,
-          this.caretVisible,
-          this.selectedObject
+          false
         );
       } else {
         this.isMovingAnObject = true;
@@ -193,13 +221,18 @@ export class ConstructorAutomatasComponent implements AfterViewInit {
     );
 
     if (this.selectedObject == null) {
-      this.selectedObject = new Node(
+      const node: Node = new Node(
         mouse.coordinateX,
         mouse.coordinateY,
         this.canvasElement,
-        this.caretVisible,
-        this.selectedObject
+        false
       );
+      if (this.deletedNodes.length > 0) {
+        node.text = this.deletedNodes.shift();
+      } else {
+        node.text = `q${this.nodes.length}`;
+      }
+      this.selectedObject = node;
       this.nodes.push(this.selectedObject);
       this.resetCaret();
       this.draw();
@@ -224,9 +257,7 @@ export class ConstructorAutomatasComponent implements AfterViewInit {
           this.currentLink = new StartLink(
             targetNode as Node,
             this.originalMouseClickPosition,
-            this.canvasElement,
-            this.caretVisible,
-            this.selectedObject
+            true
           );
         } else {
           this.currentLink = new TemporaryLink(
@@ -240,16 +271,14 @@ export class ConstructorAutomatasComponent implements AfterViewInit {
             this.selectedObject,
             mouse,
             this.canvasElement,
-            this.caretVisible,
-            this.selectedObject
+            true
           );
         } else if (targetNode != null) {
           this.currentLink = new Link(
             this.selectedObject,
             targetNode as Node,
             this.canvasElement,
-            this.caretVisible,
-            this.selectedObject
+            true
           );
         } else {
           this.currentLink = new TemporaryLink(
@@ -277,9 +306,12 @@ export class ConstructorAutomatasComponent implements AfterViewInit {
     this.isMovingAnObject = false;
 
     if (this.currentLink != null) {
-      if (!(this.currentLink instanceof TemporaryLink)) {
+      if (
+        !(this.currentLink instanceof TemporaryLink) &&
+        !(this.currentLink instanceof StartLink)
+      ) {
         this.selectedObject = this.currentLink;
-        this.links.push(this.currentLink);
+        this.links.push(this.currentLink as Link | SelfLink);
         this.resetCaret();
       }
       this.currentLink = null;
@@ -314,6 +346,8 @@ export class ConstructorAutomatasComponent implements AfterViewInit {
       if (this.selectedObject != null) {
         for (let i: number = 0; i < this.nodes.length; i++) {
           if (this.nodes[i] == this.selectedObject) {
+            this.deletedNodes.push(this.nodes[i].text);
+            this.deletedNodes.sort();
             this.nodes.splice(i--, 1);
           }
         }
@@ -339,9 +373,10 @@ export class ConstructorAutomatasComponent implements AfterViewInit {
       !event.altKey &&
       !event.ctrlKey &&
       this.selectedObject != null &&
-      'text' in this.selectedObject
+      'text' in this.selectedObject &&
+      !(this.selectedObject instanceof Node)
     ) {
-      this.selectedObject.text += String.fromCharCode(key);
+      this.selectedObject.text += String.fromCharCode(key).toLowerCase();
       this.resetCaret();
       this.drawUsing(this.canvasContext);
       this.saveBackup();
@@ -396,8 +431,8 @@ export class ConstructorAutomatasComponent implements AfterViewInit {
     if (this.isMouseInsideCanvas) {
       this.drawUsing(this.canvasContext);
       this.saveBackup();
-      console.log(this.nodes);
-      console.log(this.links);
+      // console.log(this.nodes);
+      // console.log(this.links);
     }
   }
 
@@ -408,12 +443,16 @@ export class ConstructorAutomatasComponent implements AfterViewInit {
       }
     }
 
+    let linkSelected: Link | SelfLink | StartLink = null;
     for (let i: number = 0; i < this.links.length; i++) {
       if (this.links[i].containsPoint(x, y)) {
-        return this.links[i];
+        this.links[i].isSelected = true;
+        linkSelected = this.links[i];
+      } else {
+        this.links[i].isSelected = false;
       }
     }
-    return null;
+    return linkSelected;
   }
 
   private restoreBackup(): void {
@@ -430,8 +469,7 @@ export class ConstructorAutomatasComponent implements AfterViewInit {
           backupNode.coordinateX,
           backupNode.coordinateY,
           this.canvasElement,
-          this.caretVisible,
-          this.selectedObject
+          false
         );
         node.isAcceptState = backupNode.isAcceptState;
         node.text = backupNode.text;
@@ -447,19 +485,12 @@ export class ConstructorAutomatasComponent implements AfterViewInit {
             this.nodes[backupLink.node],
             null,
             this.canvasElement,
-            this.caretVisible,
-            this.selectedObject
+            true
           );
           link.anchorAngle = backupLink.anchorAngle;
           link.text = backupLink.text;
         } else if (backupLink.type == 'StartLink') {
-          link = new StartLink(
-            this.nodes[backupLink.node],
-            null,
-            this.canvasElement,
-            this.caretVisible,
-            this.selectedObject
-          );
+          link = new StartLink(this.nodes[backupLink.node], null, true);
           link.deltaX = backupLink.deltaX;
           link.deltaY = backupLink.deltaY;
           link.text = backupLink.text;
@@ -468,8 +499,7 @@ export class ConstructorAutomatasComponent implements AfterViewInit {
             this.nodes[backupLink.nodeA],
             this.nodes[backupLink.nodeB],
             this.canvasElement,
-            this.caretVisible,
-            this.selectedObject
+            true
           );
           link.parallelPart = backupLink.parallelPart;
           link.perpendicularPart = backupLink.perpendicularPart;

@@ -5,23 +5,26 @@ import { Node } from './node';
 
 export class SelfLink {
 	public node: Node;
-	private canvasElement: HTMLCanvasElement
-	private caretVisible: boolean;
-	private selectedObject: any;
+	private canvasElement: HTMLCanvasElement;
+	private caretVisible: boolean = false;
+	public isSelected: boolean;
 
 	public anchorAngle: number = 0;
 	public text: string = '';
 	private mouseOffsetAngle: number = 0;
 
-	constructor(node: Node, mouse: IMouseCoordinates, canvasElement: HTMLCanvasElement, caretVisible: boolean, selectedObject: any) {
+	constructor(node: Node, mouse: IMouseCoordinates, canvasElement: HTMLCanvasElement, isSelected: boolean) {
 		this.node = node;
 		this.canvasElement = canvasElement;
-		this.caretVisible = caretVisible;
-		this.selectedObject = selectedObject;
+		this.isSelected = isSelected;
 
 		if (mouse) {
 			this.setAnchorPoint(mouse.coordinateX, mouse.coordinateY);
 		}
+
+		setInterval(() => {
+            this.caretVisible = !this.caretVisible;
+        }, 500);
 	}
 
 	public setMouseStart(x: number, y: number): void {
@@ -82,7 +85,7 @@ export class SelfLink {
 		// Draw the text on the loop farthest from the node
 		const textX: number = stuff.circleX + stuff.circleRadius * Math.cos(this.anchorAngle);
 		const textY: number = stuff.circleY + stuff.circleRadius * Math.sin(this.anchorAngle);
-		this.text = drawText(canvasContext, this.text, textX, textY, this.anchorAngle, this.selectedObject == this, this.canvasElement, this.caretVisible);
+		this.text = drawText(canvasContext, this.text, textX, textY, this.anchorAngle, this.isSelected, this.canvasElement, this.caretVisible);
 
 		// Draw the head of the arrow
 		drawArrow(canvasContext, stuff.endX, stuff.endY, stuff.endAngle + Math.PI * 0.4);

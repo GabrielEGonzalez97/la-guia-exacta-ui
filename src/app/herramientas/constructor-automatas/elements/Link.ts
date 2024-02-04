@@ -6,27 +6,30 @@ import { Node } from './node';
 export class Link {
 	public nodeA: Node;
 	public nodeB: Node;
-	private canvasElement: HTMLCanvasElement
-	private caretVisible: boolean;
-	private selectedObject: any;
+	private canvasElement: HTMLCanvasElement;
+	private caretVisible: boolean = false;
+	public isSelected: boolean;
 
 	public text: string = '';
 	public lineAngleAdjust: number;
 	public parallelPart: number;
 	public perpendicularPart: number;
 
-	constructor(nodeA: Node, nodeB: Node, canvasElement: HTMLCanvasElement, caretVisible: boolean, selectedObject: any) {
+	constructor(nodeA: Node, nodeB: Node, canvasElement: HTMLCanvasElement, isSelected: boolean) {
 		this.nodeA = nodeA;
 		this.nodeB = nodeB;
 		this.canvasElement = canvasElement;
-		this.caretVisible = caretVisible;
-		this.selectedObject = selectedObject;
+		this.isSelected = isSelected;
 		
 		this.lineAngleAdjust = 0; // Value to add to textAngle when link is straight line
 
 		// Make anchor point relative to the locations of nodeA and nodeB
 		this.parallelPart = 0.5; // Percentage from nodeA to nodeB
 		this.perpendicularPart = 0; // Pixels from line between nodeA and nodeB
+
+		setInterval(() => {
+			this.caretVisible = !this.caretVisible;
+        }, 500);
 	}
 
 	private getAnchorPoint(): IMouseCoordinates {
@@ -124,12 +127,12 @@ export class Link {
 			const textAngle: number = (startAngle + endAngle) / 2 + (stuff.isReversed ? Math.PI : 0);
 			const textX: number = stuff.circleX + stuff.circleRadius * Math.cos(textAngle);
 			const textY: number = stuff.circleY + stuff.circleRadius * Math.sin(textAngle);
-			this.text = drawText(canvasContext, this.text, textX, textY, textAngle, this.selectedObject == this, this.canvasElement, this.caretVisible);
+			this.text = drawText(canvasContext, this.text, textX, textY, textAngle, this.isSelected, this.canvasElement, this.caretVisible);
 		} else {
 			const textX = (stuff.startX + stuff.endX) / 2;
 			const textY = (stuff.startY + stuff.endY) / 2;
 			const textAngle = Math.atan2(stuff.endX - stuff.startX, stuff.startY - stuff.endY);
-			this.text = drawText(canvasContext, this.text, textX, textY, textAngle + this.lineAngleAdjust, this.selectedObject == this, this.canvasElement, this.caretVisible);
+			this.text = drawText(canvasContext, this.text, textX, textY, textAngle + this.lineAngleAdjust, this.isSelected, this.canvasElement, this.caretVisible);
 		}
 	};
 
