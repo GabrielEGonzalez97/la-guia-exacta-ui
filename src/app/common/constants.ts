@@ -51,6 +51,10 @@ export const PAGE_SECTIONS: IPageSection[] = [
         name: 'Operaciones con matrices',
         route: 'herramientas/operaciones-con-matrices',
       },
+      {
+        name: 'Constructor de autómatas',
+        route: 'herramientas/constructor-automatas',
+      },
     ],
   },
 ];

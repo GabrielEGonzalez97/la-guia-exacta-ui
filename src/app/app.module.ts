@@ -22,12 +22,14 @@ import { TudaiModule } from './tudai/tudai.module';
 import { VideosClasesModule } from './videos-clases/videos-clases.module';
 
 import { MathjaxModule } from 'mathjax-angular';
+import { ConstructorAutomatasModule } from './herramientas/constructor-automatas/constructor-automatas.module';
 
 const MODULE_IMPORTS = [AppRoutingModule, BrowserModule, HttpClientModule];
 
 const COMPONENT_IMPORTS = [
   ActionsBarModule,
   CatedrasModule,
+  ConstructorAutomatasModule,
   CursosGratuitosModule,
   FileUploaderComponentModule,
   FinalesModule,

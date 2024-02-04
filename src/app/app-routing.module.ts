@@ -4,6 +4,7 @@ import { CatedrasComponent } from './catedras/catedras.component';
 import { CursosGratuitosComponent } from './cursos-gratuitos/cursos-gratuitos.component';
 import { FileUploaderComponent } from './file-uploader/file-uploader.component';
 import { FinalesComponent } from './finales/finales.component';
+import { ConstructorAutomatasComponent } from './herramientas/constructor-automatas/constructor-automatas.component';
 import { OperacionesConMatricesComponent } from './herramientas/operaciones-con-matrices/operaciones-con-matrices.component';
 import { HomeComponent } from './home/home.component';
 import { IngenieriaDeSistemasComponent } from './ingenieria-de-sistemas/ingenieria-de-sistemas.component';
@@ -72,7 +73,12 @@ const routes: Routes = [
   {
     path: 'herramientas/operaciones-con-matrices',
     component: OperacionesConMatricesComponent,
-    data: { title: 'Operaciones-con-matrices' },
+    data: { title: 'Operaciones-con-Matrices' },
+  },
+  {
+    path: 'herramientas/constructor-automatas',
+    component: ConstructorAutomatasComponent,
+    data: { title: 'Constructor-Automatas' },
   },
 ];
 
