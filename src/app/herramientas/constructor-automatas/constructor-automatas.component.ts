@@ -21,6 +21,7 @@ import { IMouseCoordinates } from './interfaces';
 })
 export class ConstructorAutomatasComponent implements AfterViewInit {
   @ViewChild('canvas') private canvasElementRef: ElementRef;
+  @ViewChild('canvasContainer') private canvasContainerElementRef: ElementRef;
   private canvasElement: HTMLCanvasElement;
   private canvasContext: CanvasRenderingContext2D;
 
@@ -45,6 +46,8 @@ export class ConstructorAutomatasComponent implements AfterViewInit {
   public ngAfterViewInit(): void {
     this.canvasElement = this.canvasElementRef.nativeElement;
     this.canvasContext = this.canvasElement.getContext('2d');
+
+    this.resizeCanvas();
 
     this.restoreBackup();
     this.drawUsing(this.canvasContext);
@@ -111,6 +114,18 @@ export class ConstructorAutomatasComponent implements AfterViewInit {
     document.addEventListener('keyup', (event: KeyboardEvent) =>
       this.onCanvasKeyUp(event)
     );
+
+    // resize the canvas to fill browser window dynamically
+    window.addEventListener('resize', this.resizeCanvas.bind(this), false);
+  }
+
+  private resizeCanvas(): void {
+    const a: HTMLElement = this.canvasContainerElementRef.nativeElement;
+    this.canvasElement.width = a.getBoundingClientRect().width - 2 * 16;
+    this.canvasElement.height =
+      ((a.getBoundingClientRect().width - 2 * 16) * 3) / 4;
+
+    this.drawUsing(this.canvasContext);
   }
 
   private resetCaret(): void {

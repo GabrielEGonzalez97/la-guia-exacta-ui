@@ -9,8 +9,8 @@
 </div>
 
 <div ibmRow>
-    <div ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 8, sm: 6 }">
-        <canvas #canvas id="canvas" width="800" height="600">
+    <div #canvasContainer ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 8, sm: 6 }">
+        <canvas #canvas id="canvas">
             <span class="error">Your browser does not support<br>the HTML5 &lt;canvas&gt; element</span>
         </canvas>
     </div>
