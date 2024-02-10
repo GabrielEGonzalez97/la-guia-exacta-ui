@@ -539,12 +539,12 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
             this.nodes[backupLink.node],
             null,
             this.canvasElement,
-            true
+            false
           );
           link.anchorAngle = backupLink.anchorAngle;
           link.text = backupLink.text;
         } else if (backupLink.type == 'StartLink') {
-          link = new StartLink(this.nodes[backupLink.node], null, true);
+          link = new StartLink(this.nodes[backupLink.node], null, false);
           link.deltaX = backupLink.deltaX;
           link.deltaY = backupLink.deltaY;
           link.text = backupLink.text;
@@ -553,7 +553,7 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
             this.nodes[backupLink.nodeA],
             this.nodes[backupLink.nodeB],
             this.canvasElement,
-            true
+            false
           );
           link.parallelPart = backupLink.parallelPart;
           link.perpendicularPart = backupLink.perpendicularPart;
