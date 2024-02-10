@@ -12,30 +12,45 @@ canvas {
   -o-border-radius: 20px;
 }
 
-.bx--btn--primary {
-  width: 100%;
-  min-width: 100%;
-  max-width: 100%;
-  background-color: $principal-color;
-  padding: 0;
-  line-break: anywhere;
-  font-size: 20px;
-  justify-content: center;
-  border-radius: 15px;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  -ms-border-radius: 15px;
-  -o-border-radius: 15px;
+#canvasContainer {
+  position: relative;
 
-  p {
-    font-size: 20px;
+  .icons-container {
+    position: absolute;
+    background-color: $principal-color;
+    right: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    top: 0.5rem;
+    border-top-right-radius: 20px;
 
-    sup {
-      font-size: 0.75rem;
+    .png-icon {
+      fill: white;
+      margin-right: 1rem;
+    }
+
+    .trash-can-icon {
+      fill: white;
+    }
+
+    .trash-can-icon:hover,
+    .png-icon:hover {
+      cursor: pointer;
+      fill: #cbcbcb;
     }
   }
 }
 
-.bx--btn--primary:hover {
-  background-color: #cbcbcb !important;
+:host ::ng-deep {
+  border-collapse: unset;
+
+  .bx--data-table {
+    th,
+    td {
+      min-width: 130px;
+      border: 1px solid black !important;
+    }
+  }
 }

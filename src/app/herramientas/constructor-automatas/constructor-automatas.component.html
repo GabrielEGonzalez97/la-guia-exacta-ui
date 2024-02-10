@@ -9,10 +9,29 @@
 </div>
 
 <div ibmRow>
-    <div #canvasContainer ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 8, sm: 6 }">
+    <div #canvasContainer id="canvasContainer" ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 8, sm: 6 }">
+        <ng-container *ngIf="this.nodes.length !== 0">
+            <div class="icons-container">
+                <svg class="png-icon" ibmIcon="PNG" size="24" (click)="captureAndDownloadCanvas()"></svg>
+                <svg class="trash-can-icon" ibmIcon="trash-can" size="24" (click)="clearCanvas()"></svg>
+            </div>
+        </ng-container>
         <canvas #canvas id="canvas">
             <span class="error">Your browser does not support<br>the HTML5 &lt;canvas&gt; element</span>
         </canvas>
+    </div>
+    <div ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 8, sm: 6 }">
+        <ibm-table-container>
+            <ibm-table [model]="matrizTransicionEstadosTableModel" [showSelectionColumn]="false" [sortable]="false">
+                <tbody>
+                    <tr>
+                        <td class="no-data-table" colspan="4">
+                            <div>No data.</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </ibm-table>
+        </ibm-table-container>
     </div>
 </div>
 
@@ -20,15 +39,19 @@
     <div ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 8, sm: 6 }">
         <div ibmRow>
             <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 6 }">
-                <button ibmButton="primary" [disabled]="this.nodes.length === 0" (click)="clearCanvas()">
-                    Borrar todo
-                </button>
-            </div>
-            <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 6 }">
-                <button ibmButton="primary" [disabled]="this.nodes.length === 0" (click)="captureAndDownloadCanvas()">
-                    Descargar PNG
-                </button>
+
             </div>
         </div>
     </div>
 </div>
+
+<ng-template #headerTemplate let-data="data">
+    <div class="table-header" [title]="data.description">{{ data.title }}</div>
+</ng-template>
+
+<ng-template #columnTemplate let-data="data">
+    <div class="table-row-data-container">
+        <strong *ngIf="data.includes('Año')">{{ data }}</strong>
+        <p *ngIf="!data.includes('Año')">{{ data }}</p>
+    </div>
+</ng-template>

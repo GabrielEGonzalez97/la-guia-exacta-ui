@@ -3,8 +3,11 @@ import {
   Component,
   ElementRef,
   NgZone,
+  OnInit,
+  TemplateRef,
   ViewChild,
 } from '@angular/core';
+import { MatrizTransicionEstadosTableModel } from './MatrizTransicionEstadosTableModel';
 import { canvasHasFocus } from './commonFunctions';
 import { SNAP_TO_PADDING } from './constants';
 import { SelfLink } from './elements/SelfLink';
@@ -19,12 +22,19 @@ import { IMouseCoordinates } from './interfaces';
   templateUrl: './constructor-automatas.component.html',
   styleUrls: ['./constructor-automatas.component.scss'],
 })
-export class ConstructorAutomatasComponent implements AfterViewInit {
+export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
   @ViewChild('canvas') private canvasElementRef: ElementRef;
   @ViewChild('canvasContainer') private canvasContainerElementRef: ElementRef;
+  @ViewChild('headerTemplate', { static: true })
+  private headerTemplate: TemplateRef<unknown>;
+  @ViewChild('columnTemplate', { static: true })
+  private columnTemplate: TemplateRef<unknown>;
+
   private canvasElement: HTMLCanvasElement;
   private canvasContext: CanvasRenderingContext2D;
 
+  public matrizTransicionEstadosTableModel: MatrizTransicionEstadosTableModel =
+    null;
   public nodes: Node[] = [];
   public links: (Link | SelfLink | StartLink)[] = [];
 
@@ -42,6 +52,16 @@ export class ConstructorAutomatasComponent implements AfterViewInit {
   private deletedNodes: string[] = [];
 
   constructor(private zone: NgZone) {}
+
+  public ngOnInit(): void {
+    this.matrizTransicionEstadosTableModel =
+      new MatrizTransicionEstadosTableModel(
+        this.headerTemplate,
+        this.columnTemplate,
+        this.nodes,
+        this.links
+      );
+  }
 
   public ngAfterViewInit(): void {
     this.canvasElement = this.canvasElementRef.nativeElement;
@@ -382,8 +402,6 @@ export class ConstructorAutomatasComponent implements AfterViewInit {
         this.saveBackup();
       }
     } else if (
-      key >= 0x20 &&
-      key <= 0x7e &&
       !event.metaKey &&
       !event.altKey &&
       !event.ctrlKey &&
@@ -391,7 +409,7 @@ export class ConstructorAutomatasComponent implements AfterViewInit {
       'text' in this.selectedObject &&
       !(this.selectedObject instanceof Node)
     ) {
-      this.selectedObject.text += String.fromCharCode(key).toLowerCase();
+      this.selectedObject.text += event.key;
       this.resetCaret();
       this.drawUsing(this.canvasContext);
       this.saveBackup();
@@ -422,14 +440,14 @@ export class ConstructorAutomatasComponent implements AfterViewInit {
     for (let i: number = 0; i < this.nodes.length; i++) {
       canvasContext.lineWidth = 1;
       canvasContext.fillStyle = canvasContext.strokeStyle =
-        this.nodes[i] == this.selectedObject ? 'blue' : 'black';
+        this.nodes[i] == this.selectedObject ? '#299AE0' : 'black';
       this.nodes[i].draw(canvasContext);
     }
 
     for (let i: number = 0; i < this.links.length; i++) {
       canvasContext.lineWidth = 1;
       canvasContext.fillStyle = canvasContext.strokeStyle =
-        this.links[i] == this.selectedObject ? 'blue' : 'black';
+        this.links[i] == this.selectedObject ? '#299AE0' : 'black';
       this.links[i].draw(canvasContext);
     }
 
@@ -440,6 +458,14 @@ export class ConstructorAutomatasComponent implements AfterViewInit {
     }
 
     canvasContext.restore();
+
+    this.matrizTransicionEstadosTableModel =
+      new MatrizTransicionEstadosTableModel(
+        this.headerTemplate,
+        this.columnTemplate,
+        this.nodes,
+        this.links
+      );
   }
 
   private draw(): void {
