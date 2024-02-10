@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  ChangeDetectorRef,
   Component,
   ElementRef,
   NgZone,
@@ -51,7 +52,10 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
 
   private deletedNodes: string[] = [];
 
-  constructor(private zone: NgZone) {}
+  constructor(
+    private changeDetectorRef: ChangeDetectorRef,
+    private zone: NgZone
+  ) {}
 
   public ngOnInit(): void {
     this.matrizTransicionEstadosTableModel =
@@ -81,6 +85,7 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
     this.selectedObject = null;
     this.drawUsing(this.canvasContext);
     this.saveBackup();
+    this.changeDetectorRef.detectChanges();
   }
 
   public captureAndDownloadCanvas(): void {
@@ -563,6 +568,7 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
     } catch (e) {
       localStorage['fsm'] = '';
     }
+    this.changeDetectorRef.detectChanges();
   }
 
   private saveBackup() {

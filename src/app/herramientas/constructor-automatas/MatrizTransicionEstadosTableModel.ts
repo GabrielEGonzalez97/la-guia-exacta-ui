@@ -24,8 +24,12 @@ export class MatrizTransicionEstadosTableModel extends TableModel {
     super();
 
     this.setHeader(
-      this.nodes.map((node: Node) => {
-        return node.text;
+      this.links.map((link: Link | SelfLink | StartLink) => {
+        if (link.text === '') {
+          return 'Cadena vacía';
+        } else {
+          return link.text;
+        }
       })
     );
 
@@ -50,7 +54,7 @@ export class MatrizTransicionEstadosTableModel extends TableModel {
     );
     this.header = [
       new TableHeaderItem({
-        data: { title: '' },
+        data: { title: 'δ' },
         template: this.headerTemplate,
       }),
       ...newTableHeadersWithoutRepetitions.map(
@@ -66,7 +70,7 @@ export class MatrizTransicionEstadosTableModel extends TableModel {
   public setData(nodes: Node[], links: (Link | SelfLink | StartLink)[]): void {
     this.initData = [];
     nodes.forEach((node: Node) => {
-      let tempArray: TableItem[] = new Array(nodes.length + 1).fill(
+      let tempArray: TableItem[] = new Array(this.header.length).fill(
         new TableItem({
           data: '',
           template: this.columnTemplate,
@@ -77,15 +81,19 @@ export class MatrizTransicionEstadosTableModel extends TableModel {
         template: this.columnTemplate,
       });
       links.forEach((link: Link | SelfLink | StartLink) => {
+        let linkText: string = link.text;
+        if (linkText === '') {
+          linkText = 'Cadena vacía';
+        }
         if (link instanceof Link) {
           if (node.text === link.nodeA.text) {
             tempArray[
               this.header.findIndex(
                 (headerItem: TableHeaderItem) =>
-                  headerItem.data.title === link.nodeB.text
+                  headerItem.data.title === linkText
               )
             ] = new TableItem({
-              data: link.text !== '' ? link.text : 'Cadena vacía',
+              data: link.nodeB.text,
               template: this.columnTemplate,
             });
           }
@@ -94,10 +102,10 @@ export class MatrizTransicionEstadosTableModel extends TableModel {
             tempArray[
               this.header.findIndex(
                 (headerItem: TableHeaderItem) =>
-                  headerItem.data.title === node.text
+                  headerItem.data.title === linkText
               )
             ] = new TableItem({
-              data: link.text !== '' ? link.text : 'Cadena vacía',
+              data: node.text,
               template: this.columnTemplate,
             });
           }
