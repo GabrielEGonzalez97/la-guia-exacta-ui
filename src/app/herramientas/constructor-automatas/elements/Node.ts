@@ -11,7 +11,8 @@ export class Node {
 	private mouseOffsetX: number = 0;
 	private mouseOffsetY: number = 0;
 
-	public isAcceptState: boolean = false;
+	public isInitialState: boolean = false;
+	public isFinalState: boolean = false;
 	public text: string = '';
 
 	constructor(coordinateX: number, coordinateY: number, canvasElement: HTMLCanvasElement, caretVisible: boolean) {
@@ -41,7 +42,7 @@ export class Node {
 		this.text = drawText(canvasContext, this.text, this.coordinateX, this.coordinateY, null, false, this.canvasElement, this.caretVisible);
 	
 		// Draw a double circle for an accept state
-		if (this.isAcceptState) {
+		if (this.isFinalState) {
 			canvasContext.beginPath();
 			canvasContext.arc(this.coordinateX, this.coordinateY, NODE_RADIUS - 6, 0, 2 * Math.PI, false);
 			canvasContext.stroke();

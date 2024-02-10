@@ -272,7 +272,7 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
       this.resetCaret();
       this.draw();
     } else if (this.selectedObject instanceof Node) {
-      this.selectedObject.isAcceptState = !this.selectedObject.isAcceptState;
+      this.selectedObject.isFinalState = !this.selectedObject.isFinalState;
       this.draw();
     }
   }
@@ -287,8 +287,12 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
         targetNode = null;
       }
 
+      const existInitialNode: boolean = this.nodes.some(
+        (node: Node) => node.isInitialState
+      );
+
       if (this.selectedObject == null) {
-        if (targetNode != null) {
+        if (targetNode != null && !existInitialNode) {
           this.currentLink = new StartLink(
             targetNode as Node,
             this.originalMouseClickPosition,
@@ -341,12 +345,12 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
     this.isMovingAnObject = false;
 
     if (this.currentLink != null) {
-      if (
-        !(this.currentLink instanceof TemporaryLink) &&
-        !(this.currentLink instanceof StartLink)
-      ) {
+      if (!(this.currentLink instanceof TemporaryLink)) {
+        if (this.currentLink instanceof StartLink) {
+          this.currentLink.node.isInitialState = true;
+        }
         this.selectedObject = this.currentLink;
-        this.links.push(this.currentLink as Link | SelfLink);
+        this.links.push(this.currentLink as Link | SelfLink | StartLink);
         this.resetCaret();
       }
       this.currentLink = null;
@@ -394,6 +398,9 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
             (this.links[i] as Link).nodeA == this.selectedObject ||
             (this.links[i] as Link).nodeB == this.selectedObject
           ) {
+            if (this.links[i] instanceof StartLink) {
+              (this.links[i] as StartLink).node.isInitialState = false;
+            }
             this.links.splice(i--, 1);
           }
         }
@@ -512,7 +519,8 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
           this.canvasElement,
           false
         );
-        node.isAcceptState = backupNode.isAcceptState;
+        node.isInitialState = backupNode.isInitialState;
+        node.isFinalState = backupNode.isFinalState;
         node.text = backupNode.text;
         this.nodes.push(node);
       }
@@ -573,7 +581,8 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
         coordinateX: node.coordinateX,
         coordinateY: node.coordinateY,
         text: node.text,
-        isAcceptState: node.isAcceptState,
+        isInitialState: node.isInitialState,
+        isFinalState: node.isFinalState,
       };
       backup.nodes.push(backupNode);
     }
