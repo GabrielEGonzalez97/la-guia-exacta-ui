@@ -5,14 +5,23 @@ import {
   GridModule,
   IconModule,
   IconService,
+  InputModule,
   TableModule,
 } from 'carbon-components-angular';
 import { ConstructorAutomatasComponent } from './constructor-automatas.component';
 
+import CheckmarkOutline32 from '@carbon/icons/es/checkmark--outline/32';
+import MisuseOutline32 from '@carbon/icons/es/misuse--outline/32';
 import Png24 from '@carbon/icons/es/PNG/24';
 import TrashCan24 from '@carbon/icons/es/trash-can/24';
 
-const CARBON_IMPORTS = [ButtonModule, GridModule, IconModule, TableModule];
+const CARBON_IMPORTS = [
+  ButtonModule,
+  GridModule,
+  IconModule,
+  InputModule,
+  TableModule,
+];
 
 @NgModule({
   declarations: [ConstructorAutomatasComponent],
@@ -22,6 +31,11 @@ const CARBON_IMPORTS = [ButtonModule, GridModule, IconModule, TableModule];
 })
 export class ConstructorAutomatasModule {
   constructor(protected iconService: IconService) {
-    iconService.registerAll([Png24, TrashCan24]);
+    iconService.registerAll([
+      CheckmarkOutline32,
+      MisuseOutline32,
+      Png24,
+      TrashCan24,
+    ]);
   }
 }

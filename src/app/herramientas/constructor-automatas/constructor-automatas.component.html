@@ -38,8 +38,23 @@
 <div ibmRow>
     <div ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 8, sm: 6 }">
         <div ibmRow>
-            <div ibmCol [columnNumbers]="{ max: 3, xlg: 3, lg: 3, md: 3, sm: 6 }">
-
+            <div ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 8, sm: 6 }">
+                <ibm-label [invalid]="isInvalidStateToTestString" [invalidText]="invalidStateDescription">
+                    Cadena a probar
+                    <div class="string-to-test-container">
+                        <input ibmText type="text" (input)="onStringToTestChange($event)">
+                        <ng-container *ngIf="stringToTest && !isInvalidStateToTestString">
+                            <ng-container *ngIf="isValidString">
+                                <svg class="checkmark-icon" ibmIcon="checkmark--outline" size="32"
+                                    (click)="captureAndDownloadCanvas()"></svg>
+                            </ng-container>
+                            <ng-container *ngIf="!isValidString">
+                                <svg class="misuse-icon" ibmIcon="misuse--outline" size="32"
+                                    (click)="captureAndDownloadCanvas()"></svg>
+                            </ng-container>
+                        </ng-container>
+                    </div>
+                </ibm-label>
             </div>
         </div>
     </div>

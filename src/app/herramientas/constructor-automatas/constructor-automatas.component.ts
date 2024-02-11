@@ -39,6 +39,11 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
   public nodes: Node[] = [];
   public links: (Link | SelfLink | StartLink)[] = [];
 
+  public stringToTest: string = '';
+  public isValidString: boolean = false;
+  public isInvalidStateToTestString: boolean = false;
+  public invalidStateDescription: string = '';
+
   private isMovingAnObject: boolean = false;
   private isShiftPressed: boolean = false;
   private isMouseInsideCanvas: boolean = false;
@@ -484,8 +489,6 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
     if (this.isMouseInsideCanvas) {
       this.drawUsing(this.canvasContext);
       this.saveBackup();
-      // console.log(this.nodes);
-      // console.log(this.links);
     }
   }
 
@@ -653,6 +656,86 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
       ) {
         node.coordinateY = this.nodes[i].coordinateY;
       }
+    }
+  }
+
+  public onStringToTestChange(stringToTest: any): void {
+    this.isInvalidStateToTestString = false;
+    this.invalidStateDescription = '';
+
+    this.stringToTest = stringToTest.target.value;
+    const matrizTransicionEstadosHeader: string[] =
+      this.matrizTransicionEstadosTableModel.getHeaderNames();
+    const matrizTransicionEstados: string[][] =
+      this.matrizTransicionEstadosTableModel.getMatrizTransicionEstados();
+
+    const initialNode: Node = this.nodes.find(
+      (node: Node) => node.isInitialState
+    );
+
+    if (initialNode) {
+      let nodeToSearch: string = initialNode.text;
+
+      let isValidString: boolean = false;
+      let invalidChar: string = '';
+
+      for (const charToTest of this.stringToTest) {
+        if (!matrizTransicionEstadosHeader.includes(charToTest)) {
+          isValidString = false;
+          invalidChar = charToTest;
+          break;
+        }
+        for (
+          let matrizTransicionEstadosIndex: number = 0;
+          matrizTransicionEstadosIndex < matrizTransicionEstados.length;
+          matrizTransicionEstadosIndex++
+        ) {
+          const row: string[] =
+            matrizTransicionEstados[matrizTransicionEstadosIndex];
+          if (nodeToSearch === row[0]) {
+            nodeToSearch =
+              row[
+                matrizTransicionEstadosHeader.findIndex(
+                  (headerName: string) => headerName === charToTest
+                )
+              ];
+
+            if (nodeToSearch) {
+              isValidString = true;
+              break;
+            } else {
+              isValidString = false;
+            }
+          }
+        }
+      }
+
+      if (isValidString) {
+        const finalNode: Node = this.nodes.find(
+          (node: Node) => node.isFinalState
+        );
+
+        if (finalNode) {
+          isValidString = this.nodes.find(
+            (node: Node) => node.text === nodeToSearch
+          ).isFinalState;
+        } else {
+          this.isInvalidStateToTestString = true;
+          this.invalidStateDescription =
+            'Marca uno de los estados como estado final';
+        }
+      } else {
+        if (invalidChar) {
+          this.isInvalidStateToTestString = true;
+          this.invalidStateDescription = `El caracter ${invalidChar} no es válido en el autómata construido`;
+        }
+      }
+
+      this.isValidString = isValidString;
+    } else {
+      this.isInvalidStateToTestString = true;
+      this.invalidStateDescription =
+        'Marca uno de los estados como estado inicial';
     }
   }
 }

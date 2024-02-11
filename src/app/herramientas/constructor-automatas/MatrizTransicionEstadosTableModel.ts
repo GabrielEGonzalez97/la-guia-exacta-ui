@@ -13,8 +13,6 @@ export class MatrizTransicionEstadosTableModel extends TableModel {
   private tableData: TableItem[][] = [];
   private initData: TableItem[][] = [];
 
-  public tableHeaders: string[] = [];
-
   constructor(
     private headerTemplate: TemplateRef<unknown>,
     private columnTemplate: TemplateRef<unknown>,
@@ -24,13 +22,9 @@ export class MatrizTransicionEstadosTableModel extends TableModel {
     super();
 
     this.setHeader(
-      this.links.map((link: Link | SelfLink | StartLink) => {
-        if (link.text === '') {
-          return 'Cadena vacía';
-        } else {
-          return link.text;
-        }
-      })
+      this.links
+        .filter((link: Link | SelfLink | StartLink) => link.text !== '')
+        .map((link) => link.text)
     );
 
     this.setData(this.nodes, this.links);
@@ -81,10 +75,7 @@ export class MatrizTransicionEstadosTableModel extends TableModel {
         template: this.columnTemplate,
       });
       links.forEach((link: Link | SelfLink | StartLink) => {
-        let linkText: string = link.text;
-        if (linkText === '') {
-          linkText = 'Cadena vacía';
-        }
+        const linkText: string = link.text;
         if (link instanceof Link) {
           if (node.text === link.nodeA.text) {
             tempArray[
@@ -133,5 +124,21 @@ export class MatrizTransicionEstadosTableModel extends TableModel {
       .map((data: TableItem[], _index: number) => {
         return data;
       });
+  }
+
+  public getHeaderNames(): string[] {
+    return this.header.map((header: TableHeaderItem) => header.data.title);
+  }
+
+  public getMatrizTransicionEstados(): string[][] {
+    let matrizTransicionEstados: string[][] = [];
+
+    this.tableData.map((rowData: TableItem[]) => {
+      matrizTransicionEstados.push(
+        rowData.map((rowValue: TableItem) => rowValue.data)
+      );
+    });
+
+    return matrizTransicionEstados;
   }
 }

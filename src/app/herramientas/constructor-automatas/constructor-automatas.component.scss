@@ -43,6 +43,21 @@ canvas {
   }
 }
 
+.string-to-test-container {
+  display: flex;
+  align-items: center;
+
+  .checkmark-icon {
+    margin-left: 1rem;
+    fill: green;
+  }
+
+  .misuse-icon {
+    margin-left: 1rem;
+    fill: red;
+  }
+}
+
 :host ::ng-deep {
   border-collapse: unset;
 
@@ -52,5 +67,9 @@ canvas {
       min-width: 130px;
       border: 1px solid black !important;
     }
+  }
+
+  .bx--text-input__field-wrapper {
+    display: block;
   }
 }
