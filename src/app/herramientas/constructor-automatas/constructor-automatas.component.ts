@@ -8,6 +8,7 @@ import {
   TemplateRef,
   ViewChild,
 } from '@angular/core';
+import { ModalService } from 'carbon-components-angular';
 import { MatrizTransicionEstadosTableModel } from './MatrizTransicionEstadosTableModel';
 import { canvasHasFocus } from './commonFunctions';
 import { SNAP_TO_PADDING } from './constants';
@@ -17,6 +18,7 @@ import { TemporaryLink } from './elements/TemporaryLink';
 import { Link } from './elements/link';
 import { Node } from './elements/node';
 import { IMouseCoordinates } from './interfaces';
+import { StepByStepModalWindowComponent } from './step-by-step-modal-window/step-by-step-modal-window.component';
 
 @Component({
   selector: 'app-constructor-automatas',
@@ -57,8 +59,11 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
 
   private deletedNodes: string[] = [];
 
+  public canvasUrlImages: { stepDescription: string; imageUrl: string }[] = [];
+
   constructor(
     private changeDetectorRef: ChangeDetectorRef,
+    private modalService: ModalService,
     private zone: NgZone
   ) {}
 
@@ -660,6 +665,7 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
   }
 
   public onStringToTestChange(stringToTest: any): void {
+    this.canvasUrlImages = [];
     this.isInvalidStateToTestString = false;
     this.invalidStateDescription = '';
 
@@ -673,18 +679,47 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
       (node: Node) => node.isInitialState
     );
 
-    if (initialNode) {
-      let nodeToSearch: string = initialNode.text;
+    if (!initialNode) {
+      this.isInvalidStateToTestString = true;
+      this.invalidStateDescription =
+        'Por favor marca uno de los estados como estado inicial antes de evaluar la cadena';
+    }
 
-      let isValidString: boolean = false;
+    let nodeToSearch: string = initialNode.text;
+    let isValidString: boolean = false;
+
+    const finalNode: Node = this.nodes.find((node: Node) => node.isFinalState);
+
+    if (!finalNode) {
+      this.isInvalidStateToTestString = true;
+      this.invalidStateDescription =
+        'Por favor marca uno de los estados como estado final antes de evaluar la cadena';
+    }
+
+    if (initialNode && finalNode) {
+      let previousNodeToSearch: string = '';
       let invalidChar: string = '';
 
       for (const charToTest of this.stringToTest) {
+        invalidChar = '';
+        previousNodeToSearch = nodeToSearch;
         if (!matrizTransicionEstadosHeader.includes(charToTest)) {
           isValidString = false;
           invalidChar = charToTest;
+          this.canvasUrlImages.push({
+            stepDescription: `Se evalúa si es válido el caracter '${charToTest}' en el nodo '${previousNodeToSearch}', siendo el resultado ${
+              isValidString ? 'válido' : 'inválido'
+            }`,
+            imageUrl: this.drawUsingStepByStep(
+              this.canvasContext,
+              previousNodeToSearch,
+              charToTest,
+              isValidString
+            ),
+          });
           break;
         }
+
         for (
           let matrizTransicionEstadosIndex: number = 0;
           matrizTransicionEstadosIndex < matrizTransicionEstados.length;
@@ -708,34 +743,121 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
             }
           }
         }
+
+        this.canvasUrlImages.push({
+          stepDescription: `Se evalúa si es válido el caracter '${charToTest}' en el nodo '${previousNodeToSearch}', siendo el resultado ${
+            isValidString ? 'válido' : 'inválido'
+          }`,
+          imageUrl: this.drawUsingStepByStep(
+            this.canvasContext,
+            previousNodeToSearch,
+            charToTest,
+            isValidString
+          ),
+        });
       }
 
       if (isValidString) {
-        const finalNode: Node = this.nodes.find(
-          (node: Node) => node.isFinalState
-        );
+        isValidString = this.nodes.find(
+          (node: Node) => node.text === nodeToSearch
+        ).isFinalState;
 
-        if (finalNode) {
-          isValidString = this.nodes.find(
-            (node: Node) => node.text === nodeToSearch
-          ).isFinalState;
+        if (isValidString) {
+          this.canvasUrlImages.push({
+            stepDescription:
+              'Se llega a estado final con la cadena proporcionada',
+            imageUrl: this.drawUsingStepByStep(
+              this.canvasContext,
+              nodeToSearch,
+              '',
+              isValidString
+            ),
+          });
         } else {
-          this.isInvalidStateToTestString = true;
-          this.invalidStateDescription =
-            'Marca uno de los estados como estado final';
+          this.canvasUrlImages.push({
+            stepDescription:
+              'No se llega a estado final con la cadena proporcionada',
+            imageUrl: this.drawUsingStepByStep(
+              this.canvasContext,
+              nodeToSearch,
+              '',
+              isValidString
+            ),
+          });
         }
       } else {
         if (invalidChar) {
           this.isInvalidStateToTestString = true;
-          this.invalidStateDescription = `El caracter ${invalidChar} no es válido en el autómata construido`;
+          this.invalidStateDescription = `El caracter '${invalidChar}' no es válido en el autómata construido`;
         }
       }
 
       this.isValidString = isValidString;
-    } else {
-      this.isInvalidStateToTestString = true;
-      this.invalidStateDescription =
-        'Marca uno de los estados como estado inicial';
     }
+
+    this.drawUsing(this.canvasContext);
+  }
+
+  private drawUsingStepByStep(
+    canvasContext: CanvasRenderingContext2D,
+    nodeNameToHighlight: string,
+    charToHighlight: string,
+    isValidString: boolean
+  ): string {
+    canvasContext.clearRect(
+      0,
+      0,
+      this.canvasElement.width,
+      this.canvasElement.height
+    );
+    canvasContext.save();
+    canvasContext.translate(0.5, 0.5);
+
+    const colorToUseAccordingValidString: string = isValidString
+      ? '#53CA61'
+      : '#E64F4C';
+
+    for (let i: number = 0; i < this.nodes.length; i++) {
+      canvasContext.lineWidth = 1;
+      canvasContext.fillStyle = canvasContext.strokeStyle =
+        this.nodes[i].text === nodeNameToHighlight
+          ? colorToUseAccordingValidString
+          : 'black';
+      this.nodes[i].draw(canvasContext);
+    }
+
+    for (let i: number = 0; i < this.links.length; i++) {
+      let colorToUse: string = 'black';
+      if (this.links[i] instanceof Link) {
+        colorToUse =
+          (this.links[i] as Link).nodeA.text === nodeNameToHighlight &&
+          this.links[i].text === charToHighlight
+            ? colorToUseAccordingValidString
+            : 'black';
+      } else if (this.links[i] instanceof SelfLink) {
+        colorToUse =
+          (this.links[i] as SelfLink).node.text === nodeNameToHighlight &&
+          this.links[i].text === charToHighlight
+            ? colorToUseAccordingValidString
+            : 'black';
+      }
+      canvasContext.lineWidth = 1;
+      canvasContext.fillStyle = canvasContext.strokeStyle = colorToUse;
+      this.links[i].draw(canvasContext);
+    }
+
+    canvasContext.restore();
+
+    return this.canvasElement.toDataURL();
+  }
+
+  public showStepByStepModalWindow(): void {
+    this.modalService.create({
+      component: StepByStepModalWindowComponent,
+      inputs: {
+        steps: this.canvasUrlImages,
+        stringToTest: this.stringToTest,
+      },
+    });
   }
 }

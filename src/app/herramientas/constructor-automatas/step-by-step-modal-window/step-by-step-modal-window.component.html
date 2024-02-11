@@ -1,0 +1,31 @@
+<ibm-modal [open]="true" (overlaySelected)="closeModal()">
+    <ibm-modal-header (closeSelect)="closeModal()">
+        <h2>Paso a paso</h2>
+    </ibm-modal-header>
+
+    <div class="steps-container" *ngIf="steps.length > 0">
+        <div ibmRow>
+            <div ibmCol>
+                <p>Se evalúa la cadena: {{ stringToTest }}</p>
+            </div>
+        </div>
+        <hr>
+        <ng-container *ngFor="let step of steps; let i = index">
+            <div ibmRow>
+                <div ibmCol>
+                    <p class="step-with-number">
+                        <strong>{{i + 1}}.</strong>
+                        &nbsp;
+                        <span>{{ step.stepDescription }}</span>
+                    </p>
+                </div>
+            </div>
+            <div ibmRow>
+                <div ibmCol>
+                    <img [src]="step.imageUrl" alt="Imágen del autómata">
+                </div>
+            </div>
+            <hr>
+        </ng-container>
+    </div>
+</ibm-modal>

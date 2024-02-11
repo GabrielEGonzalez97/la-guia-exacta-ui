@@ -58,6 +58,41 @@ canvas {
   }
 }
 
+.show-steps-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.show-steps-button {
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 40px;
+  background-color: $principal-color;
+  padding: 0;
+  line-break: anywhere;
+  font-size: 20px;
+  justify-content: center;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+
+  p {
+    font-size: 20px;
+
+    sup {
+      font-size: 0.75rem;
+    }
+  }
+}
+
+.show-steps-button:hover {
+  background-color: #cbcbcb !important;
+}
+
 :host ::ng-deep {
   border-collapse: unset;
 
