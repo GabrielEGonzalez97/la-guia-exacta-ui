@@ -1,3 +1,11 @@
 @import "src/styles/carbon-utils.scss";
 
 @include adjustPaddingInIBMGridAndCol();
+
+h1 {
+  font-size: calc(1.75vw + 1.75vh);
+}
+
+.white-space {
+  margin-top: 1.5rem;
+}
