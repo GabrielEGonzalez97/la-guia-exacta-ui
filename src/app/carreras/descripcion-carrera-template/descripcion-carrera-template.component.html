@@ -1,0 +1,25 @@
+<div ibmRow>
+    <div ibmCol>
+        <ibm-tile class="clickeable-element" (click)="onTileClick()">
+            <div ibmRow>
+                <div ibmCol class="column-with-margin">
+                    <h1>
+                        <strong>
+                            {{ sectionTitle }}
+                        </strong>
+                    </h1>
+                    <svg *ngIf="!isSectionTileVisible" class="chevron-icon" ibmIcon="chevron--down" size="32"></svg>
+                    <svg *ngIf="isSectionTileVisible" class="chevron-icon" ibmIcon="chevron--up" size="32"></svg>
+                </div>
+            </div>
+
+            <div ibmRow *ngIf="isSectionTileVisible">
+                <div ibmCol>
+                    <ibm-tile class="inner-tile">
+                        <ng-content></ng-content>
+                    </ibm-tile>
+                </div>
+            </div>
+        </ibm-tile>
+    </div>
+</div>

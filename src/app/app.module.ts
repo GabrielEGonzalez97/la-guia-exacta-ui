@@ -22,17 +22,19 @@ import { ResumenesModule } from './resumenes/resumenes.module';
 import { VideosClasesModule } from './videos-clases/videos-clases.module';
 
 import { MathjaxModule } from 'mathjax-angular';
-import { CarrerasTemplateModule } from './carreras/carreras-template/carreras-template.module';
+import { CarreraTemplateModule } from './carreras/carrera-template/carrera-template.module';
+import { DescripcionCarreraTemplateModule } from './carreras/descripcion-carrera-template/descripcion-carrera-template.module';
 import { ConstructorAutomatasModule } from './herramientas/constructor-automatas/constructor-automatas.module';
 
 const MODULE_IMPORTS = [AppRoutingModule, BrowserModule, HttpClientModule];
 
 const COMPONENT_IMPORTS = [
   ActionsBarModule,
-  CarrerasTemplateModule,
+  CarreraTemplateModule,
   CatedrasModule,
   ConstructorAutomatasModule,
   CursosGratuitosModule,
+  DescripcionCarreraTemplateModule,
   FileUploaderComponentModule,
   FinalesModule,
   FooterModule,

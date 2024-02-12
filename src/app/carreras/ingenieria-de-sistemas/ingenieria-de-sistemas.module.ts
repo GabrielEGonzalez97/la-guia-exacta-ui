@@ -18,7 +18,8 @@ import { IngenieriaDeSistemasComponent } from './ingenieria-de-sistemas.componen
 
 import ChevronDown32 from '@carbon/icons/es/chevron--down/32';
 import ChevronUp32 from '@carbon/icons/es/chevron--up/32';
-import { CarrerasTemplateModule } from '../carreras-template/carreras-template.module';
+import { CarreraTemplateModule } from '../carrera-template/carrera-template.module';
+import { DescripcionCarreraTemplateModule } from '../descripcion-carrera-template/descripcion-carrera-template.module';
 
 const CARBON_IMPORTS = [
   ButtonModule,
@@ -43,8 +44,9 @@ const COMPONENT_IMPORTS = [
   imports: [
     CommonModule,
     CARBON_IMPORTS,
-    CarrerasTemplateModule,
+    CarreraTemplateModule,
     CatedraModule,
+    DescripcionCarreraTemplateModule,
     ActionBarElementModule,
   ],
   providers: [],
