@@ -11,6 +11,7 @@ import {
 } from 'carbon-components-angular';
 import { CatedraModule } from '../../catedras/catedra/catedra.module';
 import { CarreraTemplateModule } from '../carrera-template/carrera-template.module';
+import { DescripcionCarreraTemplateModule } from '../descripcion-carrera-template/descripcion-carrera-template.module';
 import { LtaDescripcionComponent } from './lta-descripcion/lta-descripcion.component';
 import { LtaPlanDeEstudiosComponent } from './lta-plan-de-estudios/lta-plan-de-estudios.component';
 import { LtaComponent } from './lta.component';
@@ -21,7 +22,13 @@ const COMPONENT_IMPORTS = [LtaDescripcionComponent, LtaPlanDeEstudiosComponent];
 
 @NgModule({
   declarations: [LtaComponent, COMPONENT_IMPORTS, LtaPlanDeEstudiosComponent],
-  imports: [CommonModule, CARBON_IMPORTS, CarreraTemplateModule, CatedraModule],
+  imports: [
+    CommonModule,
+    CARBON_IMPORTS,
+    CarreraTemplateModule,
+    CatedraModule,
+    DescripcionCarreraTemplateModule,
+  ],
   providers: [],
   exports: [LtaComponent],
 })

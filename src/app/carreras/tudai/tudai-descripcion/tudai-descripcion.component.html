@@ -1,408 +1,344 @@
-<div ibmRow>
-    <div ibmCol>
-        <ibm-tile class="clickeable-element" (click)="onDescripcionPlanEstudiosTileClick()">
-            <div ibmRow>
-                <div ibmCol class="column-with-margin">
-                    <h1>
-                        <strong>
-                            Descripción del Plan de Estudios
-                        </strong>
-                    </h1>
-                </div>
-                <div ibmCol class="column-with-margin" style="display: flex; align-items: center; position: relative;">
-                    <svg *ngIf="!isDescripcionPlanEstudiosTileVisible" class="chevron-icon" ibmIcon="chevron--down"
-                        size="32"></svg>
-                    <svg *ngIf="isDescripcionPlanEstudiosTileVisible" class="chevron-icon" ibmIcon="chevron--up"
-                        size="32"></svg>
-                </div>
-            </div>
-
-            <div ibmRow *ngIf="isDescripcionPlanEstudiosTileVisible">
-                <div ibmCol>
-                    <ibm-tile class="inner-tile">
-                        <div ibmRow>
-                            <div ibmCol class="column-with-margin">
-                                <p>
-                                    La formulación de esta carrera entiende la inclusión de los siguientes contenidos
-                                    mínimos:
-                                </p>
-                                <ul>
-                                    <li>
-                                        <p>
-                                            Programación: Conceptos básicos, programación estructurada y orientada a
-                                            objetos y
-                                            nociones de complejidad
-
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p>
-                                            Principios para el desarrollo de aplicaciones en Internet
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p>
-                                            Comprensión y uso de metodologías de desarrollo
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p>
-                                            Procesos de verificación y documentación
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p>
-                                            Interfaces de usuario: manejo de eventos, conceptos de diseño de interfaces,
-                                            principios
-                                            de visualización en computadora, usabilidad y accesibilidad en distintos
-                                            dispositivos
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p>
-                                            Participación en proyectos de desarrollo de sistemas de información
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p>
-                                            Participación en proyectos de desarrollo de sistemas de información
-                                        </p>
-                                    </li>
-                                </ul>
-                                <p>
-                                    Como requerimiento adicional, se espera que el alumno desarrolle un nivel básico de
-                                    inglés.
-                                    También deberá cursar seminarios de formación tecnológica distribuidos en los
-                                    distintos
-                                    cuatrimestres de la carrera. Por último, deberá realizar una Práctica Profesional
-                                    Supervisada
-                                    (PPS) durante el último cuatrimestre de la carrera, que le permita integrar los
-                                    conocimientos
-                                    adquiridos, a través de la participación en un desarrollo de un proyecto en una
-                                    organización
-                                    real.
-                                </p>
-                            </div>
-                        </div>
-                        <div ibmRow>
-                            <div ibmCol class="column-with-margin">
-                                <h2>
-                                    <strong>
-                                        Criterios de evaluación
-                                    </strong>
-                                </h2>
-                            </div>
-                        </div>
-                        <div ibmRow>
-                            <div ibmCol class="column-with-margin">
-                                <p>
-                                    Aprobación de cada materia mediante un Examen Final, en la modalidad acordada. La
-                                    nota de
-                                    aprobación es 4 (cuatro). Para cumplimentar las Prácticas Profesionales Supervisadas
-                                    y los
-                                    Seminarios Tecnológicos deberán acreditar las horas y tareas realizadas ante el
-                                    Coordinador de
-                                    la Carrera.
-                                </p>
-                            </div>
-                        </div>
-                        <div ibmRow>
-                            <div ibmCol class="column-with-margin">
-                                <h2>
-                                    <strong>
-                                        Metodología de la enseñanza
-                                    </strong>
-                                </h2>
-                            </div>
-                        </div>
-                        <div ibmRow>
-                            <div ibmCol class="column-with-margin">
-                                <p>
-                                    La metodología de enseñanza de esta propuesta se focaliza clases prácticas
-                                    participativas, con
-                                    gran cantidad de horas en laboratorio y desarrollando conceptos teóricos a partir de
-                                    múltiples
-                                    ejemplos. El alumno debe mostrar al finalizar el curso un nivel mínimo de destreza
-                                    en los
-                                    conceptos y la tecnología específica que será definida según el plan de coordinación
-                                    en conjunto
-                                    con los docentes. En las materias que así lo requieran, se fomentará al alumno al
-                                    trabajo en
-                                    grupo.
-                                </p>
-                                <p>
-                                    Se complementará la enseñanza con seminarios de formación y actualización. Dichos
-                                    seminarios
-                                    serán obligatorios y tendrán como finalidad integrar los distintos conocimientos
-                                    obtenidos a lo
-                                    largo del año, viendo casos reales, probando nuevas tecnologías y entornos de
-                                    desarrollo, e
-                                    incluso analizando otras temáticas de interés y actualidad. Los contenidos de estos
-                                    seminarios
-                                    podrán adecuarse año a año.
-                                </p>
-                            </div>
-                        </div>
-                        <div ibmRow>
-                            <div ibmCol class="column-with-margin">
-                                <h2>
-                                    <strong>
-                                        Seminarios de formación tecnológica
-                                    </strong>
-                                </h2>
-                            </div>
-                        </div>
-                        <div ibmRow>
-                            <div ibmCol class="column-with-margin">
-                                <p>
-                                    Al finalizar cada cuatrimestre, en forma de seminarios, se realizarán cursos
-                                    intensivos
-                                    organizados por el coordinador de la carrera, los cuales podrán contar con la
-                                    participación de
-                                    docentes y profesionales invitados con experiencia en determinadas tecnologías,
-                                    metodologías y
-                                    lenguajes. En caso de que se dicte más de un seminario simultáneamente los alumnos
-                                    podrán elegir
-                                    a cual asistir.
-                                </p>
-                                <p>
-                                    Para la aprobación de los seminarios, se tendrá en cuenta la asistencia y una nota
-                                    conceptual de
-                                    trabajo definida por docente/profesional responsable.
-                                </p>
-                                <p>
-                                    Los Seminarios tendrán contenidos complementarios a los cursos regulares. Se
-                                    pretende que los
-                                    mismos abarquen temas precisos y actualizados en lo que respecta al mercado de
-                                    desarrollo de
-                                    aplicaciones y tecnologías y al mismo tiempo otros temas relacionados a la
-                                    informática como
-                                    legislación, comercialización de productos informáticos, financiamiento de
-                                    emprendimientos,
-                                    entre otros.
-                                </p>
-                            </div>
-                        </div>
-                        <div ibmRow>
-                            <div ibmCol class="column-with-margin">
-                                <h2>
-                                    <strong>
-                                        Prácticas profesionales (PPS)
-                                    </strong>
-                                </h2>
-                            </div>
-                        </div>
-                        <div ibmRow>
-                            <div ibmCol class="column-with-margin">
-                                <p>
-                                    Las prácticas profesionales se desarrollarán durante el último cuatrimestre de la
-                                    carrera. Se
-                                    propone para esta actividad una dedicación de 200 horas. La evaluación y seguimiento
-                                    de los
-                                    alumnos se realizarán de acuerdo al régimen actual de PPS vigente en la Facultad
-                                    para las
-                                    carreras pertenecientes al Departamento de Computación y Sistemas.
-                                </p>
-                                <p>
-                                    Las PPS se llevarán a cabo a partir de un acuerdo establecido entre la
-                                    empresa/institución, la
-                                    Facultad y el alumno, el cual puede enmarcarse en forma de pasantías, becas o
-                                    contratos
-                                    laborales. El alumno estará en condiciones de realizar la PPS cuando haya aprobado
-                                    el 80% de las
-                                    cursadas de su plan de estudios. El Departamento de Computación y Sistemas será el
-                                    encargado de
-                                    gestionar, controlar y validar estas tareas.
-                                </p>
-                            </div>
-                        </div>
-                    </ibm-tile>
-                </div>
-            </div>
-        </ibm-tile>
+<app-descripcion-carrera-template [sectionTitle]="'Descripción del Plan de Estudios'"
+    [isSectionTileVisible]="isDescripcionPlanEstudiosTileVisible"
+    (tileClickEmitter)="onDescripcionPlanEstudiosTileClick()">
+    <div ibmRow>
+        <div ibmCol class="column-with-margin">
+            <p>
+                La formulación de esta carrera entiende la inclusión de los siguientes contenidos
+                mínimos:
+            </p>
+            <ul>
+                <li>
+                    <p>
+                        Programación: Conceptos básicos, programación estructurada y orientada a
+                        objetos y
+                        nociones de complejidad
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Principios para el desarrollo de aplicaciones en Internet
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Comprensión y uso de metodologías de desarrollo
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Procesos de verificación y documentación
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Interfaces de usuario: manejo de eventos, conceptos de diseño de interfaces,
+                        principios
+                        de visualización en computadora, usabilidad y accesibilidad en distintos
+                        dispositivos
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Participación en proyectos de desarrollo de sistemas de información
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Participación en proyectos de desarrollo de sistemas de información
+                    </p>
+                </li>
+            </ul>
+            <p>
+                Como requerimiento adicional, se espera que el alumno desarrolle un nivel básico de
+                inglés.
+                También deberá cursar seminarios de formación tecnológica distribuidos en los
+                distintos
+                cuatrimestres de la carrera. Por último, deberá realizar una Práctica Profesional
+                Supervisada
+                (PPS) durante el último cuatrimestre de la carrera, que le permita integrar los
+                conocimientos
+                adquiridos, a través de la participación en un desarrollo de un proyecto en una
+                organización
+                real.
+            </p>
+        </div>
     </div>
-</div>
+    <div ibmRow>
+        <div ibmCol class="column-with-margin">
+            <h2>
+                <strong>
+                    Criterios de evaluación
+                </strong>
+            </h2>
+        </div>
+    </div>
+    <div ibmRow>
+        <div ibmCol class="column-with-margin">
+            <p>
+                Aprobación de cada materia mediante un Examen Final, en la modalidad acordada. La
+                nota de
+                aprobación es 4 (cuatro). Para cumplimentar las Prácticas Profesionales Supervisadas
+                y los
+                Seminarios Tecnológicos deberán acreditar las horas y tareas realizadas ante el
+                Coordinador de
+                la Carrera.
+            </p>
+        </div>
+    </div>
+    <div ibmRow>
+        <div ibmCol class="column-with-margin">
+            <h2>
+                <strong>
+                    Metodología de la enseñanza
+                </strong>
+            </h2>
+        </div>
+    </div>
+    <div ibmRow>
+        <div ibmCol class="column-with-margin">
+            <p>
+                La metodología de enseñanza de esta propuesta se focaliza clases prácticas
+                participativas, con
+                gran cantidad de horas en laboratorio y desarrollando conceptos teóricos a partir de
+                múltiples
+                ejemplos. El alumno debe mostrar al finalizar el curso un nivel mínimo de destreza
+                en los
+                conceptos y la tecnología específica que será definida según el plan de coordinación
+                en conjunto
+                con los docentes. En las materias que así lo requieran, se fomentará al alumno al
+                trabajo en
+                grupo.
+            </p>
+            <p>
+                Se complementará la enseñanza con seminarios de formación y actualización. Dichos
+                seminarios
+                serán obligatorios y tendrán como finalidad integrar los distintos conocimientos
+                obtenidos a lo
+                largo del año, viendo casos reales, probando nuevas tecnologías y entornos de
+                desarrollo, e
+                incluso analizando otras temáticas de interés y actualidad. Los contenidos de estos
+                seminarios
+                podrán adecuarse año a año.
+            </p>
+        </div>
+    </div>
+    <div ibmRow>
+        <div ibmCol class="column-with-margin">
+            <h2>
+                <strong>
+                    Seminarios de formación tecnológica
+                </strong>
+            </h2>
+        </div>
+    </div>
+    <div ibmRow>
+        <div ibmCol class="column-with-margin">
+            <p>
+                Al finalizar cada cuatrimestre, en forma de seminarios, se realizarán cursos
+                intensivos
+                organizados por el coordinador de la carrera, los cuales podrán contar con la
+                participación de
+                docentes y profesionales invitados con experiencia en determinadas tecnologías,
+                metodologías y
+                lenguajes. En caso de que se dicte más de un seminario simultáneamente los alumnos
+                podrán elegir
+                a cual asistir.
+            </p>
+            <p>
+                Para la aprobación de los seminarios, se tendrá en cuenta la asistencia y una nota
+                conceptual de
+                trabajo definida por docente/profesional responsable.
+            </p>
+            <p>
+                Los Seminarios tendrán contenidos complementarios a los cursos regulares. Se
+                pretende que los
+                mismos abarquen temas precisos y actualizados en lo que respecta al mercado de
+                desarrollo de
+                aplicaciones y tecnologías y al mismo tiempo otros temas relacionados a la
+                informática como
+                legislación, comercialización de productos informáticos, financiamiento de
+                emprendimientos,
+                entre otros.
+            </p>
+        </div>
+    </div>
+    <div ibmRow>
+        <div ibmCol class="column-with-margin">
+            <h2>
+                <strong>
+                    Prácticas profesionales (PPS)
+                </strong>
+            </h2>
+        </div>
+    </div>
+    <div ibmRow>
+        <div ibmCol class="column-with-margin">
+            <p>
+                Las prácticas profesionales se desarrollarán durante el último cuatrimestre de la
+                carrera. Se
+                propone para esta actividad una dedicación de 200 horas. La evaluación y seguimiento
+                de los
+                alumnos se realizarán de acuerdo al régimen actual de PPS vigente en la Facultad
+                para las
+                carreras pertenecientes al Departamento de Computación y Sistemas.
+            </p>
+            <p>
+                Las PPS se llevarán a cabo a partir de un acuerdo establecido entre la
+                empresa/institución, la
+                Facultad y el alumno, el cual puede enmarcarse en forma de pasantías, becas o
+                contratos
+                laborales. El alumno estará en condiciones de realizar la PPS cuando haya aprobado
+                el 80% de las
+                cursadas de su plan de estudios. El Departamento de Computación y Sistemas será el
+                encargado de
+                gestionar, controlar y validar estas tareas.
+            </p>
+        </div>
+    </div>
+</app-descripcion-carrera-template>
+
+<br>
+<app-descripcion-carrera-template [sectionTitle]="'Perfil profesional'"
+    [isSectionTileVisible]="isPerfilProfesionalTileVisible" (tileClickEmitter)="onPerfilProfesionalTileClick()">
+    <div ibmRow>
+        <div ibmCol class="column-with-margin">
+            <p>
+                El perfil del egresado incluye los siguientes rasgos distintivos:
+            </p>
+            <ul>
+                <li>
+                    <p>
+                        Trabajo en equipo, asumiendo las tareas y responsabilidades dentro de un
+                        grupo,
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Formación integral, entendiendo los conceptos teóricos dentro del análisis
+                        de casos
+                        reales,
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Capacidad para discutir ideas y alternativas para la solución de problemas,
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Capacidad de actualizarse en las nuevas tecnologías, metodologías y
+                        herramientas
+                        concernientes al desarrollo de sistemas.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Modalidad de trabajo independiente o bajo la supervisión de otro
+                        profesional,
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Comprensión de documentos técnicos, incluso en idioma inglés
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</app-descripcion-carrera-template>
 
 <br>
 
-<div ibmRow>
-    <div ibmCol>
-        <ibm-tile class="clickeable-element" (click)="onPerfilProfesionalTileClick()">
-            <div ibmRow>
-                <div ibmCol class="column-with-margin">
-                    <h1>
-                        <strong>
-                            Perfil profesional
-                        </strong>
-                    </h1>
-                </div>
-                <div ibmCol class="column-with-margin" style="display: flex; align-items: center; position: relative;">
-                    <svg *ngIf="!isPerfilProfesionalTileVisible" class="chevron-icon" ibmIcon="chevron--down"
-                        size="32"></svg>
-                    <svg *ngIf="isPerfilProfesionalTileVisible" class="chevron-icon" ibmIcon="chevron--up"
-                        size="32"></svg>
-                </div>
-            </div>
-
-            <div ibmRow *ngIf="isPerfilProfesionalTileVisible">
-                <div ibmCol>
-                    <ibm-tile class="inner-tile">
-                        <div ibmRow>
-                            <div ibmCol class="column-with-margin">
-                                <p>
-                                    El perfil del egresado incluye los siguientes rasgos distintivos:
-                                </p>
-                                <ul>
-                                    <li>
-                                        <p>
-                                            Trabajo en equipo, asumiendo las tareas y responsabilidades dentro de un
-                                            grupo,
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p>
-                                            Formación integral, entendiendo los conceptos teóricos dentro del análisis
-                                            de casos
-                                            reales,
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p>
-                                            Capacidad para discutir ideas y alternativas para la solución de problemas,
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p>
-                                            Capacidad de actualizarse en las nuevas tecnologías, metodologías y
-                                            herramientas
-                                            concernientes al desarrollo de sistemas.
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p>
-                                            Modalidad de trabajo independiente o bajo la supervisión de otro
-                                            profesional,
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p>
-                                            Comprensión de documentos técnicos, incluso en idioma inglés
-                                        </p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </ibm-tile>
-                </div>
-            </div>
-        </ibm-tile>
+<app-descripcion-carrera-template [sectionTitle]="'Alcances del Título o Incumbencias Profesionales'"
+    [isSectionTileVisible]="isAlcancesDelTituloTileVisible" (tileClickEmitter)="onAlcancesDelTituloTileClick()">
+    <div ibmRow>
+        <div ibmCol class="column-with-margin">
+            <p>
+                Los profesionales formados serán técnicos de nivel universitario con habilidades
+                para participar
+                exitosamente en el desarrollo de aplicaciones o sistemas de información generalmente
+                en un
+                entorno distribuido. Este profesional egresado contará con una sólida base
+                conceptual y
+                especialmente práctica para su desempeño en el área de la informática, aplicando
+                nuevos
+                paradigmas de programación, utilizando diferentes bases de datos y generando
+                aplicaciones
+                accesibles a través de internet mediante distintos dispositivos.
+            </p>
+        </div>
     </div>
-</div>
-
-<br>
-
-<div ibmRow>
-    <div ibmCol>
-        <ibm-tile class="clickeable-element" (click)="onAlcancesDelTituloTileClick()">
-            <div ibmRow>
-                <div ibmCol class="column-with-margin">
-                    <h1>
-                        <strong>
-                            Alcances del Título o Incumbencias Profesionales
-                        </strong>
-                    </h1>
-                </div>
-                <div ibmCol class="column-with-margin" style="display: flex; align-items: center; position: relative;">
-                    <svg *ngIf="!isAlcancesDelTituloTileVisible" class="chevron-icon" ibmIcon="chevron--down"
-                        size="32"></svg>
-                    <svg *ngIf="isAlcancesDelTituloTileVisible" class="chevron-icon" ibmIcon="chevron--up"
-                        size="32"></svg>
-                </div>
-            </div>
-
-            <div ibmRow *ngIf="isAlcancesDelTituloTileVisible">
-                <div ibmCol>
-                    <ibm-tile class="inner-tile">
-                        <div ibmRow>
-                            <div ibmCol class="column-with-margin">
-                                <p>
-                                    Los profesionales formados serán técnicos de nivel universitario con habilidades
-                                    para participar
-                                    exitosamente en el desarrollo de aplicaciones o sistemas de información generalmente
-                                    en un
-                                    entorno distribuido. Este profesional egresado contará con una sólida base
-                                    conceptual y
-                                    especialmente práctica para su desempeño en el área de la informática, aplicando
-                                    nuevos
-                                    paradigmas de programación, utilizando diferentes bases de datos y generando
-                                    aplicaciones
-                                    accesibles a través de internet mediante distintos dispositivos.
-                                </p>
-                                <p>
-                                    El graduado de esta carrera estará capacitado para trabajar como miembro de un
-                                    equipo de
-                                    desarrollo y tendrá las siguientes habilidades:
-                                </p>
-                                <ul>
-                                    <li>
-                                        <p>
-                                            Interpretar requerimientos de un desarrollo informático sobre la base de
-                                            necesidades y
-                                            objetivos dados
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p>
-                                            Implementar sistemas o sub-sistemas informáticos a partir de una descripción
-                                            del
-                                            problema y su diseño detallado, siguiendo una metodología dada
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p>
-                                            Implementar, evaluar y documentar programas en diferentes lenguajes y en
-                                            entornos
-                                            locales o distribuidos
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p>
-                                            Interpretar adecuadamente estructuras de datos y poder definir procesos de
-                                            alta, bajas,
-                                            modificaciones y consultas a estos datos
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p>
-                                            Utilizar y aprender nuevas tecnologías y plataformas de desarrollo
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p>
-                                            Aplicar prácticas metodológicas para administrar la calidad de un sistema
-                                            informático
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p>
-                                            Emplear técnicas de presentación de la información adaptables al usuario
-                                        </p>
-                                    </li>
-                                </ul>
-                                <p>
-                                    Estas habilidades le permitirán desarrollar de forma independiente aplicaciones
-                                    personales o
-                                    servicios particulares en la Web, así como participar como miembro en proyectos de
-                                    mayor
-                                    complejidad.
-                                </p>
-                            </div>
-                        </div>
-                    </ibm-tile>
-                </div>
-            </div>
-        </ibm-tile>
+    <div ibmRow>
+        <div ibmCol class="column-with-margin">
+            <p>
+                El graduado de esta carrera estará capacitado para trabajar como miembro de un
+                equipo de
+                desarrollo y tendrá las siguientes habilidades:
+            </p>
+        </div>
     </div>
-</div>
+    <div ibmRow>
+        <div ibmCol class="column-with-margin">
+            <ul>
+                <li>
+                    <p>
+                        Interpretar requerimientos de un desarrollo informático sobre la base de
+                        necesidades y
+                        objetivos dados
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Implementar sistemas o sub-sistemas informáticos a partir de una descripción
+                        del
+                        problema y su diseño detallado, siguiendo una metodología dada
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Implementar, evaluar y documentar programas en diferentes lenguajes y en
+                        entornos
+                        locales o distribuidos
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Interpretar adecuadamente estructuras de datos y poder definir procesos de
+                        alta, bajas,
+                        modificaciones y consultas a estos datos
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Utilizar y aprender nuevas tecnologías y plataformas de desarrollo
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Aplicar prácticas metodológicas para administrar la calidad de un sistema
+                        informático
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Emplear técnicas de presentación de la información adaptables al usuario
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div ibmRow>
+        <div ibmCol class="column-with-margin">
+            <p>
+                Estas habilidades le permitirán desarrollar de forma independiente aplicaciones
+                personales o
+                servicios particulares en la Web, así como participar como miembro en proyectos de
+                mayor
+                complejidad.
+            </p>
+        </div>
+    </div>
+</app-descripcion-carrera-template>
 
 <br>
