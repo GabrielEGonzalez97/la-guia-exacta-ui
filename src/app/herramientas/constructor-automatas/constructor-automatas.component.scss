@@ -1,0 +1,110 @@
+@import "src/styles/utils.scss";
+
+@include adjustPaddingInIBMGridAndCol();
+
+canvas {
+  display: block;
+  border: 1px solid black;
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
+#canvasContainer {
+  position: relative;
+
+  .icons-container {
+    position: absolute;
+    background-color: $principal-color;
+    right: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    top: 0.5rem;
+    border-top-right-radius: 20px;
+
+    .png-icon {
+      fill: white;
+      margin-right: 1rem;
+    }
+
+    .trash-can-icon {
+      fill: white;
+    }
+
+    .trash-can-icon:hover,
+    .png-icon:hover {
+      cursor: pointer;
+      fill: #cbcbcb;
+    }
+  }
+}
+
+.string-to-test-container {
+  display: flex;
+  align-items: center;
+
+  .checkmark-icon {
+    margin-left: 1rem;
+    fill: green;
+  }
+
+  .misuse-icon {
+    margin-left: 1rem;
+    fill: red;
+  }
+}
+
+.show-steps-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.show-steps-button {
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 40px;
+  background-color: $principal-color;
+  padding: 0;
+  line-break: anywhere;
+  font-size: 20px;
+  justify-content: center;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+
+  p {
+    font-size: 20px;
+
+    sup {
+      font-size: 0.75rem;
+    }
+  }
+}
+
+.show-steps-button:hover {
+  background-color: #cbcbcb !important;
+}
+
+:host ::ng-deep {
+  border-collapse: unset;
+
+  .bx--data-table {
+    th,
+    td {
+      min-width: 130px;
+      border: 1px solid black !important;
+    }
+  }
+
+  .bx--text-input__field-wrapper {
+    display: block;
+  }
+}

@@ -1,0 +1,31 @@
+@import "src/styles/utils.scss";
+
+@include adjustPaddingInIBMGridAndCol();
+
+.steps-container {
+  padding: 1.5rem;
+
+  .bx--row {
+    margin-bottom: 1rem;
+
+    .bx--col {
+      overflow-x: auto;
+
+      p {
+        width: max-content;
+        font-size: 1.5rem;
+      }
+
+      .step-with-number {
+        display: flex;
+        align-items: baseline;
+      }
+    }
+  }
+}
+
+:host ::ng-deep {
+  .bx--modal-container {
+    overflow-y: scroll;
+  }
+}
