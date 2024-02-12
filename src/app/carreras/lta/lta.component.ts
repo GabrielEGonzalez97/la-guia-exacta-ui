@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CareerName, Careers } from 'src/app/catedras/interfaces';
 
 @Component({
   selector: 'app-lta',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lta.component.scss'],
 })
 export class LtaComponent implements OnInit {
+  public careerTitle: CareerName = Careers.LTA;
+
   constructor() {}
 
   public ngOnInit(): void {}

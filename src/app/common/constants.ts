@@ -1,3 +1,4 @@
+import { Careers } from '../catedras/interfaces';
 import { IPageSection, ISocialMedia } from './interfaces';
 
 export const PAGE_SECTIONS: IPageSection[] = [
@@ -8,15 +9,15 @@ export const PAGE_SECTIONS: IPageSection[] = [
     cardBackImagePath: 'assets/images/home-logos/carreras-back-logo.svg',
     subSections: [
       {
-        name: 'Ingeniería de Sistemas',
+        name: Careers.INGENIERIA_DE_SISTEMAS,
         route: 'carreras/ingenieria-de-sistemas',
       },
       {
-        name: 'Licenciatura en Tecnologia Ambiental',
+        name: Careers.LTA,
         route: 'carreras/licenciatura-en-tecnologia-ambiental',
       },
       {
-        name: 'TUDAI',
+        name: Careers.TUDAI,
         route: 'carreras/tudai',
       },
     ],

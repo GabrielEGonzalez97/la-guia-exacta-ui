@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CareerName, Careers } from 'src/app/catedras/interfaces';
 
 @Component({
   selector: 'app-tudai',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tudai.component.scss'],
 })
 export class TudaiComponent implements OnInit {
+  public careerTitle: CareerName = Careers.TUDAI;
+
   constructor() {}
 
   public ngOnInit(): void {}
