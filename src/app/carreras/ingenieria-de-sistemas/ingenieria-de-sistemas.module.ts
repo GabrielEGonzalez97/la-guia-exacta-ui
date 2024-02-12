@@ -9,15 +9,16 @@ import {
   TableModule,
   TilesModule,
 } from 'carbon-components-angular';
-import { IngenieriaDeSistemasComponent } from './ingenieria-de-sistemas.component';
+import { ActionBarElementModule } from '../../actions-bar/action-bar-element/action-bar-element.module';
+import { CatedraModalWindowComponent } from '../../catedras/catedra-modal-window/catedra-modal-window.component';
+import { CatedraModule } from '../../catedras/catedra/catedra.module';
 import { IngenieriaDeSistemasDescripcionComponent } from './ingenieria-de-sistemas-descripcion/ingenieria-de-sistemas-descripcion.component';
-import { CatedraModalWindowComponent } from '../catedras/catedra-modal-window/catedra-modal-window.component';
-import { CatedraModule } from '../catedras/catedra/catedra.module';
 import { IngenieriaDeSistemasPlanDeEstudiosComponent } from './ingenieria-de-sistemas-plan-de-estudios/ingenieria-de-sistemas-plan-de-estudios.component';
-import { ActionBarElementModule } from '../actions-bar/action-bar-element/action-bar-element.module';
+import { IngenieriaDeSistemasComponent } from './ingenieria-de-sistemas.component';
 
 import ChevronDown32 from '@carbon/icons/es/chevron--down/32';
 import ChevronUp32 from '@carbon/icons/es/chevron--up/32';
+import { CarrerasTemplateModule } from '../carreras-template/carreras-template.module';
 
 const CARBON_IMPORTS = [
   ButtonModule,
@@ -42,6 +43,7 @@ const COMPONENT_IMPORTS = [
   imports: [
     CommonModule,
     CARBON_IMPORTS,
+    CarrerasTemplateModule,
     CatedraModule,
     ActionBarElementModule,
   ],

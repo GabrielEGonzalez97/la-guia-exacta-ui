@@ -7,13 +7,14 @@ import {
   ModalModule,
   TilesModule,
 } from 'carbon-components-angular';
-import { CatedraModule } from '../catedras/catedra/catedra.module';
+import { CatedraModule } from '../../catedras/catedra/catedra.module';
 import { TudaiDescripcionComponent } from './tudai-descripcion/tudai-descripcion.component';
-import { TudaiComponent } from './tudai.component';
 import { TudaiPlanDeEstudiosComponent } from './tudai-plan-de-estudios/tudai-plan-de-estudios.component';
+import { TudaiComponent } from './tudai.component';
 
 import ChevronDown32 from '@carbon/icons/es/chevron--down/32';
 import ChevronUp32 from '@carbon/icons/es/chevron--up/32';
+import { CarrerasTemplateModule } from '../carreras-template/carreras-template.module';
 
 const CARBON_IMPORTS = [GridModule, IconModule, ModalModule, TilesModule];
 
@@ -24,7 +25,12 @@ const COMPONENT_IMPORTS = [
 
 @NgModule({
   declarations: [TudaiComponent, COMPONENT_IMPORTS],
-  imports: [CommonModule, CARBON_IMPORTS, CatedraModule],
+  imports: [
+    CommonModule,
+    CARBON_IMPORTS,
+    CarrerasTemplateModule,
+    CatedraModule,
+  ],
   providers: [],
   exports: [TudaiComponent],
 })

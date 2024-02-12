@@ -40,6 +40,8 @@ ul {
 }
 
 .column-with-margin {
+  display: flex;
+  align-items: center;
   margin-left: 1rem;
   margin-right: 1rem;
 }
@@ -61,6 +63,5 @@ ul {
   width: calc(2vw + 2vh);
   height: calc(2vw + 2vh);
   position: absolute;
-  right: 0;
-  margin-right: 1rem;
+  right: 2rem;
 }

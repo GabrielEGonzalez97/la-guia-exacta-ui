@@ -1,22 +1,22 @@
 import {
-  ingles_1,
-  programacion_1,
-  taller_de_matematica_computacional,
-  web_1,
-  ingles_2,
-  programacion_2,
-  tecnologia_de_la_informacion_en_las_organizaciones,
-  web_2,
-  bases_de_datos_tudai,
-  configuracion_y_desarrollo_de_aplicaciones_en_redes,
-  introduccion_a_las_metodologias_de_desarrollo_de_software,
-  programacion_3,
-  arquitecturas_web,
-  interfaces_de_usuario_e_interaccion,
-  tecnicas_de_documentacion_y_validacion,
-} from '../../catedras/tudai_subjects';
-import { DEFAULT_COLOR_SUBJECT } from '../../common/constants';
-import { ISubjectWithSelection } from '../../common/interfaces';
+	arquitecturas_web,
+	bases_de_datos_tudai,
+	configuracion_y_desarrollo_de_aplicaciones_en_redes,
+	ingles_1,
+	ingles_2,
+	interfaces_de_usuario_e_interaccion,
+	introduccion_a_las_metodologias_de_desarrollo_de_software,
+	programacion_1,
+	programacion_2,
+	programacion_3,
+	taller_de_matematica_computacional,
+	tecnicas_de_documentacion_y_validacion,
+	tecnologia_de_la_informacion_en_las_organizaciones,
+	web_1,
+	web_2,
+} from '../../../catedras/tudai_subjects';
+import { DEFAULT_COLOR_SUBJECT } from '../../../common/constants';
+import { ISubjectWithSelection } from '../../../common/interfaces';
 
 export let ingles_1_with_selection: ISubjectWithSelection = {
   subject: ingles_1,
