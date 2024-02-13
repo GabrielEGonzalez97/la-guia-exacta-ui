@@ -40,7 +40,7 @@ export function decimalToFraction(decimal: string): string {
       .filter((term) => term !== '');
 
     const fractionTerms: string[] = terms.map((term, index) => {
-      if (['+', '*', '/'].includes(term) || (term === '-' && index === 0)) {
+      if (['+', '*'].includes(term) || (term === '-' && index === 0)) {
         return term;
       } else if (!isNaN(Number(term))) {
         const fraction: Fraction = new Fraction(term).simplify();

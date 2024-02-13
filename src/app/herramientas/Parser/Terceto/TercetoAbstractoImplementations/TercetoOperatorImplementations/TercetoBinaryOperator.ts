@@ -121,11 +121,11 @@ export abstract class TercetoBinaryOperator extends TercetoOperator {
             i + 1
           } de la primera matriz por la columna ${
             j + 1
-          } de la segunda matriz (${intermediateCalculations.join(
+          } de la segunda matriz ($${intermediateCalculations.join(
             ' + '
-          )}), siendo el resultado ${decimalToFraction(
+          )}$), siendo el resultado $${decimalToFraction(
             resultado[i][j].value
-          )}. Se coloca el resultado en la celda [${i + 1}, ${
+          )}$. Se coloca el resultado en la celda [${i + 1}, ${
             j + 1
           }] de la matriz resultante.`,
           latexExpression: getMatrixLatexForm(resultado),

@@ -141,9 +141,9 @@ export class TercetoChequearIgualdad extends TercetoBinaryOperator {
             this.intermediateSteps.push({
               description: `Las celdas [${i + 1}, ${
                 j + 1
-              }] de cada matriz (${getMatrixCellValue(
+              }] de cada matriz ($${getMatrixCellValue(
                 matrix1[i][j]
-              )} y ${getMatrixCellValue(matrix2[i][j])}) son diferentes`,
+              )}$ y $${getMatrixCellValue(matrix2[i][j])}$) son diferentes`,
               latexExpression: `${getCorrectFormToDisplay(
                 this.operand1
               )} \\neq ${getCorrectFormToDisplay(this.operand2)}`,
@@ -154,9 +154,9 @@ export class TercetoChequearIgualdad extends TercetoBinaryOperator {
             this.intermediateSteps.push({
               description: `Las celdas [${i + 1}, ${
                 j + 1
-              }] de cada matriz (${getMatrixCellValue(
+              }] de cada matriz ($${getMatrixCellValue(
                 matrix1[i][j]
-              )} y ${getMatrixCellValue(matrix2[i][j])}) son iguales`,
+              )}$ y $${getMatrixCellValue(matrix2[i][j])}$) son iguales`,
               latexExpression: getMatrixLatexForm(resultado),
             });
           }
