@@ -23,8 +23,18 @@
 
 <div ibmRow>
     <div #canvasContainer id="canvasContainer" ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 8, sm: 6 }">
+        <ng-container *ngIf="this.nodes.length === 0">
+            <div class="instructions-container">
+                <div class="instructions">
+                    <p>Instrucciones</p>
+                </div>
+            </div>
+        </ng-container>
         <ng-container *ngIf="this.nodes.length !== 0">
             <div class="icons-container">
+                <div class="instructions">
+                    <p>Instrucciones</p>
+                </div>
                 <svg class="png-icon" ibmIcon="PNG" size="24" (click)="captureAndDownloadCanvas()"></svg>
                 <svg class="trash-can-icon" ibmIcon="trash-can" size="24" (click)="clearCanvas()"></svg>
             </div>

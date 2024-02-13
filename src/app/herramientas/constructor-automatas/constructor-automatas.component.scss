@@ -19,8 +19,24 @@ canvas {
 #canvasContainer {
   position: relative;
 
+  .instructions-container {
+    height: 40px;
+  }
+
+  .instructions {
+    color: white;
+    font-size: 16px;
+  }
+
+  .instructions:hover {
+    cursor: pointer;
+    color: #cbcbcb;
+  }
+
+  .instructions-container,
   .icons-container {
     position: absolute;
+    display: flex;
     background-color: $principal-color;
     right: 1rem;
     padding-left: 1rem;
@@ -29,6 +45,12 @@ canvas {
     padding-bottom: 0.5rem;
     top: 0.5rem;
     border-top-right-radius: 20px;
+  }
+
+  .icons-container {
+    .instructions {
+      margin-right: 1rem;
+    }
 
     .png-icon {
       fill: white;
