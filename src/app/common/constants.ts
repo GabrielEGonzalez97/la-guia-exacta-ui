@@ -1,26 +1,28 @@
 import { Careers } from '../catedras/interfaces';
 import { IPageSection, ISocialMedia } from './interfaces';
 
+export const CARRERAS_SECTIONS: IPageSection[] = [
+  {
+    name: Careers.INGENIERIA_DE_SISTEMAS,
+    route: 'carreras/ingenieria-de-sistemas',
+  },
+  {
+    name: Careers.LTA,
+    route: 'carreras/licenciatura-en-tecnologia-ambiental',
+  },
+  {
+    name: Careers.TUDAI,
+    route: 'carreras/tudai',
+  },
+];
+
 export const PAGE_SECTIONS: IPageSection[] = [
   {
     name: 'Carreras',
-    route: 'carreras/ingenieria-de-sistemas',
+    route: 'carreras',
     cardFrontImagePath: 'assets/images/home-logos/carreras-front-logo.svg',
     cardBackImagePath: 'assets/images/home-logos/carreras-back-logo.svg',
-    subSections: [
-      {
-        name: Careers.INGENIERIA_DE_SISTEMAS,
-        route: 'carreras/ingenieria-de-sistemas',
-      },
-      {
-        name: Careers.LTA,
-        route: 'carreras/licenciatura-en-tecnologia-ambiental',
-      },
-      {
-        name: Careers.TUDAI,
-        route: 'carreras/tudai',
-      },
-    ],
+    subSections: CARRERAS_SECTIONS,
   },
   {
     name: 'Cátedras',

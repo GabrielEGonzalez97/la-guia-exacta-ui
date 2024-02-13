@@ -3,16 +3,26 @@
         <div class="flip-card-front">
             <div class="logo-outside-container">
                 <div class="logo-inner-container">
-                    <img [src]="cardFrontImagePath">
-                    <p>{{ cardName }}</p>
+                    <ng-container *ngIf="cardFrontImagePath">
+                        <img [src]="cardFrontImagePath">
+                        <p>{{ cardName }}</p>
+                    </ng-container>
+                    <ng-container *ngIf="!cardFrontImagePath">
+                        <p class="letters-logo">{{ cardName }}</p>
+                    </ng-container>
                 </div>
             </div>
         </div>
         <div class="flip-card-back">
             <div class="logo-outside-container">
                 <div class="logo-inner-container">
-                    <img [src]="cardBackImagePath">
-                    <p>{{ cardName }}</p>
+                    <ng-container *ngIf="cardBackImagePath">
+                        <img [src]="cardBackImagePath">
+                        <p>{{ cardName }}</p>
+                    </ng-container>
+                    <ng-container *ngIf="!cardBackImagePath">
+                        <p class="letters-logo">{{ cardName }}</p>
+                    </ng-container>
                 </div>
             </div>
         </div>

@@ -1,0 +1,13 @@
+<div ibmRow>
+    <div ibmCol>
+        <h1><strong>Carreras</strong></h1>
+    </div>
+</div>
+<div ibmRow class="logos-row">
+    <ng-container *ngFor="let careersSection of careersSections">
+        <div ibmCol [columnNumbers]="{ max: 4, xlg: 4, lg: 4, md: 3, sm: 2 }">
+            <app-flip-card [cardName]="careersSection.name" [navigateToPath]="careersSection.route">
+            </app-flip-card>
+        </div>
+    </ng-container>
+</div>

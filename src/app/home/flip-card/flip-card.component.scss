@@ -14,86 +14,69 @@
     -ms-transition: transform 0.6s;
     -o-transition: transform 0.6s;
 
-    /* Position the front and back side */
-    .flip-card-back {
-      display: none;
-    }
+    .logo-outside-container {
+      display: flex;
+      width: fit-content;
+      justify-content: center;
+      padding: calc(0.1vw + 0.1vh);
+      border-radius: 50px;
+      -webkit-border-radius: 50px;
+      -moz-border-radius: 50px;
+      -ms-border-radius: 50px;
+      -o-border-radius: 50px;
 
-    /* Style the front side (fallback if image is missing) */
-    .flip-card-front {
-      .logo-outside-container {
-        display: flex;
+      .logo-inner-container {
         width: fit-content;
-        justify-content: center;
-        padding: calc(0.1vw + 0.1vh);
-        background-color: $principal-color;
-        border: 5px solid $principal-color;
+        padding: 20px;
         border-radius: 50px;
         -webkit-border-radius: 50px;
         -moz-border-radius: 50px;
         -ms-border-radius: 50px;
         -o-border-radius: 50px;
 
-        .logo-inner-container {
-          width: fit-content;
+        .letters-logo,
+        img {
+          display: flex;
           justify-content: center;
-          padding: 20px;
+          align-items: center;
+          width: calc(10vw + 10vh);
+          height: calc(10vw + 10vh);
+          font-size: calc(1.5vw + 1.5vh);
+          font-weight: 900;
+        }
+
+        p {
+          text-align: center;
+          font-size: calc(1.25vw + 1.25vh);
+          font-weight: 500;
+        }
+      }
+    }
+
+    /* Style the front side (fallback if image is missing) */
+    .flip-card-front {
+      .logo-outside-container {
+        background-color: $principal-color;
+        border: 5px solid $principal-color;
+
+        .logo-inner-container {
           background-color: $secondary-color;
-          border-radius: 50px;
-          -webkit-border-radius: 50px;
-          -moz-border-radius: 50px;
-          -ms-border-radius: 50px;
-          -o-border-radius: 50px;
-
-          img {
-            width: calc(10vw + 10vh);
-            height: calc(10vw + 10vh);
-          }
-
-          p {
-            text-align: center;
-            font-size: calc(1.25vw + 1.25vh);
-            font-weight: 500;
-          }
         }
       }
     }
 
     /* Style the back side */
     .flip-card-back {
+      display: none; /* Position the front and back side */
+
       .logo-outside-container {
-        display: flex;
-        width: fit-content;
-        justify-content: center;
-        padding: calc(0.1vw + 0.1vh);
         background-color: $secondary-color;
         border: 5px solid $secondary-color;
-        border-radius: 50px;
-        -webkit-border-radius: 50px;
-        -moz-border-radius: 50px;
-        -ms-border-radius: 50px;
-        -o-border-radius: 50px;
 
         .logo-inner-container {
-          width: fit-content;
-          justify-content: center;
-          padding: 20px;
           background-color: $principal-color;
-          border-radius: 50px;
-          -webkit-border-radius: 50px;
-          -moz-border-radius: 50px;
-          -ms-border-radius: 50px;
-          -o-border-radius: 50px;
-
-          img {
-            width: calc(10vw + 10vh);
-            height: calc(10vw + 10vh);
-          }
 
           p {
-            text-align: center;
-            font-size: calc(1.25vw + 1.25vh);
-            font-weight: 500;
             color: $secondary-color;
           }
         }

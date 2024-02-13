@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CarrerasHomeComponent } from './carreras/carreras-home/carreras-home.component';
 import { IngenieriaDeSistemasComponent } from './carreras/ingenieria-de-sistemas/ingenieria-de-sistemas.component';
 import { LtaComponent } from './carreras/lta/lta.component';
 import { TudaiComponent } from './carreras/tudai/tudai.component';
@@ -19,6 +20,11 @@ const routes: Routes = [
     path: '',
     component: HomeComponent,
     data: { title: 'Homepage' },
+  },
+  {
+    path: 'carreras',
+    component: CarrerasHomeComponent,
+    data: { title: 'Carreras' },
   },
   {
     path: 'carreras/ingenieria-de-sistemas',
