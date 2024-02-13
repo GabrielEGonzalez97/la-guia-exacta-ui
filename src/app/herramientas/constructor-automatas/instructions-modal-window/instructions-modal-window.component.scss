@@ -1,0 +1,27 @@
+@import "src/styles/utils.scss";
+
+@include adjustPaddingInIBMGridAndCol();
+
+.steps-container {
+  padding: 1.5rem;
+
+  .bx--row {
+    margin-bottom: 1rem;
+
+    .bx--col {
+      p {
+        text-align: justify;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+:host ::ng-deep {
+  .bx--modal-container {
+    overflow-y: scroll;
+  }
+}

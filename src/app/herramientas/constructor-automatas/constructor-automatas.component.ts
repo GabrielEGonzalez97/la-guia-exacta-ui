@@ -17,6 +17,7 @@ import { StartLink } from './elements/StartLink';
 import { TemporaryLink } from './elements/TemporaryLink';
 import { Link } from './elements/link';
 import { Node } from './elements/node';
+import { InstructionsModalWindowComponent } from './instructions-modal-window/instructions-modal-window.component';
 import { IMouseCoordinates } from './interfaces';
 import { StepByStepModalWindowComponent } from './step-by-step-modal-window/step-by-step-modal-window.component';
 
@@ -383,21 +384,23 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
     } else if (!canvasHasFocus(this.canvasElement)) {
       // don't read keystrokes when other things have focus
       return;
-    } else if (key == 8) {
-      // backspace key
-      if (this.selectedObject != null && 'text' in this.selectedObject) {
-        this.selectedObject.text = this.selectedObject.text.substr(
-          0,
-          this.selectedObject.text.length - 1
-        );
-        this.resetCaret();
-        this.drawUsing(this.canvasContext);
-        this.saveBackup();
-      }
+    }
+    // else if (key == 8) {
+    //   // backspace key
+    //   if (this.selectedObject != null && 'text' in this.selectedObject) {
+    //     this.selectedObject.text = this.selectedObject.text.substr(
+    //       0,
+    //       this.selectedObject.text.length - 1
+    //     );
+    //     this.resetCaret();
+    //     this.drawUsing(this.canvasContext);
+    //     this.saveBackup();
+    //   }
 
-      // backspace is a shortcut for the back button, but do NOT want to change pages
-      return;
-    } else if (key == 46) {
+    //   // backspace is a shortcut for the back button, but do NOT want to change pages
+    //   return;
+    // }
+    else if (key == 8 || key == 46) {
       // delete key
       if (this.selectedObject != null) {
         for (let i: number = 0; i < this.nodes.length; i++) {
@@ -433,7 +436,9 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
       'text' in this.selectedObject &&
       !(this.selectedObject instanceof Node)
     ) {
-      const entrySymbols: string[] = this.entrySymbols.replace(' ', '').split(',');
+      const entrySymbols: string[] = this.entrySymbols
+        .replace(' ', '')
+        .split(',');
       if (entrySymbols.some((symbol) => symbol === event.key)) {
         this.selectedObject.text = event.key;
         this.resetCaret();
@@ -858,6 +863,12 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
     canvasContext.restore();
 
     return this.canvasElement.toDataURL();
+  }
+
+  public showInstructionsModalWindow(): void {
+    this.modalService.create({
+      component: InstructionsModalWindowComponent,
+    });
   }
 
   public showStepByStepModalWindow(): void {

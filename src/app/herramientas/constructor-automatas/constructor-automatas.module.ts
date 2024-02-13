@@ -15,6 +15,7 @@ import Png24 from '@carbon/icons/es/PNG/24';
 import CheckmarkOutline32 from '@carbon/icons/es/checkmark--outline/32';
 import MisuseOutline32 from '@carbon/icons/es/misuse--outline/32';
 import TrashCan24 from '@carbon/icons/es/trash-can/24';
+import { InstructionsModalWindowComponent } from './instructions-modal-window/instructions-modal-window.component';
 import { StepByStepModalWindowComponent } from './step-by-step-modal-window/step-by-step-modal-window.component';
 
 const CARBON_IMPORTS = [
@@ -27,10 +28,14 @@ const CARBON_IMPORTS = [
 ];
 
 @NgModule({
-  declarations: [ConstructorAutomatasComponent, StepByStepModalWindowComponent],
+  declarations: [
+    ConstructorAutomatasComponent,
+    InstructionsModalWindowComponent,
+    StepByStepModalWindowComponent,
+  ],
   imports: [CARBON_IMPORTS, CommonModule],
   providers: [],
-  exports: [ConstructorAutomatasComponent, StepByStepModalWindowComponent],
+  exports: [ConstructorAutomatasComponent],
 })
 export class ConstructorAutomatasModule {
   constructor(protected iconService: IconService) {

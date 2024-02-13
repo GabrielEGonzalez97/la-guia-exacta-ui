@@ -1,0 +1,74 @@
+<ibm-modal [open]="true" (overlaySelected)="closeModal()">
+    <ibm-modal-header (closeSelect)="closeModal()">
+        <h2>Instrucciones</h2>
+    </ibm-modal-header>
+
+    <div class="steps-container">
+        <div ibmRow>
+            <div ibmCol>
+                <p>- Haz doble click dentro del recuadro para crear un estado. El estado se creará en la posición donde
+                    fue hecho el doble click:</p>
+            </div>
+        </div>
+        <div ibmRow>
+            <div ibmCol>
+                <img src="assets/images/constructor-automatas-images/creacion-estados.png">
+            </div>
+        </div>
+        <div ibmRow>
+            <div ibmCol>
+                <p>- Haz doble click sobre un estado para marcarlo como estado final:</p>
+            </div>
+        </div>
+        <div ibmRow>
+            <div ibmCol>
+                <img src="assets/images/constructor-automatas-images/estado-final.png">
+            </div>
+        </div>
+        <div ibmRow>
+            <div ibmCol>
+                <p>- Manteniendo presionada la tecla shift, cliquea y arrastra el mouse para dibujar una flecha:</p>
+            </div>
+        </div>
+        <div ibmRow>
+            <div ibmCol>
+                <img src="assets/images/constructor-automatas-images/flecha-entre-estados.png">
+            </div>
+        </div>
+        <div ibmRow>
+            <div ibmCol>
+                <p>- Apunta una flecha a un estado para marcarlo como estado inicial <strong>NOTA IMPORTANTE:
+                        Sólo se puede marcar un estado como estado inicial</strong>:
+                </p>
+            </div>
+        </div>
+        <div ibmRow>
+            <div ibmCol>
+                <img src="assets/images/constructor-automatas-images/estado-inicial.png">
+            </div>
+        </div>
+        <div ibmRow>
+            <div ibmCol>
+                <p>- Cliquea una flecha para poner el símbolo de entrada que conecta los nodos <strong>NOTA IMPORTANTE:
+                        Sólo se pueden usar los símbolos de entrada ingresados previamente, cualquier otro símbolo no
+                        será aceptado</strong>:
+                </p>
+            </div>
+        </div>
+        <div ibmRow>
+            <div ibmCol>
+                <img src="assets/images/constructor-automatas-images/seleccion-flechas.png">
+            </div>
+        </div>
+        <div ibmRow>
+            <div ibmCol>
+                <p>- Para borrar un estado o flecha cliqueala y luego presionada la tecla borrar del teclado:</p>
+            </div>
+        </div>
+        <div ibmRow>
+            <div ibmCol>
+                <img src="assets/images/constructor-automatas-images/borrar-estado.png">
+            </div>
+        </div>
+    </div>
+</ibm-modal>
