@@ -2,6 +2,10 @@
 
 @include adjustPaddingInIBMGridAndCol();
 
+.white-space {
+  margin-top: 1.5rem;
+}
+
 canvas {
   display: block;
   border: 1px solid black;

@@ -8,6 +8,19 @@
     </div>
 </div>
 
+<div class="white-space"></div>
+
+<div ibmRow>
+    <div ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 8, sm: 6 }">
+        <ibm-label>
+            Introduzca el alfabeto o conjunto finito de símbolos de entrada, separe los elementos con comas
+            <input ibmText type="text" (input)="onEntrySymbolsChange($event)">
+        </ibm-label>
+    </div>
+</div>
+
+<div class="white-space"></div>
+
 <div ibmRow>
     <div #canvasContainer id="canvasContainer" ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 8, sm: 6 }">
         <ng-container *ngIf="this.nodes.length !== 0">

@@ -41,6 +41,8 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
   public nodes: Node[] = [];
   public links: (Link | SelfLink | StartLink)[] = [];
 
+  public entrySymbols: string = '';
+
   public stringToTest: string = '';
   public isValidString: boolean = false;
   public isInvalidStateToTestString: boolean = false;
@@ -431,10 +433,13 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
       'text' in this.selectedObject &&
       !(this.selectedObject instanceof Node)
     ) {
-      this.selectedObject.text += event.key;
-      this.resetCaret();
-      this.drawUsing(this.canvasContext);
-      this.saveBackup();
+      const entrySymbols: string[] = this.entrySymbols.replace(' ', '').split(',');
+      if (entrySymbols.some((symbol) => symbol === event.key)) {
+        this.selectedObject.text = event.key;
+        this.resetCaret();
+        this.drawUsing(this.canvasContext);
+        this.saveBackup();
+      }
 
       // don't let keys do their actions (like space scrolls down the page)
       return;
@@ -662,6 +667,10 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
         node.coordinateY = this.nodes[i].coordinateY;
       }
     }
+  }
+
+  public onEntrySymbolsChange(entrySymbols: any): void {
+    this.entrySymbols = entrySymbols.target.value;
   }
 
   public onStringToTestChange(stringToTest: any): void {
