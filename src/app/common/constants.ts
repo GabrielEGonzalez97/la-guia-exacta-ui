@@ -16,6 +16,25 @@ export const CARRERAS_SECTIONS: IPageSection[] = [
   },
 ];
 
+export const HERRAMIENTAS_SECTIONS: IPageSection[] = [
+  {
+    name: 'Operaciones con matrices',
+    route: 'herramientas/operaciones-con-matrices',
+    cardFrontImagePath:
+      'assets/images/herramientas-logos/operaciones-con-matrices-front-logo.svg',
+    cardBackImagePath:
+      'assets/images/herramientas-logos/operaciones-con-matrices-back-logo.svg',
+  },
+  {
+    name: 'Constructor de autómatas',
+    route: 'herramientas/constructor-automatas',
+    cardFrontImagePath:
+      'assets/images/herramientas-logos/constructor-automatas-front-logo.svg',
+    cardBackImagePath:
+      'assets/images/herramientas-logos/constructor-automatas-back-logo.svg',
+  },
+];
+
 export const PAGE_SECTIONS: IPageSection[] = [
   {
     name: 'Carreras',
@@ -46,19 +65,10 @@ export const PAGE_SECTIONS: IPageSection[] = [
   },
   {
     name: 'Herramientas',
-    route: 'herramientas/operaciones-con-matrices',
+    route: 'herramientas',
     cardFrontImagePath: 'assets/images/home-logos/herramientas-front-logo.svg',
     cardBackImagePath: 'assets/images/home-logos/herramientas-back-logo.svg',
-    subSections: [
-      {
-        name: 'Operaciones con matrices',
-        route: 'herramientas/operaciones-con-matrices',
-      },
-      {
-        name: 'Constructor de autómatas',
-        route: 'herramientas/constructor-automatas',
-      },
-    ],
+    subSections: HERRAMIENTAS_SECTIONS,
   },
 ];
 

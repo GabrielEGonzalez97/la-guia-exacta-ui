@@ -25,6 +25,7 @@ import { MathjaxModule } from 'mathjax-angular';
 import { CarrerasHomeModule } from './carreras/carreras-home/carreras-home.module';
 import { DescripcionCarreraTemplateModule } from './carreras/descripcion-carrera-template/descripcion-carrera-template.module';
 import { ConstructorAutomatasModule } from './herramientas/constructor-automatas/constructor-automatas.module';
+import { HerramientasHomeModule } from './herramientas/herramientas-home/herramientas-home.module';
 
 const MODULE_IMPORTS = [AppRoutingModule, BrowserModule, HttpClientModule];
 
@@ -38,6 +39,7 @@ const COMPONENT_IMPORTS = [
   FileUploaderComponentModule,
   FinalesModule,
   FooterModule,
+  HerramientasHomeModule,
   HomeModule,
   IngenieriaDeSistemasModule,
   LtaModule,

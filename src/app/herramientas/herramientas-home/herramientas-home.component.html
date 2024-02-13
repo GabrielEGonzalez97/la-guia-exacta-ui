@@ -1,0 +1,15 @@
+<div ibmRow>
+    <div ibmCol>
+        <h1><strong>Herramientas</strong></h1>
+    </div>
+</div>
+<div ibmRow class="logos-row">
+    <ng-container *ngFor="let toolsSection of toolsSections">
+        <div ibmCol [columnNumbers]="{ max: 4, xlg: 4, lg: 4, md: 3, sm: 2 }">
+            <app-flip-card [cardName]="toolsSection.name" [navigateToPath]="toolsSection.route"
+                [cardFrontImagePath]="toolsSection.cardFrontImagePath"
+                [cardBackImagePath]="toolsSection.cardBackImagePath">
+            </app-flip-card>
+        </div>
+    </ng-container>
+</div>

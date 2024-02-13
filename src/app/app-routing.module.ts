@@ -9,6 +9,7 @@ import { CursosGratuitosComponent } from './cursos-gratuitos/cursos-gratuitos.co
 import { FileUploaderComponent } from './file-uploader/file-uploader.component';
 import { FinalesComponent } from './finales/finales.component';
 import { ConstructorAutomatasComponent } from './herramientas/constructor-automatas/constructor-automatas.component';
+import { HerramientasHomeComponent } from './herramientas/herramientas-home/herramientas-home.component';
 import { OperacionesConMatricesComponent } from './herramientas/operaciones-con-matrices/operaciones-con-matrices.component';
 import { HomeComponent } from './home/home.component';
 import { ParcialesComponent } from './parciales/parciales.component';
@@ -75,6 +76,11 @@ const routes: Routes = [
     path: 'subir-aportes',
     component: FileUploaderComponent,
     data: { title: 'Subir-Aportes' },
+  },
+  {
+    path: 'herramientas',
+    component: HerramientasHomeComponent,
+    data: { title: 'Herramientas' },
   },
   {
     path: 'herramientas/operaciones-con-matrices',
