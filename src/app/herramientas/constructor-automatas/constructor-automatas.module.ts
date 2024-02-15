@@ -13,6 +13,7 @@ import { ConstructorAutomatasComponent } from './constructor-automatas.component
 
 import Png24 from '@carbon/icons/es/PNG/24';
 import CheckmarkOutline32 from '@carbon/icons/es/checkmark--outline/32';
+import Information16 from '@carbon/icons/es/information/16';
 import MisuseOutline32 from '@carbon/icons/es/misuse--outline/32';
 import TrashCan24 from '@carbon/icons/es/trash-can/24';
 import { InstructionsModalWindowComponent } from './instructions-modal-window/instructions-modal-window.component';
@@ -40,10 +41,11 @@ const CARBON_IMPORTS = [
 export class ConstructorAutomatasModule {
   constructor(protected iconService: IconService) {
     iconService.registerAll([
-      CheckmarkOutline32,
-      MisuseOutline32,
+      Information16,
       Png24,
       TrashCan24,
+      CheckmarkOutline32,
+      MisuseOutline32,
     ]);
   }
 }

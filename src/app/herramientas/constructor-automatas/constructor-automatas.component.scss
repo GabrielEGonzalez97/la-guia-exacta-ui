@@ -67,6 +67,16 @@ canvas {
       fill: #cbcbcb;
     }
   }
+
+  .info-container {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+
+    [ibmIcon] {
+      margin-right: 0.25rem;
+    }
+  }
 }
 
 .string-to-test-container {
