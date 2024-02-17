@@ -283,7 +283,7 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
       if (this.deletedNodes.length > 0) {
         node.text = this.deletedNodes.shift();
       } else {
-        node.text = `q${this.nodes.length}`;
+        node.text = `e${this.nodes.length}`;
       }
       this.selectedObject = node;
       this.nodes.push(this.selectedObject);
@@ -534,6 +534,8 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
     try {
       const backup = JSON.parse(localStorage['fsm']);
 
+      this.entrySymbols = backup.entrySymbols;
+
       for (let i: number = 0; i < backup.nodes.length; i++) {
         const backupNode: Node = backup.nodes[i];
         const node: Node = new Node(
@@ -597,6 +599,7 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
     let backup = {
       nodes: [],
       links: [],
+      entrySymbols: this.entrySymbols,
     };
 
     for (let i: number = 0; i < this.nodes.length; i++) {
@@ -689,9 +692,7 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
     const matrizTransicionEstados: string[][] =
       this.matrizTransicionEstadosTableModel.getMatrizTransicionEstados();
 
-    const initialNode: Node = this.nodes.find(
-      (node: Node) => node.isInitialState
-    );
+    const initialNode: string = this.getInitialNode();
 
     if (!initialNode) {
       this.isInvalidStateToTestString = true;
@@ -699,7 +700,7 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
         'Por favor marca uno de los estados como estado inicial antes de evaluar la cadena';
     }
 
-    let nodeToSearch: string = initialNode.text;
+    let nodeToSearch: string = initialNode;
     let isValidString: boolean = false;
 
     const finalNode: Node = this.nodes.find((node: Node) => node.isFinalState);
@@ -879,5 +880,37 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
         stringToTest: this.stringToTest,
       },
     });
+  }
+
+  public getConjuntoFinitoDeEstados(): string {
+    let conjuntoFinitoDeEstados: string = '';
+    const estados: string[] = this.nodes.map((node: Node) => node.text);
+    conjuntoFinitoDeEstados = estados.join(', ');
+
+    return `{${conjuntoFinitoDeEstados}}`;
+  }
+
+  public getConjuntoFinitoSimbolosDeEntrada(): string {
+    return `{${this.matrizTransicionEstadosTableModel
+      .getHeaderNames()
+      .filter((headerName: string) => headerName !== 'δ')
+      .join(', ')}}`;
+  }
+
+  public getInitialNode(): string {
+    const initialNode: Node = this.nodes.find(
+      (node: Node) => node.isInitialState
+    );
+    return initialNode ? initialNode.text : '';
+  }
+
+  public getFinalNodes(): string {
+    let conjuntoEstadosFinales: string = '';
+    const estadosFinales: string[] = this.nodes
+      .filter((node: Node) => node.isFinalState)
+      .map((node: Node) => node.text);
+    conjuntoEstadosFinales = estadosFinales.join(', ');
+
+    return `{${conjuntoEstadosFinales}}`;
   }
 }

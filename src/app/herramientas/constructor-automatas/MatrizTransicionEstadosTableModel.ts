@@ -13,6 +13,8 @@ export class MatrizTransicionEstadosTableModel extends TableModel {
   private tableData: TableItem[][] = [];
   private initData: TableItem[][] = [];
 
+  private isAutomataFinitoNoDeterministico: boolean = false;
+
   constructor(
     private headerTemplate: TemplateRef<unknown>,
     private columnTemplate: TemplateRef<unknown>,
@@ -62,6 +64,7 @@ export class MatrizTransicionEstadosTableModel extends TableModel {
   }
 
   public setData(nodes: Node[], links: (Link | SelfLink | StartLink)[]): void {
+    this.isAutomataFinitoNoDeterministico = false;
     this.initData = [];
     nodes.forEach((node: Node) => {
       let tempArray: TableItem[] = new Array(this.header.length).fill(
@@ -76,29 +79,35 @@ export class MatrizTransicionEstadosTableModel extends TableModel {
       });
       links.forEach((link: Link | SelfLink | StartLink) => {
         const linkText: string = link.text;
-        if (link instanceof Link) {
-          if (node.text === link.nodeA.text) {
-            tempArray[
-              this.header.findIndex(
-                (headerItem: TableHeaderItem) =>
-                  headerItem.data.title === linkText
-              )
-            ] = new TableItem({
-              data: link.nodeB.text,
-              template: this.columnTemplate,
-            });
-          }
-        } else if (link instanceof SelfLink) {
-          if (node.text === link.node.text) {
-            tempArray[
-              this.header.findIndex(
-                (headerItem: TableHeaderItem) =>
-                  headerItem.data.title === linkText
-              )
-            ] = new TableItem({
-              data: node.text,
-              template: this.columnTemplate,
-            });
+        const tempArrayPosition: number = this.header.findIndex(
+          (headerItem: TableHeaderItem) => headerItem.data.title === linkText
+        );
+
+        if (tempArrayPosition >= 0) {
+          if (link instanceof Link) {
+            if (node.text === link.nodeA.text) {
+              if (tempArray[tempArrayPosition].data === '') {
+                tempArray[tempArrayPosition] = new TableItem({
+                  data: link.nodeB.text,
+                  template: this.columnTemplate,
+                });
+              } else {
+                tempArray[tempArrayPosition].data += `, ${link.nodeB.text}`;
+                this.isAutomataFinitoNoDeterministico = true;
+              }
+            }
+          } else if (link instanceof SelfLink) {
+            if (node.text === link.node.text) {
+              if (tempArray[tempArrayPosition].data === '') {
+                tempArray[tempArrayPosition] = new TableItem({
+                  data: node.text,
+                  template: this.columnTemplate,
+                });
+              } else {
+                tempArray[tempArrayPosition].data += `, ${node.text}`;
+                this.isAutomataFinitoNoDeterministico = true;
+              }
+            }
           }
         }
       });
@@ -140,5 +149,9 @@ export class MatrizTransicionEstadosTableModel extends TableModel {
     });
 
     return matrizTransicionEstados;
+  }
+
+  public getIfIsAutomataFinitoNoDeterministico(): boolean {
+    return this.isAutomataFinitoNoDeterministico;
   }
 }

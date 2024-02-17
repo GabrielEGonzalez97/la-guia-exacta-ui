@@ -14,7 +14,7 @@
     <div ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 8, sm: 6 }">
         <ibm-label>
             Introduzca el alfabeto o conjunto finito de símbolos de entrada, separe los elementos con comas
-            <input ibmText type="text" (input)="onEntrySymbolsChange($event)">
+            <input ibmText type="text" [value]="entrySymbols" (input)="onEntrySymbolsChange($event)">
         </ibm-label>
     </div>
 </div>
@@ -62,6 +62,20 @@
                 </tbody>
             </ibm-table>
         </ibm-table-container>
+        <ng-container *ngIf="!matrizTransicionEstadosTableModel.getIfIsAutomataFinitoNoDeterministico()">
+            <div class="automata-5-upla-container">
+                <p>AFD = <{{ getConjuntoFinitoDeEstados() }}, {{ getConjuntoFinitoSimbolosDeEntrada() }}, δ, {{
+                        getInitialNode() }}, {{ getFinalNodes() }}>
+                </p>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="matrizTransicionEstadosTableModel.getIfIsAutomataFinitoNoDeterministico()">
+            <div class="automata-5-upla-container">
+                <p>AFND = <{{ getConjuntoFinitoDeEstados() }}, {{ getConjuntoFinitoSimbolosDeEntrada() }}, δ, {{
+                        getInitialNode() }}, {{ getFinalNodes() }}>
+                </p>
+            </div>
+        </ng-container>
     </div>
 </div>
 
