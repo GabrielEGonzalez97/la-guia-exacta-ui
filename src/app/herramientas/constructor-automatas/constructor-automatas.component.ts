@@ -913,4 +913,86 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
 
     return `{${conjuntoEstadosFinales}}`;
   }
+
+  public showAFDEquivalent(): void {
+    const matrizTransicionEstadosHeader: string[] =
+      this.matrizTransicionEstadosTableModel.getHeaderNames();
+    const matrizTransicionEstados: string[][] =
+      this.matrizTransicionEstadosTableModel.getMatrizTransicionEstados();
+
+    let AFDEquivalent: string[][] = [];
+    const combinacionesEstadosAEvaluar: string[] = [];
+    const combinacionesEstadosEvaluados: string[] = [];
+
+    function getRowAFDEquivalent(): void {
+      let filaTransicionEstadosAExaminar: string[] = [];
+      function clearTempArray(arr: string[]): string[] {
+        return arr.map((item: string) => {
+          const partes = item
+            .split(', ')
+            .filter(
+              (valor: string, indice: number, arreglo: string[]) =>
+                arreglo.indexOf(valor) === indice
+            );
+          partes.sort();
+          return partes.join(', ');
+        });
+      }
+
+      let tempArray: string[] = new Array(
+        matrizTransicionEstadosHeader.length
+      ).fill('');
+      tempArray[0] = combinacionesEstadosAEvaluar[0];
+      combinacionesEstadosAEvaluar[0]
+        .split(', ')
+        .forEach((estadoIndividualAEvaluar: string) => {
+          filaTransicionEstadosAExaminar = matrizTransicionEstados.find(
+            (row: string[]) => row[0] === estadoIndividualAEvaluar
+          );
+
+          filaTransicionEstadosAExaminar.forEach(
+            (elementoFilaTransicionEstadosAExaminar: string, index: number) => {
+              elementoFilaTransicionEstadosAExaminar.split(', ').forEach(() => {
+                const tempArrayPosition: number = index;
+                const aux: string = matrizTransicionEstados.find(
+                  (row: string[]) => row[0] === estadoIndividualAEvaluar
+                )[tempArrayPosition];
+                if (aux !== '') {
+                  if (tempArray[tempArrayPosition] === '') {
+                    tempArray[tempArrayPosition] = aux;
+                  } else {
+                    tempArray[tempArrayPosition] += `, ${aux}`;
+                  }
+                }
+              });
+            }
+          );
+          tempArray = clearTempArray(tempArray);
+        });
+      tempArray.forEach((elementoTempArray: string) => {
+        if (
+          !combinacionesEstadosAEvaluar.includes(elementoTempArray) &&
+          !combinacionesEstadosEvaluados.includes(elementoTempArray)
+        ) {
+          combinacionesEstadosAEvaluar.push(elementoTempArray);
+        }
+      });
+      AFDEquivalent.push(tempArray);
+
+      const examinatedState: string = combinacionesEstadosAEvaluar.shift();
+      if (!combinacionesEstadosEvaluados.includes(examinatedState)) {
+        combinacionesEstadosEvaluados.push(examinatedState);
+      }
+
+      if (combinacionesEstadosAEvaluar.length > 0) {
+        getRowAFDEquivalent();
+      }
+    }
+
+    const initialNode: string = this.getInitialNode();
+    combinacionesEstadosAEvaluar.push(initialNode);
+
+    getRowAFDEquivalent();
+    console.log(AFDEquivalent);
+  }
 }
