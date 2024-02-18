@@ -2,6 +2,10 @@
 
 @include adjustPaddingInIBMGridAndCol();
 
+h1 {
+  font-size: calc(1.75vw + 1.75vh);
+}
+
 .logos-row {
   display: flex;
   width: 100%;

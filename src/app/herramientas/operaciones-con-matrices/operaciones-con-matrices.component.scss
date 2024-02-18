@@ -2,6 +2,10 @@
 
 @include adjustPaddingInIBMGridAndCol();
 
+h1 {
+  font-size: calc(1.75vw + 1.75vh);
+}
+
 .result-viewer {
   border: 1px solid $principal-color;
   padding: 0.5rem 1rem;
@@ -241,7 +245,7 @@
 
   .tree li div:hover,
   .tree li div:hover + ul li div {
-    background: #B6DD92;
+    background: #b6dd92;
     color: #fff;
     border: 1px solid #ababab;
   }
@@ -250,7 +254,7 @@
   .tree li div:hover + ul li::before,
   .tree li div:hover + ul::before,
   .tree li div:hover + ul ul::before {
-    border-color: #B6DD92;
+    border-color: #b6dd92;
   }
 
   .tree div span {
@@ -259,10 +263,10 @@
   }
 
   .operator {
-    background: #9CCBE7;
+    background: #9ccbe7;
   }
 
   .function {
-    background: #8BE4DB;
+    background: #8be4db;
   }
 }
