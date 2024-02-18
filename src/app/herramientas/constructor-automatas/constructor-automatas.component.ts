@@ -535,7 +535,7 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
     try {
       const backup = JSON.parse(localStorage['fsm']);
 
-      this.entrySymbols = backup.entrySymbols;
+      this.entrySymbols = backup.entrySymbols ? backup.entrySymbols : '';
 
       for (let i: number = 0; i < backup.nodes.length; i++) {
         const backupNode: Node = backup.nodes[i];
