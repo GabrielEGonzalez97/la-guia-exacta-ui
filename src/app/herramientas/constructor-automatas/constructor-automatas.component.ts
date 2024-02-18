@@ -760,17 +760,33 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
           }
         }
 
-        this.canvasUrlImages.push({
-          stepDescription: `Se evalúa si es válido el caracter '${charToTest}' en el nodo '${previousNodeToSearch}', siendo el resultado ${
-            isValidString ? 'válido' : 'inválido'
-          }`,
-          imageUrl: this.drawUsingStepByStep(
-            this.canvasContext,
-            previousNodeToSearch,
-            charToTest,
-            isValidString
-          ),
-        });
+        if (nodeToSearch.split(', ').length > 1) {
+          isValidString = false;
+          this.canvasUrlImages.push({
+            stepDescription: `El caracter '${charToTest}' en el nodo '${previousNodeToSearch}' puede ir a más de un nodo, por lo que el resultado de la evaluación es ${
+              isValidString ? 'válido' : 'inválido'
+            } ya que no se puede determinar a que nodo ir`,
+            imageUrl: this.drawUsingStepByStep(
+              this.canvasContext,
+              previousNodeToSearch,
+              charToTest,
+              isValidString
+            ),
+          });
+          break;
+        } else {
+          this.canvasUrlImages.push({
+            stepDescription: `Se evalúa si es válido el caracter '${charToTest}' en el nodo '${previousNodeToSearch}', siendo el resultado ${
+              isValidString ? 'válido' : 'inválido'
+            }`,
+            imageUrl: this.drawUsingStepByStep(
+              this.canvasContext,
+              previousNodeToSearch,
+              charToTest,
+              isValidString
+            ),
+          });
+        }
       }
 
       if (isValidString) {
