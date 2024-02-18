@@ -951,7 +951,7 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
             (row: string[]) => row[0] === estadoIndividualAEvaluar
           );
 
-          filaTransicionEstadosAExaminar.forEach(
+          filaTransicionEstadosAExaminar?.forEach(
             (elementoFilaTransicionEstadosAExaminar: string, index: number) => {
               elementoFilaTransicionEstadosAExaminar.split(', ').forEach(() => {
                 const tempArrayPosition: number = index;
@@ -972,6 +972,7 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
         });
       tempArray.forEach((elementoTempArray: string) => {
         if (
+          elementoTempArray &&
           !combinacionesEstadosAEvaluar.includes(elementoTempArray) &&
           !combinacionesEstadosEvaluados.includes(elementoTempArray)
         ) {
@@ -1002,7 +1003,9 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
         columnTemplate: this.columnTemplate,
         matrizTransicionEstadosHeader: matrizTransicionEstadosHeader,
         AFDEquivalent: AFDEquivalent.map((row: string[]) =>
-          row.map((element: string) => `[${element}]`)
+          row.map((element: string) =>
+            element.split(', ').length > 1 ? `[${element}]` : element
+          )
         ),
       },
     });

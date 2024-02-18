@@ -27,6 +27,7 @@ export class MatrizTransicionEstadosTableModel extends TableModel {
       this.links
         .filter((link: Link | SelfLink | StartLink) => link.text !== '')
         .map((link) => link.text)
+        .sort()
     );
 
     this.setData(this.nodes, this.links);

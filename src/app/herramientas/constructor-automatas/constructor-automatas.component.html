@@ -75,7 +75,8 @@
                         getInitialNode() }}, {{ getFinalNodes() }}>
                 </p>
             </div>
-            <div class="AFD-equivalente-button-container" ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 8, sm: 6 }">
+            <div class="AFD-equivalente-button-container" ibmCol
+                [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 8, sm: 6 }">
                 <button ibmButton="primary" class="show-steps-button" (click)="showAFDEquivalent()">
                     AFD equivalente
                 </button>
@@ -117,12 +118,11 @@
 </div>
 
 <ng-template #headerTemplate let-data="data">
-    <div class="table-header" [title]="data.description">{{ data.title }}</div>
+    <div class="table-header">{{ data.title }}</div>
 </ng-template>
 
 <ng-template #columnTemplate let-data="data">
     <div class="table-row-data-container">
-        <strong *ngIf="data.includes('Año')">{{ data }}</strong>
-        <p *ngIf="!data.includes('Año')">{{ data }}</p>
+        <p>{{ data }}</p>
     </div>
 </ng-template>
