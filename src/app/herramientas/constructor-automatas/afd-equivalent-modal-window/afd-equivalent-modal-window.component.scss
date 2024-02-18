@@ -1,0 +1,46 @@
+@import "src/styles/utils.scss";
+
+@include adjustPaddingInIBMGridAndCol();
+
+.modal-content-container {
+  padding: 1.5rem;
+
+  .bx--row {
+    margin-bottom: 1rem;
+
+    .bx--col {
+      overflow-x: auto;
+
+      p {
+        width: max-content;
+        font-size: 1.5rem;
+      }
+
+      span {
+        width: max-content;
+        font-size: 1.25rem;
+        margin-top: 0.5rem;
+      }
+    }
+  }
+
+  .renowned-states-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: -1rem;
+  }
+}
+
+:host ::ng-deep {
+  .bx--modal-container {
+    overflow-y: scroll;
+  }
+
+  .bx--data-table {
+    th,
+    td {
+      min-width: 130px;
+      border: 1px solid black !important;
+    }
+  }
+}

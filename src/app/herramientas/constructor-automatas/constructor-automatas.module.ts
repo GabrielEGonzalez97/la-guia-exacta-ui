@@ -16,6 +16,7 @@ import CheckmarkOutline32 from '@carbon/icons/es/checkmark--outline/32';
 import Information16 from '@carbon/icons/es/information/16';
 import MisuseOutline32 from '@carbon/icons/es/misuse--outline/32';
 import TrashCan24 from '@carbon/icons/es/trash-can/24';
+import { AFDEquivalentModalWindowComponent } from './afd-equivalent-modal-window/afd-equivalent-modal-window.component';
 import { InstructionsModalWindowComponent } from './instructions-modal-window/instructions-modal-window.component';
 import { StepByStepModalWindowComponent } from './step-by-step-modal-window/step-by-step-modal-window.component';
 
@@ -30,6 +31,7 @@ const CARBON_IMPORTS = [
 
 @NgModule({
   declarations: [
+    AFDEquivalentModalWindowComponent,
     ConstructorAutomatasComponent,
     InstructionsModalWindowComponent,
     StepByStepModalWindowComponent,

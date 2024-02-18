@@ -10,6 +10,7 @@ import {
 } from '@angular/core';
 import { ModalService } from 'carbon-components-angular';
 import { MatrizTransicionEstadosTableModel } from './MatrizTransicionEstadosTableModel';
+import { AFDEquivalentModalWindowComponent } from './afd-equivalent-modal-window/afd-equivalent-modal-window.component';
 import { canvasHasFocus } from './commonFunctions';
 import { SNAP_TO_PADDING } from './constants';
 import { SelfLink } from './elements/SelfLink';
@@ -993,6 +994,17 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
     combinacionesEstadosAEvaluar.push(initialNode);
 
     getRowAFDEquivalent();
-    console.log(AFDEquivalent);
+
+    this.modalService.create({
+      component: AFDEquivalentModalWindowComponent,
+      inputs: {
+        headerTemplate: this.headerTemplate,
+        columnTemplate: this.columnTemplate,
+        matrizTransicionEstadosHeader: matrizTransicionEstadosHeader,
+        AFDEquivalent: AFDEquivalent.map((row: string[]) =>
+          row.map((element: string) => `[${element}]`)
+        ),
+      },
+    });
   }
 }

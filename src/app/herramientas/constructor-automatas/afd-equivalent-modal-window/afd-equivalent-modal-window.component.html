@@ -1,0 +1,62 @@
+<ibm-modal [open]="true" (overlaySelected)="closeModal()">
+    <ibm-modal-header (closeSelect)="closeModal()">
+        <h2>Autómata Finito Determinístico Equivalente</h2>
+    </ibm-modal-header>
+
+    <div class="modal-content-container">
+        <div ibmRow>
+            <div ibmCol>
+                <p>La función de transición δ se calcula como:</p>
+            </div>
+        </div>
+        <div ibmRow>
+            <div ibmCol>
+                <ibm-table-container>
+                    <ibm-table [model]="AFDEquivalentTableModel" [showSelectionColumn]="false" [sortable]="false">
+                        <tbody>
+                            <tr>
+                                <td class="no-data-table" colspan="4">
+                                    <div>No data.</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </ibm-table>
+                </ibm-table-container>
+            </div>
+        </div>
+        <div ibmRow>
+            <div ibmCol>
+                <p>Renombrando los estados correspondientes al AFD:</p>
+            </div>
+        </div>
+        <div ibmRow>
+            <div ibmCol>
+                <div class="renowned-states-container">
+                    <ng-container *ngFor="let renownedState of getKeyValues()">
+                        <span>- {{ renownedState.key }} &#8594; {{ renownedState.value }}</span>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+        <div ibmRow>
+            <div ibmCol>
+                <p>La función de transición δ se puede reescribir como:</p>
+            </div>
+        </div>
+        <div ibmRow>
+            <div ibmCol>
+                <ibm-table-container>
+                    <ibm-table [model]="renownedStatesTableModel" [showSelectionColumn]="false" [sortable]="false">
+                        <tbody>
+                            <tr>
+                                <td class="no-data-table" colspan="4">
+                                    <div>No data.</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </ibm-table>
+                </ibm-table-container>
+            </div>
+        </div>
+    </div>
+</ibm-modal>
