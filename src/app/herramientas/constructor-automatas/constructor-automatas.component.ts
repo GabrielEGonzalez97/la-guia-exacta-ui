@@ -438,7 +438,7 @@ export class ConstructorAutomatasComponent implements AfterViewInit, OnInit {
       !(this.selectedObject instanceof Node)
     ) {
       const entrySymbols: string[] = this.entrySymbols
-        .replace(' ', '')
+        .replace(/\s/g, '')
         .split(',');
       if (entrySymbols.some((symbol) => symbol === event.key)) {
         this.selectedObject.text = event.key;
