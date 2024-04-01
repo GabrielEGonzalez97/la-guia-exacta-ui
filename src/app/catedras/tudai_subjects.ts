@@ -90,7 +90,7 @@ export let web_1: ISubject = {
 
 export let ingles_2: ISubject = {
   id: 'ingles_2',
-  name: 'Inglés 2',
+  name: 'Inglés II',
   status: localStorage.getItem('ingles_2'),
   career: TUDAI_NAME,
   year: FIRST_YEAR_NAME,

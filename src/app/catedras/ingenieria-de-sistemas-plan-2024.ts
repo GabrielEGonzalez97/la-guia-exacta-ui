@@ -194,7 +194,7 @@ export let lenguajes_formales_y_automatas_plan_2024: ISubject = {
 
 export let algebra_lineal_plan_2024: ISubject = {
   id: 'algebra_lineal_plan_2024',
-  name: 'Algebra Lineal',
+  name: 'Álgebra Lineal',
   status: localStorage.getItem('algebra_lineal_plan_2024'),
   career: INGENIERIA_DE_SISTEMAS_PLAN_2024_NAME,
   year: SECOND_YEAR_NAME,

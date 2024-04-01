@@ -48,9 +48,13 @@ export class FileUploaderComponent implements OnInit {
   public ngOnInit(): void {
     this.allSubjects.forEach((subject: ISubject) => {
       this.subjectsComboBoxItems.push({
-        content: subject.name,
+        content: `${subject.name} - ${subject.career}`,
         selected: false,
       });
+    });
+
+    this.subjectsComboBoxItems.sort((a: ListItem, b: ListItem) => {
+      return a.content.localeCompare(b.content, 'es', { sensitivity: 'base' });
     });
 
     this.typeOfContributionsComboBoxItems = [
