@@ -24,3 +24,27 @@ export interface IGoogleDriveFolderInformation {
   name: string;
   webViewLink: string;
 }
+
+export interface IResourceDBInformation {
+  id: string;
+  catedraId: string;
+  name: string;
+  webViewLink: string;
+  createdTime: string;
+}
+
+export interface ICatedraDBInformation {
+  id: string;
+  name: string;
+  career: string;
+  year: string;
+  quarter: string;
+  modalidadLink: string;
+  programaLink: string;
+  webLink: string;
+  moodleLink: string;
+  clasesLink: string;
+  resumenesLink: string;
+  parcialesLink: string;
+  finalesLink: string;
+}

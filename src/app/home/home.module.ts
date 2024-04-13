@@ -1,10 +1,25 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { GridModule } from 'carbon-components-angular';
+import {
+  GridModule,
+  IconModule,
+  IconService,
+  PaginationModule,
+  TableModule,
+  TagModule,
+} from 'carbon-components-angular';
 import { FlipCardComponent } from './flip-card/flip-card.component';
 import { HomeComponent } from './home.component';
 
-const CARBON_IMPORTS = [GridModule];
+import Link24 from '@carbon/icons/es/link/24';
+
+const CARBON_IMPORTS = [
+  GridModule,
+  IconModule,
+  PaginationModule,
+  TableModule,
+  TagModule,
+];
 
 @NgModule({
   declarations: [HomeComponent, FlipCardComponent],
@@ -13,5 +28,7 @@ const CARBON_IMPORTS = [GridModule];
   exports: [HomeComponent, FlipCardComponent],
 })
 export class HomeModule {
-  constructor() {}
+  constructor(protected iconService: IconService) {
+    iconService.registerAll([Link24]);
+  }
 }

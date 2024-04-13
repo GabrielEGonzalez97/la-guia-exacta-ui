@@ -1,10 +1,14 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IGoogleDriveFolderInformation } from '../common/interfaces';
+import {
+  ICatedraDBInformation,
+  IGoogleDriveFolderInformation,
+  IResourceDBInformation,
+} from '../common/interfaces';
 import { IWithState, UtilsService } from './utils.service';
 
-const API_URL = 'https://la-guia-exacta.vercel.app';
+const API_URL: string = 'https://la-guia-exacta.vercel.app';
 
 @Injectable({
   providedIn: 'root',
@@ -42,6 +46,30 @@ export class HttpService {
     return this.postWithState<any>(
       API_URL + '/uploadFileFromCommunity',
       formData
+    );
+  }
+
+  public getAllParciales(): Observable<IWithState<IResourceDBInformation[]>> {
+    return this.getWithState<IResourceDBInformation[]>(
+      API_URL + `/getAllParciales`
+    );
+  }
+
+  public getAllFinales(): Observable<IWithState<IResourceDBInformation[]>> {
+    return this.getWithState<IResourceDBInformation[]>(
+      API_URL + `/getAllFinales`
+    );
+  }
+
+  public getAllApuntes(): Observable<IWithState<IResourceDBInformation[]>> {
+    return this.getWithState<IResourceDBInformation[]>(
+      API_URL + `/getAllApuntes`
+    );
+  }
+
+  public getAllCatedras(): Observable<IWithState<ICatedraDBInformation[]>> {
+    return this.getWithState<ICatedraDBInformation[]>(
+      API_URL + `/getAllCatedras`
     );
   }
 

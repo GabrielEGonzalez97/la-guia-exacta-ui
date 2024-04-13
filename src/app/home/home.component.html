@@ -1,5 +1,5 @@
-<div ibmRow class="home-container">
-    <div class="title-column">
+<div class="home-container">
+    <div ibmRow class="title-column">
         <div class="title-container">
             <p>La guía exacta</p>
         </div>
@@ -16,4 +16,59 @@
             </ng-container>
         </ng-container>
     </div>
+    <div ibmRow class="metrics-row">
+        <h3>Parciales: <span class="metric-number">{{ parciales.length }}</span></h3>
+    </div>
+    <div ibmRow class="metrics-row">
+        <h3>Finales: <span class="metric-number">{{ finales.length }}</span></h3>
+    </div>
+    <div ibmRow class="metrics-row">
+        <h3>Apuntes: <span class="metric-number">{{ apuntes.length }}</span></h3>
+    </div>
+    <div ibmRow class="table-row">
+        <ibm-table-container class="data-table-container">
+            <ibm-table-header>
+                <h4 ibmTableHeaderTitle>Recursos</h4>
+                <p ibmTableHeaderDescription>Listado de todos los recursos que pueden encontrarse en la página</p>
+            </ibm-table-header>
+
+            <ibm-table [model]="resourcesTableModel" [showSelectionColumn]="false" [striped]="false" [sortable]="false">
+                <tbody>
+                    <tr>
+                        <td class="no-data-table" colspan="4">
+                            <div>No data.</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </ibm-table>
+
+            <ibm-pagination [model]="resourcesTableModel" (selectPage)="selectPage($event)"></ibm-pagination>
+        </ibm-table-container>
+    </div>
 </div>
+
+<ng-template #headerTemplate let-data="data">
+    <div class="table-header" [title]="data.description">{{ data.title }}</div>
+</ng-template>
+
+<ng-template #columnTemplate let-data="data">
+    <div class="table-row-data-container">
+        {{ data }}
+    </div>
+</ng-template>
+
+<ng-template #tagTemplate let-data="data">
+    <div class="tag-container">
+        <ibm-tag *ngIf="data === ingenieriaDeSistemasName" type="blue">{{data}}</ibm-tag>
+        <ibm-tag *ngIf="data === tudaiName" type="teal">{{data}}</ibm-tag>
+        <ibm-tag *ngIf="data === ltaName" type="green">{{data}}</ibm-tag>
+    </div>
+</ng-template>
+
+<ng-template #linkTemplate let-data="data">
+    <div class="link-icon-container">
+        <ng-container *ngIf="data">
+            <svg class="link-icon" ibmIcon="link" size="24" (click)="openLinkNewTab(data)"></svg>
+        </ng-container>
+    </div>
+</ng-template>
