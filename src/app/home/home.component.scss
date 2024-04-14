@@ -90,6 +90,10 @@
       .filters-container {
         margin-top: 1rem;
         width: 100%;
+
+        [ibmCol] {
+          margin-bottom: 1rem;
+        }
       }
     }
   }
@@ -99,7 +103,6 @@
 .link-icon-container {
   display: flex;
   align-items: center;
-  min-width: max-content;
 
   .link-icon {
     fill: #0963fe;
@@ -146,5 +149,21 @@
 
   .bx--search-input {
     height: 40px;
+  }
+
+  .bx--date-picker-container:not(:last-of-type) {
+    margin-right: 1rem;
+  }
+}
+
+.table-row ::ng-deep {
+  .bx--data-table tbody tr td:first-child {
+    width: 25%;
+  }
+  .bx--data-table tbody tr td:nth-child(2) {
+    width: 25%;
+  }
+  .bx--data-table tbody tr td:nth-child(3) {
+    width: 25%;
   }
 }

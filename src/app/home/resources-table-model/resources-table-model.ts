@@ -53,10 +53,9 @@ export class ResourcesTableModel extends TableModel {
     );
 
     this.resources.sort((a: IResourcesTableInfo, b: IResourcesTableInfo) => {
-      const dateA = new Date(a.createdTime);
-      const dateB = new Date(b.createdTime);
-
-      return dateB.getTime() - dateA.getTime();
+      const datePartsA: string = a.createdTime.split('/').reverse().join('/');
+      const datePartsB: string = b.createdTime.split('/').reverse().join('/');
+      return new Date(datePartsB).getTime() - new Date(datePartsA).getTime();
     });
 
     this.tableData = this.resources.map((resource: IResourcesTableInfo) => {

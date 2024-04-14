@@ -76,9 +76,9 @@
                         </ibm-dropdown>
                     </div>
                     <div ibmCol>
-                        <ibm-dropdown label="Cuatrimestres" placeholder="Selecciona un cuatrimestre">
-                            <ibm-dropdown-list [items]="[]"></ibm-dropdown-list>
-                        </ibm-dropdown>
+                        <ibm-date-picker label="Fecha inicio" rangeLabel="Fecha fin" [range]="true"
+                            placeholder="dd/mm/yyyy" dateFormat="d/m/Y" (valueChange)="onDateChange($event)">
+                        </ibm-date-picker>
                     </div>
                 </div>
             </ibm-table-header>

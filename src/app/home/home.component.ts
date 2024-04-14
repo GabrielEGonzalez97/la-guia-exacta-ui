@@ -76,6 +76,8 @@ export class HomeComponent implements OnInit {
   private searchingBySubjectContent: string = '';
   private selectedCareerContent: string = '';
   private selectedResourceTypeContent: string = '';
+  private selectedInitDate: string = '';
+  private selectedEndDate: string = '';
 
   constructor(
     private httpService: HttpService,
@@ -181,6 +183,22 @@ export class HomeComponent implements OnInit {
       fieldToSearch
         ? field.toLowerCase() === fieldToSearch.toLowerCase()
         : true;
+    const filterByDateRange = (
+      dateToCheck: string,
+      startDate: string,
+      endDate: string
+    ) => {
+      const dateParts = (date: string) => date.split('/').map(Number);
+      const [dayToCheck, monthToCheck, yearToCheck] = dateParts(dateToCheck);
+      const [startDay, startMonth, startYear] = dateParts(startDate);
+      const [endDay, endMonth, endYear] = dateParts(endDate);
+
+      const checkDate = new Date(yearToCheck, monthToCheck - 1, dayToCheck);
+      const startDateObj = new Date(startYear, startMonth - 1, startDay);
+      const endDateObj = new Date(endYear, endMonth - 1, endDay);
+
+      return checkDate >= startDateObj && checkDate <= endDateObj;
+    };
     const resourcesToShow: IResourcesTableInfo[] = this.resources.filter(
       (resource: IResourcesTableInfo) =>
         filterByPartialMatch(
@@ -191,6 +209,11 @@ export class HomeComponent implements OnInit {
         filterByCompleteMatch(
           resource.resource.split(' ')[0],
           this.selectedResourceTypeContent
+        ) &&
+        filterByDateRange(
+          resource.createdTime,
+          this.selectedInitDate,
+          this.selectedEndDate
         )
     );
     this.resourcesTableModel = new ResourcesTableModel(
@@ -221,5 +244,13 @@ export class HomeComponent implements OnInit {
         ? selectedResourceType.item.content
         : '';
     this.onFilterChange();
+  }
+
+  public onDateChange(dates: Date[]): void {
+    this.selectedInitDate = this.formatDateTime(dates[0].toDateString());
+    if (dates.length > 1) {
+      this.selectedEndDate = this.formatDateTime(dates[1].toDateString());
+      this.onFilterChange();
+    }
   }
 }
