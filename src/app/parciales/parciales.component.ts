@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ListItem } from 'carbon-components-angular';
+import * as JSZip from 'jszip';
 import { PARCIALES_TYPES } from '../common/constants';
 import { IGoogleDriveFolderInformation } from '../common/interfaces';
 import { HttpService } from '../services/http.service';
 import { IWithState, UtilsService } from '../services/utils.service';
 import { IParcialesInformation } from './interfaces';
-import * as JSZip from 'jszip';
 
 @Component({
   selector: 'app-parciales',
@@ -202,10 +202,10 @@ export class ParcialesComponent implements OnInit {
     const filterFunction = (field: string, fieldToSearch: string) =>
       field.toLowerCase().indexOf(fieldToSearch.toLowerCase()) !== -1;
     this.parcialesToShow = this.parciales.filter(
-      (final: IParcialesInformation) =>
-        filterFunction(final.year, this.selectedYearContent) &&
+      (parcial: IParcialesInformation) =>
+        filterFunction(parcial.year, this.selectedYearContent) &&
         filterFunction(
-          final.name.split(' ' + final.year)[0],
+          parcial.name.split(' ' + parcial.year)[0],
           this.selectedParcialTypeContent
         )
     );

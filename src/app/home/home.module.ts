@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import {
+  DropdownModule,
   GridModule,
   IconModule,
   IconService,
+  InputModule,
   PaginationModule,
   SkeletonModule,
   TableModule,
@@ -15,8 +17,10 @@ import { HomeComponent } from './home.component';
 import Link24 from '@carbon/icons/es/link/24';
 
 const CARBON_IMPORTS = [
+  DropdownModule,
   GridModule,
   IconModule,
+  InputModule,
   PaginationModule,
   SkeletonModule,
   TableModule,

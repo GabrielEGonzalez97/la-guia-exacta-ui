@@ -54,6 +54,33 @@
             <ibm-table-header>
                 <h4 ibmTableHeaderTitle>Recursos</h4>
                 <p ibmTableHeaderDescription>Listado de todos los recursos que pueden encontrarse en la página</p>
+                <div ibmRow class="filters-container">
+                    <div ibmCol>
+                        <ibm-label>Cátedra</ibm-label>
+                        <div class="bx--search">
+                            <input class="bx--search-input" type="search" placeholder='Buscar por nombre de cátedra'
+                                autocomplete='on' (input)="onChangeSearchingBySubject($event)">
+                            <svg class="bx--search-magnifier-icon" ibmIcon="search" size="16"></svg>
+                        </div>
+                    </div>
+                    <div ibmCol>
+                        <ibm-dropdown label="Carreras" placeholder="Selecciona una carrera"
+                            (selected)="onSelectedCareerChange($event)">
+                            <ibm-dropdown-list [items]="careersDropdownItems"></ibm-dropdown-list>
+                        </ibm-dropdown>
+                    </div>
+                    <div ibmCol>
+                        <ibm-dropdown label="Tipo de recurso" placeholder="Selecciona un tipo de recurso"
+                            (selected)="onSelectedResourceTypeChange($event)">
+                            <ibm-dropdown-list [items]="resourceTypesItems"></ibm-dropdown-list>
+                        </ibm-dropdown>
+                    </div>
+                    <div ibmCol>
+                        <ibm-dropdown label="Cuatrimestres" placeholder="Selecciona un cuatrimestre">
+                            <ibm-dropdown-list [items]="[]"></ibm-dropdown-list>
+                        </ibm-dropdown>
+                    </div>
+                </div>
             </ibm-table-header>
 
             <ibm-table [model]="resourcesTableModel" [showSelectionColumn]="false" [striped]="false" [sortable]="false">

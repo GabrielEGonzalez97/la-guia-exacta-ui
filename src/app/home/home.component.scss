@@ -86,6 +86,11 @@
 
     .data-table-container {
       width: 100%;
+
+      .filters-container {
+        margin-top: 1rem;
+        width: 100%;
+      }
     }
   }
 }
@@ -130,5 +135,16 @@
   .link-icon {
     width: 12px;
     height: 12px;
+  }
+}
+
+.filters-container ::ng-deep {
+  .bx--search,
+  .bx--dropdown {
+    min-width: 10rem;
+  }
+
+  .bx--search-input {
+    height: 40px;
   }
 }

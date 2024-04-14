@@ -48,3 +48,11 @@ export interface ICatedraDBInformation {
   parcialesLink: string;
   finalesLink: string;
 }
+
+export interface IResourcesTableInfo {
+  catedra: string;
+  career: string;
+  resource: string;
+  createdTime: string;
+  webViewLink: string;
+}

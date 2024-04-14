@@ -4,10 +4,7 @@ import {
   TableItem,
   TableModel,
 } from 'carbon-components-angular';
-import {
-  ICatedraDBInformation,
-  IResourceDBInformation,
-} from 'src/app/common/interfaces';
+import { IResourcesTableInfo } from 'src/app/common/interfaces';
 
 export class ResourcesTableModel extends TableModel {
   private tableData: TableItem[][];
@@ -43,8 +40,7 @@ export class ResourcesTableModel extends TableModel {
     private columnTemplate: TemplateRef<unknown>,
     private tagTemplate: TemplateRef<unknown>,
     private linkTemplate: TemplateRef<unknown>,
-    private recursos: IResourceDBInformation[],
-    private catedras: ICatedraDBInformation[]
+    private resources: IResourcesTableInfo[]
   ) {
     super();
 
@@ -56,58 +52,42 @@ export class ResourcesTableModel extends TableModel {
         })
     );
 
-    this.recursos.sort(
-      (a: IResourceDBInformation, b: IResourceDBInformation) => {
-        const dateA = new Date(a.createdTime);
-        const dateB = new Date(b.createdTime);
+    this.resources.sort((a: IResourcesTableInfo, b: IResourcesTableInfo) => {
+      const dateA = new Date(a.createdTime);
+      const dateB = new Date(b.createdTime);
 
-        return dateB.getTime() - dateA.getTime();
-      }
-    );
+      return dateB.getTime() - dateA.getTime();
+    });
 
-    this.tableData = this.recursos.map((recurso: IResourceDBInformation) => {
+    this.tableData = this.resources.map((resource: IResourcesTableInfo) => {
       return [
         new TableItem({
-          data: this.catedras.find(
-            (catedra) => catedra.id === recurso.catedraId
-          ).name,
+          data: resource.catedra,
           template: this.columnTemplate,
         }),
         new TableItem({
-          data: this.catedras
-            .find((catedra) => catedra.id === recurso.catedraId)
-            .career.replace(/\s*\([^)]*\)/, ''),
+          data: resource.career,
           template: this.tagTemplate,
         }),
         new TableItem({
-          data: recurso.name.slice(0, recurso.name.lastIndexOf('.')),
+          data: resource.resource,
           template: this.columnTemplate,
         }),
         new TableItem({
-          data: this.formatDateTime(recurso.createdTime),
+          data: resource.createdTime,
           template: this.columnTemplate,
         }),
         new TableItem({
-          data: recurso.webViewLink,
+          data: resource.webViewLink,
           template: this.linkTemplate,
         }),
       ];
     });
 
     this.pageLength = 10;
-    this.totalDataLength = this.recursos.length;
+    this.totalDataLength = this.resources.length;
 
     this.selectPage(1);
-  }
-
-  private formatDateTime(dateTimeString: string): string {
-    const dateObj: Date = new Date(dateTimeString);
-
-    const day: string = dateObj.getDate().toString().padStart(2, '0');
-    const month: string = (dateObj.getMonth() + 1).toString().padStart(2, '0');
-    const year: string = dateObj.getFullYear().toString();
-
-    return `${day}/${month}/${year}`;
   }
 
   public selectPage(page: number): void {
@@ -121,7 +101,7 @@ export class ResourcesTableModel extends TableModel {
       .filter(
         (_val, index) =>
           index >= page * this.pageLength - this.pageLength &&
-          index < Math.min(page * this.pageLength, this.recursos.length)
+          index < Math.min(page * this.pageLength, this.resources.length)
       )
       .map((data, _index) => {
         return data;
