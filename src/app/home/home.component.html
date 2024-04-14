@@ -17,13 +17,37 @@
         </ng-container>
     </div>
     <div ibmRow class="metrics-row">
-        <h3>Parciales: <span class="metric-number">{{ parciales.length }}</span></h3>
+        <h3>
+            Parciales:
+            <ng-container *ngIf="!areMetricsLoading">
+                <span class="metric-number">{{ parciales.length }}</span>
+            </ng-container>
+            <ng-container *ngIf="areMetricsLoading">
+                <ibm-skeleton-text [lines]="1"></ibm-skeleton-text>
+            </ng-container>
+        </h3>
     </div>
     <div ibmRow class="metrics-row">
-        <h3>Finales: <span class="metric-number">{{ finales.length }}</span></h3>
+        <h3>
+            Finales:
+            <ng-container *ngIf="!areMetricsLoading">
+                <span class="metric-number">{{ finales.length }}</span>
+            </ng-container>
+            <ng-container *ngIf="areMetricsLoading">
+                <ibm-skeleton-text [lines]="1"></ibm-skeleton-text>
+            </ng-container>
+        </h3>
     </div>
     <div ibmRow class="metrics-row">
-        <h3>Apuntes: <span class="metric-number">{{ apuntes.length }}</span></h3>
+        <h3>
+            Apuntes:
+            <ng-container *ngIf="!areMetricsLoading">
+                <span class="metric-number">{{ apuntes.length }}</span>
+            </ng-container>
+            <ng-container *ngIf="areMetricsLoading">
+                <ibm-skeleton-text [lines]="1"></ibm-skeleton-text>
+            </ng-container>
+        </h3>
     </div>
     <div ibmRow class="table-row">
         <ibm-table-container class="data-table-container">

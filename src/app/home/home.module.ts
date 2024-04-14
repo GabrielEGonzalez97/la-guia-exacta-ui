@@ -5,6 +5,7 @@ import {
   IconModule,
   IconService,
   PaginationModule,
+  SkeletonModule,
   TableModule,
   TagModule,
 } from 'carbon-components-angular';
@@ -17,6 +18,7 @@ const CARBON_IMPORTS = [
   GridModule,
   IconModule,
   PaginationModule,
+  SkeletonModule,
   TableModule,
   TagModule,
 ];

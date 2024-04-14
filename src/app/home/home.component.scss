@@ -41,8 +41,8 @@
     display: flex;
     width: 100%;
     justify-content: center;
-    margin-top: 2%;
-    margin-bottom: 2%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 
     [ibmCol] {
       display: flex;
@@ -54,24 +54,35 @@
   .metrics-row {
     display: flex;
     width: 100%;
-    margin-top: 2.5%;
-    margin-bottom: 2%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 
     h3 {
+      display: flex;
+      align-items: center;
       font-size: calc(2.5vw + 2.5vh);
       font-weight: 500;
+    }
+
+    h3 ::ng-deep {
+      .bx--skeleton__text {
+        width: 75px !important;
+        margin-bottom: 0;
+        margin-left: 1rem;
+      }
     }
 
     .metric-number {
       font-weight: 800;
       color: #0963fe;
+      margin-left: 1rem;
     }
   }
 
   .table-row {
     display: flex;
     width: 100%;
-    margin-bottom: 2%;
+    margin-bottom: 2rem;
 
     .data-table-container {
       width: 100%;
@@ -96,6 +107,20 @@
 }
 
 @media (max-width: 768px) {
+  .logos-row {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .metrics-row {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .table-row {
+    margin-bottom: 1rem !important;
+  }
+
   .table-header,
   .table-row-data-container,
   .tag-container ibm-tag {

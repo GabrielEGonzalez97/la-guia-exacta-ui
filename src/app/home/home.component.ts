@@ -40,6 +40,8 @@ export class HomeComponent implements OnInit {
 
   public resourcesTableModel: ResourcesTableModel = null;
 
+  public areMetricsLoading: boolean = true;
+
   constructor(
     private httpService: HttpService,
     private utilsService: UtilsService
@@ -93,6 +95,8 @@ export class HomeComponent implements OnInit {
                 resources,
                 catedrasResponse.value
               );
+
+              this.areMetricsLoading = false;
             }
           }
         )
