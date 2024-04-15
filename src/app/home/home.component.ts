@@ -1,5 +1,11 @@
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { ListItem } from 'carbon-components-angular';
+import {
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+  TemplateRef,
+  ViewChild,
+} from '@angular/core';
+import { ListItem, Table, TableModel } from 'carbon-components-angular';
 import { forkJoin, map } from 'rxjs';
 import {
   INGENIERIA_DE_SISTEMAS_NAME,
@@ -45,6 +51,7 @@ export class HomeComponent implements OnInit {
   public ltaName: string = LTA_NAME;
 
   public resourcesTableModel: ResourcesTableModel = null;
+  public skeletonModel: TableModel = new TableModel();
 
   public areMetricsLoading: boolean = true;
 
@@ -76,15 +83,19 @@ export class HomeComponent implements OnInit {
   private searchingBySubjectContent: string = '';
   private selectedCareerContent: string = '';
   private selectedResourceTypeContent: string = '';
+  public dates: Date[] = [];
   private selectedInitDate: string = '';
   private selectedEndDate: string = '';
 
   constructor(
+    private changeDetectorRef: ChangeDetectorRef,
     private httpService: HttpService,
     private utilsService: UtilsService
   ) {}
 
   public ngOnInit(): void {
+    this.skeletonModel = Table.skeletonModel(6, 5);
+
     this.resourcesTableModel = new ResourcesTableModel(
       this.headerTemplate,
       this.columnTemplate,
@@ -156,6 +167,8 @@ export class HomeComponent implements OnInit {
         )
       )
       .subscribe();
+
+    this.changeDetectorRef.detectChanges();
   }
 
   private formatDateTime(dateTimeString: string): string {
@@ -197,7 +210,10 @@ export class HomeComponent implements OnInit {
       const startDateObj = new Date(startYear, startMonth - 1, startDay);
       const endDateObj = new Date(endYear, endMonth - 1, endDay);
 
-      return checkDate >= startDateObj && checkDate <= endDateObj;
+      const result: boolean =
+        checkDate >= startDateObj && checkDate <= endDateObj;
+
+      return startDate ? result : true;
     };
     const resourcesToShow: IResourcesTableInfo[] = this.resources.filter(
       (resource: IResourcesTableInfo) =>
@@ -247,10 +263,20 @@ export class HomeComponent implements OnInit {
   }
 
   public onDateChange(dates: Date[]): void {
-    this.selectedInitDate = this.formatDateTime(dates[0].toDateString());
+    this.dates = dates;
+    if (dates.length > 0) {
+      this.selectedInitDate = this.formatDateTime(dates[0].toDateString());
+    }
     if (dates.length > 1) {
       this.selectedEndDate = this.formatDateTime(dates[1].toDateString());
       this.onFilterChange();
     }
+  }
+
+  public clearDateFilters(): void {
+    this.dates = [];
+    this.selectedInitDate = '';
+    this.selectedEndDate = '';
+    this.onFilterChange();
   }
 }

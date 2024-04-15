@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import {
   DatePickerModule,
   DropdownModule,
@@ -31,7 +32,7 @@ const CARBON_IMPORTS = [
 
 @NgModule({
   declarations: [HomeComponent, FlipCardComponent],
-  imports: [CommonModule, CARBON_IMPORTS],
+  imports: [CommonModule, FormsModule, CARBON_IMPORTS],
   providers: [],
   exports: [HomeComponent, FlipCardComponent],
 })

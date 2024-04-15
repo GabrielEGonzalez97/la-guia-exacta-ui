@@ -76,22 +76,40 @@
                         </ibm-dropdown>
                     </div>
                     <div ibmCol>
-                        <ibm-date-picker label="Fecha inicio" rangeLabel="Fecha fin" [range]="true"
-                            placeholder="dd/mm/yyyy" dateFormat="d/m/Y" (valueChange)="onDateChange($event)">
-                        </ibm-date-picker>
+                        <div class="date-picker-container">
+                            <ibm-date-picker label="Fecha inicio" rangeLabel="Fecha fin" [range]="true"
+                                [(ngModel)]="dates" placeholder="dd/mm/yyyy" dateFormat="d/m/Y"
+                                (valueChange)="onDateChange($event)">
+                            </ibm-date-picker>
+                            <div class="close-icon-container" (click)="clearDateFilters()">
+                                <svg class="bx--btn__icon" ibmIcon="close" size="16"></svg>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </ibm-table-header>
 
-            <ibm-table [model]="resourcesTableModel" [showSelectionColumn]="false" [striped]="false" [sortable]="false">
-                <tbody>
-                    <tr>
-                        <td class="no-data-table" colspan="4">
-                            <div>No data.</div>
-                        </td>
-                    </tr>
-                </tbody>
-            </ibm-table>
+            <ng-container *ngIf="!areMetricsLoading">
+                <ibm-table [model]="resourcesTableModel" [showSelectionColumn]="false" [striped]="false"
+                    [sortable]="false">
+                    <tbody>
+                        <tr>
+                            <td colspan="5">
+                                <div class="no-data-table-container">
+                                    <img src="assets/images/no-result-found-on-web-icon.svg" alt="No result found">
+                                    <h5>No se encontraron recursos</h5>
+                                    <p>Prueba cambiando los filtros para encontrar recursos</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </ibm-table>
+            </ng-container>
+
+            <ng-container *ngIf="areMetricsLoading">
+                <ibm-table [model]="skeletonModel" [striped]="false" [skeleton]="true">
+                </ibm-table>
+            </ng-container>
 
             <ibm-pagination [model]="resourcesTableModel" (selectPage)="selectPage($event)"></ibm-pagination>
         </ibm-table-container>
