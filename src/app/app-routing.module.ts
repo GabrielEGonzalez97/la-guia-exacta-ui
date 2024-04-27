@@ -5,6 +5,18 @@ import { IngenieriaDeSistemasComponent } from './carreras/ingenieria-de-sistemas
 import { LtaComponent } from './carreras/lta/lta.component';
 import { TudaiComponent } from './carreras/tudai/tudai.component';
 import { CatedrasComponent } from './catedras/catedras.component';
+import {
+  CARRERAS_PAGE_SECTION,
+  CATEDRAS_PAGE_SECTION,
+  CONSTRUCTOR_DE_AUTOMATAS_PAGE_SECTION,
+  CURSOS_GRATUITOS_PAGE_SECTION,
+  HERRAMIENTAS_PAGE_SECTION,
+  INGENIERIA_DE_SISTEMAS_PAGE_SECTION,
+  LTA_PAGE_SECTION,
+  OPERACIONES_CON_MATRICES_PAGE_SECTION,
+  SUBIR_APORTES_PAGE_SECTION,
+  TUDAI_PAGE_SECTION,
+} from './common/constants';
 import { CursosGratuitosComponent } from './cursos-gratuitos/cursos-gratuitos.component';
 import { FileUploaderComponent } from './file-uploader/file-uploader.component';
 import { FinalesComponent } from './finales/finales.component';
@@ -23,29 +35,29 @@ const routes: Routes = [
     data: { title: 'Homepage' },
   },
   {
-    path: 'carreras',
+    path: CARRERAS_PAGE_SECTION.route,
     component: CarrerasHomeComponent,
-    data: { title: 'Carreras' },
+    data: { title: CARRERAS_PAGE_SECTION.titleGoogleAnalytics },
   },
   {
-    path: 'carreras/ingenieria-de-sistemas',
+    path: INGENIERIA_DE_SISTEMAS_PAGE_SECTION.route,
     component: IngenieriaDeSistemasComponent,
-    data: { title: 'Carrera-Ingenieria-de-Sistemas' },
+    data: { title: INGENIERIA_DE_SISTEMAS_PAGE_SECTION.titleGoogleAnalytics },
   },
   {
-    path: 'carreras/licenciatura-en-tecnologia-ambiental',
+    path: LTA_PAGE_SECTION.route,
     component: LtaComponent,
-    data: { title: 'Carrera-Licenciatura-en-Tecnologia-Ambiental' },
+    data: { title: LTA_PAGE_SECTION.titleGoogleAnalytics },
   },
   {
-    path: 'carreras/tudai',
+    path: TUDAI_PAGE_SECTION.route,
     component: TudaiComponent,
-    data: { title: 'Carrera-TUDAI' },
+    data: { title: TUDAI_PAGE_SECTION.titleGoogleAnalytics },
   },
   {
-    path: 'catedras',
+    path: CATEDRAS_PAGE_SECTION.route,
     component: CatedrasComponent,
-    data: { title: 'Catedras' },
+    data: { title: CATEDRAS_PAGE_SECTION.titleGoogleAnalytics },
   },
   {
     path: 'parciales/:subjectName',
@@ -68,29 +80,29 @@ const routes: Routes = [
     data: { title: 'Videos-Clases' },
   },
   {
-    path: 'cursos-gratuitos',
+    path: CURSOS_GRATUITOS_PAGE_SECTION.route,
     component: CursosGratuitosComponent,
-    data: { title: 'Cursos-Gratuitos' },
+    data: { title: CURSOS_GRATUITOS_PAGE_SECTION.route },
   },
   {
-    path: 'subir-aportes',
+    path: SUBIR_APORTES_PAGE_SECTION.route,
     component: FileUploaderComponent,
-    data: { title: 'Subir-Aportes' },
+    data: { title: SUBIR_APORTES_PAGE_SECTION.titleGoogleAnalytics },
   },
   {
-    path: 'herramientas',
+    path: HERRAMIENTAS_PAGE_SECTION.route,
     component: HerramientasHomeComponent,
-    data: { title: 'Herramientas' },
+    data: { title: HERRAMIENTAS_PAGE_SECTION.titleGoogleAnalytics },
   },
   {
-    path: 'herramientas/operaciones-con-matrices',
+    path: OPERACIONES_CON_MATRICES_PAGE_SECTION.route,
     component: OperacionesConMatricesComponent,
-    data: { title: 'Operaciones-con-Matrices' },
+    data: { title: OPERACIONES_CON_MATRICES_PAGE_SECTION.titleGoogleAnalytics },
   },
   {
-    path: 'herramientas/constructor-automatas',
+    path: CONSTRUCTOR_DE_AUTOMATAS_PAGE_SECTION.route,
     component: ConstructorAutomatasComponent,
-    data: { title: 'Constructor-Automatas' },
+    data: { title: CONSTRUCTOR_DE_AUTOMATAS_PAGE_SECTION.titleGoogleAnalytics },
   },
 ];
 

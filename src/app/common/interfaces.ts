@@ -3,6 +3,7 @@ import { ISubject } from '../catedras/interfaces';
 export interface IPageSection {
   name: string;
   route: string;
+  titleGoogleAnalytics?: string;
   cardFrontImagePath?: string;
   cardBackImagePath?: string;
   subSections?: IPageSection[];

@@ -3,76 +3,113 @@ import { IPageSection, ISocialMedia } from './interfaces';
 
 export const PAGE_TITLE: string = 'La guía exacta';
 
+// ---------------------- CARRERAS SECTIONS ----------------------
+
+export const INGENIERIA_DE_SISTEMAS_PAGE_SECTION: IPageSection = {
+  name: Careers.INGENIERIA_DE_SISTEMAS,
+  route: 'carreras/ingenieria-de-sistemas',
+  titleGoogleAnalytics: 'Carrera-Ingenieria-de-Sistemas',
+};
+
+export const LTA_PAGE_SECTION: IPageSection = {
+  name: Careers.LTA,
+  route: 'carreras/licenciatura-en-tecnologia-ambiental',
+  titleGoogleAnalytics: 'Carrera-Licenciatura-en-Tecnologia-Ambiental',
+};
+
+export const TUDAI_PAGE_SECTION: IPageSection = {
+  name: Careers.TUDAI,
+  route: 'carreras/tudai',
+  titleGoogleAnalytics: 'Carrera-TUDAI',
+};
+
 export const CARRERAS_SECTIONS: IPageSection[] = [
-  {
-    name: Careers.INGENIERIA_DE_SISTEMAS,
-    route: 'carreras/ingenieria-de-sistemas',
-  },
-  {
-    name: Careers.LTA,
-    route: 'carreras/licenciatura-en-tecnologia-ambiental',
-  },
-  {
-    name: Careers.TUDAI,
-    route: 'carreras/tudai',
-  },
+  INGENIERIA_DE_SISTEMAS_PAGE_SECTION,
+  LTA_PAGE_SECTION,
+  TUDAI_PAGE_SECTION,
 ];
+
+// ---------------------- HERRAMIENTAS SECTIONS ----------------------
+
+export const OPERACIONES_CON_MATRICES_PAGE_SECTION: IPageSection = {
+  name: 'Operaciones con matrices',
+  route: 'herramientas/operaciones-con-matrices',
+  titleGoogleAnalytics: 'Operaciones-con-Matrices',
+  cardFrontImagePath:
+    'assets/images/herramientas-logos/operaciones-con-matrices-front-logo.svg',
+  cardBackImagePath:
+    'assets/images/herramientas-logos/operaciones-con-matrices-back-logo.svg',
+};
+
+export const CONSTRUCTOR_DE_AUTOMATAS_PAGE_SECTION: IPageSection = {
+  name: 'Constructor de autómatas',
+  route: 'herramientas/constructor-automatas',
+  titleGoogleAnalytics: 'Constructor-Automatas',
+  cardFrontImagePath:
+    'assets/images/herramientas-logos/constructor-automatas-front-logo.svg',
+  cardBackImagePath:
+    'assets/images/herramientas-logos/constructor-automatas-back-logo.svg',
+};
 
 export const HERRAMIENTAS_SECTIONS: IPageSection[] = [
-  {
-    name: 'Operaciones con matrices',
-    route: 'herramientas/operaciones-con-matrices',
-    cardFrontImagePath:
-      'assets/images/herramientas-logos/operaciones-con-matrices-front-logo.svg',
-    cardBackImagePath:
-      'assets/images/herramientas-logos/operaciones-con-matrices-back-logo.svg',
-  },
-  {
-    name: 'Constructor de autómatas',
-    route: 'herramientas/constructor-automatas',
-    cardFrontImagePath:
-      'assets/images/herramientas-logos/constructor-automatas-front-logo.svg',
-    cardBackImagePath:
-      'assets/images/herramientas-logos/constructor-automatas-back-logo.svg',
-  },
+  OPERACIONES_CON_MATRICES_PAGE_SECTION,
+  CONSTRUCTOR_DE_AUTOMATAS_PAGE_SECTION,
 ];
 
+// ---------------------- PAGE SECTIONS ----------------------
+
+export const CARRERAS_PAGE_SECTION: IPageSection = {
+  name: 'Carreras',
+  route: 'carreras',
+  titleGoogleAnalytics: 'Carreras',
+  cardFrontImagePath: 'assets/images/home-logos/carreras-front-logo.svg',
+  cardBackImagePath: 'assets/images/home-logos/carreras-back-logo.svg',
+  subSections: CARRERAS_SECTIONS,
+};
+
+export const CATEDRAS_PAGE_SECTION: IPageSection = {
+  name: 'Cátedras',
+  route: 'catedras',
+  titleGoogleAnalytics: 'Catedras',
+  cardFrontImagePath: 'assets/images/home-logos/catedras-front-logo.svg',
+  cardBackImagePath: 'assets/images/home-logos/catedras-back-logo.svg',
+};
+
+export const CURSOS_GRATUITOS_PAGE_SECTION: IPageSection = {
+  name: 'Cursos gratuitos',
+  route: 'cursos-gratuitos',
+  titleGoogleAnalytics: 'Cursos-Gratuitos',
+  cardFrontImagePath:
+    'assets/images/home-logos/cursos-gratuitos-front-logo.svg',
+  cardBackImagePath: 'assets/images/home-logos/cursos-gratuitos-back-logo.svg',
+};
+
+export const SUBIR_APORTES_PAGE_SECTION: IPageSection = {
+  name: 'Subir aportes',
+  route: 'subir-aportes',
+  titleGoogleAnalytics: 'Subir-Aportes',
+  cardFrontImagePath: 'assets/images/home-logos/subir-aportes-front-logo.svg',
+  cardBackImagePath: 'assets/images/home-logos/subir-aportes-back-logo.svg',
+};
+
+export const HERRAMIENTAS_PAGE_SECTION: IPageSection = {
+  name: 'Herramientas',
+  route: 'herramientas',
+  titleGoogleAnalytics: 'Herramientas',
+  cardFrontImagePath: 'assets/images/home-logos/herramientas-front-logo.svg',
+  cardBackImagePath: 'assets/images/home-logos/herramientas-back-logo.svg',
+  subSections: HERRAMIENTAS_SECTIONS,
+};
+
 export const PAGE_SECTIONS: IPageSection[] = [
-  {
-    name: 'Carreras',
-    route: 'carreras',
-    cardFrontImagePath: 'assets/images/home-logos/carreras-front-logo.svg',
-    cardBackImagePath: 'assets/images/home-logos/carreras-back-logo.svg',
-    subSections: CARRERAS_SECTIONS,
-  },
-  {
-    name: 'Cátedras',
-    route: 'catedras',
-    cardFrontImagePath: 'assets/images/home-logos/catedras-front-logo.svg',
-    cardBackImagePath: 'assets/images/home-logos/catedras-back-logo.svg',
-  },
-  {
-    name: 'Cursos gratuitos',
-    route: 'cursos-gratuitos',
-    cardFrontImagePath:
-      'assets/images/home-logos/cursos-gratuitos-front-logo.svg',
-    cardBackImagePath:
-      'assets/images/home-logos/cursos-gratuitos-back-logo.svg',
-  },
-  {
-    name: 'Subir aportes',
-    route: 'subir-aportes',
-    cardFrontImagePath: 'assets/images/home-logos/subir-aportes-front-logo.svg',
-    cardBackImagePath: 'assets/images/home-logos/subir-aportes-back-logo.svg',
-  },
-  {
-    name: 'Herramientas',
-    route: 'herramientas',
-    cardFrontImagePath: 'assets/images/home-logos/herramientas-front-logo.svg',
-    cardBackImagePath: 'assets/images/home-logos/herramientas-back-logo.svg',
-    subSections: HERRAMIENTAS_SECTIONS,
-  },
+  CARRERAS_PAGE_SECTION,
+  CATEDRAS_PAGE_SECTION,
+  CURSOS_GRATUITOS_PAGE_SECTION,
+  SUBIR_APORTES_PAGE_SECTION,
+  HERRAMIENTAS_PAGE_SECTION,
 ];
+
+// ---------------------- SOCIAL MEDIAS ----------------------
 
 export const SOCIAL_MEDIAS: ISocialMedia[] = [
   {
