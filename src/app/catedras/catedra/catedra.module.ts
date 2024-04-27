@@ -1,19 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import {
-  ButtonModule,
-  DropdownModule,
-  GridModule,
-  ModalModule,
-  TagModule,
-  TilesModule,
+    ButtonModule,
+    DropdownModule,
+    GridModule,
+    ModalModule,
+    TagModule,
+    TilesModule,
 } from 'carbon-components-angular';
-import { ActionBarElementModule } from 'src/app/actions-bar/action-bar-element/action-bar-element.module';
+import { IconWithTextModule } from 'src/app/common/icon-with-text/icon-with-text.module';
+import { TooltipComponentModule } from 'src/app/tooltip/tooltip.module';
 import { CorrelativesModalWindowComponent } from '../correlatives-modal-window/correlatives-modal-window.component';
 import { SubjectsThatObstructModalWindowComponent } from '../subjects-that-obstruct-modal-window/subjects-that-obstruct-modal-window.component';
-import { CatedraComponent } from './catedra.component';
 import { CatedraColumnWithButtonComponent } from './catedra-column-with-button/catedra-column-with-button.component';
-import { TooltipComponentModule } from 'src/app/tooltip/tooltip.module';
+import { CatedraComponent } from './catedra.component';
 
 const CARBON_IMPORTS = [
   ButtonModule,
@@ -34,7 +34,7 @@ const CARBON_IMPORTS = [
   imports: [
     CommonModule,
     CARBON_IMPORTS,
-    ActionBarElementModule,
+    IconWithTextModule,
     TooltipComponentModule,
   ],
   providers: [],

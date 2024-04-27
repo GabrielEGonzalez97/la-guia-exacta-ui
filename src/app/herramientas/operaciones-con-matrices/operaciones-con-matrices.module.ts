@@ -2,16 +2,15 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
-  ButtonModule,
-  DialogModule,
-  DropdownModule,
-  GridModule,
-  IconModule,
-  IconService,
-  ModalModule,
-  NumberModule,
+    ButtonModule,
+    DialogModule,
+    DropdownModule,
+    GridModule,
+    IconModule,
+    IconService,
+    ModalModule,
+    NumberModule,
 } from 'carbon-components-angular';
-import { ActionBarElementModule } from 'src/app/actions-bar/action-bar-element/action-bar-element.module';
 import { MatrixModule } from './matrix/matrix.module';
 import { OperacionesConMatricesComponent } from './operaciones-con-matrices.component';
 
@@ -20,6 +19,7 @@ import CharacterFraction20 from '@carbon/icons/es/character--fraction/20';
 import WarningAlt32 from '@carbon/icons/es/warning--alt/32';
 
 import { MathjaxModule } from 'mathjax-angular';
+import { IconWithTextModule } from 'src/app/common/icon-with-text/icon-with-text.module';
 import { IntermediateStepsComponent } from './step-by-step-modal-window/intermediate-steps/intermediate-steps.component';
 import { StepByStepModalWindowComponent } from './step-by-step-modal-window/step-by-step-modal-window.component';
 
@@ -41,7 +41,7 @@ const CARBON_IMPORTS = [
   ],
   imports: [
     CARBON_IMPORTS,
-    ActionBarElementModule,
+    IconWithTextModule,
     MatrixModule,
     CommonModule,
     FormsModule,

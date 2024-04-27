@@ -7,8 +7,8 @@ import {
   PanelModule,
   SideNavModule,
 } from 'carbon-components-angular';
-import { ActionBarElementModule } from './action-bar-element/action-bar-element.module';
-import { ActionsBarComponent } from './actions-bar.component';
+import { IconWithTextModule } from '../common/icon-with-text/icon-with-text.module';
+import { HeaderComponent } from './header.component';
 
 import { CommonModule } from '@angular/common';
 import Close16 from '@carbon/icons/es/close/16';
@@ -21,15 +21,15 @@ const CARBON_IMPORTS = [
   PanelModule,
   SideNavModule,
 ];
-const COMPONENT_IMPORTS = [ActionBarElementModule];
+const COMPONENT_IMPORTS = [IconWithTextModule];
 
 @NgModule({
-  declarations: [ActionsBarComponent],
+  declarations: [HeaderComponent],
   imports: [CommonModule, CARBON_IMPORTS, COMPONENT_IMPORTS],
   providers: [],
-  exports: [ActionsBarComponent],
+  exports: [HeaderComponent],
 })
-export class ActionsBarModule {
+export class HeaderComponentModule {
   constructor(protected iconService: IconService) {
     iconService.registerAll([Close16, Home24]);
   }

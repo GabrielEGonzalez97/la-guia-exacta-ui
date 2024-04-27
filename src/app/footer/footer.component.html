@@ -13,9 +13,9 @@
                     <ng-container *ngFor="let socialMedia of socialMedias">
                         <div ibmRow class="row-with-action-bar-element-container">
                             <button ibmButton="primary" (click)="openLinkNewTab(socialMedia.link)">
-                                <app-action-bar-element [elementIconImagePath]="socialMedia.iconPath"
+                                <app-icon-with-text [elementIconImagePath]="socialMedia.iconPath"
                                     [elementName]="socialMedia.name">
-                                </app-action-bar-element>
+                                </app-icon-with-text>
                             </button>
                         </div>
                     </ng-container>

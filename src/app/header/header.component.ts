@@ -4,14 +4,14 @@ import { IPageSection, ISocialMedia } from '../common/interfaces';
 import { UtilsService } from '../services/utils.service';
 
 @Component({
-  selector: 'app-action-bar',
-  templateUrl: './actions-bar.component.html',
-  styleUrls: ['./actions-bar.component.scss'],
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss'],
   host: {
     '(document:click)': 'onClickOutsideRightPanel($event)',
   },
 })
-export class ActionsBarComponent implements OnInit {
+export class HeaderComponent implements OnInit {
   public pageSections: IPageSection[] = PAGE_SECTIONS;
   public socialMedias: ISocialMedia[] = SOCIAL_MEDIAS;
 

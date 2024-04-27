@@ -9,9 +9,9 @@ import {
   TableModule,
   TilesModule,
 } from 'carbon-components-angular';
-import { ActionBarElementModule } from '../../actions-bar/action-bar-element/action-bar-element.module';
 import { CatedraModalWindowComponent } from '../../catedras/catedra-modal-window/catedra-modal-window.component';
 import { CatedraModule } from '../../catedras/catedra/catedra.module';
+import { IconWithTextModule } from '../../common/icon-with-text/icon-with-text.module';
 import { IngenieriaDeSistemasDescripcionComponent } from './ingenieria-de-sistemas-descripcion/ingenieria-de-sistemas-descripcion.component';
 import { IngenieriaDeSistemasPlanDeEstudiosComponent } from './ingenieria-de-sistemas-plan-de-estudios/ingenieria-de-sistemas-plan-de-estudios.component';
 import { IngenieriaDeSistemasComponent } from './ingenieria-de-sistemas.component';
@@ -47,7 +47,7 @@ const COMPONENT_IMPORTS = [
     CarreraTemplateModule,
     CatedraModule,
     DescripcionCarreraTemplateModule,
-    ActionBarElementModule,
+    IconWithTextModule,
   ],
   providers: [],
   exports: [IngenieriaDeSistemasComponent],

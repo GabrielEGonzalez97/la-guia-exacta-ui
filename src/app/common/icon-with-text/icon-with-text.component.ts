@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-action-bar-element',
-  templateUrl: './action-bar-element.component.html',
-  styleUrls: ['./action-bar-element.component.scss'],
+  selector: 'app-icon-with-text',
+  templateUrl: './icon-with-text.component.html',
+  styleUrls: ['./icon-with-text.component.scss'],
 })
-export class ActionBarElementComponent implements OnInit {
+export class IconWithTextComponent implements OnInit {
   @Input() public elementIconImagePath: string;
   @Input() public elementName: string;
 

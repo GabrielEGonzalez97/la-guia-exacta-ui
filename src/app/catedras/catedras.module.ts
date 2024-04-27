@@ -1,18 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import {
-  DropdownModule,
-  GridModule,
-  IconModule,
-  IconService,
-  InputModule,
-  SearchModule,
+    DropdownModule,
+    GridModule,
+    IconModule,
+    IconService,
+    InputModule,
+    SearchModule,
 } from 'carbon-components-angular';
-import { ActionBarElementModule } from '../actions-bar/action-bar-element/action-bar-element.module';
-import { CatedrasComponent } from './catedras.component';
 import { CatedraModule } from './catedra/catedra.module';
+import { CatedrasComponent } from './catedras.component';
 
 import Search16 from '@carbon/icons/es/search/16';
+import { IconWithTextModule } from '../common/icon-with-text/icon-with-text.module';
 
 const CARBON_IMPORTS = [
   DropdownModule,
@@ -27,7 +27,7 @@ const CARBON_IMPORTS = [
   imports: [
     CommonModule,
     CARBON_IMPORTS,
-    ActionBarElementModule,
+    IconWithTextModule,
     CatedraModule,
   ],
   providers: [],

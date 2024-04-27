@@ -2,7 +2,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { PlaceholderModule } from 'carbon-components-angular';
-import { ActionsBarModule } from './actions-bar/actions-bar.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,13 +23,14 @@ import { VideosClasesModule } from './videos-clases/videos-clases.module';
 import { MathjaxModule } from 'mathjax-angular';
 import { CarrerasHomeModule } from './carreras/carreras-home/carreras-home.module';
 import { DescripcionCarreraTemplateModule } from './carreras/descripcion-carrera-template/descripcion-carrera-template.module';
+import { HeaderComponentModule } from './header/header-component.module';
 import { ConstructorAutomatasModule } from './herramientas/constructor-automatas/constructor-automatas.module';
 import { HerramientasHomeModule } from './herramientas/herramientas-home/herramientas-home.module';
 
 const MODULE_IMPORTS = [AppRoutingModule, BrowserModule, HttpClientModule];
 
 const COMPONENT_IMPORTS = [
-  ActionsBarModule,
+  HeaderComponentModule,
   CarrerasHomeModule,
   CatedrasModule,
   ConstructorAutomatasModule,
