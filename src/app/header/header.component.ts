@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-import { PAGE_SECTIONS, SOCIAL_MEDIAS } from '../common/constants';
+import { PAGE_SECTIONS, PAGE_TITLE, SOCIAL_MEDIAS } from '../common/constants';
 import { IPageSection, ISocialMedia } from '../common/interfaces';
 import { UtilsService } from '../services/utils.service';
 
@@ -12,6 +12,7 @@ import { UtilsService } from '../services/utils.service';
   },
 })
 export class HeaderComponent implements OnInit {
+  public pageTitle: string = PAGE_TITLE;
   public pageSections: IPageSection[] = PAGE_SECTIONS;
   public socialMedias: ISocialMedia[] = SOCIAL_MEDIAS;
 

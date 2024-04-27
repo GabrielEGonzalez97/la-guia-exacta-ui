@@ -12,7 +12,7 @@ import {
   LTA_NAME,
   TUDAI_NAME,
 } from '../catedras/interfaces';
-import { PAGE_SECTIONS } from '../common/constants';
+import { PAGE_SECTIONS, PAGE_TITLE } from '../common/constants';
 import {
   IPageSection,
   IResourceDBInformation,
@@ -41,6 +41,7 @@ export class HomeComponent implements OnInit {
   @ViewChild('linkTemplate', { static: true })
   private linkTemplate: TemplateRef<unknown>;
 
+  public pageTitle: string = PAGE_TITLE;
   public pageSections: IPageSection[] = PAGE_SECTIONS;
   public parciales: IResourceDBInformation[] = [];
   public finales: IResourceDBInformation[] = [];

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { IIconWithText } from './interfaces';
 
 @Component({
   selector: 'app-icon-with-text',
@@ -6,8 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./icon-with-text.component.scss'],
 })
 export class IconWithTextComponent implements OnInit {
-  @Input() public elementIconImagePath: string;
-  @Input() public elementName: string;
+  @Input() public iconWithText: IIconWithText;
 
   constructor() {}
 

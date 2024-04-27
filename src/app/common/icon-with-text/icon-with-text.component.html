@@ -1,6 +1,6 @@
-<div class="action-bar-element-container">
-    <ng-container *ngIf="elementIconImagePath">
-        <img [src]="elementIconImagePath" />
+<div class="icon-with-text-container">
+    <ng-container *ngIf="iconWithText.iconImagePath">
+        <img [src]="iconWithText.iconImagePath" />
     </ng-container>
-    <span>{{elementName}}</span>
+    <span>{{ iconWithText.text }}</span>
 </div>

@@ -1,6 +1,8 @@
 import { Careers } from '../catedras/interfaces';
 import { IPageSection, ISocialMedia } from './interfaces';
 
+export const PAGE_TITLE: string = 'La guía exacta';
+
 export const CARRERAS_SECTIONS: IPageSection[] = [
   {
     name: Careers.INGENIERIA_DE_SISTEMAS,
@@ -74,12 +76,12 @@ export const PAGE_SECTIONS: IPageSection[] = [
 
 export const SOCIAL_MEDIAS: ISocialMedia[] = [
   {
-    name: 'La guía exacta',
+    name: PAGE_TITLE,
     link: 'https://www.instagram.com/laguiaexacta/',
     iconPath: 'assets/images/instagram-logo.svg',
   },
   {
-    name: 'La guía exacta',
+    name: PAGE_TITLE,
     link: 'https://www.youtube.com/@laguiaexacta',
     iconPath: 'assets/images/you-tube-logo.svg',
   },

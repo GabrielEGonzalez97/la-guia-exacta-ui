@@ -1,6 +1,6 @@
 <div ibmCol>
     <button ibmButton="primary" (click)="onButtonClick()">
-        <app-icon-with-text [elementIconImagePath]="elementIconImagePath" [elementName]="elementName">
+        <app-icon-with-text [iconWithText]="{iconImagePath: elementIconImagePath, text: elementName}">
         </app-icon-with-text>
     </button>
 </div>
