@@ -5,6 +5,17 @@
         <router-outlet></router-outlet>
     </div>
     <app-footer></app-footer>
+
+    <ng-container *ngIf="isBannerVisible">
+        <div class="banner-container" (click)="openLinkNewTab('https://www.instagram.com/vamox_app/')">
+            <div class="close-panel-button-container">
+                <button class="close-button" ibmButton="primary" [iconOnly]="true" (click)="closeBanner()">
+                    <svg class="bx--btn__icon" ibmIcon="close" size="16"></svg>
+                </button>
+            </div>
+            <img class="banner" src="assets/images/vamox.png">
+        </div>
+    </ng-container>
 </div>
 
 <ibm-placeholder></ibm-placeholder>

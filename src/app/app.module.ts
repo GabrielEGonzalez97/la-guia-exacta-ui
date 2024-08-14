@@ -1,7 +1,11 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { PlaceholderModule } from 'carbon-components-angular';
+import {
+  ButtonModule,
+  IconModule,
+  PlaceholderModule,
+} from 'carbon-components-angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -51,7 +55,7 @@ const COMPONENT_IMPORTS = [
   TudaiModule,
 ];
 
-const CARBON_COMPONENTS_IMPORTS = [PlaceholderModule];
+const CARBON_COMPONENTS_IMPORTS = [ButtonModule, IconModule, PlaceholderModule];
 
 @NgModule({
   declarations: [AppComponent],

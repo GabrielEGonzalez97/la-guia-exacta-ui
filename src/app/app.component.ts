@@ -1,12 +1,12 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import {
   ActivatedRoute,
   NavigationEnd,
   Router,
   RouterState,
 } from '@angular/router';
+import { UtilsService } from './services/utils.service';
 
 declare const gtag: Function;
 
@@ -18,7 +18,10 @@ declare const gtag: Function;
 export class AppComponent {
   title = 'ingenieria-sistemas-app';
 
+  public isBannerVisible: boolean = true;
+
   constructor(
+    private utilsService: UtilsService,
     public router: Router,
     @Inject(DOCUMENT) private document: Document
   ) {
@@ -52,5 +55,13 @@ export class AppComponent {
       data.push(...this.getTitle(state, parent.firstChild));
     }
     return data;
+  }
+
+  public openLinkNewTab(link: string): void {
+    this.utilsService.openLinkNewTab(link);
+  }
+
+  public closeBanner(): void {
+    this.isBannerVisible = false;
   }
 }
