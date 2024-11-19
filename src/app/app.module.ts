@@ -30,6 +30,7 @@ import { DescripcionCarreraTemplateModule } from './carreras/descripcion-carrera
 import { HeaderComponentModule } from './header/header-component.module';
 import { ConstructorAutomatasModule } from './herramientas/constructor-automatas/constructor-automatas.module';
 import { HerramientasHomeModule } from './herramientas/herramientas-home/herramientas-home.module';
+import { ParsingAscendenteModule } from './herramientas/parsing-ascendente/parsing-ascendente.module';
 
 const MODULE_IMPORTS = [AppRoutingModule, BrowserModule, HttpClientModule];
 
@@ -50,6 +51,7 @@ const COMPONENT_IMPORTS = [
   NavbarModule,
   OperacionesConMatricesModule,
   ParcialesModule,
+  ParsingAscendenteModule,
   ResumenesModule,
   VideosClasesModule,
   TudaiModule,

@@ -51,9 +51,20 @@ export const CONSTRUCTOR_DE_AUTOMATAS_PAGE_SECTION: IPageSection = {
     'assets/images/herramientas-logos/constructor-automatas-back-logo.svg',
 };
 
+export const PARSING_ASCENDENTE_PAGE_SECTION: IPageSection = {
+  name: 'Parsing Ascendente',
+  route: 'herramientas/parsing-ascendente',
+  titleGoogleAnalytics: 'Parsing-Ascendente',
+  cardFrontImagePath:
+    'assets/images/herramientas-logos/constructor-automatas-front-logo.svg',
+  cardBackImagePath:
+    'assets/images/herramientas-logos/constructor-automatas-back-logo.svg',
+};
+
 export const HERRAMIENTAS_SECTIONS: IPageSection[] = [
   OPERACIONES_CON_MATRICES_PAGE_SECTION,
   CONSTRUCTOR_DE_AUTOMATAS_PAGE_SECTION,
+  PARSING_ASCENDENTE_PAGE_SECTION,
 ];
 
 // ---------------------- PAGE SECTIONS ----------------------

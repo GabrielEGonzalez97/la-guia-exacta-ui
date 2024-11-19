@@ -14,6 +14,7 @@ import {
   INGENIERIA_DE_SISTEMAS_PAGE_SECTION,
   LTA_PAGE_SECTION,
   OPERACIONES_CON_MATRICES_PAGE_SECTION,
+  PARSING_ASCENDENTE_PAGE_SECTION,
   SUBIR_APORTES_PAGE_SECTION,
   TUDAI_PAGE_SECTION,
 } from './common/constants';
@@ -23,6 +24,7 @@ import { FinalesComponent } from './finales/finales.component';
 import { ConstructorAutomatasComponent } from './herramientas/constructor-automatas/constructor-automatas.component';
 import { HerramientasHomeComponent } from './herramientas/herramientas-home/herramientas-home.component';
 import { OperacionesConMatricesComponent } from './herramientas/operaciones-con-matrices/operaciones-con-matrices.component';
+import { ParsingAscendenteComponent } from './herramientas/parsing-ascendente/parsing-ascendente.component';
 import { HomeComponent } from './home/home.component';
 import { ParcialesComponent } from './parciales/parciales.component';
 import { ResumenesComponent } from './resumenes/resumenes.component';
@@ -103,6 +105,11 @@ const routes: Routes = [
     path: CONSTRUCTOR_DE_AUTOMATAS_PAGE_SECTION.route,
     component: ConstructorAutomatasComponent,
     data: { title: CONSTRUCTOR_DE_AUTOMATAS_PAGE_SECTION.titleGoogleAnalytics },
+  },
+  {
+    path: PARSING_ASCENDENTE_PAGE_SECTION.route,
+    component: ParsingAscendenteComponent,
+    data: { title: PARSING_ASCENDENTE_PAGE_SECTION.titleGoogleAnalytics },
   },
 ];
 
