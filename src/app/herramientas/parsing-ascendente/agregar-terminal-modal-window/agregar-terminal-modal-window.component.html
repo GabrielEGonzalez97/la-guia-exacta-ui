@@ -1,0 +1,19 @@
+<ibm-modal [open]="true" size="xs" (overlaySelected)="closeModal()">
+    <ibm-modal-header (closeSelect)="closeModal()">
+        <h2>Agregar terminal</h2>
+    </ibm-modal-header>
+
+    <section class="modal-content-container">
+        <ibm-label [invalid]="isInvalidTerminal" [invalidText]="invalidText">
+            Introduzca el terminal a agregar
+            <input ibmText [(ngModel)]="terminal" (input)="onTerminalInput()" (keydown.enter)="onEnterKeyPress()">
+        </ibm-label>
+    </section>
+
+    <ibm-modal-footer>
+        <button ibmButton="secondary" (click)="closeModal()">Cancelar</button>
+        <button ibmButton="primary" modal-primary-focus [disabled]="isInvalidTerminal" (click)="addNewTerminal()">
+            Agregar
+        </button>
+    </ibm-modal-footer>
+</ibm-modal>

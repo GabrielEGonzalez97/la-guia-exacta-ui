@@ -1,1 +1,41 @@
-<p>parsing-ascendente works!</p>
+<div class="parsing-ascendente-section-container">
+    <div ibmRow>
+        <div ibmCol>
+            <h1>
+                <strong>
+                    Parsing Ascendente
+                </strong>
+            </h1>
+        </div>
+    </div>
+
+    <div ibmRow>
+        <div ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 8, sm: 6 }">
+            <div ibmRow>
+                <div ibmCol>
+                    <button class="yellow-button" ibmButton="primary" (click)="showAgregarTerminalModalWindow()">
+                        Agregar terminal
+                    </button>
+                </div>
+            </div>
+            <div ibmRow>
+                <div ibmCol>
+                    <ul class="terminales-container">
+                        <ng-container *ngFor="let terminal of getParsingAscendenteTerminales()">
+                            <li class="terminal">{{ terminal }}</li>
+                        </ng-container>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div ibmCol [columnNumbers]="{ max: 6, xlg: 6, lg: 6, md: 8, sm: 6 }">
+            <div ibmRow>
+                <div ibmCol>
+                    <button class="yellow-button" ibmButton="primary">
+                        Agregar no terminal
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
