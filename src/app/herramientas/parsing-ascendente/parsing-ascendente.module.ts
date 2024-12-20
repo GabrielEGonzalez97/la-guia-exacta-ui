@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import {
   ButtonModule,
   GridModule,
+  IconModule,
+  IconService,
   InputModule,
   ModalModule,
 } from 'carbon-components-angular';
@@ -11,7 +13,15 @@ import { AgregarNoTerminalModalWindowComponent } from './agregar-no-terminal-mod
 import { AgregarTerminalModalWindowComponent } from './agregar-terminal-modal-window/agregar-terminal-modal-window.component';
 import { ParsingAscendenteComponent } from './parsing-ascendente.component';
 
-const CARBON_IMPORTS = [ButtonModule, GridModule, InputModule, ModalModule];
+import Close16 from '@carbon/icons/es/close/16';
+
+const CARBON_IMPORTS = [
+  ButtonModule,
+  GridModule,
+  IconModule,
+  InputModule,
+  ModalModule,
+];
 
 @NgModule({
   declarations: [
@@ -24,5 +34,7 @@ const CARBON_IMPORTS = [ButtonModule, GridModule, InputModule, ModalModule];
   exports: [ParsingAscendenteComponent],
 })
 export class ParsingAscendenteModule {
-  constructor() {}
+  constructor(protected iconService: IconService) {
+    iconService.registerAll([Close16]);
+  }
 }

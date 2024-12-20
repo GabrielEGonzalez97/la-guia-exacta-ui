@@ -22,7 +22,14 @@
                 <div ibmCol>
                     <ul class="terminales-container">
                         <ng-container *ngFor="let terminal of getParsingAscendenteTerminales()">
-                            <li class="terminal">{{ terminal }}</li>
+                            <div class="terminal-container">
+                                <li class="terminal">
+                                    {{ terminal }}
+                                </li>
+                                <svg class="close-icon" ibmIcon="close" size="16"
+                                    (click)="removeParsingAscendenteTerminal(terminal)">
+                                </svg>
+                            </div>
                         </ng-container>
                     </ul>
                 </div>
@@ -40,7 +47,14 @@
                 <div ibmCol>
                     <ul class="terminales-container">
                         <ng-container *ngFor="let noTerminal of getParsingAscendenteNoTerminales()">
-                            <li class="terminal">{{ noTerminal }}</li>
+                            <div class="terminal-container">
+                                <li class="terminal">
+                                    {{ noTerminal }}
+                                </li>
+                                <svg class="close-icon" ibmIcon="close" size="16"
+                                    (click)="removeParsingAscendenteNoTerminal(noTerminal)">
+                                </svg>
+                            </div>
                         </ng-container>
                     </ul>
                 </div>

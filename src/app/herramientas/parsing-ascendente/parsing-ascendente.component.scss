@@ -7,6 +7,7 @@
 }
 
 .yellow-button {
+  width: 200px;
   padding: 0.5rem;
   line-break: anywhere;
   font-size: 20px;
@@ -25,11 +26,32 @@
   list-style: none;
 }
 
+.terminal-container {
+  display: flex;
+  align-items: center;
+}
+
 .terminal {
+  display: flex;
+  align-items: center;
   font-size: 1rem;
+  margin-right: 1.5rem;
+}
+
+.close-icon {
+  cursor: pointer;
+  margin-top: 0.125rem;
+  width: 14px;
+  height: 14px;
+}
+
+.close-icon:hover {
+  background-color: lightgray !important;
 }
 
 .terminal::before {
   content: "-";
   margin-right: 0.5rem;
+  display: inline-block;
+  vertical-align: middle;
 }

@@ -36,4 +36,12 @@ export class ParsingAscendenteComponent implements OnInit {
   public getParsingAscendenteNoTerminales(): string[] {
     return this.parsingService.getParsingAscendenteNoTerminales();
   }
+
+  public removeParsingAscendenteTerminal(terminal: string): void {
+    this.parsingService.removeParsingAscendenteTerminal(terminal);
+  }
+
+  public removeParsingAscendenteNoTerminal(noTerminal: string): void {
+    this.parsingService.removeParsingAscendenteNoTerminal(noTerminal);
+  }
 }
