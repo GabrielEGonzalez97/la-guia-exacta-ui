@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class ParsingService {
   private parsingAscendenteTerminales: string[] = [];
+  private parsingAscendenteNoTerminales: string[] = [];
 
   constructor() {}
 
@@ -31,5 +32,31 @@ export class ParsingService {
 
   public getParsingAscendenteTerminales(): string[] {
     return [...this.parsingAscendenteTerminales];
+  }
+
+  public addParsingAscendenteNoTerminal(noTerminal: string): boolean {
+    if (!this.hasParsingAscendenteNoTerminal(noTerminal)) {
+      this.parsingAscendenteNoTerminales.push(noTerminal);
+      return true;
+    }
+    return false;
+  }
+
+  public hasParsingAscendenteNoTerminal(noTerminal: string): boolean {
+    return this.parsingAscendenteNoTerminales.includes(noTerminal);
+  }
+
+  public removeParsingAscendenteNoTerminal(noTerminal: string): boolean {
+    const index: number =
+      this.parsingAscendenteNoTerminales.indexOf(noTerminal);
+    if (index !== -1) {
+      this.parsingAscendenteNoTerminales.splice(index, 1);
+      return true;
+    }
+    return false;
+  }
+
+  public getParsingAscendenteNoTerminales(): string[] {
+    return [...this.parsingAscendenteNoTerminales];
   }
 }

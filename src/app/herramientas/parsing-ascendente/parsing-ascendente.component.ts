@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalService } from 'carbon-components-angular';
 import { ParsingService } from 'src/app/services/parsing.service';
+import { AgregarNoTerminalModalWindowComponent } from './agregar-no-terminal-modal-window/agregar-no-terminal-modal-window.component';
 import { AgregarTerminalModalWindowComponent } from './agregar-terminal-modal-window/agregar-terminal-modal-window.component';
 
 @Component({
@@ -22,7 +23,17 @@ export class ParsingAscendenteComponent implements OnInit {
     });
   }
 
+  public showAgregarNoTerminalModalWindow(): void {
+    this.modalService.create({
+      component: AgregarNoTerminalModalWindowComponent,
+    });
+  }
+
   public getParsingAscendenteTerminales(): string[] {
     return this.parsingService.getParsingAscendenteTerminales();
+  }
+
+  public getParsingAscendenteNoTerminales(): string[] {
+    return this.parsingService.getParsingAscendenteNoTerminales();
   }
 }
