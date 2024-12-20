@@ -1,8 +1,8 @@
-@import 'carbon-utils';
+@import "carbon-utils";
 
-$principal-color: #1F1F1F;
+$principal-color: #1f1f1f;
 $principal-color-hover: $ibm-color__cool-gray-90;
-$secondary-color: #FEF102;
+$secondary-color: #fef102;
 $secondary-color-hover: rgb(191, 191, 0);
 $input-font-size-in-rem: 0.875rem;
 $header--height: $layout-05;
@@ -81,4 +81,13 @@ $neutral-color: $support-03;
   padding-top: 50px;
   padding-left: 220px;
   padding-bottom: 50px;
+}
+
+.yellow-button {
+  background-color: $secondary-color !important;
+  color: $principal-color !important;
+}
+
+.yellow-button:hover {
+  background-color: $secondary-color-hover !important;
 }
