@@ -8,7 +8,7 @@ import {
 } from '../common/interfaces';
 import { IWithState, UtilsService } from './utils.service';
 
-const API_URL: string = 'https://la-guia-exacta.vercel.app';
+const API_URL: string = 'https://la-guia-exacta-backend.vercel.app';
 
 @Injectable({
   providedIn: 'root',
